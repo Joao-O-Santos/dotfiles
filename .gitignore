@@ -1,3 +1,13 @@
+# Ignore everything by default
 /*
+*.gpg
+
+# Track these dirs/files:
 !.gitignore
-!pandoc
+!/git
+!/i3
+!/i3status
+!/pandoc
+!/R
+!/shellrc
+!/wallpapers/WALLPAPERS_GO_HERE

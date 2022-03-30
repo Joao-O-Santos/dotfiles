@@ -1,0 +1,12 @@
+[user]
+	name = Joao-O-Santos
+	email = joao.filipe.santos@campus.ul.pt
+	signingKey = 5CF1A0BA69FD23CA
+[commit]
+	gpgsign = true
+[credential]
+	helper = store
+[init]
+	defaultBranch = main
+#[url "ssh://git@github.com/"] # Enforce SSH
+#	insteadOf = https://github.com/
