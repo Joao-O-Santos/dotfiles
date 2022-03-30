@@ -1,0 +1,18 @@
+[Default Applications]
+x-scheme-handler/http=hardfox.desktop
+x-scheme-handler/https=hardfox.desktop
+x-scheme-handler/ftp=hardfox.desktop
+x-scheme-handler/chrome=hardfox.desktop
+application/x-extension-htm=hardfox.desktop
+application/x-extension-html=hardfox.desktop
+application/x-extension-shtml=hardfox.desktop
+application/xhtml+xml=hardfox.desktop
+application/x-extension-xhtml=hardfox.desktop
+application/x-extension-xht=hardfox.desktop
+application/pdf=pdffox.desktop;
+text/html=hardfox.desktop
+text/plain=nvim.desktop
+text/markdown=nvim.desktop
+image/jpeg=feh.desktop
+image/png=feh.desktop
+application/octet-stream=libreoffice-base.desktop
