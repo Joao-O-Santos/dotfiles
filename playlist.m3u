@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: CC0-1.0
 #EXTM3U
 
 #EXTINF:-1, HiOnline Radio Classical
@@ -8,7 +9,6 @@ http://mscp3.live-streams.nl:8250/class-flac.flac
 
 #EXTINF:-1, Cro-dur classic music
 http://icecast6.play.cz/croddur-256.mp3
-
 
 #EXTINF:-1, HiOnline Radio Jazz
 http://mediaserv38.live-streams.nl:8006/live

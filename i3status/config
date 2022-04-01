@@ -1,3 +1,8 @@
+# SPDX-License-Identifier: BSD-3-Clause
+# Copyright © 2009, Michael Stapelberg and contributors
+# If my (João O. Santos, 2022) changes are ever considered
+# copyrightable, I hereby license them under CC0-1.0
+
 # i3status configuration file.
 # see "man i3status" for documentation.
 
@@ -25,10 +30,12 @@ wireless _first_ {
         format_down = "W: down"
 }
 
+# CHANGED: Report if ipv6 is enabled but don't show ipv6 address
 ipv6 {
 	format_up = "ipv6: yes"
 }
 
+# CHANGED: report if I'm using a ppp VPN
 path_exists VPN {
 	# if path exists a ppp VPN is up.
 	path = "/proc/sys/net/ipv4/conf/ppp0"
@@ -44,6 +51,7 @@ battery all {
         format = "%status %percentage %remaining"
 }
 
+# CHANGED: display time in my timezone
 tztime pt {
         format = "%Y-%m-%d %H:%M:%S"
         timezone = "Portugal"

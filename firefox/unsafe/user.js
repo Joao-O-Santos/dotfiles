@@ -1,0 +1,1 @@
+/home/random_user/.mozilla/firefox/unsafe/user.js

@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: CC0-1.0
 [user]
 	name = Joao-O-Santos
 	email = joao.filipe.santos@campus.ul.pt
@@ -8,5 +9,3 @@
 	helper = store
 [init]
 	defaultBranch = main
-#[url "ssh://git@github.com/"] # Enforce SSH
-#	insteadOf = https://github.com/

@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: CC0-1.0
 options(scipen = 15)
 options(contrasts = c("contr.sum", "contr.poly"))
 

@@ -1,0 +1,1 @@
+/home/random_user/.mozilla/firefox/hardened/user.js

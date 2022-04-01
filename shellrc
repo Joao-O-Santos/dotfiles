@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: CC0-1.0
 # Export envrionment variables
 export PS1="$ "
 export LANG=en_US.UTF-8
@@ -6,17 +7,17 @@ export GPG_AGENT_INFO=" "
 export EDITOR=nvim
 export VISUAL=nvim
 # Environment Variables to help keep $HOME directory clean
-export XDG_CONFIG_HOME=/home/random_user/.config
-export XDG_DATA_HOME=/home/random_user/.config
-export XDG_CACHE_HOME=/home/random_user/.cache
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_DATA_HOME=$HOME/.config
+export XDG_CACHE_HOME=$HOME/.cache
 export LESSHISTFILE=/dev/null/
-export XAUTHORITY=/home/random_user/.config/xorg/Xauthority
-export R_PROFILE_USER=/home/random_user/.config/R/Rprofile
+export XAUTHORITY=$HOME/.config/xorg/Xauthority
+export R_PROFILE_USER=$HOME/.config/R/Rprofile
 
 # Use vi mode in the shell
 set -o vi
 
-# Set aliases for projects I'm currently working on (change frequently). 
+# Set aliases for projects I'm currently working on (change frequently).
 alias kbc='cd $HOME/hacks/kbc; echo $(pwd)'
 alias cnma='cd $HOME/ronin/Qhelp/cnma; echo $(pwd)'
 alias moc='cd $HOME/teach/moc/; echo $(pwd)'
@@ -33,10 +34,12 @@ alias st='st -f hermit:size=13.9'
 alias c='clear'
 alias m='neomutt'
 alias e='nvim'
+# alias \?='man' # use ? as an alias man like in R (possibly insane)
+
+# Please ignore (aliases for connecting to some networks I use):
 alias up='nmcli conn down MEO-CCFCEF-5G; nmcli conn up MEO-CCFCEF-5G'
 alias UL_up='nmcli conn up UL'
 alias UL_down='nmcli conn down UL'
-# alias \?='man' # possibly insane, check for safety
 
 # Create alias for custom commands
 alias radio="mpv --no-audio-display .config/playlist.m3u"
@@ -52,7 +55,8 @@ alias record="ffmpeg -video_size 1920x1080 -framerate 25 -f x11grab -i :0.0\
 function f {
 	find ./ -name "*$@*"
 }
-# Custom functions
+
+# To add entries to a 'GTD'-like INBOX
 function IN {
 	echo -e "$@" >> $HOME/IN
 	echo -n "IN has "
@@ -76,10 +80,10 @@ function o {
 }
 
 function toc {
-	# TODO: check for no arguments and  for file
+	# TODO: consider checking for no arguments and for file type
 	# TODO: move everything to an awk script
 	for file in "$@"
-	do 
+	do
 		echo - "TOC for: $file"
 		cat $file | grep -e '#' -e '<h.>' | sed -e 's/^#//g; s/#/\t/g'
 	done
@@ -87,7 +91,7 @@ function toc {
 
 function tso {
 	for file in "$@"
-	do 
+	do
 		echo - "Topic Senctence Outline for: $file"
 		grep -A3 '^$' $file
 	done
@@ -108,7 +112,7 @@ function tpres {
 # TODO: move all this to an awk script
 function chkdrft {
 	for file in "$@"
-	do 
+	do
 		awk -F " " '/CN/{cns++} /<!--/{cmnts++} /TODO:/{todos++} \
 		     END {print cns " citations needed/missing, " \
 		                cmnts " unaddresed comments, and " \
