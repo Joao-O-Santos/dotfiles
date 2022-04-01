@@ -8,10 +8,10 @@ with the legalities stated below.
 
 ## Legalities
 
-If any file or set of modifications to files in this project, that I've
-authored, is ever considered copyrightable, I hereby license them under
-CC0-1.0 (see `./LICENSES/CC0-1.0`). This essentially means you are
-legally free to use the files I've authored however you want to.
+If any file or set of modifications, that I've authored, to files in
+this project, is ever considered copyrightable, I hereby license them
+under CC0-1.0 (see `./LICENSES/CC0-1.0`). This essentially means you are
+legally free to use the files I've authored anyway you want to.
 **However, you still need to comply with the original licenses for the
 files others have authored (see WARNING below).** Regardless of legal
 freedoms, I kindly ask you that you don't use these files to do evil or
