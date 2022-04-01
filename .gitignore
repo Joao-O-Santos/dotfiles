@@ -4,11 +4,15 @@
 *.gpg
 
 # Track these dirs/files:
+!/firefox
 !.gitignore
 !/git
 !/i3
 !/i3status
+!/LICENSES
 !/pandoc
 !/R
+!/mimeapps.list
+!/playlist.m3u
 !/shellrc
 !/wallpapers/WALLPAPERS_GO_HERE

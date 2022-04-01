@@ -19,7 +19,7 @@ to neglect doing good to others or yourself.
 
 **WARNING: Some configuration files are the works of other authors and
 are under different licenses.** In those cases the original licenses
-must be obeyed. This mostly means that if you those files you must
+must be obeyed. This mostly means that if you share those files you must
 include the original author's copyright notice and the full text of the
 license. The copyright notice is at the top of said files. The full text
 for the license is in `./LICENSES/` and is named after the corresponding
