@@ -8,14 +8,14 @@ with the legalities stated below.
 
 ## Legalities
 
-If any file or set of modifications, that I've authored, to files in
-this project, is ever considered copyrightable, I hereby license them
-under CC0-1.0 (see `./LICENSES/CC0-1.0`). This essentially means you are
-legally free to use the files I've authored anyway you want to.
-**However, you still need to comply with the original licenses for the
-files others have authored (see WARNING below).** Regardless of legal
-freedoms, I kindly ask you that you don't use these files to do evil or
-to neglect doing good to others or yourself.
+The files or sets of modifications, that I've authored, in this project,
+if ever considered copyrightable, are hereby licensed under CC0-1.0 (see
+`./LICENSES/CC0-1.0`). **However, you still need to comply with the
+original licenses for the files others have authored (see table
+below).** This essentially means you are legally free to use the files
+I've authored anyway you want to. Still, I kindly ask you that you don't
+use these files to do evil or to neglect doing good to others or
+yourself.
 
 **WARNING: Some configuration files are the works of other authors and
 are under different licenses.** In those cases the original licenses
@@ -23,8 +23,23 @@ must be obeyed. This mostly means that if you share those files you must
 include the original author's copyright notice and the full text of the
 license. The copyright notice is at the top of said files. The full text
 for the license is in `./LICENSES/` and is named after the corresponding
-spdx license identifier, also displayed on top of said files.
+spdx license identifier. Below is a table with the files and their
+corresponding licenses, please refer to it if the file does not include
+an spdx license identifier.
 
-The `mimeapps.list` file doesn't include an spdx license identifier
-since I don't know if its file type allows for comments, but it was
-written by me and is licensed under CC0-1.0.
+| File                          | SPDX-License-Identifier |
+|-------------------------------|-------------------------|
+| `.gitignore`                  | CC0-1.0                 |
+| `R/Rprofile`                  | CC0-1.0                 |
+| `README.md`                   | CC0-1.0                 |
+| `firefox/hardened/user.js`    | MIT                     |
+| `firefox/unsafe/user.js`      | MIT                     |
+| `firefox/link_configs.sh`     | CC0-1.0                 |
+| `firefox/profiles.ini`        | CC0-1.0                 |
+| `git/config`                  | CC0-1.0                 |
+| `i3/config`                   | BSD-3-Clause            |
+| `i3status/config`             | BSD-3-Clause            |
+| `mimeapps.list`               | CC0-1.0                 |
+| `pandoc/docx/word/styles.xml` | CC0-1.0                 |
+| `playlist.m3u`                | CC0-1.0                 |
+| `shellrc`                     | CC0-1.0                 |
