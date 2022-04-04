@@ -10,9 +10,12 @@
 !/i3
 !/i3status
 !/LICENSES
+!/link_configs.sh
 !/pandoc
 !/R
 !/mimeapps.list
 !/playlist.m3u
+!/profile
 !/shellrc
+!/xorg/xinitrc
 !/wallpapers/WALLPAPERS_GO_HERE

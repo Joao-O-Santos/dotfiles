@@ -34,12 +34,14 @@ an spdx license identifier.
 | `firefox/unsafe/user.js`      | MIT                     |
 | `firefox/unsafest/user.js`    | CC0-1.0                 |
 | `firefox/pdfviewer/user.js`   | CC0-1.0                 |
-| `firefox/link_configs.sh`     | CC0-1.0                 |
 | `firefox/profiles.ini`        | CC0-1.0                 |
 | `git/config`                  | CC0-1.0                 |
 | `i3/config`                   | BSD-3-Clause            |
 | `i3status/config`             | BSD-3-Clause            |
+| `link_configs.sh`             | CC0-1.0                 |
 | `mimeapps.list`               | CC0-1.0                 |
 | `pandoc/docx/word/styles.xml` | CC0-1.0                 |
 | `playlist.m3u`                | CC0-1.0                 |
+| `profile`                     | CC0-1.0                 |
 | `shellrc`                     | CC0-1.0                 |
+| `xorg`                        | CC0-1.0                 |
