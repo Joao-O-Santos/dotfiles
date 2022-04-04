@@ -43,5 +43,7 @@ an spdx license identifier.
 | `pandoc/docx/word/styles.xml` | CC0-1.0                 |
 | `playlist.m3u`                | CC0-1.0                 |
 | `profile`                     | CC0-1.0                 |
+| `scripts/backup.sh`           | CC0-1.0                 |
+| `scripts/exclude`             | CC0-1.0                 |
 | `shellrc`                     | CC0-1.0                 |
 | `xorg`                        | CC0-1.0                 |

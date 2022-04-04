@@ -1,0 +1,13 @@
+/proc
+/proc/*
+/sys
+/sys/*
+/dev
+/dev/*
+/run
+/run/*
+/tmp
+/tmp/*
+/mnt
+/mnt/*
+$HOME/bp.tar
