@@ -753,12 +753,11 @@ user_pref("security.sri.enable",				true);
 // https://feeding.cloud.geek.nz/posts/tweaking-referrer-for-privacy-in-firefox/
 user_pref("network.http.referer.XOriginPolicy",		2);
 
-// CHANGED: Accept no cookies apart from manually configured exceptions
 // PREF: Accept Only 1st Party Cookies
 // http://kb.mozillazine.org/Network.cookie.cookieBehavior#1
 // NOTICE: Blocking 3rd-party cookies breaks a number of payment gateways
 // CIS 2.5.1
-user_pref("network.cookie.cookieBehavior",			2);
+user_pref("network.cookie.cookieBehavior",			1);
 
 // PREF: Enable first-party isolation
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1299996
