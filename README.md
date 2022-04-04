@@ -12,10 +12,8 @@ The files or sets of modifications, that I've authored, in this project,
 if ever considered copyrightable, are hereby licensed under CC0-1.0 (see
 `./LICENSES/CC0-1.0`). **However, you still need to comply with the
 original licenses for the files others have authored (see table
-below).** This essentially means you are legally free to use the files
-I've authored anyway you want to. Still, I kindly ask you that you don't
-use these files to do evil or to neglect doing good to others or
-yourself.
+below).** I also kindly ask you that you don't use any of these files to
+do evil and/or to neglect doing good to others and/or yourself.
 
 **WARNING: Some configuration files are the works of other authors and
 are under different licenses.** In those cases the original licenses
@@ -34,6 +32,8 @@ an spdx license identifier.
 | `README.md`                   | CC0-1.0                 |
 | `firefox/hardened/user.js`    | MIT                     |
 | `firefox/unsafe/user.js`      | MIT                     |
+| `firefox/unsafest/user.js`    | CC0-1.0                 |
+| `firefox/pdfviewer/user.js`   | CC0-1.0                 |
 | `firefox/link_configs.sh`     | CC0-1.0                 |
 | `firefox/profiles.ini`        | CC0-1.0                 |
 | `git/config`                  | CC0-1.0                 |
