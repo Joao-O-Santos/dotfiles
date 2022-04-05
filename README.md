@@ -40,6 +40,7 @@ an spdx license identifier.
 | `i3status/config`             | BSD-3-Clause            |
 | `link_configs.sh`             | CC0-1.0                 |
 | `mimeapps.list`               | CC0-1.0                 |
+| `nvim/init.vim`               | CC0-1.0                 |
 | `pandoc/docx/word/styles.xml` | CC0-1.0                 |
 | `playlist.m3u`                | CC0-1.0                 |
 | `profile`                     | CC0-1.0                 |
