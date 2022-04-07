@@ -57,6 +57,20 @@
 		<w:pPr>
 		</w:pPr>
 	</w:style>
+	<w:style w:type="paragraph" w:styleId="Title">
+		<w:name w:val="Title"/>
+		<w:basedOn w:val="Normal"/>
+		<w:qFormat/>
+		<w:rPr>
+			<w:b />
+		</w:rPr>
+		<w:pPr>
+			<!-- 1440 ~= three new lines of spacing -->
+			<w:spacing w:before="1440" />
+			<w:ind w:firstLine="0" w:left="0"/>
+			<w:jc w:val="center"/>
+		</w:pPr>
+	</w:style>
 	<w:style w:type="paragraph" w:styleId="Compact">
 		<w:name w:val="Compact"/>
 		<w:basedOn w:val="Normal"/>
@@ -74,6 +88,16 @@
 		<w:rPr>
 		</w:rPr>
 		<w:pPr>
+		</w:pPr>
+	</w:style>
+	<w:style w:type="paragraph" w:styleId="Bibliography">
+		<w:name w:val="Bibliography"/>
+		<w:basedOn w:val="Normal"/>
+		<w:qFormat/>
+		<w:rPr>
+		</w:rPr>
+		<w:pPr>
+			<w:ind w:left="850" w:hanging="850" />
 		</w:pPr>
 	</w:style>
 	<w:style w:type="paragraph" w:styleId="Heading 1">
@@ -119,6 +143,16 @@
 		</w:pPr>
 		<w:rPr>
 		</w:rPr>
+	</w:style>
+	<w:style w:type="paragraph" w:styleId="Block Text">
+		<w:name w:val="Block Text"/>
+		<w:basedOn w:val="Normal"/>
+		<w:qFormat/>
+		<w:rPr>
+		</w:rPr>
+		<w:pPr>
+			<w:ind w:left="720" w:firstLine="0" />
+		</w:pPr>
 	</w:style>
 	<w:style w:type="table" w:styleId="Table">
 		<w:name w:val="Table"/>
