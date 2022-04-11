@@ -3,4 +3,4 @@ options(scipen = 15)
 options(contrasts = c("contr.sum", "contr.poly"))
 
 options(menu.graphics = FALSE)
-options("browser" = "/usr/bin/firefox -P unsafe")
+options("browser" = "/usr/bin/firefox -P unsafest")

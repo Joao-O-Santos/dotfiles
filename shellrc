@@ -48,7 +48,7 @@ alias dacradio="mpv --audio-device=alsa/iec958:CARD=Converter,DEV=0 \
                     --no-audio-display .config/playlist.m3u"
 alias record="ffmpeg -video_size 1920x1080 -framerate 25 -f x11grab -i :0.0\
                      -f alsa -thread_queue_size 1024 -i default \
-                     -c:a aac -c:v libx264 -preset fast \
+                     -c:a aac -c:v libx264 -preset slow \
                      -movflags faststart -profile:v baseline -pix_fmt yuv420p"
 
 # TODO: move most of these functions to scripts.
