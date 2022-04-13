@@ -18,8 +18,8 @@ export R_PROFILE_USER=$HOME/.config/R/Rprofile
 set -o vi
 
 # Set aliases for projects I'm currently working on (change frequently).
+alias ths='cd $HOME/phd/out/ths; echo $(pwd)'
 alias kbc='cd $HOME/hacks/kbc; echo $(pwd)'
-alias cnma='cd $HOME/ronin/Qhelp/cnma; echo $(pwd)'
 alias moc='cd $HOME/teach/moc/; echo $(pwd)'
 
 # Set default options for recurrent commands
