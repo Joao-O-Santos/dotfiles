@@ -31,7 +31,6 @@ alias R='R --no-save --quiet'
 alias st='st -f hermit:size=13.9'
 
 # Shorter aliases for faster typing
-alias c='clear'
 alias m='neomutt'
 alias e='nvim'
 # alias \?='man' # use ? as an alias man like in R (possibly insane)
