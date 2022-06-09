@@ -81,32 +81,37 @@ map <F5> <Esc>:Goyo <bar> :Pencil <CR>
 map <F6> <Esc>:setlocal background=dark <CR>
 map <F7> <Esc>:setlocal background=light <CR>
 
+" For C an C++ (uncomment if you don't default to 8char tabs and tw=79)
+autocmd FileType c,cpp,mk set nowrap "tabstop=8 softtabstop=8 shiftwidth=8
+                         "\ textwidth=79
+
+" For R
+autocmd FileType r set foldmethod=indent " syntax folds seems broken
+
 " Uncomment if using PEP8
 "autocmd FileType python set expandtab tabstop=4 softtabstop=4  shiftwidth=4
 "                          \ textwidth=79
 
-"For C an C++ (uncomment if you don't default to 8char tabs and tw=79)
-autocmd FileType c,cpp,mk set nowrap "tabstop=8 softtabstop=8 shiftwidth=8
-                         "\ textwidth=79
-
-"For R
-autocmd FileType r set foldmethod=indent " syntax folds seems broken
-
-"For git commits
-autocmd FileType gitcommit set textwidth=72 spell spelllang=en_us
-
-"For mail (comment out or change spelllang for your most used language)
-autocmd FileType mail set textwidth=0 spell spelllang=pt_pt | :Goyo <CR>
-
-"For markdown and latex
+" For markdown and latex
 autocmd FileType markdown set textwidth=72 spell spelllang=en_us encoding=utf-8
                                 \ foldmethod=expr foldexpr=MarkdownFold()
 
-" For rmarkdown (TODO: get proper folding working for rmarkdown files)
+" For rmarkdown 
+" TODO: get proper folding working for rmarkdown files
 autocmd FileType rmd set textwidth=72 spell spelllang=en_us encoding=utf-8
 
-"For .csv
+" For git commits
+autocmd FileType gitcommit set textwidth=72 spell spelllang=en_us
+
+" For YAML (which unfortunately requires spaces for identation)
+autocmd FileType yaml set expandtab tabstop=4 softtabstop=4  shiftwidth=4
+                          \ textwidth=79
+
+" For mail (comment out or change spelllang for your most used language)
+autocmd FileType mail set textwidth=0 spell spelllang=pt_pt | :Goyo <CR>
+
+" For .csv
 autocmd BufRead,BufNewFile *.csv set textwidth=0 colorcolumn=0
 
-"For qualtrics survey files (they are just jsons)
+" For qualtrics survey files (they are just jsons)
 autocmd BufRead,BufNewFile *.qsf set textwidth=0 colorcolumn=0
