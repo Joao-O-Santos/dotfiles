@@ -1,4 +1,5 @@
-# SPDX-License-Identifier: CC0-1.0
+# SPDX-License-Identifier: GPL-2.0-only or GPL-3.0-only
+# Run `R -e "license()"` for details
 options(scipen = 15)
 options(contrasts = c("contr.sum", "contr.poly"))
 

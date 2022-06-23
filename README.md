@@ -25,26 +25,26 @@ spdx license identifier. Below is a table with the files and their
 corresponding licenses, please refer to it if the file does not include
 an spdx license identifier.
 
-| File                          | SPDX-License-Identifier |
-|-------------------------------|-------------------------|
-| `.gitignore`                  | CC0-1.0                 |
-| `R/Rprofile`                  | CC0-1.0                 |
-| `README.md`                   | CC0-1.0                 |
-| `firefox/hardened/user.js`    | MIT                     |
-| `firefox/unsafe/user.js`      | MIT                     |
-| `firefox/unsafest/user.js`    | CC0-1.0                 |
-| `firefox/pdfviewer/user.js`   | CC0-1.0                 |
-| `firefox/profiles.ini`        | CC0-1.0                 |
-| `git/config`                  | CC0-1.0                 |
-| `i3/config`                   | BSD-3-Clause            |
-| `i3status/config`             | BSD-3-Clause            |
-| `link_configs.sh`             | CC0-1.0                 |
-| `mimeapps.list`               | CC0-1.0                 |
-| `nvim/init.vim`               | CC0-1.0                 |
-| `pandoc/docx/word/styles.xml` | CC0-1.0                 |
-| `playlist.m3u`                | CC0-1.0                 |
-| `profile`                     | CC0-1.0                 |
-| `scripts/backup.sh`           | CC0-1.0                 |
-| `scripts/exclude`             | CC0-1.0                 |
-| `shellrc`                     | CC0-1.0                 |
-| `xorg`                        | CC0-1.0                 |
+| File                          | SPDX-License-Identifier      |
+|-------------------------------|------------------------------|
+| `.gitignore`                  | CC0-1.0                      |
+| `R/Rprofile`                  | GPL-2.0-only or GPL-3.0-only |
+| `README.md`                   | CC0-1.0                      |
+| `firefox/hardened/user.js`    | MIT                          |
+| `firefox/unsafe/user.js`      | MIT                          |
+| `firefox/unsafest/user.js`    | CC0-1.0                      |
+| `firefox/pdfviewer/user.js`   | CC0-1.0                      |
+| `firefox/profiles.ini`        | CC0-1.0                      |
+| `git/config`                  | CC0-1.0                      |
+| `i3/config`                   | BSD-3-Clause                 |
+| `i3status/config`             | BSD-3-Clause                 |
+| `link_configs.sh`             | CC0-1.0                      |
+| `mimeapps.list`               | CC0-1.0                      |
+| `nvim/init.vim`               | CC0-1.0                      |
+| `pandoc/docx/word/styles.xml` | CC0-1.0                      |
+| `playlist.m3u`                | CC0-1.0                      |
+| `profile`                     | CC0-1.0                      |
+| `scripts/backup.sh`           | CC0-1.0                      |
+| `scripts/exclude`             | CC0-1.0                      |
+| `shellrc`                     | CC0-1.0                      |
+| `xorg`                        | CC0-1.0                      |
