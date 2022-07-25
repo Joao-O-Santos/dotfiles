@@ -2,11 +2,15 @@
 # Export envrionment variables
 export PS1="$ "
 export LANG=en_US.UTF-8
-export GPG_TTY=$(tty)
-export GPG_AGENT_INFO=" "
 export EDITOR=nvim
 export VISUAL=nvim
-# Environment Variables to help keep $HOME directory clean
+# Set vars to configure gpg for multiple terminals and for ssh
+export GPG_TTY=$(tty)
+export GPG_AGENT_INFO=" "
+gpg-connect-agent --quiet updatestartuptty /bye >/dev/null
+unset SSH_AGENT_PID
+export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh"
+# Set vars to help keep $HOME directory clean
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_DATA_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
@@ -19,6 +23,9 @@ set -o vi
 
 # Set aliases for projects I'm currently working on (change frequently).
 alias ths='cd $HOME/phd/out/ths; echo $(pwd)'
+alias spgrow='cd $HOME/ronin/spgrow/; echo $(pwd)'
+alias cnma='cd $HOME/ronin/Qhelp/cnma/; echo $(pwd)'
+alias stphn='cd $HOME/ronin/stphn/est/scripts/; echo $(pwd)'
 alias kbc='cd $HOME/hacks/kbc; echo $(pwd)'
 alias moc='cd $HOME/teach/moc/; echo $(pwd)'
 
@@ -45,7 +52,7 @@ alias radio="mpv --no-audio-display .config/playlist.m3u"
 alias dacmpv="mpv --audio-device=alsa/iec958:CARD=Converter,DEV=0 --no-audio-display"
 alias dacradio="mpv --audio-device=alsa/iec958:CARD=Converter,DEV=0 \
                     --no-audio-display .config/playlist.m3u"
-alias record="ffmpeg -video_size 1920x1080 -framerate 25 -f x11grab -i :0.0\
+alias record="ffmpeg -video_size 1920x1080 -framerate 25 -f x11grab -i :0.0 \
                      -f alsa -thread_queue_size 1024 -i default \
                      -c:a aac -c:v libx264 -preset slow \
                      -movflags faststart -profile:v baseline -pix_fmt yuv420p"
