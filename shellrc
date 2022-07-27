@@ -52,10 +52,12 @@ alias radio="mpv --no-audio-display .config/playlist.m3u"
 alias dacmpv="mpv --audio-device=alsa/iec958:CARD=Converter,DEV=0 --no-audio-display"
 alias dacradio="mpv --audio-device=alsa/iec958:CARD=Converter,DEV=0 \
                     --no-audio-display .config/playlist.m3u"
-alias record="ffmpeg -video_size 1920x1080 -framerate 25 -f x11grab -i :0.0 \
-                     -f alsa -thread_queue_size 1024 -i default \
+alias record="ffmpeg -video_size 1920x1080 -framerate 25 \
+                     -f x11grab -thread_queue_size 1024 -i :0.0 \
+                     -f alsa -thread_queue_size 1024 -i default:2 \
                      -c:a aac -c:v libx264 -preset slow \
-                     -movflags faststart -profile:v baseline -pix_fmt yuv420p"
+                     -movflags faststart -profile:v baseline -pix_fmt yuv420p \
+                     -ss 00:03"
 
 # TODO: move most of these functions to scripts.
 function f {
