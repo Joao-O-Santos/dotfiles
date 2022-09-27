@@ -23,9 +23,9 @@ set -o vi
 
 # Set aliases for projects I'm currently working on (change frequently).
 alias ths='cd $HOME/phd/out/ths; echo $(pwd)'
-alias spgrow='cd $HOME/ronin/spgrow/; echo $(pwd)'
-alias cnma='cd $HOME/ronin/Qhelp/cnma/; echo $(pwd)'
-alias stphn='cd $HOME/ronin/stphn/est/scripts/; echo $(pwd)'
+alias tgtbtu='cd $HOME/ad_lvcem/tgtbtu; echo $(pwd)'
+alias mjm='cd $HOME/ronin/mjm'
+alias mpp='cd $HOME/ronin/mpp'
 alias kbc='cd $HOME/hacks/kbc; echo $(pwd)'
 alias moc='cd $HOME/teach/moc/; echo $(pwd)'
 
