@@ -21,7 +21,7 @@ order += "ipv6"
 order += "wireless _first_"
 order += "ethernet _first_"
 # CHANGED: ignore battery on desktop (uncomment in laptops)
-#order += "battery all"
+order += "battery all"
 order += "disk /"
 order += "load"
 order += "memory"
