@@ -1228,6 +1228,8 @@ user_pref("security.ssl3.dhe_dss_camellia_256_sha",		false);
 //user_pref("security.ssl3.ecdhe_ecdsa_aes_256_sha",		false); // 0xc00a
 
 // João O. Santos (2022) additions:
+// ADDED: Disable firefox view in toolbar
+user_pref("browser.tabs.firefox-view", false);
 // ADDED: Use hermit as the browser font
 user_pref("font.name.serif.x-western", "Hermit");
 // ADDED: Try to set DuckDuckGo as the search engine (is it enough?)

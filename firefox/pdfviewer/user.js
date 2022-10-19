@@ -8,3 +8,4 @@ user_pref("privacy.clearOnShutdown.cache", true)
 user_pref("privacy.clearOnShutdown.formdata", true)
 user_pref("privacy.clearOnShutdown.offlineApps", true)
 user_pref("privacy.clearOnShutdown.openWindows", true)
+user_pref("browser.tabs.firefox-view", false);
