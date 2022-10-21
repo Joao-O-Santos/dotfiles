@@ -22,12 +22,7 @@ export R_PROFILE_USER=$HOME/.config/R/Rprofile
 set -o vi
 
 # Set aliases for projects I'm currently working on (change frequently).
-alias ths='cd $HOME/phd/out/ths; echo $(pwd)'
-alias tgtbtu='cd $HOME/ad_lvcem/tgtbtu; echo $(pwd)'
-alias mjm='cd $HOME/ronin/mjm'
-alias mpp='cd $HOME/ronin/mpp'
-alias kbc='cd $HOME/hacks/kbc; echo $(pwd)'
-alias moc='cd $HOME/teach/moc/; echo $(pwd)'
+source dir_aliases.sh
 
 # Set default options for recurrent commands
 alias ls='ls --color=auto --group-directories-first'
