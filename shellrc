@@ -22,7 +22,11 @@ export R_PROFILE_USER=$HOME/.config/R/Rprofile
 set -o vi
 
 # Set aliases for projects I'm currently working on (change frequently).
-source dir_aliases.sh
+# Source doesn't work in ksh but it  be needed in bash
+# If using bash uncomment the line below
+#source dir_aliases.sh
+# ksh uses `. file` to source scripts
+. $HOME/.config/dir_aliases.sh
 
 # Set default options for recurrent commands
 alias ls='ls --color=auto --group-directories-first'
