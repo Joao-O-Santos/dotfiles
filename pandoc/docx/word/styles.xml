@@ -144,6 +144,17 @@
 		<w:rPr>
 		</w:rPr>
 	</w:style>
+	<w:style w:type="paragraph" w:styleId="Heading 5">
+		<w:name w:val="Heading 5"/>
+		<w:basedOn w:val="Heading 4"/>
+		<w:qFormat/>
+		<w:pPr>
+		</w:pPr>
+		<w:rPr>
+			<w:b />
+			<w:i />
+		</w:rPr>
+	</w:style>
 	<w:style w:type="paragraph" w:styleId="Block Text">
 		<w:name w:val="Block Text"/>
 		<w:basedOn w:val="Normal"/>
