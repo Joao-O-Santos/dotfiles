@@ -1,0 +1,14 @@
+[general]
+targets: gitlab, github
+
+[gitlab]
+service = gitlab
+gitlab.login = Joao-O-Santos
+gitlab.token = NOT_GONNA_SHARE_THIS_ONE
+gitlab.host = gitlab.com
+
+[github]
+service = github
+github.login = Joao-O-Santos
+github.token = NOT_GONNA_SHARE_THIS_ONE
+github.username = Joao-O-Santos
