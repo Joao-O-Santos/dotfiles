@@ -1,14 +1,16 @@
 [general]
-targets: gitlab, github
+targets = gitlab, github
 
 [gitlab]
 service = gitlab
-gitlab.login = Joao-O-Santos
-gitlab.token = NOT_GONNA_SHARE_THIS_ONE
+gitlab.login = YOUR_USER_NAME
+gitlab.token = YOUR_TOKEN
 gitlab.host = gitlab.com
+gitlab.owned = True
+gitlab.membership = True
 
 [github]
 service = github
-github.login = Joao-O-Santos
-github.token = NOT_GONNA_SHARE_THIS_ONE
-github.username = Joao-O-Santos
+github.login = YOUR_USER_NAME
+github.token = YOUR_TOKEN
+github.username = YOUR_USER_NAME
