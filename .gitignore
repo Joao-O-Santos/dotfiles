@@ -2,6 +2,7 @@
 # Ignore everything by default
 /*
 *.gpg
+R/rsconnect
 
 # Track these dirs/files:
 !/firefox
