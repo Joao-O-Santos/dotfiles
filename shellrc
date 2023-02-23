@@ -19,6 +19,7 @@ export LESSHISTFILE=/dev/null/
 export XAUTHORITY=$XDG_CONFIG_HOME/xorg/Xauthority
 export R_PROFILE_USER=$XDG_CONFIG_HOME/R/Rprofile
 export TASKRC=$XDG_CONFIG_HOME/task/taskrc
+export TASKDATA=$XDG_CONFIG_HOME/task/
 
 # Use vi mode in the shell
 set -o vi
