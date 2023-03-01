@@ -47,4 +47,5 @@ an spdx license identifier.
 | `scripts/backup.sh`           | CC0-1.0                      |
 | `scripts/exclude`             | CC0-1.0                      |
 | `shellrc`                     | CC0-1.0                      |
+| `task/taskrc`                 | GPL-3.0-only                 |
 | `xorg`                        | CC0-1.0                      |
