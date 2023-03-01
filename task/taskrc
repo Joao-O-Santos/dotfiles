@@ -1,5 +1,10 @@
 # SPDX-License-Identifier: GPL-3.0-only
 
+# Copyright information:
+# - taskwarrior (MIT): Tomas Babej, Paul Beckingham, Federico Hernandez
+# - Bugwarrior (GPL-3.0-only): Ralph Bean
+# - This configuration file (GPL-3.0-only): João O. Santos
+
 # NOTE: TASKRC and TASKDATA configured in shellrc not here
 
 # Config default report to get shorter descriptions
