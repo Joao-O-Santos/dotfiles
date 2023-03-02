@@ -9,7 +9,6 @@ gitlab.host = gitlab.com
 gitlab.owned = True
 gitlab.membership = True
 gitlab.import_labels_as_tags = True
-gitlab.include_todos = True
 
 [github]
 service = github
