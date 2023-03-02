@@ -1,5 +1,7 @@
 # SPDX-License-Identifier: CC0-1.0
+
 # Export envrionment variables
+# Prompt, lang/enconding, and editor preferences.
 export PS1="$ "
 export LANG=en_US.UTF-8
 export EDITOR=nvim
@@ -24,13 +26,7 @@ export TASKDATA=$XDG_CONFIG_HOME/task/
 # Use vi mode in the shell
 set -o vi
 
-# Set aliases for projects I'm currently working on (change frequently).
-# Source doesn't work in ksh but it  be needed in bash
-# If using bash uncomment the line below
-#source dir_aliases.sh
-# ksh uses `. file` to source scripts
-. $HOME/.config/dir_aliases.sh
-
+# Aliases
 # Set default options for recurrent commands
 alias ls='ls --color=auto --group-directories-first'
 alias grep='grep --color'
@@ -38,18 +34,15 @@ alias mutt='neomutt'
 alias gpg='gpg2'
 alias R='R --no-save --quiet'
 alias st='st -f hermit:size=13.9'
-
 # Shorter aliases for faster typing
 alias m='neomutt'
 alias e='nvim'
-# alias \?='man' # use ? as an alias man like in R (possibly insane)
-
-# Please ignore (aliases for connecting to some networks I use):
-alias up='nmcli conn down MEO-CCFCEF-5G; nmcli conn up MEO-CCFCEF-5G'
-alias UL_up='nmcli conn up UL'
-alias UL_down='nmcli conn down UL'
-
-# Create alias for custom commands
+# Set aliases for navigating to directories I'm currently working on
+# NOTE: ksh uses `. file` to source scripts
+. $HOME/.config/dir_aliases.sh
+# bash uses `source file`, if using bash uncomment the line below
+#source dir_aliases.sh
+# Create alias for custom (long) commands that don't need a function
 alias radio="mpv --no-audio-display .config/playlist.m3u"
 alias dacmpv="mpv --audio-device=alsa/iec958:CARD=Converter,DEV=0 --no-audio-display"
 alias dacradio="mpv --audio-device=alsa/iec958:CARD=Converter,DEV=0 \
@@ -61,16 +54,10 @@ alias record="ffmpeg -video_size 1920x1080 -framerate 25 \
                      -movflags faststart -profile:v baseline -pix_fmt yuv420p \
                      -ss 00:03"
 
+# Functions (for commands that need more than an alias)
 # TODO: move most of these functions to scripts.
 function f {
 	find ./ -name "*$@*"
-}
-
-# To add entries to a 'GTD'-like INBOX
-function IN {
-	echo -e "$@" >> $HOME/IN
-	echo -n "IN has "
-	wc -l IN | sed 's/IN/unread items/g' 
 }
 
 # see: https://blog.petehouston.com/execute-linux-commands-in-background-and-detach-from-terminal-session/
