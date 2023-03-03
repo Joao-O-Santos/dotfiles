@@ -201,7 +201,8 @@ bar {
 # ADDED: shortcuts, wallpaper, and swap escape with capslock key.
 # Shortcuts to lauch firefox profiles
 bindsym $mod+b exec firefox -P hardened
-bindsym $mod+t exec firefox -P unsafe https://habitica.com
+bindsym $mod+t exec firefox -P unsafe https://habitica.com https://gitlab.com
+bindsym $mod+c exec chromium https://web.whatsapp.com https://discord.com/app
 
 #set <CAPS_LOCK> as <ESC> and toggle between xkeybmaps
 exec setxkbmap -option caps:swapescape -layout "us,pt" -option "grp:alt_shift_toggle"
