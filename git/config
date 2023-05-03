@@ -11,3 +11,4 @@
 	defaultBranch = main
 [push]
 	autoSetupRemote = true
+	recurseSubmodules = on-demand
