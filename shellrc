@@ -76,6 +76,15 @@ function o {
 	done
 }
 
+function pull_all {
+	for dir in $(find -name ".git")
+	do
+		echo $dir
+		git -C "$dir/.." pull
+		printf "\n"
+	done
+}
+
 function toc {
 	# TODO: consider checking for no arguments and for file type
 	# TODO: move everything to an awk script
