@@ -12,8 +12,8 @@ Plug 'Joao-O-Santos/smarttab.vim', {'for': ['c', 'r']}
 " for the default colorscheme and the alternative dark one
 Plug 'reedes/vim-colors-pencil'
 " for better folding in markdown and RMarkdown
-Plug 'vim-pandoc/vim-pandoc', {'for': ['markdown', 'rmd', 'markdown.pandoc']}
-Plug 'vim-pandoc/vim-pandoc-syntax', {'for': ['markdown', 'rmd', 'markdown.pandoc']}
+Plug 'vim-pandoc/vim-pandoc', {'for': ['markdown', 'rmd', 'pandoc']}
+Plug 'vim-pandoc/vim-pandoc-syntax', {'for': ['markdown', 'rmd', 'pandoc']}
 "Finish loading plugins
 call plug#end()
 
@@ -22,10 +22,15 @@ let g:NERDCreateDefaultMappings = 1
 let g:NERDSpaceDelims = 1
 
 " vim-pandoc configuration
+" Configure file formats for vim-pandoc to handle
+let g:pandoc#filetypes#handled = ["pandoc", "markdown"]
 " Let `#` be `#` no need to conceal or replace the character
 let g:pandoc#syntax#conceal#blacklist = ["atx"]
 " Use hard wraping
 let g:pandoc#formatting#mode = 'h'
+" Disabled foldcolumn (i.e., the fold level appearing on the left)
+" I did this because the value sometimes got stuck to the line number 
+let g:pandoc#folding#fdc = 0
 
 
 " General aesthetics options
@@ -95,8 +100,8 @@ autocmd FileType r set foldmethod=indent " syntax folds seems broken
 "                          \ textwidth=79
 
 " For markdown and RMarkdown
-autocmd FileType markdown,rmd,markdown.pandoc set textwidth=72 encoding=utf-8
-                                                       \ spell spelllang=en_us
+autocmd FileType markdown,rmd,pandoc set textwidth=72 encoding=utf-8
+                                       \ spell spelllang=en_us
 
 " For git commits
 autocmd FileType gitcommit set textwidth=72 spell spelllang=en_us
