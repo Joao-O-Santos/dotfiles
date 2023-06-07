@@ -38,9 +38,9 @@ alias st='st -f hermit:size=13.9'
 alias m='neomutt'
 alias e='nvim'
 # Set aliases for navigating to directories I'm currently working on
-# NOTE: ksh uses `. file` to source scripts
+# NOTE: ksh uses `. <file>` while bash uses `source <file>`
+# If on bash comment out the line below and uncomment the line under it
 . $HOME/.config/dir_aliases.sh
-# bash uses `source file`, if using bash uncomment the line below
 #source dir_aliases.sh
 # Create alias for custom (long) commands that don't need a function
 alias radio="mpv --no-audio-display .config/playlist.m3u"
@@ -53,6 +53,8 @@ alias record="ffmpeg -video_size 1920x1080 -framerate 25 \
                      -c:a aac -c:v libx264 -preset slow \
                      -movflags faststart -profile:v baseline -pix_fmt yuv420p \
                      -ss 00:03"
+# This is set in ./i3/config but sometimes overwritten after using `yay`
+alias kbd="setxkbmap -option caps:swapescape -layout 'us,pt' -option 'grp:alt_shift_toggle'"
 
 # Functions (for commands that need more than an alias)
 # TODO: move most of these functions to scripts.
