@@ -123,8 +123,9 @@ function chkdrft {
 	do
 		awk -F " " '/CN/{cns++} /<!--/{cmnts++} /TODO:/{todos++} \
 		     END {print cns " citations needed/missing, " \
-		                cmnts " unaddresed comments, and " \
-		                todos " TODOs still left in " FILENAME}' \
+		                todos " TODOs, and " \
+		                cmnts - todos " unaddresed comments " \
+		                "(excluding TODOs) still left in " FILENAME}' \
 		    $file
 	done
 }
