@@ -774,8 +774,11 @@ user_pref("privacy.firstparty.isolate",				true);
 // https://developer.mozilla.org/en-US/docs/Cookies_Preferences_in_Mozilla#network.cookie.thirdparty.sessionOnly
 user_pref("network.cookie.thirdparty.sessionOnly",		true);
 
-// PREF: Spoof User-agent (disabled)
-//user_pref("general.useragent.override",				"Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0");
+// CHANGED: I run Linux and I don't want to hide it.
+//          I wasn't intentionally spoofing the user-agent.
+//          Yet, the websites saw me as running Windows.
+// PREF: Spoof User-agent (disabled) -> enabled in order to display the truth
+user_pref("general.useragent.override", "Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/116.0")
 //user_pref("general.appname.override",				"Netscape");
 //user_pref("general.appversion.override",			"5.0 (Windows)");
 //user_pref("general.platform.override",				"Win32");
