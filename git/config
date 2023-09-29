@@ -1,8 +1,8 @@
 # SPDX-License-Identifier: CC0-1.0
 [user]
 	name = Joao-O-Santos # Replace with your name
-	email = joao.filipe.santos@campus.ul.pt # Replace with your email
-	signingKey = 5CF1A0BA69FD23CA # Replace with your gpg key id
+	email = joao.filip.oliv.santos94@gmail.com
+	signingkey = 1AEA77B0D5CE5C44!
 [commit]
 	gpgsign = true
 [credential]
