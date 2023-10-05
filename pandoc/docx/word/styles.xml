@@ -198,6 +198,9 @@
 					<w:bottom w:val="single" w:sz="6" w:space="0" w:color="000000"/>
 				</w:tcBorders>
 			</w:tcPr>
+			<w:rPr>
+				<w:b />
+			</w:rPr>
 		</w:tblStylePr>
 	</w:style>
 </w:styles>

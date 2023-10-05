@@ -135,5 +135,5 @@ function twrd {
 	chkdrft $1
 	fnm=$1
 	fnm=$(echo $1| sed 's/\.md/.docx/g')
-	pandoc $1 -f markdown+autolink_bare_uris -o $fnm
+	pandoc $1 -f markdown+autolink_bare_uris-fancy_lists -o $fnm
 }
