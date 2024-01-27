@@ -6,6 +6,8 @@ export PS1="$ "
 export LANG=en_US.UTF-8
 export EDITOR=nvim
 export VISUAL=nvim
+# xz compressor preferences
+export XZ_DEFAULTS=--memlimit=8GB
 # Set vars to configure gpg for multiple terminals and for ssh
 export GPG_TTY=$(tty)
 export GPG_AGENT_INFO=" "
