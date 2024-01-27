@@ -12,3 +12,8 @@
 [push]
 	autoSetupRemote = true
 	recurseSubmodules = on-demand
+[diff]
+	tool = nvimdiff
+[merge]
+	tool = nvimdiff
+	conflictstyle = diff3
