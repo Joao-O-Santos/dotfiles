@@ -55,6 +55,11 @@ alias record="ffmpeg -video_size 1920x1080 -framerate 25 \
                      -c:a aac -c:v libx264 -preset slow \
                      -movflags faststart -profile:v baseline -pix_fmt yuv420p \
                      -ss 00:03"
+alias record_no_audio="ffmpeg -video_size 1920x1080 -framerate 30 \
+                       -f x11grab -thread_queue_size 1024 -i :0.0 \
+                       -c:v libx264 -preset slow \
+                       -movflags faststart -profile:v baseline -pix_fmt yuv420p \
+                       -ss 00:03"
 # This is set in ./i3/config but sometimes overwritten after using `yay`
 alias kbd="setxkbmap -option caps:swapescape -layout 'us,pt' -option 'grp:alt_shift_toggle'"
 
