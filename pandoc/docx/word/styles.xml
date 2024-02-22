@@ -90,8 +90,8 @@
 		<w:pPr>
 		</w:pPr>
 	</w:style>
-	<w:style w:type="paragraph" w:styleId="Bibliography">
-		<w:name w:val="Bibliography"/>
+	<w:style w:type="paragraph" w:styleId="References">
+		<w:name w:val="References"/>
 		<w:basedOn w:val="Normal"/>
 		<w:qFormat/>
 		<w:rPr>
@@ -99,6 +99,10 @@
 		<w:pPr>
 			<w:ind w:left="850" w:hanging="850" />
 		</w:pPr>
+	</w:style>
+	<w:style w:type="paragraph" w:styleId="Bibliography">
+		<w:name w:val="Bibliography"/>
+		<w:basedOn w:val="References"/>
 	</w:style>
 	<w:style w:type="paragraph" w:styleId="Heading 1">
 		<w:name w:val="Heading 1"/>
