@@ -39,3 +39,6 @@ http://mediaserv30.live-streams.nl:8086/live
 
 #EXTINF:-1, The Cheese
 http://thecheese.ddns.net:8004/stream
+
+#EXTINF:-1, Epic Rock Radio
+http://51.161.115.200:8064/stream
