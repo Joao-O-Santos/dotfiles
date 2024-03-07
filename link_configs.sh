@@ -6,3 +6,4 @@ ln -s $XDG_CONFIG_HOME/firefox/hardened/user.js $HOME/.mozilla/firefox/hardened/
 ln -s $XDG_CONFIG_HOME/firefox/unsafe/user.js $HOME/.mozilla/firefox/unsafe/user.js
 ln -s $XDG_CONFIG_HOME/firefox/unsafest/user.js $HOME/.mozilla/firefox/unsafest/user.js
 ln -s $XDG_CONFIG_HOME/firefox/pdfviewer/user.js $HOME/.mozilla/firefox/pdfviewer/user.js
+ln -s $XDG_CONFIG_HOME/firefox/comms/user.js $HOME/.mozilla/firefox/comms/user.js
