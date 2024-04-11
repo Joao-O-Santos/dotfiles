@@ -46,10 +46,11 @@ alias e='nvim'
 . $HOME/.config/dir_aliases.sh
 #source dir_aliases.sh
 # Create alias for custom (long) commands that don't need a function
-alias radio="mpv --no-audio-display .config/playlist.m3u"
-alias dacmpv="mpv --audio-device=alsa/iec958:CARD=Converter,DEV=0 --no-audio-display"
+alias radio="mpv --loop-playlist --no-audio-display $XDG_CONFIG_HOME/playlist.m3u"
+alias dacmpv="mpv --audio-device=alsa/iec958:CARD=Converter,DEV=0"
 alias dacradio="mpv --audio-device=alsa/iec958:CARD=Converter,DEV=0 \
-                    --no-audio-display .config/playlist.m3u"
+                    --loop-playlist --no-audio-display \
+                    $XDG_CONFIG_HOME/playlist.m3u"
 alias record="ffmpeg -video_size 1920x1080 -framerate 25 \
                      -f x11grab -thread_queue_size 1024 -i :0.0 \
                      -f alsa -thread_queue_size 1024 -i default:2 \
