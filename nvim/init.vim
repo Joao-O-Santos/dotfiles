@@ -5,6 +5,10 @@
 "        Plugins become available to all users + avoids cluttering $HOME
 "        Change directory in line below if this is not desirable to you
 call plug#begin('/usr/share/nvim/plugged')
+" for focused writing
+Plug 'junegunn/limelight.vim'
+" for centered writing
+Plug 'junegunn/goyo.vim'
 " for automatic commenting and uncommenting of large code chunks
 Plug 'preservim/nerdcommenter'
 " for better indent with tab align with spaces support
@@ -16,6 +20,13 @@ Plug 'vim-pandoc/vim-pandoc', {'for': ['markdown', 'rmd', 'pandoc']}
 Plug 'vim-pandoc/vim-pandoc-syntax', {'for': ['markdown', 'rmd', 'pandoc']}
 "Finish loading plugins
 call plug#end()
+
+" Goyo configuration
+let g:goyo_linenr=1
+let g:goyo_height='100%'
+" Configure Goyo to use Limielight
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
 
 " NERDCommenter configuration
 let g:NERDCreateDefaultMappings = 1
@@ -77,8 +88,9 @@ set complete+=s
 map <F2> <Esc>:setlocal spell spelllang=pt_pt<CR>
 map <F3> <Esc>:setlocal spell spelllang=en_us<CR>
 map <F4> <Esc>:setlocal nospell<CR>
-map <F5> <Esc>:setlocal background=dark <CR>
-map <F6> <Esc>:setlocal background=light <CR>
+map <F5> <Esc>:Goyo<CR>
+map <F6> <Esc>:setlocal background=dark <CR>
+map <F7> <Esc>:setlocal background=light <CR>
 
 
 " For languages and file formats
