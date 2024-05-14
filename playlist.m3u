@@ -1,10 +1,47 @@
 # SPDX-License-Identifier: CC0-1.0
-#EXTM3U
+#EXTINF:-1, Irish Pub Radio
+http://173.208.54.18:8026/stream
+
+#EXTINF:-1, SomaFm Thistle Radio
+http://ice1.somafm.com/thistle-128-aac
+
+#EXTINF:-1, The Cheese
+http://thecheese.ddns.net:8004/stream
+
+#EXTINF:-1, Epic Rock Radio
+http://51.161.115.200:8064/stream
+
+#EXTINF:-1, Hard Rock Heaven - 80s Hard Rock, Hair Metal, Heavy Metal, Glam - www.hrhradio.com - 128 kbit/s
+http://hydra.cdnstream.com:80/1521_128
+
+#EXTINF:-1, MetalRock.FM - 128 kbit/s
+http://kathy.torontocast.com:2820/stream/1/
+
+#EXTINF:-1, Radio Free Americana - 128 kbit/s
+http://thassos.cdnstream.com:5479/live?
+
+#EXTINF:-1, Troubadour 1710 AM - 32 kbit/s
+http://166.62.80.146:7010
+
+#EXTINF:-1, Antena 3 - Main - 128 kbit/s
+http://radiocast.rtp.pt/antena380a.mp3
+
+#EXTINF:-1, M80 - 128 kbit/s
+https://stream-icy.bauermedia.pt/m80nacional.aac
+
+#EXTINF:-1, Radio Comercial - 128 kbit/s
+http://mcrscast.mcr.iol.pt/comercial.mp3
+
+#EXTINF:-1, Rádio 100% Rock - 128 kbit/s
+http://54.36.98.201:8046/stream/1/
+
+#EXTINF:-1, Antena 2 - Main - 128 kbit/s
+http://radiocast.rtp.pt/antena280a.mp3
 
 #EXTINF:-1, HiOnline Radio Classical
 http://mediaserv30.live-streams.nl:8088/live
 
-# Naim Radio Classical
+#EXTINF:-1, Naim Radio Classical
 http://mscp3.live-streams.nl:8250/class-flac.flac
 
 #EXTINF:-1, Cro-dur classic music
@@ -13,11 +50,11 @@ http://icecast6.play.cz/croddur-256.mp3
 #EXTINF:-1, HiOnline Radio Jazz
 http://mediaserv38.live-streams.nl:8006/live
 
-# Naim Radio Jazz
+#EXTINF:-1, Naim Radio Jazz
 http://mscp3.live-streams.nl:8340/jazz-flac.flac
 
 #EXTINF:-1, Big Blue Swing
-http://radio.bigblueswing.com:8002/;64bit.mp3, 
+http://radio.bigblueswing.com:8002/;64bit.mp3,
 
 #EXTINF:-1, Europa Radio Jazz
 https://onair.europaradiojazz.org/radio/8000/hd
@@ -30,15 +67,3 @@ http://mediaserv38.live-streams.nl:8036/live
 
 #EXTINF:-1, HiOnline Radio World
 http://mediaserv38.live-streams.nl:8027/live
-
-#EXTINF:-1, SomaFm Thistle Radio
-http://ice1.somafm.com/thistle-128-aac
-
-#EXTINF:-1, HiOnline Radio Pop
-http://mediaserv30.live-streams.nl:8086/live
-
-#EXTINF:-1, The Cheese
-http://thecheese.ddns.net:8004/stream
-
-#EXTINF:-1, Epic Rock Radio
-http://51.161.115.200:8064/stream
