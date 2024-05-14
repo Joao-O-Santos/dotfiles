@@ -10,7 +10,7 @@ Plug 'junegunn/limelight.vim'
 " for centered writing
 Plug 'junegunn/goyo.vim'
 " for automatic commenting and uncommenting of large code chunks
-Plug 'preservim/nerdcommenter'
+Plug 'preservim/nerdcommenter', {'for': ['markdown', 'rmd', 'pandoc', 'c', 'r']}
 " for better indent with tab align with spaces support
 Plug 'Joao-O-Santos/smarttab.vim', {'for': ['c', 'r']}
 " for the default colorscheme and the alternative dark one
@@ -25,8 +25,8 @@ call plug#end()
 let g:goyo_linenr=1
 let g:goyo_height='100%'
 " Configure Goyo to use Limielight
-autocmd! User GoyoEnter Limelight
-autocmd! User GoyoLeave Limelight!
+"autocmd! User GoyoEnter Limelight
+"autocmd! User GoyoLeave Limelight!
 
 " NERDCommenter configuration
 let g:NERDCreateDefaultMappings = 1
