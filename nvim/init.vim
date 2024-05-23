@@ -5,16 +5,12 @@
 "        Plugins become available to all users + avoids cluttering $HOME
 "        Change directory in line below if this is not desirable to you
 call plug#begin('/usr/share/nvim/plugged')
-" for focused writing
-Plug 'junegunn/limelight.vim'
 " for centered writing
 Plug 'junegunn/goyo.vim'
 " for automatic commenting and uncommenting of large code chunks
 Plug 'preservim/nerdcommenter', {'for': ['markdown', 'rmd', 'pandoc', 'c', 'r']}
 " for better indent with tab align with spaces support
 Plug 'Joao-O-Santos/smarttab.vim', {'for': ['c', 'r']}
-" for the default colorscheme and the alternative dark one
-Plug 'reedes/vim-colors-pencil'
 " for better folding in markdown and RMarkdown
 Plug 'vim-pandoc/vim-pandoc', {'for': ['markdown', 'rmd', 'pandoc']}
 Plug 'vim-pandoc/vim-pandoc-syntax', {'for': ['markdown', 'rmd', 'pandoc']}
@@ -24,9 +20,6 @@ call plug#end()
 " Goyo configuration
 let g:goyo_linenr=1
 let g:goyo_height='100%'
-" Configure Goyo to use Limielight
-"autocmd! User GoyoEnter Limelight
-"autocmd! User GoyoLeave Limelight!
 
 " NERDCommenter configuration
 let g:NERDCreateDefaultMappings = 1
@@ -54,10 +47,9 @@ set clipboard=unnamed
 set colorcolumn=72,80
 " Highlighs non-visible characters (taken from github.com/cfy/dotfiles)
 set list listchars=tab:>\ ,trail:-,eol:¬
-" Colorscheme
+" Colorscheme (neovim 0.10 changed the default and is similar to pencil)
 set termguicolors
 set background=light
-colorscheme pencil
 
 " Dangerous defaults because I hate clutter
 set nobackup
