@@ -2,4 +2,4 @@
 su -c "cd $HOME; \
        tar --exclude-from=$XDG_CONFIG_HOME/scripts/exclude --exclude=$HOME/bp.tar \
            --acls --xattrs -pvcf bp.tar /; \
-       xz -T0 -9 --memlimit=8GB $HOME/bp.tar"
+       xz -T0 -9 --memlimit=16GB $HOME/bp.tar"
