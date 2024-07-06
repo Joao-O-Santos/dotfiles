@@ -17,3 +17,5 @@
 [merge]
 	tool = nvimdiff
 	conflictstyle = diff3
+[alias]
+	graph = log --all --graph --oneline
