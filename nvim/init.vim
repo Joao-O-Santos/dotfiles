@@ -13,7 +13,7 @@ Plug 'preservim/nerdcommenter', {'for': ['markdown', 'rmd', 'pandoc', 'c', 'r']}
 Plug 'Joao-O-Santos/smarttab.vim', {'for': ['c', 'r']}
 " for better folding in markdown and RMarkdown
 Plug 'vim-pandoc/vim-pandoc', {'for': ['markdown', 'rmd', 'pandoc']}
-Plug 'vim-pandoc/vim-pandoc-syntax', {'for': ['markdown', 'rmd', 'pandoc']}
+Plug 'vim-pandoc/vim-pandoc-syntax', {'for': 'markdown'}
 "Finish loading plugins
 call plug#end()
 
