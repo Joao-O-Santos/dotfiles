@@ -204,7 +204,7 @@ bindsym $mod+b exec firefox -P hardened
 #bindsym $mod+t exec firefox -P unsafe https://habitica.com https://gitlab.com https://open.spotify.com
 bindsym $mod+t exec firefox -P unsafest https://outlook.office365.com https://intranet.ispa.pt https://drive.google.com
 bindsym $mod+c exec firefox -P comms https://web.whatsapp.com https://discord.com/app
-bindsym $mod+Print exec ffmpeg -f x11grab -video_size 1920x1080 -i $DISPLAY -vframes 1 -strftime 1 "%H_%M_%S_screen.png"
+bindsym $mod+Print exec ffmpeg -f x11grab -i $DISPLAY -vframes 1 -strftime 1 "%H_%M_%S_screen.png"
 
 #set <CAPS_LOCK> as <ESC> and toggle between xkeybmaps
 exec setxkbmap -option caps:swapescape -layout "us,pt" -option "grp:alt_shift_toggle"
