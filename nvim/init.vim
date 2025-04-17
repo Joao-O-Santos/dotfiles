@@ -9,8 +9,8 @@ call plug#begin('/usr/share/nvim/plugged')
 Plug 'junegunn/goyo.vim'
 " for automatic commenting and uncommenting of large code chunks
 Plug 'preservim/nerdcommenter', {'for': ['markdown', 'rmd', 'pandoc', 'c', 'r']}
-" for better indent with tab align with spaces support
-Plug 'Joao-O-Santos/smarttab.vim', {'for': ['c', 'r']}
+" for better indent with tab and align with spaces support
+Plug 'Thyrum/vim-stabs'
 " for better folding in markdown and RMarkdown
 Plug 'vim-pandoc/vim-pandoc', {'for': ['markdown', 'rmd', 'pandoc']}
 Plug 'vim-pandoc/vim-pandoc-syntax', {'for': 'markdown'}
