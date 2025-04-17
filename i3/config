@@ -195,7 +195,7 @@ bindsym $mod+r mode "resize"
 bar {
 	status_command i3status
 	# CHANGED: use hermit as the bar font
-	font pango:hermit 10
+	font pango:hermit 12
 }
 
 # ADDED: shortcuts, wallpaper, and swap escape with capslock key.
