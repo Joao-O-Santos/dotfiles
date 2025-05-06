@@ -21,10 +21,6 @@ set $mod Mod4
 # is used in the bar {} block below.
 font pango:hermit 0
 
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
-
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
@@ -190,26 +186,27 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# CHANGED: don't use status bar on desktop
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-	status_command i3status
-	# CHANGED: use hermit as the bar font
-	font pango:hermit 12
-}
+#bar {
+#	status_command i3status
+#	# CHANGED: use hermit as the bar font
+#	font pango:hermit 12
+#}
 
 # ADDED: shortcuts, wallpaper, and swap escape with capslock key.
 # Shortcuts to lauch firefox profiles
 bindsym $mod+b exec firefox -P hardened
-#bindsym $mod+t exec firefox -P unsafe https://habitica.com https://gitlab.com https://open.spotify.com
 bindsym $mod+t exec firefox -P unsafest https://outlook.office365.com https://intranet.ispa.pt https://drive.google.com
 bindsym $mod+c exec firefox -P comms https://web.whatsapp.com https://discord.com/app
 bindsym $mod+Print exec ffmpeg -f x11grab -i $DISPLAY -vframes 1 -strftime 1 "%H_%M_%S_screen.png"
 
 #set <CAPS_LOCK> as <ESC> and toggle between xkeybmaps
 exec setxkbmap -option caps:swapescape -layout "us,pt" -option "grp:alt_shift_toggle"
+exec xrandr --output HDMI-2 --rotate right
 # User defined background --bg-center is another sound preset
-exec feh --no-fehbg --image-bg white --bg-fill $XDG_CONFIG_HOME/wallpapers/wallpaper
+exec feh --no-fehbg --bg-fill $XDG_CONFIG_HOME/wallpapers/wallpaper
 
 # Hide mouse cursor after three seconds
 exec unclutter -grab -idle 3 &
