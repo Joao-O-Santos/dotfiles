@@ -26,11 +26,23 @@ http://icecast.centaury.cl:7570/SuperStereoHiRes3
 #EXTINF:-1, SuperStereo 4 Ballads 80's 90's 00's
 http://icecast.centaury.cl:7570/SuperStereoHiRes4
 
+#EXTINF:-1, Rock Mix (Radio Paradise)
+http://stream.radioparadise.com/rock-flac
+
+#EXTINF:-1, Main Mix (Radio Paradise)
+http://stream.radioparadise.com/flac
+
+#EXTINF:-1, Global Mix (Radio Paradise)
+http://stream.radioparadise.com/global-flac
+
 #EXTINF:-1, Radio Free Americana - 128 kbit/s
 http://thassos.cdnstream.com:5479/live?
 
 #EXTINF:-1, Indie Pop Rocks! (SomaFM)
 https://ice1.somafm.com/indiepop-128-aac
+
+#EXTINF:-1, Cinemix
+https://kathy.torontocast.com:1190/stream
 
 #EXTINF:-1, PopTron (SomaFM)
 https://ice1.somafm.com/poptron-128-aac
@@ -54,7 +66,7 @@ http://ice1.somafm.com/thistle-128-aac
 http://166.62.80.146:7010
 
 #EXTINF:-1, The Trip (SomaFM)
-https://somafm.com/thetrip-128-aac
+https://ice1.somafm.com/thetrip-128-aac
 
 #EXTINF:-1, Antena 3 - Main - 128 kbit/s
 http://radiocast.rtp.pt/antena380a.mp3
