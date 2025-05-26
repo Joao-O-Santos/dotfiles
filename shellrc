@@ -51,13 +51,13 @@ alias dacmpv="mpv --audio-device=alsa/iec958:CARD=Converter,DEV=0"
 alias dacradio="mpv --audio-device=alsa/iec958:CARD=Converter,DEV=0 \
                     --loop-playlist --no-audio-display \
                     $XDG_CONFIG_HOME/playlist.m3u"
-alias record="ffmpeg -framerate 25 \
+alias record="ffmpeg -video_size 2560x1440 -framerate 60 \
                      -f x11grab -thread_queue_size 1024 -i :0.0 \
                      -f alsa -thread_queue_size 1024 -i default:2 \
                      -c:a aac -c:v libx264 -preset slow \
                      -movflags faststart -profile:v baseline -pix_fmt yuv420p \
                      -ss 00:03"
-alias record_no_audio="ffmpeg -framerate 30 \
+alias record_no_audio="ffmpeg -video_size 2560x1440 -framerate 60 \
                        -f x11grab -thread_queue_size 1024 -i :0.0 \
                        -c:v libx264 -preset slow \
                        -movflags faststart -profile:v baseline -pix_fmt yuv420p \
