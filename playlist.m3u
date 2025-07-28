@@ -11,8 +11,29 @@ http://hydra.cdnstream.com:80/1521_128
 #EXTINF:-1, Crucial Velocity
 https://ais-sa2.cdnstream1.com/1369_128
 
+#EXTINF: -1, Heavy Metal
+https://stream.rockantenne.de/heavy-metal/stream/aacp
+
+#EXTINF: -1, Mash
+https://stream.laut.fm/mash.m3u
+
+#EXTINF: -1, Hard Rock
+https://stream.rockantenne.de/rock-antenne-hard-rock/stream/aacp
+
+#EXTINF: -1, Punk Rock
+https://stream.rockantenne.de/punkrock/stream/aacp
+
+#EXTINF: -1, Symphonic Rock
+https://stream.rockantenne.de/symphonic-rock/stream/aacp
+
+#EXTINF: -1, Party Rock
+https://stream.rockantenne.de/rock-antenne-party-rock/stream/aacp
+
 #EXTINF:-1, The Rock! (Hard Rock)
 https://listen.181fm.com/181-hardrock_128k.mp3
+
+#EXTINF: -1, Rock Antenne Live
+https://stream.rockantenne.de/rockantenne/stream/aacp
 
 #EXTINF:-1, SuperStereo 5 Rock
 http://icecast.centaury.cl:7570/SuperStereoHiRes5
