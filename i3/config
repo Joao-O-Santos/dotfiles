@@ -203,7 +203,7 @@ bindsym $mod+c exec firefox -P comms https://web.whatsapp.com https://discord.co
 bindsym $mod+Print exec ffmpeg -f x11grab -i $DISPLAY -vframes 1 -strftime 1 "%H_%M_%S_screen.png"
 
 #set <CAPS_LOCK> as <ESC> and toggle between xkeybmaps
-exec setxkbmap -option caps:swapescape -layout "us,pt" -option "grp:alt_shift_toggle"
+exec setxkbmap -option caps:swapescape -layout 'us,pt' -variant 'altgr-intl,' -option 'grp:alt_shift_toggle'
 exec xrandr --output HDMI-2 --rotate right
 # User defined background --bg-center is another sound preset
 exec feh --no-fehbg --bg-fill $XDG_CONFIG_HOME/wallpapers/wallpaper

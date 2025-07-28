@@ -63,7 +63,7 @@ alias record_no_audio="ffmpeg -video_size 2560x1440 -framerate 60 \
                        -movflags faststart -profile:v baseline -pix_fmt yuv420p \
                        -ss 00:03"
 # This is set in ./i3/config but sometimes overwritten after using `yay`
-alias kbd="setxkbmap -option caps:swapescape -layout 'us,pt' -option 'grp:alt_shift_toggle'"
+alias kbd="setxkbmap -option caps:swapescape -layout 'us,pt' -variant 'altgr-intl,' -option 'grp:alt_shift_toggle'"
 
 # Functions (for commands that need more than an alias)
 # TODO: move most of these functions to scripts.
