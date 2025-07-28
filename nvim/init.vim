@@ -12,7 +12,7 @@ Plug 'preservim/nerdcommenter', {'for': ['markdown', 'rmd', 'pandoc', 'c', 'r']}
 " for better indent with tab and align with spaces support
 Plug 'Thyrum/vim-stabs'
 " for better folding in markdown and RMarkdown
-Plug 'vim-pandoc/vim-pandoc', {'for': ['markdown', 'rmd', 'pandoc']}
+Plug 'vim-pandoc/vim-pandoc', {'for': ['markdown', 'quarto', 'rmd', 'pandoc']}
 Plug 'vim-pandoc/vim-pandoc-syntax', {'for': 'markdown'}
 "Finish loading plugins
 call plug#end()
@@ -104,7 +104,7 @@ autocmd FileType r set foldmethod=indent " syntax folds seems broken
 "                          \ textwidth=79
 
 " For markdown and RMarkdown
-autocmd FileType markdown,rmd,pandoc set textwidth=72 encoding=utf-8
+autocmd FileType markdown,rmd,quarto,pandoc set textwidth=72 encoding=utf-8
                                        \ spell spelllang=en_us
 
 " For git commits
