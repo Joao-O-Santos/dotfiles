@@ -11,9 +11,11 @@ Plug 'junegunn/goyo.vim'
 Plug 'preservim/nerdcommenter', {'for': ['markdown', 'rmd', 'pandoc', 'c', 'r']}
 " for better indent with tab and align with spaces support
 Plug 'Thyrum/vim-stabs'
-" for better folding in markdown and RMarkdown
+" for working with markdown, RMarkdown, and Quarto
+Plug 'quarto-dev/quarto-nvim', {'for': ['markdown', 'quarto', 'rmd', 'pandoc']}
 Plug 'vim-pandoc/vim-pandoc', {'for': ['markdown', 'quarto', 'rmd', 'pandoc']}
-Plug 'vim-pandoc/vim-pandoc-syntax', {'for': 'markdown'}
+Plug 'vim-pandoc/vim-pandoc-syntax', {'for': ['markdown', 'quarto', 'rmd', 'pandoc']}
+Plug 'jmbuhr/otter.nvim', {'for': ['markdown', 'quarto', 'rmd', 'pandoc']}
 "Finish loading plugins
 call plug#end()
 
@@ -33,9 +35,8 @@ let g:pandoc#syntax#conceal#blacklist = ["atx"]
 " Use hard wraping
 let g:pandoc#formatting#mode = 'h'
 " Disabled foldcolumn (i.e., the fold level appearing on the left)
-" I did this because the value sometimes got stuck to the line number 
+" I did this because the value sometimes got stuck to the line number
 let g:pandoc#folding#fdc = 0
-
 
 " General aesthetics options
 set number
@@ -70,7 +71,6 @@ set formatoptions-=croql
 " Enable folding with the spacebar
 set foldmethod=syntax
 set foldlevel=99
-nnoremap <space> za
 
 " Enabling thesaurus completion
 set thesaurus=/usr/share/thesaurus/mthesaur.txt
@@ -84,7 +84,6 @@ map <F5> <Esc>:Goyo<CR>
 map <F6> <Esc>:setlocal background=dark <CR>
 map <F7> <Esc>:setlocal background=light <CR>
 
-
 " For languages and file formats
 syntax on
 filetype on
@@ -97,13 +96,13 @@ autocmd FileType c,cpp,mk set nowrap "tabstop=8 softtabstop=8 shiftwidth=8
                             "\ textwidth=79
 
 " For R
-autocmd FileType r set foldmethod=indent " syntax folds seems broken
+"autocmd FileType r set foldmethod=indent " syntax folds seems broken
 
 " For Python (uncomment if using PEP8)
 "autocmd FileType python set expandtab tabstop=4 softtabstop=4 shiftwidth=4
 "                          \ textwidth=79
 
-" For markdown and RMarkdown
+" For markdown, RMarkdown, and quarto
 autocmd FileType markdown,rmd,quarto,pandoc set textwidth=72 encoding=utf-8
                                        \ spell spelllang=en_us
 
