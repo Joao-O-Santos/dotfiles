@@ -16,3 +16,6 @@ text/markdown=nvim.desktop
 image/jpeg=feh.desktop
 image/png=feh.desktop
 application/octet-stream=libreoffice-base.desktop
+
+[Added Associations]
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=libreoffice-calc.desktop;hardfox.desktop;
