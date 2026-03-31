@@ -2,20 +2,26 @@
 #EXTINF: -1, Mash
 https://stream.laut.fm/mash.m3u
 
+#EXTINF: -1, Bandit Metal
+https://wr03-ice.stream.khz.se/wr03_aac
+
+#EXTINF: -1, Bandit Rock
+https://fm02-ice.stream.khz.se/fm02_aac
+
 #EXTINF:-1, Classical Metal Radio
 https://quincy.torontocast.com:2090/wypjgflo/1/winamp.m3u
+
+#EXTINF: -1, Heavy Metal
+https://stream.rockantenne.de/heavy-metal/stream/aacp
 
 #EXTINF:-1, MetalRock.FM - 128 kbit/s
 http://kathy.torontocast.com:2820/stream/1/
 
-#EXTINF:-1, Hard Rock Heaven - 80s Hard Rock, Hair Metal, Heavy Metal, Glam - www.hrhradio.com - 128 kbit/s
+#EXTINF:-1, Hard Rock Heaven - 80s Hard Rock, Hair Metal, Heavy Metal, Glam - 128 kbit/s
 http://hydra.cdnstream.com:80/1521_128
 
 #EXTINF:-1, Crucial Velocity
 https://ais-sa2.cdnstream1.com/1369_128
-
-#EXTINF: -1, Heavy Metal
-https://stream.rockantenne.de/heavy-metal/stream/aacp
 
 #EXTINF: -1, Hard Rock
 https://stream.rockantenne.de/rock-antenne-hard-rock/stream/aacp
@@ -23,11 +29,11 @@ https://stream.rockantenne.de/rock-antenne-hard-rock/stream/aacp
 #EXTINF: -1, Punk Rock
 https://stream.rockantenne.de/punkrock/stream/aacp
 
+#EXTINF: -1, Bandit Ballads
+https://wr21-ice.stream.khz.se/wr21_aac
+
 #EXTINF: -1, Symphonic Rock
 https://stream.rockantenne.de/symphonic-rock/stream/aacp
-
-#EXTINF: -1, Party Rock
-https://stream.rockantenne.de/rock-antenne-party-rock/stream/aacp
 
 #EXTINF:-1, The Rock! (Hard Rock)
 https://listen.181fm.com/181-hardrock_128k.mp3
@@ -41,32 +47,14 @@ http://icecast.centaury.cl:7570/SuperStereoHiRes5
 #EXTINF:-1, Rock 181
 https://listen.181fm.com/181-rock_128k.mp3
 
-#EXTINF:-1, KKDJ Classic Rock
-http://streaming1.kkdjfresno.com:8030/
-
-#EXTINF:-1, Rock Mix (Radio Paradise)
-http://stream.radioparadise.com/rock-flac
-
-#EXTINF:-1, Main Mix (Radio Paradise)
-http://stream.radioparadise.com/flac
-
 #EXTINF:-1, Global Mix (Radio Paradise)
 http://stream.radioparadise.com/global-flac
 
 #EXTINF:-1, HiOnline Radio World
 http://mediaserv38.live-streams.nl:8027/live
 
-#EXTINF:-1, I'2 Dance
-https://play.ilovemusic.de/ilm_ilove2dance/
-
 #EXTINF:-1, I Greatest Hits
 https://play.ilovemusic.de/ilm_ilovegreatesthits/
-
-#EXTINF:-1, Power 181
-https://listen.181fm.com/181-powerexplicit_128k.mp3
-
-#EXTINF:-1, Indie Pop Rocks! (SomaFM)
-https://ice1.somafm.com/indiepop-128-aac
 
 #EXTINF:-1, I-Hip Hop
 https://play.ilovemusic.de/ilm_ilovehiphop/
@@ -77,23 +65,14 @@ https://listen.181fm.com/181-oldschool_128k.mp3
 #EXTINF:-1, I'Us Only Rap Radio
 https://play.ilovemusic.de/ilm_iloveusonlyrapradio
 
-#EXTINF:-1, I-Workout
-https://play.ilovemusic.de/ilm_iloveworkout/
-
 #EXTINF:-1, I Party Hard
 https://play.ilovemusic.de/ilm_ilovepartyhard
 
 #EXTINF:-1, Classic Hits 181
 https://listen.181fm.com/181-greatoldies_128k.mp3
 
-#EXTINF:-1, Good Time Oldies 181
-https://listen.181fm.com/181-goodtime_128k.mp3
-
 #EXTINF:-1, Radio Free Americana - 128 kbit/s
 http://thassos.cdnstream.com:5479/live?
-
-#EXTINF:-1, SomaFM Covers
-https://ice4.somafm.com/covers-128-aac
 
 #EXTINF:-1, Irish Pub Radio
 http://173.208.54.18:8026/stream
@@ -127,9 +106,6 @@ http://radio.bigblueswing.com:8002/;64bit.mp3
 
 #EXTINF:-1, Cinemix
 https://kathy.torontocast.com:1190/stream
-
-#EXTINF:-1, PopTron (SomaFM)
-https://ice1.somafm.com/poptron-128-aac
 
 #EXTINF:-1, DEF CON Radio (SomaFM)
 https://ice1.somafm.com/defcon-128-aac
