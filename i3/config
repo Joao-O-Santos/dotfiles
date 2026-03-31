@@ -214,8 +214,9 @@ bindsym $mod+r mode "resize"
 # ADDED: shortcuts, wallpaper, and swap escape with capslock key.
 # Shortcuts to lauch firefox profiles
 bindsym $mod+b exec firefox -P hardened
-bindsym $mod+t exec firefox -P unsafest https://outlook.office365.com https://intranet.ispa.pt/login-sso-moodle https://esca.ispa.pt/PAD4/ https://drive.google.com
-bindsym $mod+c exec firefox -P comms https://web.whatsapp.com https://discord.com/app
+bindsym $mod+t exec zen-browser
+#bindsym $mod+t exec firefox -P unsafest https://outlook.office365.com https://intranet.ispa.pt/login-sso-moodle https://esca.ispa.pt/PAD4/ https://drive.google.com https://perplexity.ai
+#bindsym $mod+c exec firefox -P comms https://web.whatsapp.com https://discord.com/app
 bindsym $mod+Print exec ffmpeg -f x11grab -i $DISPLAY -vframes 1 -strftime 1 "%H_%M_%S_screen.png"
 
 #set <CAPS_LOCK> as <ESC> and toggle between xkeybmaps
