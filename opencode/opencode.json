@@ -1,0 +1,43 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "instructions": [
+    "./STYLE.md",
+    "./AGENTS.md"
+  ],
+  "default_agent": "planner",
+  "model": "mistral/mistral-large-latest",
+  "small_model": "openrouter/qwen/qwen3-coder:free",
+  "agents": {
+    "planner": {
+      "model": "mistral/mistral-large-latest",
+      "fallback": "openrouter/mistralai/mistral-large-2512",
+      "description": "Primary orchestrator and default agent"
+    },
+    "writer": {
+      "model": "openrouter/deepseek/deepseek-chat-v3.1:free",
+      "description": "Unified manuscript drafting (empirical/theoretical)"
+    },
+    "reviewer": {
+      "model": "openrouter/qwen/qwen3.6-plus:free",
+      "description": "Critique and revision memos"
+    },
+    "guard": {
+      "model": "openrouter/qwen/qwen3.6-plus:free",
+      "description": "Safety checkpoints and regression control"
+    },
+    "literature-review": {
+      "model": "openrouter/perplexity/sonar-pro",
+      "description": "Academic search and paper summaries"
+    },
+    "r-analysis": {
+      "model": "mistral/devstral-2",
+      "fallback": "openrouter/qwen/qwen3-coder:free",
+      "description": "R/Quarto pipeline edits"
+    },
+    "automation": {
+      "model": "mistral/devstral-2",
+      "fallback": "openrouter/qwen/qwen3-coder:free",
+      "description": "Shell/git automation"
+    }
+  }
+}

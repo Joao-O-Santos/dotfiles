@@ -1,0 +1,17 @@
+format:
+    html:
+        author:
+            - name: "Filipa de Almeida"
+              affiliation: UCP
+            - name: "Cristina Mendonça"
+              affiliation: LIP
+            - name: "Ian J. Scott"
+              affiliation: NOVA
+            - name: "João O. Santos"
+              affiliation: ISPA
+            - name: "Vitória Melita"
+              affiliation: FP-UL
+            - name: "João Raposo"
+              affiliation: ISPA
+            - name: "Ana Grácio"
+              affiliation: ISPA

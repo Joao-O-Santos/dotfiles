@@ -22,3 +22,20 @@ R/rsconnect
 !/shellrc
 !/xorg/xinitrc
 !/wallpapers/WALLPAPERS_GO_HERE
+# Track OpenCode
+!/opencode
+!/opencode/.gitignore
+!/opencode/opencode.json
+!/opencode/style
+!/opencode/agents
+!/opencode/skills
+# Ignore OpenCode internal state
+/opencode/auth.json
+/opencode/opencode.db*
+/opencode/node_modules
+/opencode/snapshot
+/opencode/log
+/opencode/tool-output
+/opencode/storage
+/opencode/bun.lock
+/opencode/package.json

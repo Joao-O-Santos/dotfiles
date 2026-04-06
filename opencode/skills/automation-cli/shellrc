@@ -1,0 +1,148 @@
+# SPDX-License-Identifier: CC0-1.0
+
+# Export envrionment variables
+# Prompt, lang/enconding, and editor preferences.
+export PS1="$ "
+export LANG=en_US.UTF-8
+export EDITOR=nvim
+export VISUAL=nvim
+# Performance preferences
+export MAKEFLAGS=-j12
+export XZ_DEFAULTS=--memlimit=8GB
+# Set vars to configure gpg for multiple terminals and for ssh
+export GPG_TTY=$(tty)
+export GPG_AGENT_INFO=" "
+gpg-connect-agent --quiet updatestartuptty /bye >/dev/null
+unset SSH_AGENT_PID
+export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh"
+# Set vars to help keep $HOME directory clean
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_DATA_HOME=$HOME/.config
+export XDG_CACHE_HOME=$HOME/.cache
+export XDG_STATE_HOME=$HOME/.cache
+export LESSHISTFILE=/dev/null/
+export XAUTHORITY=$XDG_CONFIG_HOME/xorg/Xauthority
+export R_PROFILE_USER=$XDG_CONFIG_HOME/R/Rprofile
+export TASKRC=$XDG_CONFIG_HOME/task/taskrc
+export TASKDATA=$XDG_CONFIG_HOME/task/
+
+# Use vi mode in the shell
+set -o vi
+
+# Aliases
+# Set default options for recurrent commands
+alias ls='ls --color=auto --group-directories-first'
+alias grep='grep --color'
+alias mutt='neomutt'
+alias gpg='gpg2'
+alias R='R --no-save --quiet'
+alias st='st -f hermit:size=13.9'
+# Shorter aliases for faster typing
+alias m='neomutt'
+alias e='nvim'
+# Set aliases for navigating to directories I'm currently working on
+# NOTE: ksh uses `. <file>` while bash uses `source <file>`
+# If on bash comment out the line below and uncomment the line under it
+. $HOME/.config/dir_aliases.sh
+#source dir_aliases.sh
+# Create alias for custom (long) commands that don't need a function
+alias radio="mpv --loop-playlist --no-audio-display $XDG_CONFIG_HOME/playlist.m3u"
+alias dacmpv="mpv --audio-device=alsa/iec958:CARD=AUDIO,DEV=0"
+alias dacradio="mpv --audio-device=alsa/iec958:CARD=AUDIO,DEV=0 \
+                    --loop-playlist --no-audio-display \
+                    $XDG_CONFIG_HOME/playlist.m3u"
+alias record="ffmpeg -video_size 2560x1440 -framerate 60 \
+                     -f x11grab -thread_queue_size 1024 -i :0.0 \
+                     -f alsa -thread_queue_size 1024 -i default:2 \
+                     -c:a aac -c:v libx264 -preset slow \
+                     -movflags faststart -profile:v baseline -pix_fmt yuv420p \
+                     -ss 00:03"
+alias record_no_audio="ffmpeg -video_size 2560x1440 -framerate 60 \
+                       -f x11grab -thread_queue_size 1024 -i :0.0 \
+                       -c:v libx264 -preset slow \
+                       -movflags faststart -profile:v baseline -pix_fmt yuv420p \
+                       -ss 00:03"
+# This is set in ./i3/config but sometimes overwritten after using `yay`
+alias kbd="setxkbmap -option caps:swapescape -layout 'us,pt' -variant 'altgr-intl,' -option 'grp:alt_shift_toggle'"
+
+# Functions (for commands that need more than an alias)
+# TODO: move most of these functions to scripts.
+function f {
+	find ./ -name "*$@*"
+}
+
+# see: https://blog.petehouston.com/execute-linux-commands-in-background-and-detach-from-terminal-session/
+function xst {
+	for i in $(seq 1 $1)
+	do
+		(setsid st -f hermit:size=13.9 > /dev/null &) > /dev/null 2>&1
+	done
+}
+
+# see: https://blog.petehouston.com/execute-linux-commands-in-background-and-detach-from-terminal-session/
+function o {
+	for file in "$@"
+	do
+		(setsid xdg-open $file > /dev/null &) > /dev/null 2>&1
+	done
+}
+
+function pull_all {
+	for dir in $(find $HOME -name ".git")
+	do
+		echo $dir
+		git -C "$dir/.." pull
+		printf "\n"
+	done
+}
+
+function toc {
+	# TODO: consider checking for no arguments and for file type
+	# TODO: move everything to an awk script
+	for file in "$@"
+	do
+		echo - "TOC for: $file"
+		cat $file | grep -e '#' -e '<h.>' | sed -e 's/^#//g; s/#/\t/g'
+	done
+}
+
+function tso {
+	for file in "$@"
+	do
+		echo - "Topic Senctence Outline for: $file"
+		grep -A3 '^$' $file
+	done
+}
+
+function tmd {
+	fnm=$1
+	fnm=$(echo $1| sed 's/\..*$/.md/g')
+	pandoc $1 -o $fnm
+}
+
+function tpres {
+	fnm=$1
+	fnm=$(echo $1| sed 's/\..*$/.html/g')
+	pandoc -it revealjs --variable transition=convex -so $fnm $1
+}
+
+# TODO: move all this to an awk script
+function chkdrft {
+	for file in "$@"
+	do
+		awk -F " " '/CN/{cns++} /<!--/{cmnts++} /TODO:/{todos++} \
+		     END {print cns " citations needed/missing, " \
+		                todos " TODOs, and " \
+		                cmnts - todos " unaddresed comments " \
+		                "(excluding TODOs) still left in " FILENAME}' \
+		    $file
+	done
+}
+
+function twrd {
+	echo "Warning: html comments are lost in .docx conversion!"
+	chkdrft $1
+	fnm=$1
+	fnm=$(echo $1| sed 's/\.md/.docx/g')
+	pandoc $1 -f markdown+autolink_bare_uris-fancy_lists -o $fnm
+}

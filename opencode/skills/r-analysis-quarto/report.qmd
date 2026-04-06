@@ -1,0 +1,362 @@
+---
+title: "Study 2"
+format:
+    html:
+        author:
+            - name: "Filipa de Almeida"
+              affiliation: UCP
+            - name: "Cristina Mendonça"
+              affiliation: LIP
+            - name: "Vitória Melita"
+              affiliation: FP-UL
+            - name: "João O. Santos"
+              affiliation: ISPA
+---
+
+``` {r, setup}
+library(ggplot2)
+library(parameters)
+# knitr loaded by pretty_tables.R
+
+# General options
+options(digits = 3, emmeans = list(summary = list(digits = 3)))
+
+# Run scripts
+source("run_all.R")
+# Source utility function
+source("../../utils/pretty_tables.R")
+```
+
+
+
+# Descriptives
+
+
+
+## Initial Rating
+
+``` {r}
+ggplot(ds, aes(x = initial_rating, fill = ethnicity)) +
+geom_density(alpha = 0.5) +
+theme_classic()
+```
+
+
+
+## WOA + Trust + Advisor
+
+
+::: {.panel-tabset group="Graph"}
+
+### WOA ~ Advisor
+
+``` {r}
+ggplot(ds, aes(x = WOA, fill = advisor)) +
+geom_density(alpha = 0.5) +
+xlim(-1.5, 1.5) +
+theme_classic()
+```
+
+
+### Updated ~ Trust + Advisor (Step #1)
+
+``` {r}
+ggplot(voi, aes(x = Trust, fill = updated)) +
+geom_density(alpha = 0.50) +
+facet_wrap(~ advisor, nrow = 3) +
+theme_classic()
+```
+
+``` {r}
+ggplot(voi, aes(x = Trust, y = as.numeric(updated), color = advisor)) +
+geom_jitter(height = 0.05, width = 0, alpha = 0.3) +
+geom_smooth(method = "glm", method.args = list(family = "binomial"),
+            se = FALSE, fullrange = TRUE, show.legend = FALSE) +
+theme_classic()
+```
+
+
+### WOA ~ Trust + Advisor (Step #2)
+
+
+``` {r}
+g_ds <- subset(voi, updated)
+ggplot(g_ds, aes(x = Trust, y = WOA, color = advisor)) +
+geom_point(alpha = 0.50) +
+geom_smooth(method = "lm", se = FALSE, show.legend = FALSE) +
+ylim(-1.5, 1.5) +
+theme_classic()
+```
+
+:::
+
+
+
+
+# Racial Bias
+
+> 1) The probability of being invited for an interview will be higher for
+> British candidates than for Roma candidates, indicating a main effect of
+> ethnicity (replicating study 1).
+
+H1 is not supported, as there is no significant main effect of ethnicity
+on initial ratings.
+
+
+
+## ANOVA
+
+``` {r}
+pretty_table(nice(m_h1))
+```
+
+
+
+## Estimated Marginal Means
+
+
+::: {.panel-tabset group="Group"}
+
+### Overall
+
+``` {r}
+pretty_table(emm_h1[[1]])
+```
+
+
+### Ethnicity
+
+``` {r}
+pretty_table(emm_h1[[2]])
+```
+
+:::
+
+
+
+
+# Egocentric Discounting
+
+> 2) Participants’ final judgments will align more closely with their own
+> initial probabilities than with the advice received, demonstrating
+> egocentric discounting (Yaniv & Kleinberger, 2000) (replicating study 1).
+
+H2 is supported, as participants' final judgments remained closer to
+their initial ratings than to the advice received, indicated by a
+significant intercept. There is also marginal evidence that egocentric
+discounting is greater when the advisor is an uncertified AI system than
+when it is a human. Despite there being no significant differences, in
+our sample, the estimated marginal means follow the expected pattern:
+uncertified AI > certified AI > human. Still, there is no evidence that
+this trend is present in the population, just marginal evidence that
+there is more egocentric discounting with the uncertified AI than with a
+human advisor.
+
+
+
+## ANOVA
+
+``` {r}
+pretty_table(nice(m_h2, intercept = TRUE))
+```
+
+
+
+## Estimated Marginal Means
+
+
+::: {.panel-tabset group="Group"}
+
+### Overall
+
+``` {r}
+pretty_table(emm_h2[[1]])
+```
+
+
+### Advisor
+
+``` {r}
+pretty_table(emm_h2[[2]])
+```
+
+:::
+
+
+
+## Multiple Comparisons
+
+``` {r}
+pretty_table(emm_h2[[3]])
+```
+
+
+
+
+# WOA: Two-Step Hurdle Model
+
+> 3) The weight of advice (WOA) will be higher for a human advisor than an AI
+> advisor with no CE certification (replicating Study 1).
+> 4) The WOA will be higher for an AI with a certification label than an AI
+> with no certification label.
+
+Regarding Step 1, there is no significant evidence that the probability
+of updating varies between advisors. For Step 2, there is a marginal
+main effect of advisor on the magnitude of the update; specifically, the
+update is marginally greater for human advisors than for AI systems. H4
+is not supported as there is no significant difference between the
+certified and non-certified AI systems.
+
+
+
+## Step #1: Probability of Updating
+
+
+### ANOVA
+
+``` {r}
+pretty_table(nice(m_h3h4_1))
+```
+
+
+### Estimated Marginal Means
+
+::: {.panel-tabset group="Group"}
+
+#### Overall
+
+``` {r}
+pretty_table(emm_h3h4_1[[1]])
+```
+
+#### Advisor
+
+``` {r}
+pretty_table(emm_h3h4_1[[2]])
+```
+
+:::
+
+
+
+## Step #2: Magnitude of the Update
+
+
+### ANOVA
+
+``` {r}
+pretty_table(nice(m_h3h4_2))
+```
+
+### Estimated Marginal Means
+
+::: {.panel-tabset group="Group"}
+
+#### Overall
+
+``` {r}
+pretty_table(emm_h3h4_2[[1]])
+```
+
+#### Advisor
+
+``` {r}
+pretty_table(emm_h3h4_2[[2]])
+```
+
+:::
+
+
+### Multiple Comparisons
+
+``` {r}
+pretty_table(emm_h3h4_2[[3]])
+```
+
+
+
+
+# Perceived Trust
+
+> 5) Trust in the advisor will be higher for an AI with a certification
+> label than an AI with no certification label.
+
+H5 is not supported. While there is a strong main effect of advisor type
+on trust, this is driven by higher trust in human employees compared to
+both AI systems. There is no significant difference in trust between
+certified and non-certified AI systems.
+
+
+
+## ANOVA
+
+``` {r}
+pretty_table(nice(m_h5))
+```
+
+
+
+## Estimated Marginal Means
+
+::: {.panel-tabset group="Group"}
+
+
+### Overall
+
+``` {r}
+pretty_table(emm_h5[[1]])
+```
+
+
+### Advisor
+
+``` {r}
+pretty_table(emm_h5[[2]])
+```
+
+:::
+
+
+
+## Multiple Comparisons
+``` {r}
+pretty_table(emm_h5[[3]])
+```
+
+
+# Mediation Analysis
+
+> 6) Higher trust in the advisor will be associated with a higher WOA.
+> 7) Trust in the advisor will mediate the relationship between the type of
+> advisor and WOA.
+
+For the probability of updating, there is a significant indirect effect
+through trust despite the absence of a significant total effect. For the
+magnitude of the update, trust significantly mediates the relationship
+between advisor type and WOA, and the total effect is also significant.
+
+
+
+## Step #1: Hurdle Mediation
+
+``` {r}
+pretty_table(parameters(m_b_1, effects = "fixed", exponentiate = TRUE))
+```
+
+``` {r}
+#| code-fold: false
+summary(h7_1)
+```
+
+
+
+## Step #2: Magnitude Mediation
+
+``` {r}
+pretty_table(parameters(m_b_2, effects = "fixed"))
+```
+
+``` {r}
+#| code-fold: false
+summary(h7_2)
+```

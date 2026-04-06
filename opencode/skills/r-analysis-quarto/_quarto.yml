@@ -1,0 +1,109 @@
+project:
+    type: website
+    output-dir: public
+    execute-dir: file
+    resources: static
+    render: # render in order
+        - index.qmd
+        - ps1/
+        - ps2/
+        - ps3/
+        - ps4/
+        - ps5/
+        - ps6/
+        - ps7/
+        - ps8/
+        - s1/
+        - s2/
+        - s3/
+        - s4/
+        - s5/
+        - s6/
+        - s7/
+        - meta/ # must render last to fetch the wrangled data
+    preview:
+        port: 8000
+
+filters:
+    - auto-dark
+
+execute:
+    error: false
+    warning: false
+    echo: true
+
+website:
+    title: "Debias with AI Project"
+    page-footer:
+        left:
+            - text: "Copyright: de Almeida, F., Mendonça, C., Scott, I. J., Santos, J. O., Melita, V., Raposo, J., & Grácio, Ana. (2025)"
+        center:
+            - text: "Licenças:"
+            - text: "GPL-3.0-only"
+              href: https://spdx.org/licenses/GPL-3.0-only.html
+            - text: "or"
+            - text: "CC-BY-SA-4.0"
+              href: https://spdx.org/licenses/CC-BY-SA-4.0.html
+    description: "Statistical reports for the debias with AI project"
+    site-url: https://joao-o-santos.gitlab.io/saideb
+    repo-url: https://gitlab.com/Joao-O-Santos/saideb
+    repo-actions: [source, issue]
+    navbar:
+        search: true
+        pinned: true
+        collapse: true
+        left:
+            - text: "Mini-Meta"
+              menu:
+                  - meta/analysis/report.qmd
+            - text: "Task 1"
+              menu:
+                  - ps1/analysis/report.qmd
+                  - ps2/analysis/report.qmd
+                  - ps3/analysis/report.qmd
+                  - s1/analysis/report.qmd
+            - text: "Task 2"
+              menu:
+                  - ps4/analysis/report.qmd
+                  - ps5/analysis/report.qmd
+                  - ps6/analysis/report.qmd
+                  - s2/analysis/report.qmd
+                  - s3/analysis/report.qmd
+            - text: "Task 3"
+              menu:
+                  - s4/analysis/report.qmd
+            - text: "Additional Studies"
+              menu:
+                  - ps7/analysis/report.qmd
+                  - ps8/analysis/report.qmd
+                  - s5/analysis/report.qmd
+                  - s6/analysis/report.qmd
+            - text: "Labels"
+              menu:
+                  - s7/analysis/report.qmd
+
+format:
+    html:
+        instituion: "UCP"
+        lang: en
+        grid:
+            sidebar-width: 100px
+            body-width: 1500px
+            margin-width: 200px
+        df-print: kable
+        toc: true
+        toc-depth: 3
+        number-sections: true
+        number-depth: 1
+        number-offset: -1
+        code-fold: true
+        code-link: true
+        fig-dpi: 300
+        fig-format: svg
+        theme: spacelab
+        respect-user-color-scheme: true
+
+knitr:
+    opts_chunk:
+        collapse: true
+        comment: "# >"
