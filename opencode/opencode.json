@@ -5,39 +5,76 @@
     "./AGENTS.md"
   ],
   "default_agent": "planner",
-  "model": "mistral/mistral-large-latest",
-  "small_model": "openrouter/qwen/qwen3-coder:free",
-  "agents": {
+  "model": "opencode/qwen3.6-plus-free",
+  "small_model": "opencode/qwen3.6-plus-free",
+  "agent": {
+    "build": {
+      "disable": true
+    },
+    "plan": {
+      "disable": true
+    },
     "planner": {
-      "model": "mistral/mistral-large-latest",
-      "fallback": "openrouter/mistralai/mistral-large-2512",
-      "description": "Primary orchestrator and default agent"
+      "model": "opencode/qwen3.6-plus-free",
+      "fallback": "openrouter/qwen/qwen3.6-plus:free",
+      "description": "Primary orchestrator and default agent",
+      "mode": "primary",
+      "permission": {
+        "edit": "deny",
+        "bash": "deny",
+        "webfetch": "allow",
+        "task": {
+          "*": "allow"
+        }
+      }
+    },
+    "automation": {
+      "model": "openrouter/xiaomi/mimo-v2-flash",
+      "fallback": "openrouter/minimax/minimax-m1",
+      "description": "Shell/git automation with direct bash access",
+      "mode": "primary",
+      "permission": {
+        "edit": "deny",
+        "bash": "allow",
+        "webfetch": "allow",
+        "task": {
+          "*": "allow"
+        }
+      }
     },
     "writer": {
-      "model": "openrouter/deepseek/deepseek-chat-v3.1:free",
+      "model": "opencode/neomotron-3-super-free",
+      "fallback": "mistral/mistral-small-latest",
       "description": "Unified manuscript drafting (empirical/theoretical)"
     },
     "reviewer": {
-      "model": "openrouter/qwen/qwen3.6-plus:free",
+      "model": "opencode/neomotron-3-super-free",
+      "fallback": "mistral/mistral-large-latest",
       "description": "Critique and revision memos"
     },
     "guard": {
-      "model": "openrouter/qwen/qwen3.6-plus:free",
+      "model": "opencode/qwen3.6-plus-free",
+      "fallback": "openrouter/qwen/qwen3.6-plus:free",
       "description": "Safety checkpoints and regression control"
     },
     "literature-review": {
-      "model": "openrouter/perplexity/sonar-pro",
-      "description": "Academic search and paper summaries"
+      "model": "openrouter/google/gemini-3.1-flash-lite-preview:online",
+      "description": "Fast academic search and paper summaries"
+    },
+    "deep-research": {
+      "model": "openrouter/alibaba/tongyi-deepresearch-30b-a3b",
+      "description": "Exhaustive multi-step research via Tongyi DeepResearch",
+      "mode": "subagent",
+      "permission": {
+        "webfetch": "allow",
+        "edit": "deny",
+        "bash": "deny"
+      }
     },
     "r-analysis": {
-      "model": "mistral/devstral-2",
-      "fallback": "openrouter/qwen/qwen3-coder:free",
+      "model": "openrouter/qwen/qwen3-coder:free",
+      "fallback": "openrouter/qwen/qwen3-coder",
       "description": "R/Quarto pipeline edits"
-    },
-    "automation": {
-      "model": "mistral/devstral-2",
-      "fallback": "openrouter/qwen/qwen3-coder:free",
-      "description": "Shell/git automation"
     }
   }
 }

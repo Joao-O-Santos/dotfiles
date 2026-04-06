@@ -1,6 +1,5 @@
 ---
 description: Unified manuscript writer. Drafts empirical or theoretical sections based on loaded skill. Replaces empirical-writer and theoretical-writer.
-model: openrouter/deepseek/deepseek-chat-v3.1:free
 temperature: 0.4
 ---
 

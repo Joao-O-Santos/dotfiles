@@ -6,13 +6,14 @@ This file defines the agent roster, routing logic, workflow modes, checkpoint sc
 
 | Agent | Mode | Model | Fallback | Responsibility |
 |-------|------|-------|----------|----------------|
-| `planner` | primary | `mistral/mistral-large-latest` | `openrouter/mistralai/mistral-large-2512` | Orchestrator, task decomposition, routing |
-| `writer` | primary | `openrouter/deepseek/deepseek-chat-v3.1:free` | – | Unified manuscript drafting (empirical/theoretical) |
-| `reviewer` | subagent | `openrouter/qwen/qwen3.6-plus:free` | – | Critique and revision memos |
-| `guard` | primary | `openrouter/qwen/qwen3.6-plus:free` | – | Safety checkpoints and regression control |
-| `literature-review` | subagent | `openrouter/perplexity/sonar-pro` | – | Academic search and paper summaries |
-| `r-analysis` | subagent | `mistral/devstral-2` | `openrouter/qwen/qwen3-coder:free` | R/Quarto pipeline edits |
-| `automation` | subagent | `mistral/devstral-2` | `openrouter/qwen/qwen3-coder:free` | Shell/git automation |
+| `planner` | primary | `opencode/qwen3.6-plus-free` | `openrouter/qwen/qwen3.6-plus:free` | Orchestrator, task decomposition, routing (delegates to specialists) |
+| `automation` | primary | `openrouter/xiaomi/mimo-v2-flash` | `openrouter/minimax/minimax-m1` | Direct shell/git automation (not routed through planner); agentic tool-calling optimized |
+| `writer` | subagent | `opencode/neomotron-3-super-free` | `mistral/mistral-small-latest` | Unified manuscript drafting (empirical/theoretical) |
+| `reviewer` | subagent | `opencode/neomotron-3-super-free` | `mistral/mistral-large-latest` | Critique and revision memos |
+| `guard` | subagent | `opencode/qwen3.6-plus-free` | `openrouter/qwen/qwen3.6-plus:free` | Safety checkpoints and regression control |
+| `literature-review` | subagent | `openrouter/google/gemini-3.1-flash-lite-preview:online` | – | Fast academic search and paper summaries |
+| `deep-research` | subagent | `openrouter/alibaba/tongyi-deepresearch-30b-a3b` | – | Exhaustive multi-step research via Tongyi DeepResearch |
+| `r-analysis` | subagent | `openrouter/qwen/qwen3-coder:free` | `openrouter/qwen/qwen3-coder` | R/Quarto pipeline edits; code-generation optimized |
 
 ## Routing Table
 
@@ -20,9 +21,10 @@ This file defines the agent roster, routing logic, workflow modes, checkpoint sc
 |-----------|-------|-------|-------|
 | Empirical manuscript drafting | `writer` | `empirical-paper` | Load skill based on paper type |
 | Theoretical manuscript drafting | `writer` | `theoretical-paper` | Load skill based on paper type |
-| Literature search/summary | `literature-review` | `literature-review` | Use Sonar Pro for deep research |
+| Literature search (fast) | `literature-review` | `literature-review` | Gemini Flash 3.1 online; quick citation lookups |
+| Literature search (deep) | `deep-research` | `deep-research` | Tongyi DeepResearch; systematic reviews and exhaustive coverage |
 | R/Quarto pipeline edits | `r-analysis` | `r-analysis-quarto` | Follow pipeline conventions |
-| Shell/git automation | `automation` | `automation-cli` | Use oksh helpers |
+| Shell/git automation | `automation` | `automation-cli` | Direct bash access; use oksh helpers |
 | Critique/revision memos | `reviewer` | (read-only) | Milestone-based invocation |
 | Safety checkpoints | `guard` | (auto-triggered) | Visible reports |
 
@@ -113,28 +115,33 @@ Guard produces a **visible report** containing:
 ## Model Escalation Path
 
 ### Strategy
-- **Direct API preferred**: Frontier models (`planner`, `r-analysis`, `automation`) use direct Mistral API for maximum capability.
-- **Free OpenRouter for routine tasks**: Lighter agents (`writer`, `reviewer`, `guard`) use OpenRouter free tiers.
-- **Paid specialist**: `literature-review` uses Perplexity Sonar Pro (search-essential; no free alternative).
+- **Free OpenCode for orchestration**: Planner uses `opencode/qwen3.6-plus-free` for routing decisions (lenient quota).
+- **OpenRouter fallback**: If OpenCode quota exhausted, fall back to `openrouter/qwen/qwen3.6-plus:free`.
+- **Specialized free/paid agents**: Writer, reviewer use free Nemotron; r-analysis/automation use free with paid fallback.
+- **Paid specialists**: `literature-review` (Gemini Flash), `deep-research` (Tongyi DeepResearch).
 
-### Tier 1: Direct Mistral API (Frontier)
-- `planner`: `mistral/mistral-large-latest` → `openrouter/mistralai/mistral-large-2512` (orchestration, complex routing)
-- `r-analysis`: `mistral/devstral-2` → `openrouter/qwen/qwen3-coder:free` (R code, statistical analysis)
-- `automation`: `mistral/devstral-2` → `openrouter/qwen/qwen3-coder:free` (shell/git, scripting)
+### Tier 1: Free OpenCode (Orchestration) — Lenient Quota
+- `planner`: `opencode/qwen3.6-plus-free` → `openrouter/qwen/qwen3.6-plus:free` (orchestration, routing)
+- `guard`: `opencode/qwen3.6-plus-free` → `openrouter/qwen/qwen3.6-plus:free` (safety monitoring)
 
-### Tier 2: OpenRouter Free (General Purpose)
-- `writer`: `openrouter/deepseek/deepseek-chat-v3.1:free` (manuscript drafting)
-- `reviewer`: `openrouter/qwen/qwen3.6-plus:free` (critique)
-- `guard`: `openrouter/qwen/qwen3.6-plus:free` (safety monitoring)
+### Tier 2: Specialized Free/Paid (Execution)
+- `writer`: `opencode/neomotron-3-super-free` → `mistral/mistral-small-latest` (manuscript drafting)
+- `reviewer`: `opencode/neomotron-3-super-free` → `mistral/mistral-large-latest` (critique)
+- `r-analysis`: `openrouter/qwen/qwen3-coder:free` → `openrouter/qwen/qwen3-coder` (R code, statistical analysis)
+- `automation`: `openrouter/xiaomi/mimo-v2-flash` → `openrouter/minimax/minimax-m1` (shell/git, agentic tool-calling)
+- `literature-review`: `openrouter/google/gemini-3.1-flash-lite-preview:online` (fast web-augmented search)
 
-### Tier 3: Paid Specialist
-- `literature-review`: `openrouter/perplexity/sonar-pro` (web-augmented academic search)
+### Tier 3: Paid Specialist (Deep Research)
+- `deep-research`: `openrouter/alibaba/tongyi-deepresearch-30b-a3b` (exhaustive multi-step research)
 
 ### Escalation Triggers
-- Complex routing decisions → planner fallback to OpenRouter Mistral Large
-- High-stakes writing (Abstract, key Results) → consider paid model
+- Complex routing decisions → planner fallback to Mistral Large
+- High-stakes writing (Abstract, key Results) → writer may use paid model
 - Ambiguous user requests → planner fallback
+- Complex R code generation → r-analysis fallback to paid Qwen3-Coder
+- Complex shell/git tasks → automation fallback to MiniMax M1
 - Guard-flagged issues requiring judgment → planner fallback
+- Exhaustive literature search → deep-research (Tongyi DeepResearch)
 
 ## Workflow State
 
