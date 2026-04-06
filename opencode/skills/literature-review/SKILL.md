@@ -10,9 +10,7 @@ for empirical and theoretical papers.
 
 ## Tools
 
-- Web/online search capabilities of the current model.
-- When running on `openrouter/perplexity/sonar`, prefer it for deep academic queries
-  because it has built-in web search.
+- Web/online search capabilities via the `webfetch` tool and Gemini Flash.
 - CLI fallbacks: `curl`/`wget` to download open-access PDFs; `pdftotext` to extract text.
 
 ## Sub-workflows

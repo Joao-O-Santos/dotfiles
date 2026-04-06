@@ -8,11 +8,11 @@ This file defines the agent roster, routing logic, workflow modes, checkpoint sc
 |-------|------|-------|----------|----------------|
 | `planner` | primary | `opencode/qwen3.6-plus-free` | `openrouter/qwen/qwen3.6-plus:free` | Orchestrator, task decomposition, routing (delegates to specialists) |
 | `automation` | primary | `openrouter/xiaomi/mimo-v2-flash` | `openrouter/minimax/minimax-m1` | Direct shell/git automation (not routed through planner); agentic tool-calling optimized |
-| `writer` | subagent | `opencode/neomotron-3-super-free` | `mistral/mistral-small-latest` | Unified manuscript drafting (empirical/theoretical) |
-| `reviewer` | subagent | `opencode/neomotron-3-super-free` | `mistral/mistral-large-latest` | Critique and revision memos |
+| `writer` | subagent | `mistral/mistral-small-latest` | `mistral/mistral-small-latest` | Unified manuscript drafting (empirical/theoretical) |
+| `reviewer` | subagent | `mistral/mistral-large-latest` | `mistral/mistral-large-latest` | Critique and revision memos |
 | `guard` | subagent | `opencode/qwen3.6-plus-free` | `openrouter/qwen/qwen3.6-plus:free` | Safety checkpoints and regression control |
-| `literature-review` | subagent | `openrouter/google/gemini-3.1-flash-lite-preview:online` | – | Fast academic search and paper summaries |
-| `deep-research` | subagent | `openrouter/alibaba/tongyi-deepresearch-30b-a3b` | – | Exhaustive multi-step research via Tongyi DeepResearch |
+| `literature-review` | subagent | `google/gemini-3.1-flash-lite-preview` | – | Fast academic search and paper summaries |
+| `deep-research` | subagent | `openrouter/alibaba/tongyi-deepresearch-30b-a3b` | `openrouter/google/gemini-2.5-pro` | Exhaustive multi-step research via Tongyi DeepResearch |
 | `r-analysis` | subagent | `openrouter/qwen/qwen3-coder:free` | `openrouter/qwen/qwen3-coder` | R/Quarto pipeline edits; code-generation optimized |
 
 ## Routing Table
@@ -125,14 +125,14 @@ Guard produces a **visible report** containing:
 - `guard`: `opencode/qwen3.6-plus-free` → `openrouter/qwen/qwen3.6-plus:free` (safety monitoring)
 
 ### Tier 2: Specialized Free/Paid (Execution)
-- `writer`: `opencode/neomotron-3-super-free` → `mistral/mistral-small-latest` (manuscript drafting)
-- `reviewer`: `opencode/neomotron-3-super-free` → `mistral/mistral-large-latest` (critique)
+- `writer`: `mistral/mistral-small-latest` (manuscript drafting)
+- `reviewer`: `mistral/mistral-large-latest` (critique)
 - `r-analysis`: `openrouter/qwen/qwen3-coder:free` → `openrouter/qwen/qwen3-coder` (R code, statistical analysis)
 - `automation`: `openrouter/xiaomi/mimo-v2-flash` → `openrouter/minimax/minimax-m1` (shell/git, agentic tool-calling)
-- `literature-review`: `openrouter/google/gemini-3.1-flash-lite-preview:online` (fast web-augmented search)
+- `literature-review`: `openrouter/google/gemini-flash-1.5-8b` (fast web-augmented search)
 
 ### Tier 3: Paid Specialist (Deep Research)
-- `deep-research`: `openrouter/alibaba/tongyi-deepresearch-30b-a3b` (exhaustive multi-step research)
+- `deep-research`: `openrouter/alibaba/tongyi-deepresearch-30b-a3b` → `openrouter/google/gemini-2.5-pro` (exhaustive multi-step research)
 
 ### Escalation Triggers
 - Complex routing decisions → planner fallback to Mistral Large

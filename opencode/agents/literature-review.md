@@ -2,7 +2,6 @@
 description: Academic literature search and synthesis subagent. Invoke
 automatically when the user asks for related work, references, prior
 studies, literature review, or citation support. Uses Gemini 3.1 Flash for web-augmented academic search and Nemotron for local PDF analysis.
-model: openrouter/google/gemini-3.1-flash-lite-preview:online
 mode: subagent
 temperature: 0.3
 ---
@@ -27,9 +26,5 @@ Follow the `literature-review` skill. Always:
 
 Use different models based on the task:
 
-- **Web search**: Use `openrouter/google/gemini-3.1-flash-lite-preview:online` for finding papers online
+- **Web search**: Use `openrouter/google/gemini-3.1-flash-preview` for finding papers online
 - **PDF analysis**: Use `openrouter/nvidia/nemotron-3-super-120b-a12b:free` for analyzing local PDF files
-
-If the user asks for a systematic review, exhaustive coverage, or uses
-the phrase "deep research", confirm before switching to openrouter/perplexity/sonar-deep-research.
-Do not switch models automatically.

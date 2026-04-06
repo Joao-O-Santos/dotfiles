@@ -9,8 +9,8 @@ license: MIT
 # Skill: deep-research
 
 Conduct exhaustive, multi-angle research on a topic using the model's
-built-in iterative search. Return structured output only — no
-fabrication, no invented citations.
+built-in iterative search. Since you have file edit permissions, save your
+structured findings directly to markdown files (e.g., in a `notes/` or `research/` directory) — no fabrication, no invented citations.
 
 ## When to use
 

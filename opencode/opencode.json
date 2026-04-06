@@ -6,7 +6,7 @@
   ],
   "default_agent": "planner",
   "model": "opencode/qwen3.6-plus-free",
-  "small_model": "opencode/qwen3.6-plus-free",
+  "small_model": "openrouter/qwen/qwen3.6-plus:free",
   "agent": {
     "build": {
       "disable": true
@@ -43,31 +43,40 @@
       }
     },
     "writer": {
-      "model": "opencode/neomotron-3-super-free",
-      "fallback": "mistral/mistral-small-latest",
-      "description": "Unified manuscript drafting (empirical/theoretical)"
+      "model": "mistral/mistral-small-latest",
+      "fallback": "mistralai/mistral-small-2603",
+      "description": "Unified manuscript drafting (empirical/theoretical)",
+      "permission": {
+        "edit": "allow",
+        "webfetch": "allow",
+        "bash": "deny"
+      }
     },
     "reviewer": {
-      "model": "opencode/neomotron-3-super-free",
-      "fallback": "mistral/mistral-large-latest",
+      "model": "mistral/mistral-large-latest",
+      "fallback": "openrouter/mistralai",
       "description": "Critique and revision memos"
     },
     "guard": {
-      "model": "opencode/qwen3.6-plus-free",
+      "model": "mistral/mistral-large-latest",
       "fallback": "openrouter/qwen/qwen3.6-plus:free",
       "description": "Safety checkpoints and regression control"
     },
     "literature-review": {
-      "model": "openrouter/google/gemini-3.1-flash-lite-preview:online",
-      "description": "Fast academic search and paper summaries"
+      "model": "openrouter/google/gemini-3.1-flash-lite-preview",
+      "description": "Fast academic search and paper summaries",
+      "permission": {
+        "webfetch": "allow"
+      }
     },
     "deep-research": {
       "model": "openrouter/alibaba/tongyi-deepresearch-30b-a3b",
+      "fallback": "openrouter/google/gemini-2.5-pro",
       "description": "Exhaustive multi-step research via Tongyi DeepResearch",
       "mode": "subagent",
       "permission": {
         "webfetch": "allow",
-        "edit": "deny",
+        "edit": "allow",
         "bash": "deny"
       }
     },
