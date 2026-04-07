@@ -27,7 +27,7 @@ Data flow (do not alter without approval):
 - Main dataset: `ds`. Subset when needed: `voi` (only when `ds` must survive).
 - Object naming: models `m_<label>`, ANOVA tables `aov_<label>`, emmeans `emm_<label>`
 - Use lists of specs to supply to get every emm and comparison emmeans,
-  ex: `emmeans(m, list(~ 1, pairwise ~ A, pairwise ~ B, pairwise ~ A  B, pairwie ~ B | A))`
+  ex: `emmeans(m, list(~ 1, pairwise ~ A, pairwise ~ B, pairwise ~ A  B, pairwise ~ B | A))`
 - Use base pipe `|>` only; never `%>%`.
 - Pipes only when they materially improve readability.
 - `snake_case` identifiers throughout.

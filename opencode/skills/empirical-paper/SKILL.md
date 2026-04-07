@@ -6,7 +6,7 @@ description: Use when writing or revising empirical manuscript sections (Abstrac
 # Skill: empirical-paper
 
 Write and revise empirical manuscripts from completed analyses, following STYLE.md
-and structure_and_style.md.
+and structure.md.
 
 ## Required context
 

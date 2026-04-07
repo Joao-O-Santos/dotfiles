@@ -24,7 +24,7 @@ When standards conflict, follow Gold over Silver and Silver over Bronze, while s
 
 - Prefer **concrete, example-rich explanations** when introducing concepts or arguments, using short illustrative scenarios, analogies, or examples when helpful.
 
-- Use **first-person plural** (“we”) in papers when it is standard for the venue, especially in methods and discussions; avoid first person in neutral background reports unless explicitly requested.
+- Use **first-person plural** ("we") in papers when it is standard for the venue, especially in methods and discussions; avoid first person in neutral background reports unless explicitly requested.
 
 ## 4. High-Level Workflow (All Writing Tasks)
 
@@ -64,7 +64,7 @@ Short connector or transition paragraphs without a full hamburger structure are 
 
 ### 5.3 Signposting
 
-- Use **explicit signposting in early drafts** (“In this section, we do X…”) to clarify structure during planning and drafting.
+- Use **explicit signposting in early drafts** ("In this section, we do X…") to clarify structure during planning and drafting.
 - In later revisions, refine or remove overt signposting phrases so that:
   - The **structure remains transparent** to the reader, who can still form a clear mental map of the paper.
   - The prose feels natural and narrative, rather than like a list of section previews.
@@ -82,7 +82,7 @@ Short connector or transition paragraphs without a full hamburger structure are 
 
 - Bring the **main verb early** in the sentence where possible so readers do not have to hold long noun phrases in memory before understanding the action.
 - Follow the **end-weight principle**: place longer or more complex phrases toward the end of sentences, keeping early positions simpler.
-- Use **topic → comment** ordering: start sentences with familiar information (“topic”) before introducing new or surprising information (“comment”).
+- Use **topic → comment** ordering: start sentences with familiar information ("topic") before introducing new or surprising information ("comment").
 
 ### 6.3 Negation and Logical Structure
 
@@ -92,12 +92,12 @@ Short connector or transition paragraphs without a full hamburger structure are 
 ### 6.4 Word Choice and Concision
 
 - Prefer **concrete, specific words** and short, familiar terms over abstract nominalizations and jargon, especially in topic sentences and hooks.
-- Remove redundancy and filler (“it is important to note that,” “in order to,” etc.) unless rhythm or emphasis requires it.
+- Remove redundancy and filler ("it is important to note that," "in order to," etc.) unless rhythm or emphasis requires it.
 - Maintain consistent terminology for variables, conditions, and constructs across text, tables, figures, and code (e.g., `WOA`, `advisor`, `race`, etc.).
 
-### 6.5 Text Width
+### 6.5 Text Width (MANDATORY)
 
-- Hard-wrap all prose output to **72 characters** per line. This applies to drafted and revised sections, not code blocks or tables.
+- **MANDATORY**: All prose output must be hard-wrapped to **72 characters** per line. This applies to all drafted and revised sections, not code blocks or tables. Use a text editor with a wrap column set to 72, or manually hard-wrap each paragraph before submission.
 
 ### 6.6 Titles
 
@@ -113,5 +113,90 @@ Short connector or transition paragraphs without a full hamburger structure are 
   - A **reverse outline** for existing drafts, including notes about gaps, redundancy, and possible reordering.
 - Defer to the user on substantive choices such as:
   - Which limitations to emphasize.
-  - Desired strength of claims (e.g., “suggests” vs “demonstrates”).
+  - Desired strength of claims (e.g., "suggests" vs "demonstrates").
   - Which secondary analyses (from `3-extra_analysis.R`) belong in the main text versus supplements or footnotes.
+
+## 8. Heading Line Breaks
+
+Use the following blank lines before headings:
+
+- **4 blank lines** before H1 (title)
+- **3 blank lines** before H2 (major section)
+- **2 blank lines** before H3 (subsection)
+- **1 blank line** before H4 (minor subsection)
+
+Example:
+```
+
+
+# H1 Title
+
+
+
+## H2 Section
+
+### H3 Subsection
+
+#### H4 Sub-subsection
+
+```
+
+## 9. OpenXML Page Breaks
+
+To insert a page break in documents that will be converted to Word (via `twrd`), use:
+
+```{=openxml}
+<w:p><w:r><w:br w:type="page"/></w:r></w:p>
+```
+
+Place this code block where a page break is needed (e.g., before Abstract, before References).
+
+## 10. Custom Styles for Word Conversion
+
+When converting markdown to Word, use custom Pandoc attributes to apply Word styles. The following custom styles are supported:
+
+- **`{custom-style="Title"}`** – Applied to the paper title (use before H1)
+- **`{custom-style="Abstract"}`** – Applied to the Abstract section
+- **`{custom-style="Figure"}`** – Applied to figure captions
+- **`{custom-style="Compact"}`** – Applied to compact lists or narrow columns
+- **`{custom-style="References"}`** – Applied to the References section
+
+### Usage Examples
+
+Title:
+```markdown
+::: {custom-style="Title"}
+# Paper Title
+:::
+```
+
+Abstract:
+```markdown
+::: {custom-style="Abstract"}
+
+# Abstract
+
+Abstract text here...
+
+:::
+```
+
+Figure caption:
+```markdown
+::: {custom-style="Figure"}
+**Figure 1.** Description of figure.
+:::
+```
+
+References:
+```markdown
+::: {custom-style="References"}
+
+## References
+
+[reference entries...]
+
+:::
+```
+
+Do NOT remove these custom styles when editing existing documents. Preserve them exactly as they appear in the source file.

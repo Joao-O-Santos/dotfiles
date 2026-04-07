@@ -34,12 +34,9 @@
       "description": "Shell/git automation with direct bash access",
       "mode": "primary",
       "permission": {
-        "edit": "deny",
+        "edit": "allow",
         "bash": "allow",
-        "webfetch": "allow",
-        "task": {
-          "*": "allow"
-        }
+        "webfetch": "allow"
       }
     },
     "writer": {
@@ -55,18 +52,31 @@
     "reviewer": {
       "model": "mistral/mistral-large-latest",
       "fallback": "openrouter/mistralai/mistral-large-latest",
-      "description": "Critique and revision memos"
+      "description": "Critique and revision memos",
+      "permission": {
+        "edit": "deny",
+        "bash": "deny",
+        "webfetch": "allow"
+      }
     },
     "guard": {
       "model": "opencode/minimax-m2.5-free",
       "fallback": "mistral/mistral-medium-latest",
-      "description": "Safety checkpoints and regression control"
+      "description": "Safety checkpoints and regression control",
+      "permission": {
+        "edit": "deny",
+        "bash": "allow",
+        "webfetch": "deny"
+      }
     },
     "literature-review": {
       "model": "openrouter/google/gemini-3.1-flash-lite-preview",
       "fallback": "openrouter/google/gemini-3.1-flash-preview",
       "description": "Fast academic search and paper summaries",
+      "mode": "subagent",
       "permission": {
+        "edit": "deny",
+        "bash": "deny",
         "webfetch": "allow"
       }
     },
@@ -77,14 +87,19 @@
       "mode": "subagent",
       "permission": {
         "webfetch": "allow",
-        "edit": "allow",
+        "edit": "deny",
         "bash": "deny"
       }
     },
     "r-analysis": {
-      "model": "mistral/devstral-2",
+      "model": "mistral/devstral-latest",
       "fallback": "openrouter/qwen/qwen3-coder",
-      "description": "R/Quarto pipeline edits"
+      "description": "R/Quarto pipeline edits",
+      "permission": {
+        "edit": "allow",
+        "bash": "allow",
+        "webfetch": "allow"
+      }
     }
   }
 }

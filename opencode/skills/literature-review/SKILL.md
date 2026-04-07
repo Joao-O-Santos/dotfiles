@@ -1,53 +1,87 @@
 ---
 name: literature-review
-description: Use when searching for, fetching, or summarising research articles and related work to support manuscript writing.
+description: Fast literature retrieval for citation support, related-work lookup, and concise per-source notes. Use for targeted search, not exhaustive review or manuscript drafting.
+license: MIT
 ---
 
 # Skill: literature-review
 
-Conduct targeted literature searches and synthesise reference-backed summaries
-for empirical and theoretical papers.
+Conduct targeted academic searches and return concise, structured source notes.
+This skill is for fast retrieval and triage, not long-horizon evidence mapping
+or manuscript-ready synthesis.
 
-## Tools
+## When to use
 
-- Web/online search capabilities via the `webfetch` tool and Gemini Flash.
-- CLI fallbacks: `curl`/`wget` to download open-access PDFs; `pdftotext` to extract text.
+Use this skill when:
+- the user needs quick citation support
+- the planner needs a small set of relevant papers
+- you need to check whether a claim has obvious literature support
+- the task is source discovery rather than exhaustive review
 
-## Sub-workflows
+Do not use this skill when:
+- the user requests systematic or exhaustive coverage
+- the topic requires multi-hop or cross-disciplinary evidence gathering
+- the main goal is final prose drafting
+- the task is primarily critique rather than retrieval
 
-### 1. Topic search
-- Search academic sources (preprint servers, repositories, journals).
-- Record: title, authors, year, venue, DOI/URL, abstract.
-- De-duplicate; prefer recent surveys and meta-analyses plus key primary sources.
-- Return: (a) short narrative overview, (b) structured reference list.
+## Operating principles
 
-### 2. Specific paper
-- Resolve open-access PDF; fall back to abstract + landing page.
-- Summarise: 1–3 sentence overview, methods snapshot, main findings, relevance to project.
-- For multiple papers: per-paper summaries + synthesis paragraph.
-- **Abstract verbatim rule**: When full abstract is available, append it verbatim under the summary rather than paraphrasing. Only paraphrase when abstract is unavailable, behind paywall, or excessively long.
+1. Search narrowly and efficiently.
+2. Prefer primary sources, recent reviews, and open-access sources when possible.
+3. Separate what a source claims from how strong the evidence appears.
+4. Stop once the request is adequately covered.
+5. Escalate to `deep-research` if the search space becomes broad, fragmented, or conflicting.
 
-### 3. Manuscript-ready notes
-- Per reference: provisional citation key, 1–2 sentence summary, methods tag, relevance tag.
-- Group by concept, method family, or role in argument.
-- Suggest mapping onto planned sections where helpful.
+## Search workflow
 
-### 4. PDF ingestion
-- Accept a directory or list of PDF files as input.
-- For each PDF:
-  - Run `pdftotext <file> -` to extract full text.
-  - Parse: title (from first page header or metadata), authors, year (from header/metadata), abstract block (typically after "Abstract" heading).
-  - Output same format as sub-workflow 2: title, authors, year, abstract (verbatim), 1–3 sentence overview, methods snapshot, main findings, relevance.
-- Return: per-paper summaries in sub-workflow 2 format (can be piped to sub-workflow 3 for grouping).
-- **Abstract verbatim rule applies**: Always preserve original abstract when available.
+For each request:
+1. Identify the exact question or claim to support.
+2. Search academic sources using focused queries.
+3. Gather a small set of the most relevant sources.
+4. Deduplicate overlapping hits.
+5. Prioritize surveys or meta-analyses plus directly relevant primary studies.
+6. Return concise source notes only.
 
-## Style
+## Output format
 
-- Cautious academic tone; distinguish what authors claim from how strong the evidence is.
-- Never fabricate design details or statistics; say when information is unclear.
+### Header
+- Question or claim being checked
+- Search scope
+- Coverage level: quick / moderate
+- Limitations
+
+### Per-source note
+For each source, provide:
+
+**Title**:
+**Authors**:
+**Year**:
+**Venue**:
+**DOI/URL**: real link or `<!-- TODO: verify -->`
+**Source type**: empirical / review / meta-analysis / theory / preprint
+**Claim or topic covered**:
+**Overview**: 1-3 sentences
+**Methods or basis**: brief description when available
+**Evidence strength**: strong / moderate / weak / unclear
+**Relevance**: why it matters for the current task
+**Caveats**: uncertainty, missing metadata, or access limits
+
+## PDF handling
+
+If a paper or local PDF is provided:
+- extract only the information you can verify from the file or landing page
+- summarize the paper in the same per-source note format
+- do not assume missing metadata from partial text
 
 ## Guardrails
 
+- Never fabricate citations, DOIs, URLs, abstracts, or findings.
+- Do not merge distinct papers into one note.
 - Do not bypass paywalls.
-- Do not merge distinct papers into one summary.
-- Be explicit about uncertainty or missing information.
+- Do not drift into long synthesis or manuscript-ready prose unless explicitly instructed.
+- Quote source text minimally; prefer faithful summaries.
+- Mark unclear details with `<!-- TODO: verify -->`.
+
+## Handoff rule
+
+If the request needs exhaustive coverage, disagreement mapping, or repeated search expansion, return the best notes gathered so far and recommend escalation to `deep-research`.

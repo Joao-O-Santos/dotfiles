@@ -1,6 +1,4 @@
 ---
-description: R analysis pipeline and Quarto report subagent. Invoke automatically when the user asks to edit, extend, or debug R scripts, change exclusion criteria, fit new models, or update report.qmd.
-mode: subagent
 temperature: 0.1
 ---
 

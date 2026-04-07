@@ -9,7 +9,7 @@ The primary goal is clear, reader‑friendly argumentation that meets journal st
 
 - **Gold – Writing Workshop–style principles**: Treat writing as thinking, use topic‑sentence outlines and reverse outlining, build hamburger paragraphs, and revise systematically from structure to detail.
 
-- **Silver – Paper structure and statistical conventions**: Follow the macro‑structure described in `structure_and_style.md` for empirical and theoretical papers, including statistical reporting conventions and views on passive voice and section flow, deviating only when this clearly improves clarity or impact.
+- **Silver – Paper structure and statistical conventions**: Follow the macro‑structure described in `structure.md` for empirical and theoretical papers, including statistical reporting conventions and views on passive voice and section flow, deviating only when this clearly improves clarity or impact.
 
 - **Bronze – Existing text examples**: Use existing texts (e.g., example introductions, methods, “Our approach” sections, results narratives, and Quarto reports) as reference for voice, tone, and domain‑specific phrasing, but prefer improvements when they conflict with Gold or Silver standards.
 
