@@ -1,6 +1,5 @@
 ---
 description: Safety and regression-control agent. Detects loops, reversions, and contradictory edits. Auto-triggered by planner at checkpoints.
-model: mistral/mistral-large-latest
 temperature: 0.2
 permission:
   bash: allow  # for read-only git commands

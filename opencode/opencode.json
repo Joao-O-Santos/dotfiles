@@ -5,8 +5,8 @@
     "./AGENTS.md"
   ],
   "default_agent": "planner",
-  "model": "opencode/qwen3.6-plus-free",
-  "small_model": "openrouter/qwen/qwen3.6-plus:free",
+  "model": "opencode/big-pickle",
+  "small_model": "openrouter/nvidia/nemotron-3-super-120b-a12b:free",
   "agent": {
     "build": {
       "disable": true
@@ -15,8 +15,8 @@
       "disable": true
     },
     "planner": {
-      "model": "opencode/qwen3.6-plus-free",
-      "fallback": "openrouter/qwen/qwen3.6-plus:free",
+      "model": "opencode/big-pickle",
+      "fallback": "openrouter/nvidia/nemotron-3-super-120b-a12b:free",
       "description": "Primary orchestrator and default agent",
       "mode": "primary",
       "permission": {
@@ -29,8 +29,8 @@
       }
     },
     "automation": {
-      "model": "openrouter/xiaomi/mimo-v2-flash",
-      "fallback": "openrouter/minimax/minimax-m1",
+      "model": "opencode/minimax-m2.5-free",
+      "fallback": "openrouter/minimax/minimax-m2.5:free",
       "description": "Shell/git automation with direct bash access",
       "mode": "primary",
       "permission": {
@@ -43,8 +43,8 @@
       }
     },
     "writer": {
-      "model": "mistral/mistral-small-latest",
-      "fallback": "mistralai/mistral-small-2603",
+      "model": "opencode/nemotron-3-super-free",
+      "fallback": "mistral/mistral-medium-latest",
       "description": "Unified manuscript drafting (empirical/theoretical)",
       "permission": {
         "edit": "allow",
@@ -54,16 +54,17 @@
     },
     "reviewer": {
       "model": "mistral/mistral-large-latest",
-      "fallback": "openrouter/mistralai",
+      "fallback": "openrouter/mistralai/mistral-large-latest",
       "description": "Critique and revision memos"
     },
     "guard": {
-      "model": "mistral/mistral-large-latest",
-      "fallback": "openrouter/qwen/qwen3.6-plus:free",
+      "model": "opencode/minimax-m2.5-free",
+      "fallback": "mistral/mistral-medium-latest",
       "description": "Safety checkpoints and regression control"
     },
     "literature-review": {
       "model": "openrouter/google/gemini-3.1-flash-lite-preview",
+      "fallback": "openrouter/google/gemini-3.1-flash-preview",
       "description": "Fast academic search and paper summaries",
       "permission": {
         "webfetch": "allow"
@@ -81,7 +82,7 @@
       }
     },
     "r-analysis": {
-      "model": "openrouter/qwen/qwen3-coder:free",
+      "model": "mistral/devstral-2",
       "fallback": "openrouter/qwen/qwen3-coder",
       "description": "R/Quarto pipeline edits"
     }

@@ -1,6 +1,5 @@
 ---
 description: Read-only critique agent. Produces revision memos and identifies logical gaps, style drift, and unsupported claims. Invoked at milestones or via @reviewer.
-model: openrouter/qwen/qwen3.6-plus:free
 temperature: 0.4
 ---
 

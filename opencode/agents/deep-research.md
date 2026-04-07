@@ -4,13 +4,8 @@ description: Exhaustive multi-step research agent using Tongyi
   reviews, complex background questions, and deep evidence gathering.
   Invoke when user asks for "deep research" or exhaustive coverage —
   not for quick citation lookups (use literature-review instead).
-model: openrouter/alibaba/tongyi-deepresearch-30b-a3b
 mode: subagent
 temperature: 0.3
-permission:
-  webfetch: allow
-  edit: deny
-  bash: deny
 ---
 
 Follow the `deep-research` skill for output format and guardrails.
