@@ -33,12 +33,12 @@ If this file and `opencode.json` disagree about runtime behavior,
 |-------|------|----------------|
 | `planner` | primary | Orchestrator, task decomposition, routing, workflow-state management |
 | `automation` | primary | Shell, git, and terminal-native execution |
-| `writer` | subagent | Manuscript drafting and revision |
-| `reviewer` | subagent | Read-only critique, claim checking, revision memos |
+| `writer` | primary | Manuscript drafting and revision |
+| `reviewer` | primary | Read-only critique, claim checking, revision memos |
 | `guard` | subagent | Safety checkpoints, regression control, loop detection |
 | `literature-review` | subagent | Fast literature search and structured source notes |
 | `deep-research` | subagent | Exhaustive multi-step evidence gathering |
-| `r-analysis` | subagent | R / Quarto pipeline edits and statistical-code changes |
+| `r-analysis` | primary | R / Quarto pipeline edits and statistical-code changes |
 
 ## Routing Table
 
@@ -109,6 +109,21 @@ Guard flags:
 - repeated low-information tool-use patterns
 - wrong-directory or wrong-pattern probing that continues after failure
 - oscillation between prior states without net improvement
+
+### Delegation-time prevention (mandatory)
+To prevent loops before they start, every agent delegation must include explicit stop-loss limits:
+- max 6 tool calls unless user-approved
+- stop after 2 failed path/file lookups
+- stop after 3 similar search attempts without useful hit
+- stop after 4 calls with no new material evidence/state change
+- If a strategy fails once, do not repeat without changing scope and explaining why.
+- When a limit triggers, return immediately with a blocker report containing:
+  - objective
+  - attempts made
+  - evidence found
+  - blocker
+  - recommended next step (reroute / broaden search / ask user)
+Note: Hard interruption of in-flight subagent calls may be unavailable, so delegation-time caps are required for effective loop control.
 
 ## Checkpoint Schedule
 

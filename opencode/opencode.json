@@ -43,6 +43,7 @@
       "model": "opencode/nemotron-3-super-free",
       "fallback": "mistral/mistral-medium-latest",
       "description": "Unified manuscript drafting (empirical/theoretical)",
+      "mode": "primary",
       "permission": {
         "edit": "allow",
         "webfetch": "allow",
@@ -53,6 +54,7 @@
       "model": "mistral/mistral-large-latest",
       "fallback": "openrouter/mistralai/mistral-large-latest",
       "description": "Critique and revision memos",
+      "mode": "primary",
       "permission": {
         "edit": "deny",
         "bash": "deny",
@@ -63,6 +65,7 @@
       "model": "opencode/minimax-m2.5-free",
       "fallback": "mistral/mistral-medium-latest",
       "description": "Safety checkpoints and regression control",
+      "mode": "subagent",
       "permission": {
         "edit": "deny",
         "bash": "allow",
@@ -95,6 +98,7 @@
       "model": "mistral/devstral-latest",
       "fallback": "openrouter/qwen/qwen3-coder",
       "description": "R/Quarto pipeline edits",
+      "mode": "primary",
       "permission": {
         "edit": "allow",
         "bash": "allow",

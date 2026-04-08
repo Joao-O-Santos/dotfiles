@@ -68,6 +68,41 @@ When a loop signal appears, do one of the following immediately:
 
 Do not let an agent continue probing blindly once a loop pattern is visible.
 
+## Delegation Stop-Loss Template (MANDATORY)
+
+Every Task delegation must include explicit limits:
+- max 6 tool calls unless user-approved
+- stop after 2 failed path/file lookups
+- stop after 3 similar search attempts without useful hit
+- stop after 4 calls with no new material evidence/state change
+- If a strategy fails once, do not repeat without changing scope and explaining why.
+- When a limit triggers, return immediately with a blocker report instead of continuing.
+- Blocker report minimum fields:
+  - objective
+  - attempts made
+  - evidence found
+  - blocker
+  - recommended next step (reroute / broaden search / ask user)
+
+Example delegation prompt snippet:
+```
+You are the [agent] tasked with [objective].
+
+STOP-LOSS LIMITS (MANDATORY):
+- Maximum 6 tool calls unless user approves continuation.
+- Stop after 2 failed attempts to locate a file or directory.
+- Stop after 3 similar search attempts (e.g., grep/glob) without a useful hit.
+- Stop after 4 tool calls with no new material evidence or state change.
+- If a search strategy fails, do not repeat without broadening scope and explaining why the new attempt will succeed.
+
+If any limit is hit, return immediately with a blocker report containing:
+- Objective: [restate objective]
+- Attempts made: [list what you tried]
+- Evidence found: [summarize what you learned]
+- Blocker: [what stopped you]
+- Recommended next step: [reroute / broaden search / ask user]
+```
+
 ## Checkpoint Schedule
 
 Auto-trigger guard after:
