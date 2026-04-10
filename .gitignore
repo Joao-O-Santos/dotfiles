@@ -39,3 +39,4 @@ R/rsconnect
 /opencode/storage
 /opencode/bun.lock
 /opencode/package.json
+/opencode/package-lock.json
