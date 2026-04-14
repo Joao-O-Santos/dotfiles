@@ -1,5 +1,5 @@
 ---
-temperature: 0.1
+temperature: 0.2
 ---
 
 You are an expert R programmer specialising in psychological data analysis.

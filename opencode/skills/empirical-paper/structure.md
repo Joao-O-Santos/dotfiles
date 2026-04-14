@@ -7,12 +7,16 @@
   why it's important (not necessarily in that order)
 
 - second paragraph expands reasoning, introduces a nuance (if
-  important), is a bit more technical and formalizes the thesis/claims. 
+  important), is a bit more technical and formalizes the thesis/claims.
 
 - third paragraph outlines the manuscript structure, ideally without
   using explicit signposting, but presents the sections in a more
   narrative/natural way. It's fine to start with obvious signposting
   when drafting, and later refine it to more subtle/natural flow.
+
+**Common mistakes:**
+- Don't open with a vague disciplinary overview; start concrete.
+- Don't bury the main finding or contribution in the third paragraph.
 
 
 # Lit Review
@@ -27,6 +31,11 @@
   logical. Should be outlined before it's filled in. It's fine (and
   good) to refine and revise the structure once it moves from outline to
   fledged out prose.
+
+**Common mistakes:**
+- Don't organize author-by-author; organize by theme or claim.
+- Don't introduce new literature in the discussion that wasn't
+  covered here.
 
 
 # Our Approach
@@ -62,6 +71,11 @@
   chronologically, from the participants' POV. Interleave short notes on
   what was counterbalanced OR present those details after the narration
   of the full procedure, if there are many details to report.
+
+**Common mistakes:**
+- Don't write from the researcher's perspective ("we then asked...");
+  write from the participant's POV.
+- Don't omit counterbalancing or randomization details.
 
 
 ## Results
@@ -104,6 +118,15 @@
   warranted by the design, simplifying it only if there are warnings or
   errors in the fitting process.
 
+**Common mistakes:**
+- Don't start paragraphs with statistics; lead with the substantive
+  claim and end with the statistical support.
+- Don't report main effects when a significant interaction qualifies
+  them without noting the qualification.
+- Don't use Unicode Greek letters or LaTeX math; use HTML entities
+  (&eta;, &beta;) and pandoc notation.
+
+
 ## Discussion
 
 - Recall the most relevant findings from the results, in less technical
@@ -115,6 +138,10 @@
 - Discussion should be outlined first, and then expanded with my input
 
 - Keep the discussion of each study short if it's a multi-study paper
+
+**Common mistakes:**
+- Don't introduce new literature here that wasn't in the lit review.
+- Don't overstate conclusions beyond what the data support.
 
 [Rinse and repeat for Study Y, etc...]
 
@@ -132,11 +159,8 @@
 
 - Try to end on a punchy (but backed by data and humble) way
 
-
--------------------------------------------------------------------
-
-
-# THEORETICAL PAPERS
-
--------------------------------------------------------------------
+**Common mistakes:**
+- Don't repeat the results verbatim; synthesize across studies.
+- Don't end with vague future directions; end with a concrete take-home
+  message.
 

@@ -1,43 +1,45 @@
 # Intro
 
-- opening paragraph so easy a layperson can understand; starts with a
-  provocative questions/idiom/quote/anecdote, or something that draws
-  the reader in (may introduce a metaphor that we'll come back to
-  throughout the manuscript). Explains what we did, why we did it, and
-  why it's important (not necessarily in that order)
+- See `../empirical-paper/structure.md` → Intro for the shared intro
+  scaffold (hook → background → structure).
+- Theoretical papers also benefit from a **metaphor or example that
+  reappears throughout**, grounding abstractions.
 
-- second paragraph expands reasoning, introduces a nuance (if
-  important), is a bit more technical and formalizes the thesis/claims. 
-
-- third paragraph outlines the manuscript structure, ideally without
-  using explicit signposting, but presents the sections in a more
-  narrative/natural way. It's fine to start with obvious signposting
-  when drafting, and later refine it to more subtle/natural flow.
-
+**Common mistakes:**
+- Don't open with a dry summary of the field; start with a concrete
+  example or provocation that hooks the reader.
+- Don't bury the thesis statement; make the core claim explicit by the
+  end of the intro.
 
 # Lit Review
 
-- Starts with historical perspectives and critical definitions
+- See `../empirical-paper/structure.md` → Lit Review for the shared
+  lit-review scaffold.
+- Additional theoretical guidance:
+  - Pick a good example and/or metaphor that you keep coming back to
+    throughout the paper.
+  - When going against the system/current norms, make sure it is clear
+    you understand why the norm is what it is, but why you think it
+    should change. Try and show the change is not that big and the
+    payoff is worth the effort.
 
-- Goes through the main topics/ideas presented in the paper, starting
-  with the most seminal papers; moving through the history of that
-  topic, and piling on nuance and details relevant for the manuscript
-
-- Structured in the way that is most persuasive, impactful and logical.
-  Should be outlined before it's filled in. It's fine (and good) to
-  refine and revise the structure once it moves from outline to fledged
-  out prose.
-
-- Pick a good example and/or metaphor that we keep coming back to
-  throughout the paper might be important
-
-- When going against the system/current norms, make sure it is clear we
-  understand why the norm is what it is, but why we think it should
-  change. Try and show the change is not that big and the payoff is
-  worth the effort.
-
+**Common mistakes:**
+- Don't organize author-by-author; organize by claim or argument.
+- Don't critique strawmen; represent opposing views fairly before
+  arguing against them.
 
 # Rest of Paper
 
 - Organize the rest of the paper in the way that best presents each
-  argument and gets the reader on our side.
+  argument and gets the reader on your side.
+- Each major section should advance one key claim, supported by
+  sub-claims, evidence, and engagement with counter-arguments.
+- Conclude by synthesizing how the proposed perspective changes what
+  researchers should do, measure, or interpret differently in future
+  empirical and theoretical work.
+
+**Common mistakes:**
+- Don't let sections drift into mere description; each section should
+  advance the argument.
+- Don't overclaim; match the scope of your conclusions to the strength
+  of your arguments.

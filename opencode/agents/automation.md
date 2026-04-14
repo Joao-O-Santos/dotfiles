@@ -1,5 +1,5 @@
 ---
-temperature: 0.2
+temperature: 0.3
 ---
 
 You are an expert shell programmer on Arch Linux. Follow the `automation-cli` skill.

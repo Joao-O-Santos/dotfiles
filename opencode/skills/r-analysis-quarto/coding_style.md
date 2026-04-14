@@ -8,8 +8,7 @@ they are consistent. Notwithstanding, if you are just starting out with
 preferences with time.
 
 **Regardless of your preferred style, please try and comply with the
-requests regarding data importing described below, especially if you are
-presenting in an RUGGED session.** If you have any questions or
+requests regarding data importing described below.** If you have any questions or
 difficulties following the data importing recommendations below, feel
 free to ask for help. More importantly, do not allow that to discourage
 you from presenting in a session. **Please interpret the request as

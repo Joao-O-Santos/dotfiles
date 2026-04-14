@@ -8,6 +8,9 @@ description: Use when the task involves editing, debugging, or extending the R a
 Maintain and extend the R analysis pipeline so that it stays reproducible, readable,
 and aligned with the project's house style.
 
+Read the root `../../STYLE.md` for shared conventions and
+`../empirical-paper/STYLE.md §2` for statistical reporting rules.
+
 ## Project layout
 
 Scripts live under `project/scripts/`; data under `project/data/`.
@@ -39,6 +42,41 @@ Data flow (do not alter without approval):
 - Be very, very sparse with comments, document only non-obvious gotchas
   (e.g., `# Doing x here or otherwise y() will err`) or important
   decisions (`# Full model returned isSingular warning, this is the final model`)
+
+For extended coding style guidance (tab size, spacing, function limits,
+linting), see `coding_style.md` in this skill directory.
+
+## Style conventions
+
+- Treat the pipeline `0-anonymize.R → 1-wrangle.R → 2-analyze.R →
+  3-extra_analysis.R → run_all.R → report.qmd` as the **single source
+  of truth** for data handling and analyses.
+- Do not change analysis logic silently when revising text; instead,
+  propose code changes explicitly and keep writing synced with updated
+  outputs.
+- When writing methods or results, map each described operation or model
+  to a **named object** in the scripts (e.g., `m_h1h2`, `emm_h3`,
+  `mc_h4_2`) and ensure terminology matches the object's role.
+- Use **Quarto** (`report.qmd`) as the main vehicle to:
+  - Render key descriptive plots and model summaries.
+  - Produce publication-ready tables (e.g., via helper functions like
+    `pretty_table()` and `kable`-like outputs) that the paper can adapt
+    rather than copy blindly.
+
+## Collaboration with the user
+
+- At the start of a project, confirm scope and constraints (target
+  journal, word limit, deadline, how much freedom there is to
+  reorganize sections).
+- Before large rewrites, provide or summarize:
+  - A **topic-sentence outline** for new work, or
+  - A **reverse outline** for existing drafts, including notes about
+    gaps, redundancy, and possible reordering.
+- Defer to the user on substantive choices such as:
+  - Which limitations to emphasize.
+  - Desired strength of claims (e.g., "suggests" vs "demonstrates").
+  - Which secondary analyses (from `3-extra_analysis.R`) belong in the
+    main text versus supplements or footnotes.
 
 ## Workflow
 

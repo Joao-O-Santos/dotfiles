@@ -10,6 +10,9 @@ Conduct targeted academic searches and return concise, structured source notes.
 This skill is for fast retrieval and triage, not long-horizon evidence mapping
 or manuscript-ready synthesis.
 
+Read the root `../../STYLE.md` for shared conventions (voice, tone, 72-char
+wrap, hamburger paragraphs, etc.).
+
 ## When to use
 
 Use this skill when:
@@ -65,6 +68,20 @@ For each source, provide:
 **Evidence strength**: strong / moderate / weak / unclear
 **Relevance**: why it matters for the current task
 **Caveats**: uncertainty, missing metadata, or access limits
+
+### Manuscript-ready notes
+
+For multiple papers, after per-source notes include:
+- Per reference: provisional citation key, 1–2 sentence summary, methods tag, relevance tag.
+- Group by concept, method family, or role in argument.
+- Suggest mapping onto planned sections where helpful.
+
+## Style conventions
+
+- Cautious academic tone; distinguish what authors claim from how strong the evidence is.
+- Never fabricate design details or statistics; say when information is unclear.
+- Clearly separate what papers claim from how strong their evidence is.
+- Mark uncertain or missing details explicitly.
 
 ## PDF handling
 
