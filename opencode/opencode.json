@@ -5,17 +5,9 @@
     "./AGENTS.md"
   ],
   "default_agent": "planner",
-  "model": "opencode/big-pickle",
-  "small_model": "openrouter/nvidia/nemotron-3-super-120b-a12b:free",
   "agent": {
-    "build": {
-      "disable": true
-    },
-    "plan": {
-      "disable": true
-    },
     "planner": {
-      "model": "opencode/big-pickle",
+      "model": "huggingface/zai-org/GLM-5.1",
       "fallback": "openrouter/nvidia/nemotron-3-super-120b-a12b:free",
       "description": "Primary orchestrator and default agent",
       "mode": "primary",
@@ -31,7 +23,6 @@
     "automation": {
       "model": "opencode/minimax-m2.5-free",
       "fallback": "openrouter/minimax/minimax-m2.5:free",
-      "description": "Shell/git automation with direct bash access",
       "mode": "primary",
       "permission": {
         "edit": "allow",
@@ -52,7 +43,7 @@
     },
     "reviewer": {
       "model": "mistral/mistral-large-latest",
-      "fallback": "openrouter/mistralai/mistral-large-latest",
+      "fallback": "openrouter/qwen/qwen3-coder:free",
       "description": "Critique and revision memos",
       "mode": "primary",
       "permission": {
@@ -62,8 +53,8 @@
       }
     },
     "guard": {
-      "model": "opencode/minimax-m2.5-free",
-      "fallback": "mistral/mistral-medium-latest",
+      "model": "huggingface/google/gemma-4-31B-it",
+      "fallback": "openrouter/z-ai/glm-4.5-air:free",
       "description": "Safety checkpoints and regression control",
       "mode": "subagent",
       "permission": {
@@ -73,8 +64,8 @@
       }
     },
     "literature-review": {
-      "model": "openrouter/google/gemini-3.1-flash-lite-preview",
-      "fallback": "openrouter/google/gemini-3.1-flash-preview",
+      "model": "opencode/big-pickle",
+      "fallback": "huggingface/google/gemma-4-31B-it",
       "description": "Fast academic search and paper summaries",
       "mode": "subagent",
       "permission": {
@@ -84,9 +75,9 @@
       }
     },
     "deep-research": {
-      "model": "openrouter/alibaba/tongyi-deepresearch-30b-a3b",
-      "fallback": "openrouter/google/gemini-2.5-pro",
-      "description": "Exhaustive multi-step research via Tongyi DeepResearch",
+      "model": "openrouter/google/gemma-4-31b-it:free",
+      "fallback": "huggingface/google/gemma-4-31B-it",
+      "description": "Exhaustive multi-step research",
       "mode": "subagent",
       "permission": {
         "webfetch": "allow",
@@ -95,8 +86,7 @@
       }
     },
     "r-analysis": {
-      "model": "mistral/devstral-latest",
-      "fallback": "openrouter/qwen/qwen3-coder",
+      "model": "huggingface/zai-org/GLM-5.1",
       "description": "R/Quarto pipeline edits",
       "mode": "primary",
       "permission": {
