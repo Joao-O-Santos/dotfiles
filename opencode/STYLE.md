@@ -166,15 +166,16 @@ When converting markdown to Word, use custom Pandoc attributes to apply Word sty
 Title:
 ```markdown
 ::: {custom-style="Title"}
-# Paper Title
+Paper Title
 :::
 ```
 
 Abstract:
 ```markdown
-::: {custom-style="Abstract"}
 
 # Abstract
+
+::: {custom-style="Abstract"}
 
 Abstract text here...
 
@@ -190,9 +191,10 @@ Figure caption:
 
 References:
 ```markdown
+## References
+
 ::: {custom-style="References"}
 
-## References
 
 [reference entries...]
 

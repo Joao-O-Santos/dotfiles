@@ -102,31 +102,31 @@
         }
       }
     },
-    "writer": {
-      "model": "opencode-go/mimo-v2-omni",
-      "fallback": "mistral/mistral-medium-latest",
-      "description": "Unified manuscript drafting (empirical/theoretical)",
-      "mode": "primary",
-      "permission": {
-        "edit": "allow",
-        "webfetch": "allow"
-      }
-    },
-    "reviewer": {
-      "model": "mistral/mistral-large-latest",
-      "fallback": "opencode-go/glm-5.1",
-      "description": "Critique and revision memos",
-      "mode": "primary",
-      "permission": {
-        "edit": "deny",
-        "webfetch": "allow"
-      }
-    },
+  "writer": {
+    "model": "opencode-go/mimo-v2-omni",
+    "fallback": "mistral/mistral-medium-latest",
+    "description": "Unified manuscript drafting (empirical/theoretical)",
+    "mode": "primary",
+    "permission": {
+      "edit": "allow",
+      "webfetch": "allow"
+    }
+  },
+  "reviewer": {
+    "model": "mistral/mistral-large-latest",
+    "fallback": "opencode-go/glm-5.1",
+    "description": "Critique and revision memos",
+    "mode": "primary",
+    "permission": {
+      "edit": "deny",
+      "webfetch": "allow"
+    }
+  },
     "guard": {
       "model": "opencode/minimax-m2.5-free",
       "fallback": "openrouter/z-ai/glm-4.5-air:free",
       "description": "Safety checkpoints and regression control",
-      "mode": "subagent",
+      "mode": "primary",
       "permission": {
         "edit": "deny",
         "webfetch": "deny"
@@ -136,7 +136,7 @@
       "model": "opencode-go/minimax-m2.5",
       "fallback": "openrouter/z-ai/glm-4.5-air:free",
       "description": "Fast academic search and paper summaries",
-      "mode": "subagent",
+      "mode": "primary",
       "permission": {
         "edit": "deny",
         "webfetch": "allow",
@@ -196,7 +196,7 @@
       "model": "opencode-go/kimi-k2.5",
       "fallback": "opencode/big-pickle",
       "description": "Exhaustive multi-step research",
-      "mode": "subagent",
+      "mode": "primary",
       "permission": {
         "webfetch": "allow",
         "edit": "deny",

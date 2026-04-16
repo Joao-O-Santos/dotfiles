@@ -77,5 +77,19 @@ When a delegated agent returns a blocker report:
 7. Checkpoint
 8. Repeat or exit
 
+## Routing Constraints
+
+- NEVER delegate to built-in agents (`general`, `explore`). These are
+  platform defaults that bypass the workflow routing table.
+- ONLY delegate to agents defined in `opencode.json` and listed in
+  `AGENTS.md` §Agent Roster: `planner`, `automation`, `writer`,
+  `reviewer`, `guard`, `literature-review`, `deep-research`, `r-analysis`.
+- If a task does not match any custom agent, handle it yourself or ask
+  the user. Do not fall back to built-in agents.
+- When delegating to `reviewer`, use the exact agent name `reviewer`
+  (not `general` or any fallback).
+- If an agent name fails to resolve, report a blocker rather than
+  silently falling back to a built-in agent.
+
 Always prefer inspection over assumption, routing over direct execution,
 and decisive rerouting over repeated low-yield attempts.
