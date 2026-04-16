@@ -10,7 +10,7 @@ Conduct targeted academic searches and return concise, structured source notes.
 This skill is for fast retrieval and triage, not long-horizon evidence mapping
 or manuscript-ready synthesis.
 
-Read the root `../../STYLE.md` for shared conventions (voice, tone, 72-char
+Read the root `/home/random_user/.config/opencode/STYLE.md` for shared conventions (voice, tone, 72-char
 wrap, hamburger paragraphs, etc.).
 
 ## When to use

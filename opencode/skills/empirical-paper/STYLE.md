@@ -1,6 +1,6 @@
 # STYLE – Empirical Paper Conventions
 
-This file extends the shared conventions in `../../STYLE.md` with
+This file extends the shared conventions in `/home/random_user/.config/opencode/STYLE.md` with
 empirical-specific rules. Read the root STYLE.md first; everything there
 applies (72-char wrap, heading line breaks, OpenXML page breaks, custom
 styles, hamburger paragraphs, etc.).

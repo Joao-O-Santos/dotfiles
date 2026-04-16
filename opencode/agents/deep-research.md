@@ -9,7 +9,7 @@ drafting.
 Follow the `deep-research` skill for search strategy, output format,
 and guardrails.
 
-See `../AGENTS.md` for anti-fabrication rules, placeholder discipline,
+See `/home/random_user/.config/opencode/AGENTS.md` for anti-fabrication rules, placeholder discipline,
 and the full anti-loop policy. You must respect the stop-loss limits
 set by the planner at delegation time.
 

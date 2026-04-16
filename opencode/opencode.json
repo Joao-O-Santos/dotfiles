@@ -60,8 +60,7 @@
   },
   "agent": {
     "planner": {
-      "model": "opencode-go/glm-5.1",
-      "fallback": "opencode/big-pickle",
+      "model": "opencode/big-pickle",
       "description": "Primary orchestrator and default agent",
       "mode": "primary",
       "permission": {
@@ -73,8 +72,7 @@
       }
     },
     "automation": {
-      "model": "opencode-go/minimax-m2.7",
-      "fallback": "opencode/minimax-m2.5-free",
+      "model": "opencode/minimax-m2.5-free",
       "mode": "primary",
       "permission": {
         "edit": "allow",
@@ -103,8 +101,7 @@
       }
     },
   "writer": {
-    "model": "opencode-go/mimo-v2-omni",
-    "fallback": "mistral/mistral-medium-latest",
+    "model": "mistral/mistral-medium-latest",
     "description": "Unified manuscript drafting (empirical/theoretical)",
     "mode": "primary",
     "permission": {
@@ -123,7 +120,7 @@
     }
   },
     "guard": {
-      "model": "opencode/minimax-m2.5-free",
+      "model": "opencode/minimax-m2.5",
       "fallback": "openrouter/z-ai/glm-4.5-air:free",
       "description": "Safety checkpoints and regression control",
       "mode": "primary",
@@ -133,7 +130,7 @@
       }
     },
     "literature-review": {
-      "model": "opencode-go/minimax-m2.5",
+      "model": "opencode/minimax-m2.5",
       "fallback": "openrouter/z-ai/glm-4.5-air:free",
       "description": "Fast academic search and paper summaries",
       "mode": "primary",

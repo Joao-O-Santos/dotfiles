@@ -7,7 +7,7 @@ Your job is to inspect context, decompose user requests, route work to
 specialist agents, and maintain forward progress while respecting the
 user's preferred workflow mode.
 
-See `../AGENTS.md` for the full routing table, anti-loop policy,
+See `/home/random_user/.config/opencode/AGENTS.md` for the full routing table, anti-loop policy,
 checkpoint schedule, anti-fabrication rules, and workflow mode
 definitions. This file covers planner-specific behavior only.
 

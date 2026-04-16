@@ -36,12 +36,8 @@ File layout:
 - `agents/*.md` — Per-agent behavior and agent-specific details. Model
   temperatures are set in agent frontmatter; see individual agent files.
   They reference this file for shared policies.
-- `STYLE.md` — Root writing conventions (voice, structure, formatting).
-- `skills/*/SKILL.md` — Domain-specific instructions loaded by agents.
-- `skills/*/STYLE.md` — Domain-specific style extensions that reference
-  the root STYLE.md.
-- `opencode.json` — Runtime config: models, fallbacks, permissions.
-  Overrides this file on runtime behavior.
+- `STYLE.md` — Root writing conventions (voice, structure, formatting). Full path: `/home/random_user/.config/opencode/STYLE.md`.
+- `opencode.json` — Runtime config: models, fallbacks, permissions. Full path: `/home/random_user/.config/opencode/opencode.json`. Overrides this file on runtime behavior.
 
 When a policy appears in multiple places, the most specific file wins
 for agent behavior; `AGENTS.md` wins for shared policies; and

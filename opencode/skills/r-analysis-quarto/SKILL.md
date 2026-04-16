@@ -8,8 +8,8 @@ description: Use when the task involves editing, debugging, or extending the R a
 Maintain and extend the R analysis pipeline so that it stays reproducible, readable,
 and aligned with the project's house style.
 
-Read the root `../../STYLE.md` for shared conventions and
-`../empirical-paper/STYLE.md §2` for statistical reporting rules.
+Read the root `/home/random_user/.config/opencode/STYLE.md` for shared conventions and
+`/home/random_user/.config/opencode/skills/empirical-paper/STYLE.md §2` for statistical reporting rules.
 
 ## Project layout
 

@@ -8,7 +8,7 @@ description: Use when developing or revising theoretical/conceptual papers from 
 Design, outline, and write theoretical papers from rough notes, following
 STYLE.md and structure.md.
 
-Read the root `../../STYLE.md` for shared conventions (voice, tone, 72-char
+Read the root `/home/random_user/.config/opencode/STYLE.md` for shared conventions (voice, tone, 72-char
 wrap, hamburger paragraphs, etc.).
 
 ## Default workflow

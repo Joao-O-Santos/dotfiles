@@ -1,6 +1,6 @@
 # Intro
 
-- See `../empirical-paper/structure.md` → Intro for the shared intro
+- See `/home/random_user/.config/opencode/skills/empirical-paper/structure.md` → Intro for the shared intro
   scaffold (hook → background → structure).
 - Theoretical papers also benefit from a **metaphor or example that
   reappears throughout**, grounding abstractions.
@@ -13,7 +13,7 @@
 
 # Lit Review
 
-- See `../empirical-paper/structure.md` → Lit Review for the shared
+- See `/home/random_user/.config/opencode/skills/empirical-paper/structure.md` → Lit Review for the shared
   lit-review scaffold.
 - Additional theoretical guidance:
   - Pick a good example and/or metaphor that you keep coming back to
