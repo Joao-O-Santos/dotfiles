@@ -1,61 +1,23 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "instructions": [
-    "./STYLE.md",
-    "./AGENTS.md"
+    "${HOME}/.config/opencode/STYLE.md",
+    "${HOME}/.config/opencode/AGENTS.md"
   ],
   "default_agent": "planner",
   "permission": {
     "bash": {
-      "*": "deny",
-      "ls *": "allow",
-      "ll *": "allow",
-      "la *": "allow",
-      "cat *": "allow",
-      "head *": "allow",
-      "tail *": "allow",
-      "less *": "allow",
-      "more *": "allow",
-      "wc *": "allow",
-      "stat *": "allow",
-      "file *": "allow",
-      "tree *": "allow",
-      "du *": "allow",
-      "df *": "allow",
-      "realpath *": "allow",
-      "basename *": "allow",
-      "dirname *": "allow",
-      "grep *": "allow",
-      "rg *": "allow",
-      "find *": "allow",
-      "which *": "allow",
-      "type *": "allow",
-      "sort *": "allow",
-      "uniq *": "allow",
-      "cut *": "allow",
-      "tr *": "allow",
-      "xargs *": "allow",
-      "git status *": "allow",
-      "git log *": "allow",
-      "git diff *": "allow",
-      "git show *": "allow",
-      "git blame *": "allow",
-      "git rev-parse *": "allow",
-      "git branch *": "allow",
-      "git remote *": "allow",
-      "git tag *": "allow",
-      "git stash list *": "allow",
-      "R *": "allow",
-      "Rscript *": "allow",
-      "quarto *": "allow",
-      "pwd": "allow",
-      "echo *": "allow",
-      "date": "allow",
-      "whoami": "allow",
-      "uname *": "allow"
+      "*": "allow",
+      "rm *": "ask", "git push *": "ask", "git reset --hard *": "ask", "git clean *": "ask", "yay -S *": "ask", "pacman -S *": "ask",
+      "sudo *": "deny", "rm -rf /": "deny", "rm -rf ~": "deny", "dd *": "deny", "mkfs *": "deny", "fdisk *": "deny", "chmod 777 *": "deny"
     },
     "external_directory": {
+      "${HOME}/.config/opencode/**": "allow",
+      "${HOME}/.config/opencode/auth.json": "deny",
       "~/lit/**": "allow"
+    },
+    "read": {
+      "${HOME}/.config/opencode/auth.json": "deny"
     }
   },
   "agent": {
@@ -66,9 +28,7 @@
       "permission": {
         "edit": "deny",
         "webfetch": "allow",
-        "task": {
-          "*": "allow"
-        }
+        "task": { "*": "allow" }
       }
     },
     "automation": {
@@ -76,49 +36,32 @@
       "mode": "primary",
       "permission": {
         "edit": "allow",
+        "webfetch": "allow"
+      }
+    },
+    "writer": {
+      "model": "mistral/mistral-medium-latest",
+      "description": "Unified manuscript drafting (empirical/theoretical)",
+      "mode": "primary",
+      "permission": {
+        "edit": "allow",
+        "webfetch": "allow"
+      }
+    },
+    "reviewer": {
+      "model": "mistral/mistral-large-latest",
+      "fallback": "opencode-go/glm-5.1",
+      "description": "Critique and revision memos",
+      "mode": "primary",
+      "permission": {
+        "edit": "deny",
         "webfetch": "allow",
         "bash": {
-          "*": "allow",
-          "sudo *": "deny",
-          "sudo": "deny",
-          "rm -rf /": "deny",
-          "rm -rf ~": "deny",
-          "rm -r /": "deny",
-          "rm -r ~": "deny",
-          "dd *": "deny",
-          "mkfs *": "deny",
-          "fdisk *": "deny",
-          "format *": "deny",
-          "chmod 777 *": "deny",
-          "rm *": "ask",
-          "git push *": "ask",
-          "git reset --hard *": "ask",
-          "git clean *": "ask",
-          "yay -S *": "ask",
-          "yay -S": "ask",
-          "pacman -S *": "ask"
+          "*": "deny",
+          "cat *": "allow", "head *": "allow", "grep *": "allow", "rg *": "allow", "wc *": "allow"
         }
       }
     },
-  "writer": {
-    "model": "mistral/mistral-medium-latest",
-    "description": "Unified manuscript drafting (empirical/theoretical)",
-    "mode": "primary",
-    "permission": {
-      "edit": "allow",
-      "webfetch": "allow"
-    }
-  },
-  "reviewer": {
-    "model": "mistral/mistral-large-latest",
-    "fallback": "opencode-go/glm-5.1",
-    "description": "Critique and revision memos",
-    "mode": "primary",
-    "permission": {
-      "edit": "deny",
-      "webfetch": "allow"
-    }
-  },
     "guard": {
       "model": "opencode/minimax-m2.5",
       "fallback": "openrouter/z-ai/glm-4.5-air:free",
@@ -126,7 +69,11 @@
       "mode": "primary",
       "permission": {
         "edit": "deny",
-        "webfetch": "deny"
+        "webfetch": "allow",
+        "bash": {
+          "*": "deny",
+          "cat *": "allow", "git log *": "allow", "git diff *": "allow", "git show *": "allow", "git status *": "allow", "grep *": "allow", "rg *": "allow", "wc *": "allow"
+        }
       }
     },
     "literature-review": {
@@ -139,53 +86,7 @@
         "webfetch": "allow",
         "bash": {
           "*": "deny",
-          "ls *": "allow",
-          "ll *": "allow",
-          "la *": "allow",
-          "cat *": "allow",
-          "head *": "allow",
-          "tail *": "allow",
-          "less *": "allow",
-          "more *": "allow",
-          "wc *": "allow",
-          "stat *": "allow",
-          "file *": "allow",
-          "tree *": "allow",
-          "du *": "allow",
-          "df *": "allow",
-          "realpath *": "allow",
-          "basename *": "allow",
-          "dirname *": "allow",
-          "grep *": "allow",
-          "rg *": "allow",
-          "find *": "allow",
-          "which *": "allow",
-          "type *": "allow",
-          "sort *": "allow",
-          "uniq *": "allow",
-          "cut *": "allow",
-          "tr *": "allow",
-          "xargs *": "allow",
-          "git status *": "allow",
-          "git log *": "allow",
-          "git diff *": "allow",
-          "git show *": "allow",
-          "git blame *": "allow",
-          "git rev-parse *": "allow",
-          "git branch *": "allow",
-          "git remote *": "allow",
-          "git tag *": "allow",
-          "git stash list *": "allow",
-          "R *": "allow",
-          "Rscript *": "allow",
-          "quarto *": "allow",
-          "pdftotext *": "allow",
-          "pdftotext": "allow",
-          "pwd": "allow",
-          "echo *": "allow",
-          "date": "allow",
-          "whoami": "allow",
-          "uname *": "allow"
+          "cat *": "allow", "head *": "allow", "grep *": "allow", "rg *": "allow", "find *": "allow", "wc *": "allow", "pdftotext *": "allow"
         }
       }
     },
@@ -195,57 +96,11 @@
       "description": "Exhaustive multi-step research",
       "mode": "primary",
       "permission": {
-        "webfetch": "allow",
         "edit": "deny",
+        "webfetch": "allow",
         "bash": {
           "*": "deny",
-          "ls *": "allow",
-          "ll *": "allow",
-          "la *": "allow",
-          "cat *": "allow",
-          "head *": "allow",
-          "tail *": "allow",
-          "less *": "allow",
-          "more *": "allow",
-          "wc *": "allow",
-          "stat *": "allow",
-          "file *": "allow",
-          "tree *": "allow",
-          "du *": "allow",
-          "df *": "allow",
-          "realpath *": "allow",
-          "basename *": "allow",
-          "dirname *": "allow",
-          "grep *": "allow",
-          "rg *": "allow",
-          "find *": "allow",
-          "which *": "allow",
-          "type *": "allow",
-          "sort *": "allow",
-          "uniq *": "allow",
-          "cut *": "allow",
-          "tr *": "allow",
-          "xargs *": "allow",
-          "git status *": "allow",
-          "git log *": "allow",
-          "git diff *": "allow",
-          "git show *": "allow",
-          "git blame *": "allow",
-          "git rev-parse *": "allow",
-          "git branch *": "allow",
-          "git remote *": "allow",
-          "git tag *": "allow",
-          "git stash list *": "allow",
-          "R *": "allow",
-          "Rscript *": "allow",
-          "quarto *": "allow",
-          "pdftotext *": "allow",
-          "pdftotext": "allow",
-          "pwd": "allow",
-          "echo *": "allow",
-          "date": "allow",
-          "whoami": "allow",
-          "uname *": "allow"
+          "cat *": "allow", "head *": "allow", "grep *": "allow", "rg *": "allow", "find *": "allow", "wc *": "allow", "pdftotext *": "allow"
         }
       }
     },
@@ -256,28 +111,7 @@
       "mode": "primary",
       "permission": {
         "edit": "allow",
-        "webfetch": "allow",
-        "bash": {
-          "*": "allow",
-          "sudo *": "deny",
-          "sudo": "deny",
-          "rm -rf /": "deny",
-          "rm -rf ~": "deny",
-          "rm -r /": "deny",
-          "rm -r ~": "deny",
-          "dd *": "deny",
-          "mkfs *": "deny",
-          "fdisk *": "deny",
-          "format *": "deny",
-          "chmod 777 *": "deny",
-          "rm *": "ask",
-          "git push *": "ask",
-          "git reset --hard *": "ask",
-          "git clean *": "ask",
-          "yay -S *": "ask",
-          "yay -S": "ask",
-          "pacman -S *": "ask"
-        }
+        "webfetch": "allow"
       }
     }
   }

@@ -4,6 +4,8 @@ This file defines the agent roster, routing logic, workflow modes,
 checkpoint rules, anti-loop controls, and anti-fabrication policy for
 the OpenCode Manuscript Workflow.
 
+
+
 ## Configuration Authority
 
 This repository uses split governance:
@@ -27,21 +29,87 @@ This repository uses split governance:
 If this file and `opencode.json` disagree about runtime behavior,
 `opencode.json` wins.
 
+
+
 ## How to Read This System
 
 File layout:
 
 - `AGENTS.md` — This file. Canonical policies: routing, anti-loop,
   anti-fabrication, checkpoint schedule, conflict resolution.
+  Full path: `${HOME}/.config/opencode/AGENTS.md`.
 - `agents/*.md` — Per-agent behavior and agent-specific details. Model
   temperatures are set in agent frontmatter; see individual agent files.
   They reference this file for shared policies.
-- `STYLE.md` — Root writing conventions (voice, structure, formatting). Full path: `/home/random_user/.config/opencode/STYLE.md`.
-- `opencode.json` — Runtime config: models, fallbacks, permissions. Full path: `/home/random_user/.config/opencode/opencode.json`. Overrides this file on runtime behavior.
+  Full path: `${HOME}/.config/opencode/agents/`.
+- `STYLE.md` — Root writing conventions (voice, structure, formatting).
+  Full path: `${HOME}/.config/opencode/STYLE.md`.
+- `skills/*/SKILL.md` — Domain-specific instructions loaded by agents.
+  Full path: `${HOME}/.config/opencode/skills/`.
+- `skills/*/STYLE.md` — Domain-specific style extensions that reference
+  the root STYLE.md.
+- `opencode.json` — Runtime config: models, fallbacks, permissions.
+  Full path: `${HOME}/.config/opencode/opencode.json`.
+  Overrides this file on runtime behavior.
 
 When a policy appears in multiple places, the most specific file wins
 for agent behavior; `AGENTS.md` wins for shared policies; and
 `opencode.json` wins for runtime settings.
+
+
+
+## Tool Use Policy
+
+
+### Reading files
+
+For reading files, always prefer bash tools (`cat`, `grep`, `rg`,
+`head`, `wc`, `find`) over the `read_file` or `edit` tools. Bash reads
+are faster and consume the same tool budget.
+
+
+### Editing files
+
+For editing files, prefer bash tools (`sed`, `awk`, `tee`, `patch`)
+over the `edit` tool where the change is well-defined and scriptable.
+Reserve the `edit` tool for complex, multi-location, or
+structure-sensitive changes where a targeted patch is clearer and safer.
+
+
+### Writing files
+
+Agents with `edit: allow` in `opencode.json` may write files. All
+others must route write requests to `writer`, `automation`, or
+`r-analysis` as appropriate.
+
+
+### Shell Helpers
+
+Agents can leverage `$HOME/.config/shellrc` helper functions via:
+
+Agents can leverage shellrc helpers via automation:
+
+- toc: Extract TOC from .md files
+
+- tso: Topic-sentence outline extraction from .md files
+
+- tmd: Pandoc .docx → .md
+
+- tdx: Pandoc .md → .docx with custom styles, page breaks, etc.
+
+- tpres: Pandoc .md → reveal.js presentation
+
+The system also has general tools available:
+
+- pdftotext
+
+- pdfunite
+
+- other pdfutils
+
+- python-docx is installed for docx handling python library
+
+
 
 ## Error and Retry Policy
 
@@ -59,6 +127,8 @@ When a model call fails, times out, or returns garbage:
 
 Guard should flag repeated model failures as a loop signal.
 
+
+
 ## Agent Roster
 
 | Agent | Mode | Responsibility |
@@ -71,6 +141,8 @@ Guard should flag repeated model failures as a loop signal.
 | `literature-review` | subagent | Fast literature search and structured source notes |
 | `deep-research` | subagent | Exhaustive multi-step evidence gathering |
 | `r-analysis` | primary | R / Quarto pipeline edits and statistical-code changes |
+
+
 
 ## Routing Table
 
@@ -86,6 +158,8 @@ Guard should flag repeated model failures as a loop signal.
 
 ## Workflow Modes
 
+
+
 ### High-Control Mode
 Pause for approval at:
 - outline creation
@@ -94,7 +168,8 @@ Pause for approval at:
 - reviewer-suggested fixes before implementation
 - substantial methods, results, or discussion edits
 
-Use when the task is ambiguous, high-stakes, or the user requests supervision.
+Use when the task is ambiguous, high-stakes, or the user requests
+supervision.
 
 ### Autonomous Batch Mode
 Continue until:
@@ -103,7 +178,10 @@ Continue until:
 - a blocker requires clarification
 - the user stops the workflow
 
-Use when the task is well-scoped and routine enough to execute end to end.
+Use when the task is well-scoped and routine enough to execute end to
+end.
+
+
 
 ## Planner Contract
 
@@ -122,18 +200,27 @@ Planner must not:
 - repeat a failing execution path
 - silently reinterpret user intent
 - let an agent continue low-yield probing once a loop pattern is visible
+- produce writing, code, or analysis outputs as a fallback when no
+  agent can handle a task; escalate to the user instead
+
+
 
 ## Anti-Loop Policy
 
 Loop control is shared between planner and guard.
 
+
 ### Planner stop-loss rules
 Interrupt and reroute when any of the following occurs:
-- 2 failed attempts to locate a file or directory without broadening scope
-- 3 semantically similar grep/find/rg/search attempts with no useful hit
+- 2 failed attempts to locate a file or directory without broadening
+  scope
+- 3 semantically similar grep/find/rg/search attempts with no useful
+  hit
 - repeated tool calls in the same path with no new evidence
 - no material state change after 4 tool calls in a row
-- an agent repeats a previously failed strategy without explaining why it should now work
+- an agent repeats a previously failed strategy without explaining why
+  it should now work
+
 
 ### Guard escalation rules
 Guard flags:
@@ -142,20 +229,28 @@ Guard flags:
 - wrong-directory or wrong-pattern probing that continues after failure
 - oscillation between prior states without net improvement
 
+
 ### Delegation-time prevention (mandatory)
-To prevent loops before they start, every agent delegation must include explicit stop-loss limits:
+To prevent loops before they start, every agent delegation must include
+explicit stop-loss limits:
 - max 6 tool calls unless user-approved
 - stop after 2 failed path/file lookups
 - stop after 3 similar search attempts without useful hit
 - stop after 4 calls with no new material evidence/state change
-- If a strategy fails once, do not repeat without changing scope and explaining why.
-- When a limit triggers, return immediately with a blocker report containing:
+- If a strategy fails once, do not repeat without changing scope and
+  explaining why.
+- When a limit triggers, return immediately with a blocker report
+  containing:
   - objective
   - attempts made
   - evidence found
   - blocker
   - recommended next step (reroute / broaden search / ask user)
-Note: Hard interruption of in-flight subagent calls may be unavailable, so delegation-time caps are required for effective loop control.
+
+Note: Hard interruption of in-flight subagent calls may be unavailable,
+so delegation-time caps are required for effective loop control.
+
+
 
 ## Checkpoint Schedule
 
@@ -167,6 +262,7 @@ Guard is auto-triggered after:
 5. branch-wide automated rewrites
 6. any suspected loop or thrashing pattern
 
+
 ### Checkpoint report requirements
 Guard reports should include:
 - timestamp
@@ -175,20 +271,29 @@ Guard reports should include:
 - warnings
 - recommendation: proceed / reroute / clarify / rollback
 
+
+
 ## Research Separation
 
-- `literature-review` is for fast retrieval, source discovery, and concise per-source notes.
-- `deep-research` is for exhaustive coverage, conflicting literatures, and multi-hop evidence gathering.
+- `literature-review` is for fast retrieval, source discovery, and
+  concise per-source notes.
+- `deep-research` is for exhaustive coverage, conflicting literatures,
+  and multi-hop evidence gathering.
 - `writer` consumes research outputs but does not replace retrieval.
-- `reviewer` critiques claims and support but does not act as the primary search agent.
+- `reviewer` critiques claims and support but does not act as the
+  primary search agent.
+
+
 
 ## Anti-Fabrication Rules
+
 
 ### Mandatory rules
 1. No invented numbers.
 2. No invented citations.
 3. No invented findings.
 4. No silent reinterpretation.
+
 
 ### Placeholder discipline
 Use explicit placeholders for unresolved content:
@@ -197,28 +302,38 @@ Use explicit placeholders for unresolved content:
 - `<!-- TODO: verify -->`
 - `<!-- TODO: describe -->`
 
-Placeholders must be preserved until resolved by evidence or explicit user instruction.
+Placeholders must be preserved until resolved by evidence or explicit
+user instruction.
+
 
 ### Agent-specific enforcement
 - `writer`: use placeholders instead of inventing content
 - `literature-review`: never invent metadata or summaries
 - `deep-research`: report coverage limits and conflicts explicitly
 - `reviewer`: flag unsupported claims and missing placeholders
-- `r-analysis`: describe only actual outputs or clearly marked uncertainties
+- `r-analysis`: describe only actual outputs or clearly marked
+  uncertainties
 - `guard`: detect fabrication risk and placeholder loss
+
+
 
 ## Git Workflow
 
 - Prefer branch-first work for risky changes.
 - Commit after meaningful milestones.
 - Run guard before finalizing risky changes.
-- Prefer merge commits unless the user explicitly requests squash cleanup.
+- Prefer merge commits unless the user explicitly requests squash
+  cleanup.
+
+
 
 ## User Invocation
 
 - Direct invocation: `@agentname`
-- Mode switching: “high-control mode”, “autonomous batch mode”
-- Checkpoint request: “guard checkpoint” or “run guard”
+- Mode switching: "high-control mode", "autonomous batch mode"
+- Checkpoint request: "guard checkpoint" or "run guard"
+
+
 
 ## Conflict Resolution
 

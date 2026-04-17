@@ -127,18 +127,21 @@ Use the following blank lines before headings:
 
 Example:
 ```
-
-
-# H1 Title
+# H1 Section
 
 
 
-## H2 Section
+## H2 Subsection
 
-### H3 Subsection
 
-#### H4 Sub-subsection
+### H3 Sub-subsection
 
+#### H4 sub-sub-subsection
+
+
+
+
+# Another H1 Section
 ```
 
 ## 9. OpenXML Page Breaks
@@ -149,7 +152,30 @@ To insert a page break in documents that will be converted to Word (via `twrd`),
 <w:p><w:r><w:br w:type="page"/></w:r></w:p>
 ```
 
-Place this code block where a page break is needed (e.g., before Abstract, before References).
+Place this code block where a page break is needed (e.g., before
+Abstract, before References).
+
+Add four linebreaks before the page break (and keep the four linebreaks
+after the page break and before the next section.
+
+Example:
+
+````md
+
+::: {custom-style="Title"}
+Title
+:::
+
+
+
+
+[pagebreak xml]
+
+
+
+
+# Title (intro header)
+````
 
 ## 10. Custom Styles for Word Conversion
 
