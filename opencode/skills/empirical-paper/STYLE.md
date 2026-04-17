@@ -1,7 +1,7 @@
 # STYLE – Empirical Paper Conventions
 
 This file extends the shared conventions in `/home/random_user/.config/opencode/STYLE.md` with
-empirical-specific rules. Read the root STYLE.md first; everything there
+empirical-specific rules. Read the root `/home/random_user/.config/opencode/STYLE.md` first; everything there
 applies (72-char wrap, heading line breaks, OpenXML page breaks, custom
 styles, hamburger paragraphs, etc.).
 
@@ -147,15 +147,6 @@ Subsections:
 
 ## 3. Collaboration with the User
 
-- At the start of a project, confirm scope and constraints (target
-  journal, word limit, deadline, how much freedom there is to
-  reorganize sections).
-- Before large rewrites, provide or summarize:
-  - A **topic‑sentence outline** for new work, or
-  - A **reverse outline** for existing drafts, including notes about
-    gaps, redundancy, and possible reordering.
-- Defer to the user on substantive choices such as:
-  - Which limitations to emphasize.
-  - Desired strength of claims (e.g., "suggests" vs "demonstrates").
-  - Which secondary analyses (from `3-extra_analysis.R`) belong in
-    the main text versus supplements or footnotes.
+See `/home/random_user/.config/opencode/STYLE.md` §7 for full collaboration conventions
+(scope confirmation, outline/reverse-outline before rewrites, deference
+to user on substantive choices).

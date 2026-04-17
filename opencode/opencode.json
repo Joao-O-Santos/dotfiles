@@ -58,35 +58,35 @@
         "webfetch": "allow",
         "bash": {
           "*": "deny",
-          "cat *": "allow", "head *": "allow", "grep *": "allow", "rg *": "allow", "wc *": "allow"
+          "cat *": "allow", "head *": "allow", "tail *": "allow", "grep *": "allow", "rg *": "allow", "find *": "allow", "wc *": "allow"
         }
       }
     },
     "guard": {
-      "model": "opencode/minimax-m2.5",
+      "model": "opencode-go/minimax-m2.7",
       "fallback": "openrouter/z-ai/glm-4.5-air:free",
       "description": "Safety checkpoints and regression control",
-      "mode": "primary",
+      "mode": "subagent",
       "permission": {
         "edit": "deny",
         "webfetch": "allow",
         "bash": {
           "*": "deny",
-          "cat *": "allow", "git log *": "allow", "git diff *": "allow", "git show *": "allow", "git status *": "allow", "grep *": "allow", "rg *": "allow", "wc *": "allow"
+          "cat *": "allow", "git log *": "allow", "git diff *": "allow", "git show *": "allow", "git status *": "allow", "grep *": "allow", "rg *": "allow", "find *": "allow", "tail *": "allow", "wc *": "allow"
         }
       }
     },
     "literature-review": {
-      "model": "opencode/minimax-m2.5",
+      "model": "opencode-go/minimax-m2.7",
       "fallback": "openrouter/z-ai/glm-4.5-air:free",
       "description": "Fast academic search and paper summaries",
-      "mode": "primary",
+      "mode": "subagent",
       "permission": {
         "edit": "deny",
         "webfetch": "allow",
         "bash": {
           "*": "deny",
-          "cat *": "allow", "head *": "allow", "grep *": "allow", "rg *": "allow", "find *": "allow", "wc *": "allow", "pdftotext *": "allow"
+          "cat *": "allow", "head *": "allow", "tail *": "allow", "grep *": "allow", "rg *": "allow", "find *": "allow", "wc *": "allow", "pdftotext *": "allow"
         }
       }
     },
@@ -94,13 +94,13 @@
       "model": "opencode-go/kimi-k2.5",
       "fallback": "opencode/big-pickle",
       "description": "Exhaustive multi-step research",
-      "mode": "primary",
+      "mode": "subagent",
       "permission": {
         "edit": "deny",
         "webfetch": "allow",
         "bash": {
           "*": "deny",
-          "cat *": "allow", "head *": "allow", "grep *": "allow", "rg *": "allow", "find *": "allow", "wc *": "allow", "pdftotext *": "allow"
+          "cat *": "allow", "head *": "allow", "tail *": "allow", "grep *": "allow", "rg *": "allow", "find *": "allow", "wc *": "allow", "pdftotext *": "allow"
         }
       }
     },

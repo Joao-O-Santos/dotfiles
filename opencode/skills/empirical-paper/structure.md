@@ -40,9 +40,8 @@
 
 # Our Approach
 
-- I typically include a section outlining the (empirical) approach we
-  took, why we studied things the way we did (e.g., important
-  operationalizations, key decisions explaining the tradeoffs, etc).
+- Include a section outlining the empirical approach: why this design
+  was chosen, key operationalizations, and important trade-offs.
 
 
 # Study X
@@ -64,66 +63,50 @@
 
 ### Procedure
 
-- Ideally written in active voice, or one of the totally fine types of
-  passive (see https://youtu.be/jstTBXV0cWE?si=QJYpOdV5K5aBWIz-).
+- Write from the **participant's point of view**, using active voice or
+  well-formed passive constructions where the actor is obvious or
+  irrelevant (e.g., passive is fine when the software is the agent and
+  focus belongs on the participant's experience).
   Participants should be the protagonists. Experimenters and software
-  can also be active agents. Try to present the procedure
-  chronologically, from the participants' POV. Interleave short notes on
+  can also be active agents. Present the procedure
+  chronologically. Interleave short notes on
   what was counterbalanced OR present those details after the narration
   of the full procedure, if there are many details to report.
 
 **Common mistakes:**
-- Don't write from the researcher's perspective ("we then asked...");
-  write from the participant's POV.
-- Don't omit counterbalancing or randomization details.
+- Don’t write from the researcher’s perspective ("we then asked...");
+  write from the participant’s POV.
+- Don’t omit counterbalancing or randomization details.
 
 
 ## Results
 
-- Present tense for inferential statistics â€“ I use present tense when
-  reporting significant findings because they refer to population-level
-  inferences, not just our sample's behavior
+See `/home/random_user/.config/opencode/skills/empirical-paper/STYLE.md` §2 for the full statistical reporting
+and results-prose conventions (present tense, "significant evidence
+that", lead with meaning, effect sizes, Greek letter formatting, etc.).
 
-- Avoid "participants differ" phrasing â€“ For the same reason, I try to
-  avoid saying "participants significantly differ," since the test
-  concerns the hypothetical population, not our specific sample
+Additional structural guidance:
 
-- "Significant" qualifies the evidence, not the effect â€“ I write
-  "significant evidence that X is higher" rather than "X is
-  significantly higher" to emphasize we're describing evidence strength,
-  not the effect itself
+- Consider reporting interactions first, as the interpretation of main
+  effects is qualified by any significant interaction. If main effects
+  are reported first, note when they are qualified by an interaction.
 
-- Text before statistics â€“ I try to lead with the substantive
-  interpretation and finish with the statistical support, rather than
-  starting with F-values, or weaving the means throughout.
-
-- Use &eta;~p~^2^  for partial eta squared (avoid special characters and
-  rely on pandoc-flavoured markdown to add subscripts and upperscripts;
-  avoid latex math, unless presenting an actual formula); &beta; for a
-  beta; etc...
-
-- Consider reporting interactions first as the interpretation of main
-  effects is qualified by any significant interaction (it's fine to
-  report them after the main effects, but if there are relevant
-  interactions, it should be made clear, when reporting the effects that
-  the main effects are qualified by the interaction).
-
-- Use estimated marginal means (computed from emmeans) to break down
-  main effects. Use simple contrasts to break down the interactions (A1
+- Use estimated marginal means (computed from `emmeans`) to break down
+  main effects. Use simple contrasts to break down interactions (A1
   - A2 at B1; A1 - A2 at B2; B1 - B2 at A1; B1 - B2 at A2).
 
-- When reporting linear mixed models, report their fixed effect
+- When reporting linear mixed models, report their fixed-effect
   structure first, then the random effects. State that we used Singmann
-  and Kelen's (2029) approach of starting with the maximal model
+  and Kelen’s (2019) approach of starting with the maximal model
   warranted by the design, simplifying it only if there are warnings or
   errors in the fitting process.
 
 **Common mistakes:**
-- Don't start paragraphs with statistics; lead with the substantive
+- Don’t start paragraphs with statistics; lead with the substantive
   claim and end with the statistical support.
-- Don't report main effects when a significant interaction qualifies
+- Don’t report main effects when a significant interaction qualifies
   them without noting the qualification.
-- Don't use Unicode Greek letters or LaTeX math; use HTML entities
+- Don’t use Unicode Greek letters or LaTeX math; use HTML entities
   (&eta;, &beta;) and pandoc notation.
 
 
@@ -135,7 +118,7 @@
 - Structure the paragraphs in the most persuasive, natural and clear way
   possible to build the arguments.
 
-- Discussion should be outlined first, and then expanded with my input
+- Outline the discussion first, then expand with user input.
 
 - Keep the discussion of each study short if it's a multi-study paper
 

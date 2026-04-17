@@ -65,18 +65,9 @@ linting), see `coding_style.md` in this skill directory.
 
 ## Collaboration with the user
 
-- At the start of a project, confirm scope and constraints (target
-  journal, word limit, deadline, how much freedom there is to
-  reorganize sections).
-- Before large rewrites, provide or summarize:
-  - A **topic-sentence outline** for new work, or
-  - A **reverse outline** for existing drafts, including notes about
-    gaps, redundancy, and possible reordering.
-- Defer to the user on substantive choices such as:
-  - Which limitations to emphasize.
-  - Desired strength of claims (e.g., "suggests" vs "demonstrates").
-  - Which secondary analyses (from `3-extra_analysis.R`) belong in the
-    main text versus supplements or footnotes.
+See `/home/random_user/.config/opencode/STYLE.md` §7 for full collaboration conventions
+(scope confirmation, outline/reverse-outline before rewrites, deference
+to user on substantive choices).
 
 ## Workflow
 

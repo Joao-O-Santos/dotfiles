@@ -6,7 +6,7 @@ description: Use when developing or revising theoretical/conceptual papers from 
 # Skill: theoretical-paper
 
 Design, outline, and write theoretical papers from rough notes, following
-STYLE.md and structure.md.
+`/home/random_user/.config/opencode/STYLE.md` and structure.md.
 
 Read the root `/home/random_user/.config/opencode/STYLE.md` for shared conventions (voice, tone, 72-char
 wrap, hamburger paragraphs, etc.).
@@ -34,14 +34,14 @@ When revising an existing theoretical draft:
 3. **Claim tightening** – ensure each major claim is explicit and
    supported; flag claims that are vague, overbroad, or under-argued.
 4. **Prose polish** – sentence-level clarity, concision, and tone
-   alignment with STYLE.md.
+   alignment with `/home/random_user/.config/opencode/STYLE.md`.
 5. **Final check** – verify that critiques of opposing views are fair,
    strawman-free, and proportional; verify that claim scope matches
    user intent.
 
 ## Style conventions
 
-- Confident, measured, analytic tone (see STYLE.md §3).
+- Confident, measured, analytic tone (see `/home/random_user/.config/opencode/STYLE.md` §3).
 - Separate: descriptive background / normative diagnosis / positive
   proposal / implications.
 - Use an introduction and literature review similar to empirical papers,

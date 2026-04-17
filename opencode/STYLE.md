@@ -8,7 +8,7 @@ This STYLE file governs shared writing conventions across all agents and skills.
 
 - **Gold – Writing Workshop–style principles**: Treat writing as thinking, use topic-sentence outlines and reverse outlining, build hamburger paragraphs, and revise systematically from structure to detail.
 
-- **Silver – Paper structure and statistical conventions**: Follow the macro-structure described in skill-specific STYLE.md files, including statistical reporting conventions and views on passive voice and section flow, deviating only when this clearly improves clarity or impact.
+- **Silver – Paper structure and statistical conventions**: Follow the macro-structure described in skill-specific `/home/random_user/.config/opencode/skills/*/STYLE.md` files, including statistical reporting conventions and views on passive voice and section flow, deviating only when this clearly improves clarity or impact.
 
 - **Bronze – Existing text examples**: Use existing texts (e.g., example introductions, methods, results narratives, and Quarto reports) as reference for voice, tone, and domain-specific phrasing, but prefer improvements when they conflict with Gold or Silver standards.
 
@@ -93,7 +93,7 @@ Short connector or transition paragraphs without a full hamburger structure are 
 
 - Prefer **concrete, specific words** and short, familiar terms over abstract nominalizations and jargon, especially in topic sentences and hooks.
 - Remove redundancy and filler ("it is important to note that," "in order to," etc.) unless rhythm or emphasis requires it.
-- Maintain consistent terminology for variables, conditions, and constructs across text, tables, figures, and code (e.g., `WOA`, `advisor`, `race`, etc.).
+- Maintain consistent terminology for variables, conditions, and constructs across text, tables, figures, and code (e.g., use the same name for a construct in the prose, table headers, figure labels, and R objects).
 
 ### 6.5 Text Width (MANDATORY)
 

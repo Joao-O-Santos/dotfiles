@@ -120,6 +120,12 @@ function tmd {
 	pandoc $1 -o $fnm
 }
 
+function tdx {
+	fnm=$1
+	fnm=$(echo $1| sed 's/\..*$/.docx/g')
+	pandoc $1 -o $fnm
+}
+
 function tpres {
 	fnm=$1
 	fnm=$(echo $1| sed 's/\..*$/.html/g')

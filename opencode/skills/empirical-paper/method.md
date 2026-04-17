@@ -30,7 +30,7 @@ children in a volunteer project.
 ### Materials
 
 Twenty-four statements, 12 expected to be perceived as completely
-acceptable, and 12 expected to be rated as completely acceptable, made
+acceptable, and 12 expected to be rated as completely unacceptable, made
 up the materials for this study. For brevity's sake the complete
 statement list is not presented here but is available in the
 supplementary materials.

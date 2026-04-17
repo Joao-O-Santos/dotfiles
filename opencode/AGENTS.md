@@ -42,12 +42,12 @@ File layout:
   temperatures are set in agent frontmatter; see individual agent files.
   They reference this file for shared policies.
   Full path: `${HOME}/.config/opencode/agents/`.
-- `STYLE.md` — Root writing conventions (voice, structure, formatting).
+- `/home/random_user/.config/opencode/STYLE.md` — Root writing conventions (voice, structure, formatting).
   Full path: `${HOME}/.config/opencode/STYLE.md`.
 - `skills/*/SKILL.md` — Domain-specific instructions loaded by agents.
   Full path: `${HOME}/.config/opencode/skills/`.
 - `skills/*/STYLE.md` — Domain-specific style extensions that reference
-  the root STYLE.md.
+  the root `/home/random_user/.config/opencode/STYLE.md`.
 - `opencode.json` — Runtime config: models, fallbacks, permissions.
   Full path: `${HOME}/.config/opencode/opencode.json`.
   Overrides this file on runtime behavior.
@@ -70,10 +70,11 @@ are faster and consume the same tool budget.
 
 ### Editing files
 
-For editing files, prefer bash tools (`sed`, `awk`, `tee`, `patch`)
-over the `edit` tool where the change is well-defined and scriptable.
-Reserve the `edit` tool for complex, multi-location, or
-structure-sensitive changes where a targeted patch is clearer and safer.
+For mechanical changes (find-and-replace, inserting lines, stripping
+whitespace), prefer bash tools (`sed`, `awk`, `tee`, `patch`) over the
+`edit` tool. For prose and structure-sensitive edits — paragraph
+rewrites, section reorganization, or anywhere fidelity to surrounding
+text matters — use the `edit` tool.
 
 
 ### Writing files
@@ -85,29 +86,21 @@ others must route write requests to `writer`, `automation`, or
 
 ### Shell Helpers
 
-Agents can leverage `$HOME/.config/shellrc` helper functions via:
+Agents can leverage the following helper functions defined in
+`$HOME/.config/shellrc` (invoke via the `automation` agent or any agent
+with bash access):
 
-Agents can leverage shellrc helpers via automation:
+- `toc` — extract headings as a table of contents from .md files
+- `tso` — topic-sentence outline extraction from .md files
+- `tmd` — Pandoc .docx → .md
+- `tdx` — Pandoc .md → .docx with custom styles, page breaks, etc.
+- `tpres` — Pandoc .md → reveal.js presentation
+- `chkdrft` — count `CN`, `TODO:`, and `<!--` markers in a draft
 
-- toc: Extract TOC from .md files
+General tools available on the system:
 
-- tso: Topic-sentence outline extraction from .md files
-
-- tmd: Pandoc .docx → .md
-
-- tdx: Pandoc .md → .docx with custom styles, page breaks, etc.
-
-- tpres: Pandoc .md → reveal.js presentation
-
-The system also has general tools available:
-
-- pdftotext
-
-- pdfunite
-
-- other pdfutils
-
-- python-docx is installed for docx handling python library
+- `pdftotext`, `pdfunite`, `pdfinfo`, `pdfseparate`
+- `python-docx` (Python library for .docx handling)
 
 
 
@@ -158,6 +151,8 @@ Guard should flag repeated model failures as a loop signal.
 
 ## Workflow Modes
 
+**Default**: High-Control Mode. Use this unless the user explicitly
+requests autonomous batch mode.
 
 
 ### High-Control Mode

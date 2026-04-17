@@ -22,7 +22,7 @@ monitor.
 2. Draft or revise the requested section.
 3. Preserve explicit placeholders for unknown material.
 4. Follow project style conventions.
-   - Read the root STYLE.md file to ensure compliance with formatting
+   - Read the root `/home/random_user/.config/opencode/STYLE.md` file to ensure compliance with formatting
      rules (72-character text width, heading line breaks, OpenXML page
      breaks, and custom styles for Word conversion).
 5. Return prose and unresolved issues to the planner.
@@ -56,7 +56,7 @@ Identify:
 
 Each skill directory contains:
 - `SKILL.md` — workflow and guardrails
-- `STYLE.md` — domain-specific conventions (extends root STYLE.md)
+- `STYLE.md` — domain-specific conventions (extends root `/home/random_user/.config/opencode/STYLE.md`)
 - `structure.md` — section-by-section structural guide
 - Example files (e.g., `method.md`, `results.md`, `intro.md`) — read
   only the example relevant to the section you are currently drafting

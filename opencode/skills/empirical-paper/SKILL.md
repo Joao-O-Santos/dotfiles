@@ -5,7 +5,7 @@ description: Use when writing or revising empirical manuscript sections (Abstrac
 
 # Skill: empirical-paper
 
-Write and revise empirical manuscripts from completed analyses, following STYLE.md
+Write and revise empirical manuscripts from completed analyses, following `/home/random_user/.config/opencode/STYLE.md`
 and structure.md.
 
 ## Required context
@@ -25,7 +25,7 @@ If missing, ask or insert `<!-- TODO: ... -->` placeholders.
 ## Workflow: three passes
 
 1. **Outline pass** – topic-sentence outline per section; confirm with user.
-2. **Draft pass** – fill paragraphs following STYLE.md hamburger structure.
+2. **Draft pass** – fill paragraphs following `/home/random_user/.config/opencode/STYLE.md` hamburger structure.
 3. **Revision pass** – tighten language, check statistical consistency and terminology.
 
 ## Guardrails
