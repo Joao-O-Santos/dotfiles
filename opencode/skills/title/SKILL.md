@@ -29,11 +29,9 @@ Based on actual academic works, here are effective title transformations:
 | Weak (descriptive) | Strong (provocative) |
 |---|---|
 | "Effects of sleep on memory consolidation" | "Sleep It Off — How Overnight Rest Shapes What You Remember" |
-| "AI advisor type and advice-taking behavior" | "Would You Trust a Machine? Advisor Type and Willingness to Update" |
-| "A review of self-regulation interventions" | "Teaching Yourself to Stop — A Review of Self-Regulation Interventions" |
-| "Studies on discrimination against children" | "Innocent until proven child? Adults expect children to commit more misconducts than adults" |
-| "Research on feelings toward children and adults" | "How do we stereotype and feel about children and adults?" |
-| "Investigating prejudice against children" | "Are we still too young to understand? Three years of investigating prejudice and discrimination against children" |
+| "AI advisor type and advice-taking behavior" | "Would You Like to Update Now? Depends on Who's Asking: Human or AI?"
+| "Studies on discriminatory blame attribution to children" | "Innocent until proven child? Adults expect children to commit more misconducts than adults" |
+| "Review of research on prejudice against children" | "Are we still too young to understand? Three years of investigating prejudice and discrimination against children" |
 | "Philosophy of science approach to replication crisis" | "Sorting Out the Replication Crisis with Philosophy of Science" |
 
 ## Workflow
