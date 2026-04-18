@@ -22,7 +22,7 @@
   },
   "agent": {
     "planner": {
-      "model": "opencode/nemotron-3-super",
+      "model": "opencode/nemotron-3-super-free",
       "description": "Primary orchestrator and default agent",
       "mode": "primary",
       "permission": {
@@ -114,7 +114,7 @@
        }
      },
     "deep-research": {
-      "model": "opencode/nemotron-3-super",
+      "model": "opencode/nemotron-3-super-free",
       "description": "Exhaustive multi-step research",
       "mode": "subagent",
       "permission": {
