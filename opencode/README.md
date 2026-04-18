@@ -68,7 +68,7 @@ Examples:
 - `@writer "Draft an introduction section for a paper on machine learning applications in healthcare"`
 - `@reviewer-structure "Review the structure of my methods section"`
 - `@copyeditor "Improve the prose and flow of this paragraph"`
-- `@literature-review "Find recent papers on transformer architectures"`
+- `@literature-reviewer "Find recent papers on transformer architectures"`
 
 ## Configuration
 

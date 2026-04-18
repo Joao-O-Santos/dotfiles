@@ -52,7 +52,7 @@ Identify:
 
 ### 2. Load the correct skill
 - `intro` for introductions
-- `lit-review` for literature reviews
+- `lit-review-section` for literature reviews
 - `methods` for method sections
 - `results` for results sections
 - `discussion` for discussion sections
@@ -77,8 +77,8 @@ Rules):
 
 ## Collaboration Rules
 
-- Receive research outputs from `literature-review` or `deep-research`
-  when citation support is needed.
+- Receive research outputs from `literature-reviewer` or `deep-research`
+   when citation support is needed.
 - Receive critique from `reviewer-structure`, `reviewer-detail`, or `copyeditor` when revision or claim hardening is needed.
 - Let `planner` decide when to pause, reroute, or escalate.
 - Let `guard` handle loop and regression monitoring.

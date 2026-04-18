@@ -5,6 +5,20 @@ All notable changes to the OpenCode Manuscript Workflow will be documented in th
 ### Added
 - Placeholder for upcoming changes
 
+## [2026-04-19] - Manuscript Workflow Refactor (Completed)
+### Added
+- Four shared snippets: style-core, placeholder-discipline, anti-fabrication-short, note-on-examples
+### Changed
+- Replaced STYLE.md file-load instructions with #style-core snippet inclusions in intro, lit-review, abstract, discussion, methods, results, title, r-analysis-quarto skills
+- Added #style-core snippet inclusion to discussion skills Rules section
+- Added anti-fabrication and placeholder discipline snippets to results skill
+- Added placeholder discipline and note on examples to manuscript-workflow skill
+- Renamed lit-review skill directory to lit-review-section
+- Renamed literature-review skill directory to finding-refs
+- Renamed literature-review agent to literature-reviewer
+- Updated all references in AGENTS.md, opencode.json, planner, writer, deep-research agents
+- Updated skill descriptions and frontmatter to match new directory names
+
 ## [2026-04-18] - Major Manuscript Workflow Refactor
 ### Added
 - New section-based skills: intro, lit-review, methods, results, discussion, manuscript-workflow
@@ -30,7 +44,7 @@ All notable changes to the OpenCode Manuscript Workflow will be documented in th
 
 ## [2026-04-16] - Initial Setup
 ### Added
-- Core agent definitions: planner, automation, writer, guard, literature-review, deep-research, r-analysis
+- Core agent definitions: planner, automation, writer, guard, literature-reviewer, deep-research, r-analysis
 - Generic reviewer agent
 - Empirical-paper and theoretical-paper skills
 - STYLE.md and AGENTS.md documentation

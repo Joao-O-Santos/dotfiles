@@ -82,9 +82,9 @@ When a delegated agent returns a blocker report:
 - NEVER delegate to built-in agents (`general`, `explore`). These are
   platform defaults that bypass the workflow routing table.
 - ONLY delegate to agents defined in `opencode.json` and listed in
-  `AGENTS.md` §Agent Roster: `planner`, `automation`, `writer`,
-  `reviewer-structure`, `reviewer-detail`, `copyeditor`, `guard`,
-  `literature-review`, `deep-research`, `r-analysis`.
+   `AGENTS.md` §Agent Roster: `planner`, `automation`, `writer`,
+   `reviewer-structure`, `reviewer-detail`, `copyeditor`, `guard`,
+   `literature-reviewer`, `deep-research`, `r-analysis`.
 - If a task does not match any custom agent, handle it yourself or ask
   the user. Do not fall back to built-in agents.
 - When delegating to reviewers, use the exact agent names:

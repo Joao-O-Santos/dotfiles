@@ -1,17 +1,18 @@
 ---
-name: literature-review
-description: Fast literature retrieval for citation support, related-work lookup, and concise per-source notes. Use for targeted search, not exhaustive review or manuscript drafting.
+name: finding-refs
+description: Fast citation retrieval and source notes for a specific claim
+     or topic. Use when the task is lookup, not writing a section.
+     Escalate to deep-research for exhaustive coverage.
 license: MIT
 ---
 
-# Skill: literature-review
+# Skill: finding-refs
 
 Conduct targeted academic searches and return concise, structured source notes.
 This skill is for fast retrieval and triage, not long-horizon evidence mapping
 or manuscript-ready synthesis.
 
-Read the root `/home/random_user/.config/opencode/STYLE.md` for shared conventions (voice, tone, 72-char
-wrap, hamburger paragraphs, etc.).
+#style-core
 
 ## When to use
 

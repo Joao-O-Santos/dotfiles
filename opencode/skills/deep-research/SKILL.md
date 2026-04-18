@@ -112,7 +112,7 @@ Do not treat deep research as the final writing stage.
 - **Output minimum**: research question, subquestions, coverage level,
   per-source notes, limitations, synthesis.
 - **Escalation**: if only 2–5 papers are needed, recommend
-  `literature-review` instead.
+   `finding-refs` instead.
 - **Anti-drift**: no fabrication, no manuscript prose unless instructed,
   stop when marginal yield is low, mark uncertainty with
   `<!-- TODO: verify -->`.

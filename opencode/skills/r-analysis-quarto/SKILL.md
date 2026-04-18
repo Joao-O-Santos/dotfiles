@@ -8,8 +8,7 @@ description: Use when the task involves editing, debugging, or extending the R a
 Maintain and extend the R analysis pipeline so that it stays reproducible, readable,
 and aligned with the project's house style.
 
-Read the root `/home/random_user/.config/opencode/STYLE.md` for shared conventions and
-`/home/random_user/.config/opencode/skills/empirical-paper/STYLE.md §2` for statistical reporting rules.
+#style-core
 
 ## Project layout
 
@@ -65,7 +64,7 @@ linting), see `coding_style.md` in this skill directory.
 
 ## Collaboration with the user
 
-See `/home/random_user/.config/opencode/STYLE.md` §7 for full collaboration conventions
+#style-core
 (scope confirmation, outline/reverse-outline before rewrites, deference
 to user on substantive choices).
 

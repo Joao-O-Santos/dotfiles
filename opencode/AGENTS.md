@@ -20,7 +20,7 @@ If this file and `opencode.json` disagree about runtime behavior, `opencode.json
 | `reviewer-detail` | primary | Detail critique: citations, conceptual clarity, argument issues |
 | `copyeditor` | primary | Prose review: titles, paragraphs, sentences, words, markdown compliance |
 | `guard` | subagent | Safety checkpoints, regression control, loop detection |
-| `literature-review` | subagent | Fast literature search and source notes |
+| `literature-reviewer` | subagent | Fast literature search and source notes |
 | `deep-research` | subagent | Exhaustive multi-step evidence gathering |
 | `r-analysis` | primary | R / Quarto pipeline edits and statistical-code changes |
 
@@ -29,7 +29,7 @@ If this file and `opencode.json` disagree about runtime behavior, `opencode.json
 | Task Type | Agent | Role |
 |-----------|-------|------|
 | Drafting or revising manuscript prose | `writer` | Writing only; use verified inputs |
-| Fast citation support or paper lookup | `literature-review` | Retrieval only; structured source notes |
+| Fast citation support or paper lookup | `literature-reviewer` | Retrieval only; structured source notes |
 | Exhaustive, conflicting, or multi-hop research | `deep-research` | Evidence mapping, coverage expansion |
 | Big-picture review | `reviewer-structure` | Structure, arguments, impact critique |
 | Detail review | `reviewer-detail` | Citations, conceptual clarity, argument issues |
@@ -104,7 +104,7 @@ Guard is auto-triggered after:
 
 ## Research Separation
 
-- `literature-review` is for fast retrieval, source discovery, and concise per-source notes.
+- `literature-reviewer` is for fast retrieval, source discovery, and concise per-source notes.
 - `deep-research` is for exhaustive coverage, conflicting literatures, and multi-hop evidence gathering.
 - `writer` consumes research outputs but does not replace retrieval.
 - `reviewer-structure`, `reviewer-detail`, `copyeditor` critique claims and support but do not act as primary search agents.
@@ -128,7 +128,7 @@ Placeholders must be preserved until resolved by evidence or explicit user instr
 
 ### Agent-specific enforcement
 - `writer`: use placeholders instead of inventing content
-- `literature-review`: never invent metadata or summaries
+- `literature-reviewer`: never invent metadata or summaries
 - `deep-research`: report coverage limits and conflicts explicitly
 - `reviewer-structure`, `reviewer-detail`, `copyeditor`: flag unsupported claims and missing placeholders
 - `r-analysis`: describe only actual outputs or clearly marked uncertainties

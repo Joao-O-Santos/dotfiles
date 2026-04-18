@@ -1,6 +1,6 @@
 # Skill: title
 
-Read `${HOME}/.config/opencode/STYLE.md` for base conventions (see §5.6 Titles).
+#style-core
 
 ## Pattern
 

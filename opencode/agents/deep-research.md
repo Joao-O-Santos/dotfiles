@@ -22,7 +22,7 @@ Use this agent for:
 - broad coverage across subquestions
 
 Do not use this agent for:
-- quick citation lookup (use `literature-review` instead)
+- quick citation lookup (use `finding-refs` instead)
 - manuscript drafting
 - polishing prose
 - lightweight claim checks
@@ -31,4 +31,4 @@ Do not use this agent for:
 
 Return structured evidence for the planner, writer, or reviewer to use.
 If only 2-5 relevant papers are needed, tell the planner that
-`literature-review` would have been more appropriate.
+`finding-refs` would have been more appropriate.

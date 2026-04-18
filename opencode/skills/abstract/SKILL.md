@@ -1,6 +1,6 @@
 # Skill: abstract
 
-Read `${HOME}/.config/opencode/STYLE.md` for base conventions.
+#style-core
 
 ## Structure
 

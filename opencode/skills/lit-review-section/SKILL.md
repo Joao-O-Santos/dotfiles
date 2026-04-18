@@ -1,11 +1,13 @@
 ---
-name: lit-review
-description: Draft or revise literature review sections for empirical or theoretical papers.
+name: lit-review-section
+description: Draft or revise the literature review section of a manuscript.
+     Load alongside manuscript-workflow. Not for citation lookup —
+     use finding-refs for that.
 ---
 
 # Skill: lit-review
 
-Read `${HOME}/.config/opencode/STYLE.md` for base conventions.
+#style-core
 
 ## Structure
 

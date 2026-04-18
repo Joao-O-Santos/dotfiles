@@ -22,7 +22,7 @@
   },
   "agent": {
     "planner": {
-      "model": "ollama-cloud/kimi-k2.5",
+      "model": "opencode/nemotron-3-super",
       "description": "Primary orchestrator and default agent",
       "mode": "primary",
       "permission": {
@@ -32,7 +32,7 @@
       }
     },
     "automation": {
-      "model": "ollama-cloud/minimax-m2.7",
+      "model": "opencode/minimax-m2.5-free",
       "mode": "primary",
       "permission": {
         "edit": "allow",
@@ -40,7 +40,7 @@
       }
     },
     "writer": {
-      "model": "ollama-cloud/gemma-2-9b",
+      "model": "opencode/minimax-m2.5-free",
       "description": "Unified manuscript drafting (empirical/theoretical)",
       "mode": "primary",
       "permission": {
@@ -49,7 +49,7 @@
       }
     },
      "reviewer-structure": {
-        "model": "qwen/qwen2.5-7b-instruct",
+        "model": "mistral/mistral-large-latest",
        "description": "Big-picture critique: structure, arguments, impact",
        "mode": "primary",
        "permission": {
@@ -62,7 +62,7 @@
        }
      },
      "reviewer-detail": {
-        "model": "microsoft/phi-3-mini-128k-instruct",
+       "model": "openrouter/openai/gpt-oss-120b:free",
        "description": "Detail critique: citations, conceptual clarity, argument issues",
        "mode": "primary",
        "permission": {
@@ -75,7 +75,7 @@
        }
      },
      "copyeditor": {
-        "model": "mistral/mistral-7b-instruct",
+        "model": "opencode/nemotron-3-super-free",
        "description": "Prose review: titles, paragraphs, sentences, words, markdown compliance",
        "mode": "primary",
        "permission": {
@@ -88,7 +88,7 @@
        }
      },
     "guard": {
-      "model": "ollama-cloud/minimax-m2.5",
+      "model": "opencode/minimax-m2.5-free",
       "description": "Safety checkpoints and regression control",
       "mode": "subagent",
       "permission": {
@@ -100,21 +100,21 @@
         }
       }
     },
-    "literature-review": {
-      "model": "ollama-cloud/gemma4:31b-cloud",
-      "description": "Fast academic search and paper summaries",
-      "mode": "subagent",
-      "permission": {
-        "edit": "deny",
-        "webfetch": "allow",
-        "bash": {
-          "*": "deny",
-          "cat *": "allow", "head *": "allow", "tail *": "allow", "grep *": "allow", "rg *": "allow", "find *": "allow", "wc *": "allow", "pdftotext *": "allow"
-        }
-      }
-    },
+     "literature-reviewer": {
+       "model": "opencode/big-pickle",
+       "description": "Fast academic search and paper summaries",
+       "mode": "subagent",
+       "permission": {
+         "edit": "deny",
+         "webfetch": "allow",
+         "bash": {
+           "*": "deny",
+           "cat *": "allow", "head *": "allow", "tail *": "allow", "grep *": "allow", "rg *": "allow", "find *": "allow", "wc *": "allow", "pdftotext *": "allow"
+         }
+       }
+     },
     "deep-research": {
-      "model": "opencode/nemotron-3-super-free",
+      "model": "opencode/nemotron-3-super",
       "description": "Exhaustive multi-step research",
       "mode": "subagent",
       "permission": {

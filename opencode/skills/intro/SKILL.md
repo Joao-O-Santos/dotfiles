@@ -5,7 +5,7 @@ description: Draft or revise introductions for empirical or theoretical papers.
 
 # Skill: intro
 
-Read `${HOME}/.config/opencode/STYLE.md` for base conventions.
+#style-core
 
 ## Inputs
 
