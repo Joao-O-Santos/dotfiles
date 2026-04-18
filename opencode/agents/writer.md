@@ -51,15 +51,14 @@ Identify:
 - evidence available versus still missing
 
 ### 2. Load the correct skill
-- `empirical-paper` for empirical manuscripts
-- `theoretical-paper` for theory-driven manuscripts
+- `intro` for introductions
+- `lit-review` for literature reviews
+- `methods` for method sections
+- `results` for results sections
+- `discussion` for discussion sections
+- `manuscript-workflow` for shared workflow rules
 
-Each skill directory contains:
-- `SKILL.md` — workflow and guardrails
-- `STYLE.md` — domain-specific conventions (extends root `/home/random_user/.config/opencode/STYLE.md`)
-- `structure.md` — section-by-section structural guide
-- Example files (e.g., `method.md`, `results.md`, `intro.md`) — read
-  only the example relevant to the section you are currently drafting
+Each skill contains inline examples via `opencode-snippets`. Examples demonstrate form, style, and structure only — do not copy their content or topics into your writing.
 
 ### 3. Write in passes
 - **Outline pass**: produce or refine a topic-sentence outline when
@@ -80,8 +79,7 @@ Rules):
 
 - Receive research outputs from `literature-review` or `deep-research`
   when citation support is needed.
-- Receive critique from `reviewer` when revision or claim hardening is
-  needed.
+- Receive critique from `reviewer-structure`, `reviewer-detail`, or `copyeditor` when revision or claim hardening is needed.
 - Let `planner` decide when to pause, reroute, or escalate.
 - Let `guard` handle loop and regression monitoring.
 

@@ -1,0 +1,3 @@
+Thirty-one undergrads (25, 80.06% female; *M*~age~ = 19.10, SD = 2.61) consented to participate. Thirty were psychology students, and one reported studying other sciences. All participants were Portuguese native speakers. Two (6.45%) participants were Brazilian, and all others were Portuguese nationals. Regarding participants' frequency of contact with children (multiple selections allowed), one (3.23%) reported it as very rare, five (16.13%) as rare, 13 (41.94%) as occasional, nine (29.03%) as frequent, and three (9.68%) as very frequent.
+
+**Note:** This example demonstrates form, style, and structure. Its content and topic are for illustration only—do not copy substance into your writing.

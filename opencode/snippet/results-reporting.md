@@ -1,0 +1,3 @@
+Aiming to control for possible stimuli effects we analyzed the data with linear mixed models. The maximal model, featured random intercepts by participant and stimulus, and random slopes of target by participant, but no random slopes by stimulus. Recall that all participants saw statements directed at each target category, but they only saw one version of each statement (e.g., if they saw a statement directed at children, they did not see that same statement directed at another minority).
+
+**Note:** This example demonstrates form, style, and structure. Its content and topic are for illustration only—do not copy substance into your writing.

@@ -1,0 +1,3 @@
+Participants came to the lab and consented to participate. The instructions explained participants were going to read some statements, and that their task was to drag a slider over a bar with a label on each end. The left-end of the bar was labeled "completely unacceptable", and the right-end "completely acceptable". The instructions also reminded participants that if they wanted to keep the bar on its initial location (i.e., the center) they had to click on it for their response to be recorded.
+
+**Note:** This example demonstrates form, style, and structure. Its content and topic are for illustration only—do not copy substance into your writing.

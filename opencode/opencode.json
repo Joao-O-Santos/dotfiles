@@ -42,8 +42,9 @@
       }
     },
     "writer": {
-      "model": "ollama-cloud/gemini-3-flash-preview",
-      "fallback": "opencode/big-pickle",
+      "model": "ollama-cloud/gemma-2-9b",
+      "fallback": "opencode/minimax-m2.5-free",
+      "fallback": "openrouter/gpt-oss-120b:free",
       "description": "Unified manuscript drafting (empirical/theoretical)",
       "mode": "primary",
       "permission": {
@@ -51,20 +52,48 @@
         "webfetch": "allow"
       }
     },
-    "reviewer": {
-      "model": "mistral/mistral-large-latest",
-      "fallaback": "ollama-cloud/glm-5.1",
-      "description": "Critique and revision memos",
-      "mode": "primary",
-      "permission": {
-        "edit": "deny",
-        "webfetch": "allow",
-        "bash": {
-          "*": "deny",
-          "cat *": "allow", "head *": "allow", "tail *": "allow", "grep *": "allow", "rg *": "allow", "find *": "allow", "wc *": "allow"
-        }
-      }
-    },
+     "reviewer-structure": {
+        "model": "qwen/qwen2.5-7b-instruct",
+       "fallback": "ollama-cloud/glm-5.1",
+       "description": "Big-picture critique: structure, arguments, impact",
+       "mode": "primary",
+       "permission": {
+         "edit": "deny",
+         "webfetch": "allow",
+         "bash": {
+           "*": "deny",
+           "cat *": "allow", "head *": "allow", "tail *": "allow", "grep *": "allow", "rg *": "allow", "find *": "allow", "wc *": "allow"
+         }
+       }
+     },
+     "reviewer-detail": {
+        "model": "microsoft/phi-3-mini-128k-instruct",
+       "fallback": "openrouter/z-ai/glm-4.5-air:free",
+       "description": "Detail critique: citations, conceptual clarity, argument issues",
+       "mode": "primary",
+       "permission": {
+         "edit": "deny",
+         "webfetch": "allow",
+         "bash": {
+           "*": "deny",
+           "cat *": "allow", "head *": "allow", "tail *": "allow", "grep *": "allow", "rg *": "allow", "find *": "allow", "wc *": "allow"
+         }
+       }
+     },
+     "copyeditor": {
+        "model": "mistral/mistral-7b-instruct",
+       "fallback": "ollama-cloud/glm-5.1",
+       "description": "Prose review: titles, paragraphs, sentences, words, markdown compliance",
+       "mode": "primary",
+       "permission": {
+         "edit": "deny",
+         "webfetch": "allow",
+         "bash": {
+           "*": "deny",
+           "cat *": "allow", "head *": "allow", "tail *": "allow", "grep *": "allow", "rg *": "allow", "find *": "allow", "wc *": "allow"
+         }
+       }
+     },
     "guard": {
       "model": "ollama-cloud/minimax-m2.5",
       "fallback": "openrouter/z-ai/glm-4.5-air:free",
@@ -94,7 +123,7 @@
       }
     },
     "deep-research": {
-      "model": "ollama-cloud/gemini-3-flash-preview",
+      "model": "opencode/nemotron-3-super-free",
       "fallback": "opencode/big-pickle",
       "description": "Exhaustive multi-step research",
       "mode": "subagent",
@@ -117,5 +146,8 @@
         "webfetch": "allow"
       }
     }
-  }
+  },
+  "plugin": [
+    "opencode-snippets"
+  ]
 }
