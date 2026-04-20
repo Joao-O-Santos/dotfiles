@@ -1,0 +1,2 @@
+2026-04-20T23:26:42.328Z WARN  loader: Failed to load snippet file | filename=reviewer-collaboration-rules.md error=ENOENT: no such file or directory, open '/home/random_user/.config/opencode/snippet/reviewer-collaboration-rules.md'
+2026-04-20T23:26:42.328Z WARN  loader: Failed to load snippet file | filename=agent-anti-fabrication-notice.md error=ENOENT: no such file or directory, open '/home/random_user/.config/opencode/snippet/agent-anti-fabrication-notice.md'
