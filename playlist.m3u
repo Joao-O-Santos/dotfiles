@@ -8,12 +8,6 @@ https://stream.laut.fm/mash.m3u
 #EXTINF: -1, Bandit Metal
 https://wr03-ice.stream.khz.se/wr03_aac
 
-#EXTINF:-1, Power Metal (Radio Caprice)
-https://radio.caprice.fm/powermetal.aac
-
-#EXTINF:-1, Power Metal (RADIO BOB!)
-https://wdr-wdr5-live.icecastssl.wdr.de/wdr/wdr5/live/mp3/128/stream.mp3
-
 #EXTINF:-1, Crucial Velocity
 https://ais-sa2.cdnstream1.com/1369_128
 
