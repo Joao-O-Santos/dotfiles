@@ -15,10 +15,11 @@ If this file and `opencode.json` disagree about runtime behavior, `opencode.json
 |-------|------|----------------|
 | `planner` | primary | Orchestrator, task decomposition, routing, workflow-state management |
 | `automation` | primary | Shell, git, and terminal-native execution |
-| `writer` | primary | Manuscript drafting and revision |
-| `reviewer-structure` | primary | Big-picture critique: structure, arguments, impact |
-| `reviewer-detail` | primary | Detail critique: citations, conceptual clarity, argument issues |
-| `copyeditor` | primary | Prose review: titles, paragraphs, sentences, words, markdown compliance |
+| `writer` | primary | Manuscript drafting and revision (instruction-following) |
+| `editor` | primary | Launch reviewers, sort their output into chronological edit list |
+| `reviewer-structure` | subagent | Big-picture critique: structure, arguments, impact |
+| `reviewer-detail` | subagent | Detail critique: citations, conceptual clarity, argument issues |
+| `copyeditor` | subagent | Prose review: titles, paragraphs, sentences, words, markdown compliance |
 | `guard` | subagent | Safety checkpoints, regression control, loop detection |
 | `literature-reviewer` | subagent | Fast literature search and source notes |
 | `deep-research` | subagent | Exhaustive multi-step evidence gathering |
@@ -29,6 +30,7 @@ If this file and `opencode.json` disagree about runtime behavior, `opencode.json
 | Task Type | Agent | Role |
 |-----------|-------|------|
 | Drafting or revising manuscript prose | `writer` | Writing only; use verified inputs |
+| Manuscript review orchestration | `editor` | Launch reviewers, collate and sort outputs |
 | Fast citation support or paper lookup | `literature-reviewer` | Retrieval only; structured source notes |
 | Exhaustive, conflicting, or multi-hop research | `deep-research` | Evidence mapping, coverage expansion |
 | Big-picture review | `reviewer-structure` | Structure, arguments, impact critique |
