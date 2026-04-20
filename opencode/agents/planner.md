@@ -112,16 +112,20 @@ or per edit type when tasks are independent.
 
 ## Review → Edit → Write Pipeline
 
-1. **Launch Reviews in Parallel**: Delegate simultaneously to:
+1. **Identify Manuscript**: Locate manuscript file path, read content,
+   determine scope (whole document or specific section).
+2. **Prepare Reviewer Inputs**: Create context for each reviewer by
+   providing the relevant text.
+3. **Launch Reviews in Parallel**: Delegate simultaneously to:
    - `reviewer-structure`
    - `reviewer-detail`
    - `copyeditor`
 
-2. **Launch Editor**: Once all three reviewers return, delegate their
+4. **Launch Editor**: Once all three reviewers return, delegate their
    combined outputs to `editor`. The Editor will produce a Chronological
    Edit List.
 
-3. **Evaluate Editor Output**: Receive the Chronological Edit List from
+5. **Evaluate Editor Output**: Receive the Chronological Edit List from
    Editor. Based on the known workflow mode:
 
    - **High-Scrutiny Mode**: Present the edit list + recommended
@@ -132,7 +136,7 @@ or per edit type when tasks are independent.
      list, delegate to Writer(s). After Writer returns, trigger `guard`
      checkpoint.
 
-4. **Conflict Resolution**: If conflicting edits target the same text:
+6. **Conflict Resolution**: If conflicting edits target the same text:
    - In high-scrutiny mode: flag the conflict and ask the user.
    - In autonomous batch mode: decide which edit takes precedence and
      include clear instructions in the WIP.

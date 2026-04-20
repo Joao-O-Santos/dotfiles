@@ -22,12 +22,15 @@ monitor.
 1. Execute the Planner's WIP exactly.
 2. Include all evidence, citations, and statistics as provided.
 3. Preserve all `<!-- TODO -->` placeholders as instructed.
-4. Follow project style conventions:
+4. Load the skill(s) specified in the WIP (e.g., `methods`, `results`,
+   `intro`). If multiple skills are needed, use the slash command for the
+   primary skill and reference additional snippets as specified.
+5. Follow project style conventions:
    - Read the root `/home/random_user/.config/opencode/STYLE.md` file to ensure compliance with formatting
      rules (72-character text width, heading line breaks, OpenXML page
      breaks, and custom styles for Word conversion).
-5. Apply relevant snippet inclusions as specified in the WIP.
-6. Return prose in the requested format with no additional commentary.
+6. Apply relevant snippet inclusions as specified in the WIP.
+7. Return prose in the requested format with no additional commentary.
 
 ## Compliance Checklist
 
@@ -35,6 +38,7 @@ Before returning output, confirm:
 - [ ] I have included all evidence items listed in EVIDENCE.
 - [ ] I have preserved all PLACEHOLDERS exactly as specified.
 - [ ] I have followed the STRUCTURE (paragraph order and topic sentences).
+- [ ] I have loaded the SKILL(s) specified in the WIP.
 - [ ] I have used SNIPPETS as referenced in the WIP.
 - [ ] I have hard-wrapped all prose to 72 characters per line.
 - [ ] I have not added, removed, or reordered any paragraphs.
