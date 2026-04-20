@@ -5,6 +5,28 @@ All notable changes to the OpenCode Manuscript Workflow will be documented in th
 ### Added
 - Placeholder for upcoming changes
 
+## [2026-04-21] - Editor Agent & Workflow Refactor
+### Added
+- New `editor` agent (primary): sorts reviewer outputs into chronological edit list
+- `read-for-context` snippet for pre-session file loading
+- Writer Instruction Packet (WIP) specification in planner.md
+- Input handling steps to Review → Edit → Write Pipeline
+- Strict non-negotiable prohibition in planner.md (no prose writing, no file editing, no mutating shell commands)
+
+### Changed
+- `reviewer-structure`, `reviewer-detail`, `copyeditor` mode changed from `primary` to `subagent`
+- `editor` added to agent roster and routing table
+- `planner` bash permissions limited to read-only commands (git status, cat, grep, etc.)
+- `planner` WIP field simplified: SKILL (single skill name), SNIPPETS (list of #snippet-name references)
+- Writer reframed as instruction-following prose engine (receives WIP, loads specified skill, executes exactly)
+- Editor description changed from "orchestrator" to "collation agent" throughout
+- Editor task permission removed (Planner launches reviewers, not Editor)
+
+### Fixed
+- Editor collaboration rules (removed circular "Report to editor" language)
+- Editor role description (receives outputs from Planner, does not launch reviewers)
+- AGENTS.md editor responsibility wording ("sorts" not "launches and sorts")
+
 ## [2026-04-19] - Manuscript Workflow Refactor (Completed)
 ### Added
 - Four shared snippets: style-core, placeholder-discipline, anti-fabrication-short, note-on-examples

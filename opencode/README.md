@@ -6,14 +6,15 @@ A specialized AI agent system designed for academic manuscript writing, revision
 
 The OpenCode Manuscript Workflow implements a multi-agent system where each agent has a specific role in the academic writing process:
 
-- **Planner**: Orchestrates the workflow, decomposes tasks, and manages overall progress
-- **Writer**: Handles manuscript drafting and revision for both empirical and theoretical papers
-- **Reviewer Trio**: Provides specialized feedback:
+- **Planner**: Orchestrates the workflow, decomposes tasks, manages overall progress, and delegates to specialist agents
+- **Writer**: Handles manuscript drafting and revision, executing the Planner's structured Writer Instruction Packets (WIP)
+- **Editor**: Receives reviewer outputs and sorts them into a chronological edit list
+- **Reviewer Trio** (subagents, launched by Planner):
   - *Reviewer-Structure*: Focuses on big-picture elements (structure, arguments, impact)
   - *Reviewer-Detail*: Examines citations, conceptual clarity, and argument issues
   - *Copyeditor*: Reviews prose, titles, paragraphs, sentences, words, and markdown compliance
-- **Support Agents**: 
-  - *Literature-review*: Fast academic search and paper summaries
+- **Support Agents**:
+  - *Literature-reviewer*: Fast academic search and paper summaries
   - *Deep-research*: Exhaustive multi-step evidence gathering
   - *R-analysis*: R/Quarto pipeline edits and statistical code changes
   - *Automation*: Shell, git, and terminal-native execution
@@ -79,11 +80,20 @@ The main configuration file defines:
 - Plugin configurations (including opencode-snippets)
 
 ### Model Assignments (Current)
-- **Writer**: ollama-cloud/gemma-2-9b (Gemma family)
-- **Reviewer-Structure**: qwen/qwen2.5-7b-instruct (Qwen family)
-- **Reviewer-Detail**: microsoft/phi-3-mini-128k-instruct (Phi family)
-- **Copyeditor**: mistral/mistral-7b-instruct (Mistral family)
+- **Planner**: opencode-go/kimi-k2.5
+- **Writer**: opencode-go/qwen3.5-plus
+- **Editor**: opencode-go/kimi-k2.5
+- **Reviewer-Structure**: mistral/mistral-large-latest (Mistral family)
+- **Reviewer-Detail**: opencode-go/kimi-k2.5 (Kimi family)
+- **Copyeditor**: opencode-go/minimax-m2.5 (Minimax family)
 - Other agents configured for optimal performance/cost ratios
+
+### Review → Edit → Write Pipeline
+1. **Identify Manuscript**: Planner locates file, reads content, determines scope
+2. **Launch Reviews**: Planner delegates simultaneously to reviewer-structure, reviewer-detail, copyeditor
+3. **Launch Editor**: Planner passes all three outputs to editor for chronological sorting
+4. **Evaluate**: Based on workflow mode (high-scrutiny or autonomous batch), Planner presents to user or executes
+5. **Write**: Planner compiles WIP and delegates to Writer; Guard runs checkpoint after completion
 
 ## Extending the System
 
