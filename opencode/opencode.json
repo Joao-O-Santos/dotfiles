@@ -22,17 +22,22 @@
   },
   "agent": {
     "planner": {
-      "model": "opencode/nemotron-3-super-free",
+      "model": "opencode-go/kimi-k2.5",
       "description": "Primary orchestrator and default agent",
       "mode": "primary",
       "permission": {
         "edit": "deny",
         "webfetch": "allow",
-        "task": { "*": "allow" }
+        "task": { "*": "allow" },
+        "bash": {
+          "*": "deny",
+          "git status": "allow", "git log *": "allow", "git diff *": "allow", "git show *": "allow",
+          "cat *": "allow", "head *": "allow", "tail *": "allow", "grep *": "allow", "rg *": "allow", "find *": "allow", "wc *": "allow", "ls *": "allow"
+        }
       }
     },
     "automation": {
-      "model": "opencode/minimax-m2.5-free",
+      "model": "opencode-go/qwen3.6-plus",
       "mode": "primary",
       "permission": {
         "edit": "allow",
@@ -40,7 +45,7 @@
       }
     },
     "writer": {
-      "model": "opencode/minimax-m2.5-free",
+      "model": "opencode-go/qwen3.5-plus",
       "description": "Unified manuscript drafting (empirical/theoretical)",
       "mode": "primary",
       "permission": {
@@ -49,46 +54,56 @@
       }
     },
      "reviewer-structure": {
-        "model": "mistral/mistral-large-latest",
-       "description": "Big-picture critique: structure, arguments, impact",
+         "model": "mistral/mistral-large-latest",
+        "description": "Big-picture critique: structure, arguments, impact",
+        "mode": "subagent",
+        "permission": {
+          "edit": "deny",
+          "webfetch": "allow",
+          "bash": {
+            "*": "deny",
+            "cat *": "allow", "head *": "allow", "tail *": "allow", "grep *": "allow", "rg *": "allow", "find *": "allow", "wc *": "allow"
+          }
+        }
+      },
+      "reviewer-detail": {
+        "model": "opencode-go/kimi-k2.5",
+        "description": "Detail critique: citations, conceptual clarity, argument issues",
+        "mode": "subagent",
+        "permission": {
+          "edit": "deny",
+          "webfetch": "allow",
+          "bash": {
+            "*": "deny",
+            "cat *": "allow", "head *": "allow", "tail *": "allow", "grep *": "allow", "rg *": "allow", "find *": "allow", "wc *": "allow"
+          }
+        }
+      },
+      "copyeditor": {
+         "model": "opencode-go/minimax-m2.5",
+        "description": "Prose review: titles, paragraphs, sentences, words, markdown compliance",
+        "mode": "subagent",
+        "permission": {
+          "edit": "deny",
+          "webfetch": "allow",
+          "bash": {
+            "*": "deny",
+            "cat *": "allow", "head *": "allow", "tail *": "allow", "grep *": "allow", "rg *": "allow", "find *": "allow", "wc *": "allow"
+          }
+        }
+      },
+     "editor": {
+       "model": "opencode-go/kimi-k2.5",
+       "description": "Manuscript review orchestrator: launches reviewers, sorts output chronologically",
        "mode": "primary",
        "permission": {
          "edit": "deny",
          "webfetch": "allow",
-         "bash": {
-           "*": "deny",
-           "cat *": "allow", "head *": "allow", "tail *": "allow", "grep *": "allow", "rg *": "allow", "find *": "allow", "wc *": "allow"
-         }
-       }
-     },
-     "reviewer-detail": {
-       "model": "openrouter/openai/gpt-oss-120b:free",
-       "description": "Detail critique: citations, conceptual clarity, argument issues",
-       "mode": "primary",
-       "permission": {
-         "edit": "deny",
-         "webfetch": "allow",
-         "bash": {
-           "*": "deny",
-           "cat *": "allow", "head *": "allow", "tail *": "allow", "grep *": "allow", "rg *": "allow", "find *": "allow", "wc *": "allow"
-         }
-       }
-     },
-     "copyeditor": {
-        "model": "opencode/nemotron-3-super-free",
-       "description": "Prose review: titles, paragraphs, sentences, words, markdown compliance",
-       "mode": "primary",
-       "permission": {
-         "edit": "deny",
-         "webfetch": "allow",
-         "bash": {
-           "*": "deny",
-           "cat *": "allow", "head *": "allow", "tail *": "allow", "grep *": "allow", "rg *": "allow", "find *": "allow", "wc *": "allow"
-         }
+         "task": { "*": "allow" }
        }
      },
     "guard": {
-      "model": "opencode/minimax-m2.5-free",
+      "model": "opencode-go/minimax-m2.5",
       "description": "Safety checkpoints and regression control",
       "mode": "subagent",
       "permission": {
@@ -101,7 +116,7 @@
       }
     },
      "literature-reviewer": {
-       "model": "opencode/big-pickle",
+       "model": "opencode/mimo-v2-omni",
        "description": "Fast academic search and paper summaries",
        "mode": "subagent",
        "permission": {
@@ -114,7 +129,7 @@
        }
      },
     "deep-research": {
-      "model": "opencode/nemotron-3-super-free",
+      "model": "opencode-go/kimi-k2.5",
       "description": "Exhaustive multi-step research",
       "mode": "subagent",
       "permission": {
@@ -127,7 +142,7 @@
       }
     },
     "r-analysis": {
-      "model": "opencode-go/minimax-m2.7",
+      "model": "opencode-go/qwen3.6-plus",
       "description": "R/Quarto pipeline edits",
       "mode": "primary",
       "permission": {
