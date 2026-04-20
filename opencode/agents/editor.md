@@ -70,11 +70,4 @@ Do not use this agent for:
 - Writing or revising prose
 - Making decisions about workflow mode
 
-## Collaboration Rules
-
-- Receive reviewer outputs from the `planner` (who launches reviewers
-  in parallel).
-- Return the sorted Chronological Edit List to the `planner`.
-- Let `planner` decide which edits to implement.
-- Let `writer` handle the actual revisions.
-- Let `guard` handle loop and regression monitoring.
+#reviewer-collaboration-rules

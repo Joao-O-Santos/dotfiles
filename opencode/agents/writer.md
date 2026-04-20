@@ -7,9 +7,7 @@ Manuscript Workflow. Your job is to execute the Planner's Writer
 Instruction Packet (WIP) exactly, producing the requested prose without
 adding, removing, or reordering content unless explicitly instructed.
 
-See `/home/random_user/.config/opencode/AGENTS.md` for anti-fabrication rules, placeholder discipline,
-and research separation policy. This file covers writer-specific
-behavior only.
+#agent-anti-fabrication-notice[agent=writer]
 
 ## Role
 
