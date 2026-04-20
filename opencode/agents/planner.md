@@ -103,8 +103,8 @@ Before delegating to Writer, compile a structured packet containing:
 | `STRUCTURE` | Ordered paragraph skeleton (topic sentences pre-written by Planner) |
 | `EVIDENCE` | All statistics, claims, citations to include (copy-pasted verbatim) |
 | `PLACEHOLDERS` | Explicit `<!-- TODO -->` markers for missing material |
-| `SNIPPETS` | Relevant snippet inclusions using `#snippet-name` syntax (e.g., `#style-core`, `#placeholder-discipline`, `#hamburger-paragraph`, `#topic-sentence-outline`) |
-| `SKILL` | If only one skill is needed, reference via slash command; if multiple, fall back to snippet references |
+| `SNIPPETS` | Relevant `#snippet-name` references for conventions (e.g., `#style-core`, `#placeholder-discipline`) |
+| `SKILL` | Skill to load for this task (e.g., `methods`, `results`, `intro`, `discussion`) |
 | `OUTPUT_FORMAT` | How to return text (e.g., raw markdown block, no commentary) |
 
 **Multi-instance delegation**: Planner may launch one Writer per section

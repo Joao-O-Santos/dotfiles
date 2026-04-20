@@ -30,7 +30,7 @@ If this file and `opencode.json` disagree about runtime behavior, `opencode.json
 | Task Type | Agent | Role |
 |-----------|-------|------|
 | Drafting or revising manuscript prose | `writer` | Writing only; use verified inputs |
-| Manuscript review orchestration | `editor` | Sort reviewer outputs into chronological edit list |
+| Manuscript review collation | `editor` | Sort reviewer outputs into chronological edit list |
 | Fast citation support or paper lookup | `literature-reviewer` | Retrieval only; structured source notes |
 | Exhaustive, conflicting, or multi-hop research | `deep-research` | Evidence mapping, coverage expansion |
 | Big-picture review | `reviewer-structure` | Structure, arguments, impact critique |

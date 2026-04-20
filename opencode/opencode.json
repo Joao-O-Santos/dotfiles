@@ -94,7 +94,7 @@
       },
      "editor": {
        "model": "opencode-go/kimi-k2.5",
-       "description": "Manuscript review orchestrator: sorts reviewer output chronologically",
+       "description": "Manuscript review collation agent: sorts reviewer output chronologically",
        "mode": "primary",
        "permission": {
          "edit": "deny",
