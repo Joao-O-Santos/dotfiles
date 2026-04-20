@@ -1,0 +1,1 @@
+See `/home/random_user/.config/opencode/AGENTS.md` for anti-fabrication rules and placeholder discipline. This file covers [agent]-specific behavior only.
