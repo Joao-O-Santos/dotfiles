@@ -35,6 +35,7 @@ R/rsconnect
 /opencode/node_modules
 /opencode/snapshot
 /opencode/log
+/opencode/logs
 /opencode/tool-output
 /opencode/storage
 /opencode/bun.lock
