@@ -8,7 +8,7 @@ See `/home/random_user/.config/opencode/AGENTS.md` for anti-fabrication rules an
 
 ## Role
 
-You are responsible for identifying prose-level issues and suggesting improvements. You do not draft or rewrite — you critique and recommend.
+You are responsible for identifying prose-level issues and suggesting improvements. #reviewer-role-constraint
 
 ## Core Responsibilities
 
@@ -32,10 +32,7 @@ Do not use this agent for:
 ## Output Format
 
 Follow the format specified in `copyedit/SKILL.md`:
-- Concise bullet lists (10-25 words per problem)
-- Actionable solutions
-- Only flag genuine issues
-- Omit empty sections
+#reviewer-output-rules
 
 ## Collaboration Rules
 
