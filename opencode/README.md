@@ -8,7 +8,7 @@ The OpenCode Manuscript Workflow implements a multi-agent system where each agen
 
 - **Planner**: Orchestrates the workflow, decomposes tasks, manages overall progress, and delegates to specialist agents
 - **Writer**: Handles manuscript drafting and revision, executing the Planner's structured Writer Instruction Packets (WIP)
-- **Editor**: Receives reviewer outputs and sorts them into a chronological edit list
+- **Editor** (subagent): Invoked by planner to sort reviewer outputs into a chronological edit list
 - **Reviewer Trio** (subagents, launched by Planner):
   - *Reviewer-Structure*: Focuses on big-picture elements (structure, arguments, impact)
   - *Reviewer-Detail*: Examines citations, conceptual clarity, and argument issues

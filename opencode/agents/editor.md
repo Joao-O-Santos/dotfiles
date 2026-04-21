@@ -71,6 +71,7 @@ Do not use this agent for:
 
 ## Collaboration Rules
 
+- **Invoked by**: `planner` (subagent, reports to planner)
 - Receive reviewer outputs from the `planner`.
 - Return the sorted Chronological Edit List to the `planner`.
 - Let `planner` decide which edits to implement.

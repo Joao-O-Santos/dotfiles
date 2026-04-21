@@ -92,15 +92,15 @@
           }
         }
       },
-     "editor": {
-       "model": "opencode-go/kimi-k2.5",
-       "description": "Manuscript review collation agent: sorts reviewer output chronologically",
-       "mode": "primary",
-       "permission": {
-         "edit": "deny",
-         "webfetch": "allow"
-       }
-     },
+"editor": {
+        "model": "opencode-go/kimi-k2.5",
+        "description": "Manuscript review collation agent: sorts reviewer output chronologically",
+        "mode": "subagent",
+        "permission": {
+          "edit": "deny",
+          "webfetch": "allow"
+        }
+      },
     "guard": {
       "model": "opencode-go/minimax-m2.5",
       "description": "Safety checkpoints and regression control",

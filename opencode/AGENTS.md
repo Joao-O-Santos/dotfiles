@@ -16,7 +16,7 @@ If this file and `opencode.json` disagree about runtime behavior, `opencode.json
 | `planner` | primary | Orchestrator, task decomposition, routing, workflow-state management |
 | `automation` | primary | Shell, git, and terminal-native execution |
 | `writer` | primary | Manuscript drafting and revision (instruction-following) |
-| `editor` | primary | Sort reviewer outputs into chronological edit list |
+| `editor` | subagent | Sort reviewer outputs into chronological edit list |
 | `reviewer-structure` | subagent | Big-picture critique: structure, arguments, impact |
 | `reviewer-detail` | subagent | Detail critique: citations, conceptual clarity, argument issues |
 | `copyeditor` | subagent | Prose review: titles, paragraphs, sentences, words, markdown compliance |

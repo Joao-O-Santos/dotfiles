@@ -2,6 +2,9 @@
 All notable changes to the OpenCode Manuscript Workflow will be documented in this file.
 
 ## [Unreleased]
+### Changed
+- `editor` mode changed from `primary` to `subagent` (reports to planner)
+
 ### Added
 - Placeholder for upcoming changes
 
