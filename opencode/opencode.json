@@ -115,7 +115,7 @@
       }
     },
      "literature-reviewer": {
-       "model": "opencode/mimo-v2-omni",
+       "model": "opencode-go/mimo-v2-omni",
        "description": "Fast academic search and paper summaries",
        "mode": "subagent",
        "permission": {
