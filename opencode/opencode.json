@@ -8,6 +8,7 @@
   "permission": {
     "bash": {
       "*": "allow",
+      "git commit *": "deny", "git merge *": "deny",
       "rm *": "ask", "git push *": "ask", "git reset --hard *": "ask", "git clean *": "ask", "yay -S *": "ask", "pacman -S *": "ask",
       "sudo *": "deny", "rm -rf /": "deny", "rm -rf ~": "deny", "dd *": "deny", "mkfs *": "deny", "fdisk *": "deny", "chmod 777 *": "deny"
     },
@@ -31,7 +32,7 @@
         "task": { "*": "allow" },
         "bash": {
           "*": "deny",
-          "git status": "allow", "git log *": "allow", "git diff *": "allow", "git show *": "allow",
+          "git status": "allow", "git log *": "allow", "git diff *": "allow", "git show *": "allow", "git commit *": "ask", "git merge *": "ask",
           "cat *": "allow", "head *": "allow", "tail *": "allow", "grep *": "allow", "rg *": "allow", "find *": "allow", "wc *": "allow", "ls *": "allow"
         }
       }
@@ -41,7 +42,13 @@
       "mode": "primary",
       "permission": {
         "edit": "allow",
-        "webfetch": "allow"
+        "webfetch": "allow",
+        "bash": {
+          "*": "allow",
+          "git commit *": "ask", "git merge *": "ask",
+          "rm *": "ask", "git push *": "ask", "git reset --hard *": "ask", "git clean *": "ask", "yay -S *": "ask", "pacman -S *": "ask",
+          "sudo *": "deny", "rm -rf /": "deny", "rm -rf ~": "deny", "dd *": "deny", "mkfs *": "deny", "fdisk *": "deny", "chmod 777 *": "deny"
+        }
       }
     },
     "writer": {
@@ -50,7 +57,13 @@
       "mode": "primary",
       "permission": {
         "edit": "allow",
-        "webfetch": "allow"
+        "webfetch": "allow",
+        "bash": {
+          "*": "allow",
+          "git commit *": "deny", "git merge *": "deny",
+          "rm *": "ask", "git push *": "ask", "git reset --hard *": "ask", "git clean *": "ask", "yay -S *": "ask", "pacman -S *": "ask",
+          "sudo *": "deny", "rm -rf /": "deny", "rm -rf ~": "deny", "dd *": "deny", "mkfs *": "deny", "fdisk *": "deny", "chmod 777 *": "deny"
+        }
       }
     },
      "reviewer-structure": {
@@ -98,7 +111,13 @@
         "mode": "subagent",
         "permission": {
           "edit": "deny",
-          "webfetch": "allow"
+          "webfetch": "allow",
+          "bash": {
+            "*": "allow",
+            "git commit *": "deny", "git merge *": "deny",
+            "rm *": "ask", "git push *": "ask", "git reset --hard *": "ask", "git clean *": "ask", "yay -S *": "ask", "pacman -S *": "ask",
+            "sudo *": "deny", "rm -rf /": "deny", "rm -rf ~": "deny", "dd *": "deny", "mkfs *": "deny", "fdisk *": "deny", "chmod 777 *": "deny"
+          }
         }
       },
     "guard": {
@@ -146,7 +165,13 @@
       "mode": "primary",
       "permission": {
         "edit": "allow",
-        "webfetch": "allow"
+        "webfetch": "allow",
+        "bash": {
+          "*": "allow",
+          "git commit *": "ask", "git merge *": "ask",
+          "rm *": "ask", "git push *": "ask", "git reset --hard *": "ask", "git clean *": "ask", "yay -S *": "ask", "pacman -S *": "ask",
+          "sudo *": "deny", "rm -rf /": "deny", "rm -rf ~": "deny", "dd *": "deny", "mkfs *": "deny", "fdisk *": "deny", "chmod 777 *": "deny"
+        }
       }
     }
   },
