@@ -138,10 +138,28 @@ Placeholders must be preserved until resolved by evidence or explicit user instr
 
 ## Git Workflow
 
-- Prefer branch-first work for risky changes.
-- Commit after meaningful milestones.
-- Run guard before finalizing risky changes.
-- Prefer merge commits unless the user explicitly requests squash cleanup.
+Solo-owner hybrid of gitflow and gitlabflow:
+
+- `main` is the development branch.
+- `refactor` is the primary feature/development branch.
+- Stable release branches are created only when needed (rare).
+- Hotfix branches are created only when needed (very rare).
+- Feature branches use a descriptive name only — no `feature/` prefix.
+- If two refactors are concurrent, use separate descriptive branches.
+
+Commit style (kernel-inspired):
+- Atomic commits with very short subjects.
+- Descriptive body when detail is needed.
+- The `git graph` alias is available: `git log --all --graph --oneline`.
+
+Commit delegation:
+- `planner`, `automation`, and `r-analysis` may run `git commit` (permission: ask).
+- All other agents are barred from committing.
+- Before delegating to read-only agents, `planner` must check `git status` and commit any pending changes atomically.
+- `guard` should suggest an atomic commit checkpoint after substantial writes.
+
+Merge strategy:
+- Prefer true merge commits over squash cleanup unless the user explicitly requests squash.
 
 ## User Invocation
 
