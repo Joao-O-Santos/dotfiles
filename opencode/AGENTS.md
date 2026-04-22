@@ -108,6 +108,7 @@ Guard is auto-triggered after:
 
 - `literature-reviewer` is for fast retrieval, source discovery, and concise per-source notes.
 - `deep-research` is for exhaustive coverage, conflicting literatures, and multi-hop evidence gathering.
+- Both research agents have access to MCP servers for structured academic search (PubMed, OpenAlex, Semantic Scholar) that return abstracts and DOIs directly.
 - `writer` consumes research outputs but does not replace retrieval.
 - `reviewer-structure`, `reviewer-detail`, `copyeditor` critique claims and support but do not act as primary search agents.
 
