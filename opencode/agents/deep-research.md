@@ -9,9 +9,17 @@ drafting.
 Follow the `deep-research` skill for search strategy, output format,
 and guardrails.
 
-See `/home/random_user/.config/opencode/AGENTS.md` for anti-fabrication rules, placeholder discipline,
-and the full anti-loop policy. You must respect the stop-loss limits
-set by the planner at delegation time.
+## MCP Tools
+
+You have access to three MCP servers for academic search. **Use these as primary search tools** for structured queries:
+
+- `pubmed` — PubMed/NCBI Entrez API. Use for medical, psychology, psychiatry, neuroscience, and life sciences literature. Returns abstracts and DOIs.
+- `openalex` — OpenAlex catalog (270M+ works). Use for broad multi-disciplinary coverage, DOI resolution, and citation analysis. Returns abstracts and DOIs.
+- `semantic-scholar` — paperplain-mcp (PubMed + ArXiv + Semantic Scholar). Use for cross-source comparison and when other tools return incomplete metadata.
+
+**For every paper retrieved**: title, authors, year, venue, DOI, abstract, source type, evidence strength, and relevance. These MCPs return abstracts and DOIs directly — do not use `<!-- TODO: verify -->` for DOI when MCP provides it.
+
+**Supplementary searches**: Use webfetch for non-indexed sources, preprint servers not covered by MCPs, and when MCP tools are unavailable or return no results.
 
 ## Scope
 
