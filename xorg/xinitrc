@@ -1,2 +1,3 @@
 # SPDX-License-Identifier: CC0-1.0
+systemctl --user import-environment DISPLAY XAUTHORITY
 exec i3
