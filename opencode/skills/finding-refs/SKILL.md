@@ -93,9 +93,7 @@ If a paper or local PDF is provided:
 
 ## Guardrails
 
-- Never fabricate citations, DOIs, URLs, abstracts, or findings.
-- Do not merge distinct papers into one note.
-- Do not bypass paywalls.
+#research-guardrails
 - Do not drift into long synthesis or manuscript-ready prose unless explicitly instructed.
 - Quote source text minimally; prefer faithful summaries.
 - Mark unclear details with `<!-- TODO: verify -->`.

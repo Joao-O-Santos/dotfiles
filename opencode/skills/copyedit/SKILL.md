@@ -65,11 +65,8 @@ description: Paragraph, sentence, and word-level review for flow, clarity, and i
 
 ## Rules
 
-- Only flag genuine issues
-- Omit empty sections
-- Be concise (10-25 words per problem)
-- Propose actionable solutions
+#reviewer-output-rules
 
 ## Note on Examples
 
-The examples above demonstrate form, style, and structure. Their content and topics are for illustration only—do not copy substance into your writing.
+#examples-disclaimer

@@ -89,14 +89,12 @@ After the per-source notes, include:
  - Recommended next search directions
  
 ## Guardrails
- 
- - Never fabricate citations, DOIs, URLs, abstracts, or findings.
- - Never merge distinct papers into one source note.
- - Do not bypass paywalls.
- - Do not write final manuscript prose unless explicitly instructed.
- - Do not edit project files unless explicitly instructed elsewhere.
- - Mark uncertain metadata with `<!-- TODO: verify -->`.
- - If coverage is weak, say so explicitly.
+
+#research-guardrails
+- Do not write final manuscript prose unless explicitly instructed.
+- Do not edit project files unless explicitly instructed elsewhere.
+- Mark uncertain metadata with `<!-- TODO: verify -->`.
+- If coverage is weak, say so explicitly.
  
 ## Handoff rule
  

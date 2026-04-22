@@ -46,4 +46,4 @@ description: Draft or revise introductions for empirical or theoretical papers.
 
 ## Note on Examples
 
-The examples above demonstrate form, style, and structure. Their content and topics are for illustration only—do not copy substance into your writing.
+#examples-disclaimer
