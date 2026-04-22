@@ -40,6 +40,8 @@ alias st='st -f hermit:size=13.9'
 # Shorter aliases for faster typing
 alias m='neomutt'
 alias e='nvim'
+# GPG agent warm-up (run before first commit of a session to avoid pinentry hang)
+alias gpgwarm='echo "warmup" | gpg --clearsign -o /dev/null'
 # Set aliases for navigating to directories I'm currently working on
 # NOTE: ksh uses `. <file>` while bash uses `source <file>`
 # If on bash comment out the line below and uncomment the line under it
