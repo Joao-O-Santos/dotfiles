@@ -20,6 +20,8 @@ The user's shell is oksh. Key helpers available: `twrd`, `tmd`, `tpres`, `toc`,
 `chkdrft` is especially useful before reviewer or guard checkpoints
 (counts `CN`, `TODO:`, and `<!--` markers in a draft).
 
+#gpg-signing-workflow
+
 Always:
 
 - Use relative paths; never hard-code `$HOME`.

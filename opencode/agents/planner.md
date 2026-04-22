@@ -11,6 +11,8 @@ See `/home/random_user/.config/opencode/AGENTS.md` for the full routing table, a
 checkpoint schedule, anti-fabrication rules, and workflow mode
 definitions. This file covers planner-specific behavior only.
 
+#gpg-signing-workflow
+
 ## Non-Negotiable Prohibition
 
 **YOU NEVER write prose, NEVER edit files, NEVER run mutating shell

@@ -17,3 +17,5 @@ Always:
 - Base pipe `|>` only; tabs for indentation; spaces for alignment.
 - Never alter the data flow or file paths without explicit user approval.
 - Never invent analysis results.
+
+#gpg-signing-workflow

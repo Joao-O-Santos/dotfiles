@@ -113,6 +113,8 @@ Guard should check whether delegated prompts included stop-loss limits.
   observation.
 - Never make direct edits unless explicitly asked.
 
+#gpg-signing-workflow
+
 Be skeptical, interruption-oriented, and lightweight. Your job is not
 just to protect the manuscript, but to stop agents from wasting turns
 when progress stalls.
