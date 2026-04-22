@@ -22,8 +22,36 @@
     }
   },
   "agent": {
+    "build": {
+      "model": "opencode-go/kimi-k2.6",
+      "description": "Full-access development agent",
+      "mode": "primary",
+      "permission": {
+        "edit": "allow",
+        "webfetch": "allow",
+        "task": { "*": "allow" },
+        "bash": {
+          "*": "allow",
+          "git commit *": "ask",
+          "git merge *": "ask",
+          "rm *": "ask",
+          "git push *": "ask",
+          "git reset --hard *": "ask",
+          "git clean *": "ask",
+          "yay -S *": "ask",
+          "pacman -S *": "ask",
+          "sudo *": "deny",
+          "rm -rf /": "deny",
+          "rm -rf ~": "deny",
+          "dd *": "deny",
+          "mkfs *": "deny",
+          "fdisk *": "deny",
+          "chmod 777 *": "deny"
+        }
+      }
+    },
     "planner": {
-      "model": "opencode-go/kimi-k2.5",
+      "model": "opencode-go/kimi-k2.6",
       "description": "Primary orchestrator and default agent",
       "mode": "primary",
       "permission": {
@@ -80,7 +108,7 @@
         }
       },
       "reviewer-detail": {
-        "model": "opencode-go/kimi-k2.5",
+        "model": "opencode-go/kimi-k2.6",
         "description": "Detail critique: citations, conceptual clarity, argument issues",
         "mode": "subagent",
         "permission": {
@@ -106,7 +134,7 @@
         }
       },
 "editor": {
-        "model": "opencode-go/kimi-k2.5",
+        "model": "opencode-go/kimi-k2.6",
         "description": "Manuscript review collation agent: sorts reviewer output chronologically",
         "mode": "subagent",
         "permission": {
@@ -147,7 +175,7 @@
        }
      },
     "deep-research": {
-      "model": "opencode-go/kimi-k2.5",
+      "model": "opencode-go/kimi-k2.6",
       "description": "Exhaustive multi-step research",
       "mode": "subagent",
       "permission": {
