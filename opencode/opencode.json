@@ -205,5 +205,26 @@
   },
   "plugin": [
     "opencode-snippets"
-  ]
+  ],
+  "mcp": {
+    "pubmed": {
+      "type": "local",
+      "command": ["npx", "-y", "@cyanheads/pubmed-mcp-server@latest"],
+      "environment": {
+        "NCBI_API_KEY": "<YOUR_NCBI_KEY>",
+        "NCBI_ADMIN_EMAIL": "<YOUR_EMAIL>"
+      },
+      "enabled": true
+    },
+    "openalex": {
+      "type": "local",
+      "command": ["npx", "-y", "@cyanheads/openalex-mcp-server@latest"],
+      "enabled": true
+    },
+    "semantic-scholar": {
+      "type": "local",
+      "command": ["npx", "-y", "paperplain-mcp@latest"],
+      "enabled": true
+    }
+  }
 }

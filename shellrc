@@ -29,6 +29,9 @@ export TASKDATA=$XDG_CONFIG_HOME/task/
 # Use vi mode in the shell
 set -o vi
 
+# MCP API keys
+. "$XDG_CONFIG_HOME/opencode/mcp_keys.sh"
+
 # Aliases
 # Set default options for recurrent commands
 alias ls='ls --color=auto --group-directories-first'

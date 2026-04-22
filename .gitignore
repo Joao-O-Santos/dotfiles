@@ -31,6 +31,7 @@ R/rsconnect
 !/opencode/skills
 # Ignore OpenCode internal state
 /opencode/auth.json
+/opencode/mcp_keys.sh
 /opencode/opencode.db*
 /opencode/node_modules
 /opencode/snapshot
@@ -41,3 +42,5 @@ R/rsconnect
 /opencode/bun.lock
 /opencode/package.json
 /opencode/package-lock.json
+/opencode/tui.json
+/opencode/checkpoints/
