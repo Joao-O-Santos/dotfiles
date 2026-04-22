@@ -36,12 +36,14 @@ Do not use this skill when:
 ## Search strategy
  
 For each request:
- 1. Break the problem into 2-6 subquestions.
- 2. Search each subquestion separately.
- 3. Use multiple angles: core terms, synonyms, competing terminology, adjacent fields, and method-specific queries.
- 4. Deduplicate near-identical sources.
- 5. Prioritize review papers, landmark studies, and directly relevant empirical work.
- 6. Record uncertainty and unresolved conflicts explicitly.
+ 1. Break the problem into 2–6 subquestions.
+ 2. **Use MCP tools as primary search**: `pubmed` for medical/psychology topics, `openalex` for broad coverage and DOI resolution, `semantic-scholar` for cross-source comparison.
+ 3. Search each subquestion using MCP tools first, then webfetch for supplementary coverage.
+ 4. Use multiple angles: core terms, synonyms, competing terminology, adjacent fields, and method-specific queries.
+ 5. Retrieve abstract and DOI for each result via MCP tools.
+ 6. Deduplicate near-identical sources.
+ 7. Prioritize review papers, landmark studies, and directly relevant empirical work.
+ 8. Record uncertainty and unresolved conflicts explicitly.
  
 ## Stopping criteria
  
@@ -95,6 +97,7 @@ After the per-source notes, include:
 - Do not edit project files unless explicitly instructed elsewhere.
 - Mark uncertain metadata with `<!-- TODO: verify -->`.
 - If coverage is weak, say so explicitly.
+#mcp-procurement-rule
  
 ## Handoff rule
  
