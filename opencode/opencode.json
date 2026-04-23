@@ -80,7 +80,7 @@
       }
     },
     "writer": {
-      "model": "opencode-go/qwen3.5-plus",
+      "model": "opencode-go/qwen3.6-plus",
       "description": "Unified manuscript drafting (empirical/theoretical)",
       "mode": "primary",
       "permission": {
@@ -95,7 +95,7 @@
       }
     },
      "reviewer-structure": {
-         "model": "mistral/mistral-large-latest",
+         "model": "opencode-go/kimi-k2.6",
         "description": "Big-picture critique: structure, arguments, impact",
         "mode": "subagent",
         "permission": {
@@ -121,7 +121,7 @@
         }
       },
       "copyeditor": {
-         "model": "opencode-go/minimax-m2.5",
+         "model": "opencode-go/qwen3.5-plus",
         "description": "Prose review: titles, paragraphs, sentences, words, markdown compliance",
         "mode": "subagent",
         "permission": {
@@ -162,7 +162,7 @@
       }
     },
      "literature-reviewer": {
-       "model": "opencode-go/mimo-v2-omni",
+       "model": "opencode-go/qwen3.5-plus",
        "description": "Fast academic search and paper summaries",
        "mode": "subagent",
        "permission": {
