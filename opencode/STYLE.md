@@ -134,9 +134,9 @@ Example:
 
 ````md
 
-:::: {custom-style="Title"}
+::: {custom-style="Title"}
 Title
-::::
+:::
 
 
 
@@ -163,9 +163,9 @@ When converting markdown to Word, use custom Pandoc attributes to apply Word sty
 
 Title:
 ```markdown
-:::: {custom-style="Title"}
+::: {custom-style="Title"}
 Paper Title
-::::
+:::
 ```
 
 Abstract:
@@ -173,30 +173,30 @@ Abstract:
 
 # Abstract
 
-:::: {custom-style="Abstract"}
+::: {custom-style="Abstract"}
 
 Abstract text here...
 
-::::
+:::
 ```
 
 Figure caption:
 ```markdown
-:::: {custom-style="Figure"}
+::: {custom-style="Figure"}
 **Figure 1.** Description of figure.
-::::
+:::
 ```
 
 References:
 ```markdown
 ## References
 
-:::: {custom-style="References"}
+::: {custom-style="References"}
 
 
 [reference entries...]
 
-::::
+:::
 ```
 
 Do NOT remove these custom styles when editing existing documents. Preserve them exactly as they appear in the source file.
