@@ -9,6 +9,11 @@ All notable changes to the OpenCode Manuscript Workflow will be documented in th
 ### Added
 - Node.js and npm installed to support npx-based MCP servers
 - New snippets: `reviewer-collaboration`, `mcp-academic-search`, `context-management-reduce` to DRY repeated text across agent files
+- Added `magic-context.jsonc` for context management configuration
+- Added `mcp-procurement-rule` snippet to DRY procurement guidelines
+- Added GPG signing workflow snippet and documentation across planner, automation, guard, and r-analysis agents
+- Added `build` agent (primary) for build/test tasks
+- Added `gpgwarm` shell alias for GPG agent warm-up
 
 ### Changed
 - Research agent instructions updated to report MCP errors explicitly before falling back to webfetch
@@ -17,13 +22,10 @@ All notable changes to the OpenCode Manuscript Workflow will be documented in th
 - Replaced inline MCP tool sections in research agents with `#mcp-academic-search` snippet
 - Replaced inline context-management sections in research agents with `#context-management-reduce` snippet
 - Replaced inline placeholder discipline in AGENTS.md with `#placeholder-discipline` snippet
-
-## [Unreleased]
-### Changed
 - `editor` mode changed from `primary` to `subagent` (reports to planner)
-
-### Added
-- Placeholder for upcoming changes
+- Updated default model for planner/automation/r-analysis from `kimi-k2.5` to `kimi-k2.6`
+- Git commit rules: commits require explicit approval; only planner/automation/r-analysis may commit
+- Expanded Git Workflow section with solo-owner branch model
 
 ## [2026-04-21] - Editor Agent & Workflow Refactor
 ### Added
