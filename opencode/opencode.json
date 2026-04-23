@@ -130,6 +130,9 @@
         "citecheck": {
           "type": "local",
           "command": ["npx", "-y", "@jhlee0619/citecheck@latest"],
+          "environment": {
+            "CROSSREF_MAILTO": "$CROSSREF_MAILTO"
+          },
           "enabled": true
         }
       }
@@ -150,6 +153,9 @@
         "citecheck": {
           "type": "local",
           "command": ["npx", "-y", "@jhlee0619/citecheck@latest"],
+          "environment": {
+            "CROSSREF_MAILTO": "$CROSSREF_MAILTO"
+          },
           "enabled": true
         }
       }
@@ -198,6 +204,10 @@
         "openalex": {
           "type": "local",
           "command": ["npx", "-y", "@cyanheads/openalex-mcp-server@latest"],
+          "environment": {
+            "OPENALEX_API_KEY": "$OPENALEX_API_KEY",
+            "OPENALEX_EMAIL": "$OPENALEX_EMAIL"
+          },
           "enabled": true
         },
         "semantic-scholar": {
@@ -223,6 +233,10 @@
         "openalex": {
           "type": "local",
           "command": ["npx", "-y", "@cyanheads/openalex-mcp-server@latest"],
+          "environment": {
+            "OPENALEX_API_KEY": "$OPENALEX_API_KEY",
+            "OPENALEX_EMAIL": "$OPENALEX_EMAIL"
+          },
           "enabled": true
         },
         "semantic-scholar": {
