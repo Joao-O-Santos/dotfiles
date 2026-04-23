@@ -48,6 +48,13 @@
           "fdisk *": "deny",
           "chmod 777 *": "deny"
         }
+      },
+      "mcp": {
+        "context7": {
+          "type": "local",
+          "command": ["npx", "-y", "@upstash/context7-mcp@latest"],
+          "enabled": true
+        }
       }
     },
     "planner": {
@@ -94,60 +101,74 @@
         }
       }
     },
-     "reviewer-structure": {
-         "model": "opencode-go/kimi-k2.6",
-        "description": "Big-picture critique: structure, arguments, impact",
-        "mode": "subagent",
-        "permission": {
-          "edit": "deny",
-          "webfetch": "allow",
-          "bash": {
-            "*": "deny",
-            "cat *": "allow", "head *": "allow", "tail *": "allow", "grep *": "allow", "rg *": "allow", "find *": "allow", "wc *": "allow"
-          }
+    "reviewer-structure": {
+      "model": "opencode-go/kimi-k2.6",
+      "description": "Big-picture critique: structure, arguments, impact",
+      "mode": "subagent",
+      "permission": {
+        "edit": "deny",
+        "webfetch": "allow",
+        "bash": {
+          "*": "deny",
+          "cat *": "allow", "head *": "allow", "tail *": "allow", "grep *": "allow", "rg *": "allow", "find *": "allow", "wc *": "allow"
+        }
+      }
+    },
+    "reviewer-detail": {
+      "model": "opencode-go/kimi-k2.6",
+      "description": "Detail critique: citations, conceptual clarity, argument issues",
+      "mode": "subagent",
+      "permission": {
+        "edit": "deny",
+        "webfetch": "allow",
+        "bash": {
+          "*": "deny",
+          "cat *": "allow", "head *": "allow", "tail *": "allow", "grep *": "allow", "rg *": "allow", "find *": "allow", "wc *": "allow"
         }
       },
-      "reviewer-detail": {
-        "model": "opencode-go/kimi-k2.6",
-        "description": "Detail critique: citations, conceptual clarity, argument issues",
-        "mode": "subagent",
-        "permission": {
-          "edit": "deny",
-          "webfetch": "allow",
-          "bash": {
-            "*": "deny",
-            "cat *": "allow", "head *": "allow", "tail *": "allow", "grep *": "allow", "rg *": "allow", "find *": "allow", "wc *": "allow"
-          }
+      "mcp": {
+        "citecheck": {
+          "type": "local",
+          "command": ["npx", "-y", "@jhlee0619/citecheck@latest"],
+          "enabled": true
+        }
+      }
+    },
+    "copyeditor": {
+      "model": "opencode-go/qwen3.5-plus",
+      "description": "Prose review: titles, paragraphs, sentences, words, markdown compliance",
+      "mode": "subagent",
+      "permission": {
+        "edit": "deny",
+        "webfetch": "allow",
+        "bash": {
+          "*": "deny",
+          "cat *": "allow", "head *": "allow", "tail *": "allow", "grep *": "allow", "rg *": "allow", "find *": "allow", "wc *": "allow"
         }
       },
-      "copyeditor": {
-         "model": "opencode-go/qwen3.5-plus",
-        "description": "Prose review: titles, paragraphs, sentences, words, markdown compliance",
-        "mode": "subagent",
-        "permission": {
-          "edit": "deny",
-          "webfetch": "allow",
-          "bash": {
-            "*": "deny",
-            "cat *": "allow", "head *": "allow", "tail *": "allow", "grep *": "allow", "rg *": "allow", "find *": "allow", "wc *": "allow"
-          }
+      "mcp": {
+        "citecheck": {
+          "type": "local",
+          "command": ["npx", "-y", "@jhlee0619/citecheck@latest"],
+          "enabled": true
         }
-      },
-"editor": {
-        "model": "opencode-go/kimi-k2.6",
-        "description": "Manuscript review collation agent: sorts reviewer output chronologically",
-        "mode": "subagent",
-        "permission": {
-          "edit": "deny",
-          "webfetch": "allow",
-          "bash": {
-            "*": "allow",
-            "git commit *": "deny", "git merge *": "deny",
-            "rm *": "ask", "git push *": "ask", "git reset --hard *": "ask", "git clean *": "ask", "yay -S *": "ask", "pacman -S *": "ask",
-            "sudo *": "deny", "rm -rf /": "deny", "rm -rf ~": "deny", "dd *": "deny", "mkfs *": "deny", "fdisk *": "deny", "chmod 777 *": "deny"
-          }
+      }
+    },
+    "editor": {
+      "model": "opencode-go/kimi-k2.6",
+      "description": "Manuscript review collation agent: sorts reviewer output chronologically",
+      "mode": "subagent",
+      "permission": {
+        "edit": "deny",
+        "webfetch": "allow",
+        "bash": {
+          "*": "allow",
+          "git commit *": "deny", "git merge *": "deny",
+          "rm *": "ask", "git push *": "ask", "git reset --hard *": "ask", "git clean *": "ask", "yay -S *": "ask", "pacman -S *": "ask",
+          "sudo *": "deny", "rm -rf /": "deny", "rm -rf ~": "deny", "dd *": "deny", "mkfs *": "deny", "fdisk *": "deny", "chmod 777 *": "deny"
         }
-      },
+      }
+    },
     "guard": {
       "model": "opencode-go/minimax-m2.5",
       "description": "Safety checkpoints and regression control",
@@ -161,19 +182,31 @@
         }
       }
     },
-     "literature-reviewer": {
-       "model": "opencode-go/qwen3.5-plus",
-       "description": "Fast academic search and paper summaries",
-       "mode": "subagent",
-       "permission": {
-         "edit": "deny",
-         "webfetch": "allow",
-         "bash": {
-           "*": "deny",
-           "cat *": "allow", "head *": "allow", "tail *": "allow", "grep *": "allow", "rg *": "allow", "find *": "allow", "wc *": "allow", "pdftotext *": "allow"
-         }
-       }
-     },
+    "literature-reviewer": {
+      "model": "opencode-go/qwen3.5-plus",
+      "description": "Fast academic search and paper summaries",
+      "mode": "subagent",
+      "permission": {
+        "edit": "deny",
+        "webfetch": "allow",
+        "bash": {
+          "*": "deny",
+          "cat *": "allow", "head *": "allow", "tail *": "allow", "grep *": "allow", "rg *": "allow", "find *": "allow", "wc *": "allow", "pdftotext *": "allow"
+        }
+      },
+      "mcp": {
+        "openalex": {
+          "type": "local",
+          "command": ["npx", "-y", "@cyanheads/openalex-mcp-server@latest"],
+          "enabled": true
+        },
+        "semantic-scholar": {
+          "type": "local",
+          "command": ["npx", "-y", "paperplain-mcp@latest"],
+          "enabled": true
+        }
+      }
+    },
     "deep-research": {
       "model": "opencode-go/kimi-k2.6",
       "description": "Exhaustive multi-step research",
@@ -184,6 +217,18 @@
         "bash": {
           "*": "deny",
           "cat *": "allow", "head *": "allow", "tail *": "allow", "grep *": "allow", "rg *": "allow", "find *": "allow", "wc *": "allow", "pdftotext *": "allow"
+        }
+      },
+      "mcp": {
+        "openalex": {
+          "type": "local",
+          "command": ["npx", "-y", "@cyanheads/openalex-mcp-server@latest"],
+          "enabled": true
+        },
+        "semantic-scholar": {
+          "type": "local",
+          "command": ["npx", "-y", "paperplain-mcp@latest"],
+          "enabled": true
         }
       }
     },
@@ -200,31 +245,17 @@
           "rm *": "ask", "git push *": "ask", "git reset --hard *": "ask", "git clean *": "ask", "yay -S *": "ask", "pacman -S *": "ask",
           "sudo *": "deny", "rm -rf /": "deny", "rm -rf ~": "deny", "dd *": "deny", "mkfs *": "deny", "fdisk *": "deny", "chmod 777 *": "deny"
         }
+      },
+      "mcp": {
+        "context7": {
+          "type": "local",
+          "command": ["npx", "-y", "@upstash/context7-mcp@latest"],
+          "enabled": true
+        }
       }
     }
   },
   "plugin": [
     "opencode-snippets"
-  ],
-  "mcp": {
-    "pubmed": {
-      "type": "local",
-      "command": ["npx", "-y", "@cyanheads/pubmed-mcp-server@latest"],
-      "environment": {
-        "NCBI_API_KEY": "<YOUR_NCBI_KEY>",
-        "NCBI_ADMIN_EMAIL": "<YOUR_EMAIL>"
-      },
-      "enabled": true
-    },
-    "openalex": {
-      "type": "local",
-      "command": ["npx", "-y", "@cyanheads/openalex-mcp-server@latest"],
-      "enabled": true
-    },
-    "semantic-scholar": {
-      "type": "local",
-      "command": ["npx", "-y", "paperplain-mcp@latest"],
-      "enabled": true
-    }
-  }
+  ]
 }
