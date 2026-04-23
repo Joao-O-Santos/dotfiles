@@ -40,3 +40,8 @@ Do not use this agent for:
 Return structured evidence for the planner, writer, or reviewer to use.
 If only 2-5 relevant papers are needed, tell the planner that
 `finding-refs` would have been more appropriate.
+
+## Context Management
+
+After summarising any tool output longer than ~2000 tokens, call
+`ctx_reduce` to drop the raw content.

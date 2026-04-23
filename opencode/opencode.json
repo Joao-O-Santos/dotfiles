@@ -256,6 +256,11 @@
     }
   },
   "plugin": [
-    "opencode-snippets"
-  ]
+    "opencode-snippets",
+    "@cortexkit/opencode-magic-context"
+  ],
+  "compaction": {
+    "auto": false,
+    "prune": false
+  }
 }
