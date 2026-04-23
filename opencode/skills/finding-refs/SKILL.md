@@ -40,14 +40,14 @@ Do not use this skill when:
 
 For each request:
 1. Identify the exact question or claim to support.
-2. **Use MCP tools first**: `pubmed` for medical/psychology topics, `openalex` for broad coverage, `semantic-scholar` for cross-source comparison.
+2. **Use MCP tools first** (configured globally in `opencode.json`): `openalex` for broad coverage, `semantic-scholar` for medical/psychology topics and cross-source comparison. If MCP tools are unreachable, report the error before falling back.
 3. Retrieve abstract and DOI for each result via MCP tools.
 4. Gather a small set of the most relevant sources.
 5. Deduplicate overlapping hits.
 6. Prioritize surveys or meta-analyses plus directly relevant primary studies.
 7. Return concise source notes only.
 
-**MCP fallback**: If MCP tools are unavailable or return no results, use webfetch for targeted searches. Document what was searched and what was found.
+**MCP fallback**: If MCP tools return errors or no results after an error has been reported, use webfetch or direct REST API calls for targeted searches. Document what was searched and what was found.
 
 ## Output format
 

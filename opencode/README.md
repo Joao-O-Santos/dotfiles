@@ -193,7 +193,7 @@ See `opencode.json` for the exact mappings.
 
 ### MCP Servers
 
-MCP servers are attached per‑agent (not globally) in `opencode.json`:
+MCP servers are defined in the top‑level `"mcp"` object of `opencode.json` (globally available, not per‑agent):
 
 - **Context7** (`@upstash/context7-mcp`)
   - Agents: `build`, `r-analysis`

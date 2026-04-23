@@ -108,7 +108,7 @@ Guard is auto-triggered after:
 
 - `literature-reviewer` is for fast retrieval, source discovery, and concise per-source notes.
 - `deep-research` is for exhaustive coverage, conflicting literatures, and multi-hop evidence gathering.
-- Both research agents have access to MCP servers for structured academic search (PubMed, OpenAlex, Semantic Scholar) that return abstracts and DOIs directly.
+- Both research agents have access to MCP servers for structured academic search (OpenAlex and Semantic Scholar) that return abstracts and DOIs directly. The Semantic Scholar MCP (paperplain-mcp) bundles PubMed, ArXiv, and Semantic Scholar coverage. **Note:** MCP servers must be defined in the top-level `"mcp"` object of `opencode.json`; per-agent `"mcp"` blocks are not registered by OpenCode. If MCP tools fail, agents should report the error explicitly before falling back to webfetch.
 - `writer` consumes research outputs but does not replace retrieval.
 - `reviewer-structure`, `reviewer-detail`, `copyeditor` critique claims and support but do not act as primary search agents.
 
@@ -121,13 +121,17 @@ Guard is auto-triggered after:
 4. No silent reinterpretation.
 
 ### Placeholder discipline
+
+# Placeholder Discipline
+
 Use explicit placeholders for unresolved content:
-- `<!-- TODO: compute X -->`
-- `<!-- TODO: cite -->`
-- `<!-- TODO: verify -->`
-- `<!-- TODO: describe -->`
+- `<!-- TODO: compute X -->` for calculations that need to be performed
+- `<!-- TODO: cite -->` for claims requiring references
+- `<!-- TODO: verify -->` for facts that need confirmation
+- `<!-- TODO: describe -->` for concepts needing elaboration
 
 Placeholders must be preserved until resolved by evidence or explicit user instruction.
+Do not replace placeholders with invented content.
 
 ### Agent-specific enforcement
 - `writer`: use placeholders instead of inventing content

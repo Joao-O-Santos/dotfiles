@@ -2,6 +2,23 @@
 All notable changes to the OpenCode Manuscript Workflow will be documented in this file.
 
 ## [Unreleased]
+### Fixed
+- MCP servers moved from per-agent blocks to top-level `"mcp"` object in `opencode.json` so OpenCode actually registers them
+- README.md corrected MCP server attachment description from "per-agent" to "top-level object"
+
+### Added
+- Node.js and npm installed to support npx-based MCP servers
+- New snippets: `reviewer-collaboration`, `mcp-academic-search`, `context-management-reduce` to DRY repeated text across agent files
+
+### Changed
+- Research agent instructions updated to report MCP errors explicitly before falling back to webfetch
+- Removed standalone `pubmed` MCP references; medical/psychology coverage reassigned to `semantic-scholar` (paperplain-mcp bundles PubMed + ArXiv + Semantic Scholar)
+- Replaced inline collaboration rules in reviewer/editor agents with `#reviewer-collaboration` snippet
+- Replaced inline MCP tool sections in research agents with `#mcp-academic-search` snippet
+- Replaced inline context-management sections in research agents with `#context-management-reduce` snippet
+- Replaced inline placeholder discipline in AGENTS.md with `#placeholder-discipline` snippet
+
+## [Unreleased]
 ### Changed
 - `editor` mode changed from `primary` to `subagent` (reports to planner)
 

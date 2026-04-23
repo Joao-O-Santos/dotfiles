@@ -21,6 +21,35 @@
       "${HOME}/.config/opencode/auth.json": "deny"
     }
   },
+  "mcp": {
+    "context7": {
+      "type": "local",
+      "command": ["npx", "-y", "@upstash/context7-mcp@latest"],
+      "enabled": true
+    },
+    "citecheck": {
+      "type": "local",
+      "command": ["npx", "-y", "@jhlee0619/citecheck@latest"],
+      "environment": {
+        "CROSSREF_MAILTO": "$CROSSREF_MAILTO"
+      },
+      "enabled": true
+    },
+    "openalex": {
+      "type": "local",
+      "command": ["npx", "-y", "@cyanheads/openalex-mcp-server@latest"],
+      "environment": {
+        "OPENALEX_API_KEY": "$OPENALEX_API_KEY",
+        "OPENALEX_EMAIL": "$OPENALEX_EMAIL"
+      },
+      "enabled": true
+    },
+    "semantic-scholar": {
+      "type": "local",
+      "command": ["npx", "-y", "paperplain-mcp@latest"],
+      "enabled": true
+    }
+  },
   "agent": {
     "build": {
       "model": "opencode-go/kimi-k2.6",
@@ -47,13 +76,6 @@
           "mkfs *": "deny",
           "fdisk *": "deny",
           "chmod 777 *": "deny"
-        }
-      },
-      "mcp": {
-        "context7": {
-          "type": "local",
-          "command": ["npx", "-y", "@upstash/context7-mcp@latest"],
-          "enabled": true
         }
       }
     },
@@ -125,16 +147,6 @@
           "*": "deny",
           "cat *": "allow", "head *": "allow", "tail *": "allow", "grep *": "allow", "rg *": "allow", "find *": "allow", "wc *": "allow"
         }
-      },
-      "mcp": {
-        "citecheck": {
-          "type": "local",
-          "command": ["npx", "-y", "@jhlee0619/citecheck@latest"],
-          "environment": {
-            "CROSSREF_MAILTO": "$CROSSREF_MAILTO"
-          },
-          "enabled": true
-        }
       }
     },
     "copyeditor": {
@@ -147,16 +159,6 @@
         "bash": {
           "*": "deny",
           "cat *": "allow", "head *": "allow", "tail *": "allow", "grep *": "allow", "rg *": "allow", "find *": "allow", "wc *": "allow"
-        }
-      },
-      "mcp": {
-        "citecheck": {
-          "type": "local",
-          "command": ["npx", "-y", "@jhlee0619/citecheck@latest"],
-          "environment": {
-            "CROSSREF_MAILTO": "$CROSSREF_MAILTO"
-          },
-          "enabled": true
         }
       }
     },
@@ -199,22 +201,6 @@
           "*": "deny",
           "cat *": "allow", "head *": "allow", "tail *": "allow", "grep *": "allow", "rg *": "allow", "find *": "allow", "wc *": "allow", "pdftotext *": "allow"
         }
-      },
-      "mcp": {
-        "openalex": {
-          "type": "local",
-          "command": ["npx", "-y", "@cyanheads/openalex-mcp-server@latest"],
-          "environment": {
-            "OPENALEX_API_KEY": "$OPENALEX_API_KEY",
-            "OPENALEX_EMAIL": "$OPENALEX_EMAIL"
-          },
-          "enabled": true
-        },
-        "semantic-scholar": {
-          "type": "local",
-          "command": ["npx", "-y", "paperplain-mcp@latest"],
-          "enabled": true
-        }
       }
     },
     "deep-research": {
@@ -227,22 +213,6 @@
         "bash": {
           "*": "deny",
           "cat *": "allow", "head *": "allow", "tail *": "allow", "grep *": "allow", "rg *": "allow", "find *": "allow", "wc *": "allow", "pdftotext *": "allow"
-        }
-      },
-      "mcp": {
-        "openalex": {
-          "type": "local",
-          "command": ["npx", "-y", "@cyanheads/openalex-mcp-server@latest"],
-          "environment": {
-            "OPENALEX_API_KEY": "$OPENALEX_API_KEY",
-            "OPENALEX_EMAIL": "$OPENALEX_EMAIL"
-          },
-          "enabled": true
-        },
-        "semantic-scholar": {
-          "type": "local",
-          "command": ["npx", "-y", "paperplain-mcp@latest"],
-          "enabled": true
         }
       }
     },
@@ -258,13 +228,6 @@
           "git commit *": "ask", "git merge *": "ask",
           "rm *": "ask", "git push *": "ask", "git reset --hard *": "ask", "git clean *": "ask", "yay -S *": "ask", "pacman -S *": "ask",
           "sudo *": "deny", "rm -rf /": "deny", "rm -rf ~": "deny", "dd *": "deny", "mkfs *": "deny", "fdisk *": "deny", "chmod 777 *": "deny"
-        }
-      },
-      "mcp": {
-        "context7": {
-          "type": "local",
-          "command": ["npx", "-y", "@upstash/context7-mcp@latest"],
-          "enabled": true
         }
       }
     }
