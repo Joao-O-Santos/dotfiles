@@ -17,154 +17,17 @@ If this file and `opencode.json` disagree about runtime behavior, `opencode.json
 | `automation` | primary | Shell, git, and terminal-native execution |
 | `writer` | primary | Manuscript drafting and revision (instruction-following) |
 | `editor` | subagent | Sort reviewer outputs into chronological edit list |
-| `reviewer-structure` | subagent | Big-picture critique: structure, arguments, impact |
-| `reviewer-detail` | subagent | Detail critique: citations, conceptual clarity, argument issues |
+| `reviewer-structure` | subagent | Big-picture review: structure, arguments, impact |
+| `reviewer-detail` | subagent | Detail review: citations, conceptual clarity, argument issues |
 | `copyeditor` | subagent | Prose review: titles, paragraphs, sentences, words, markdown compliance |
-| `guard` | subagent | Safety checkpoints, regression control, loop detection |
+| `guard` | subagent | Safety, regression, loop detection |
 | `literature-reviewer` | subagent | Fast literature search and source notes |
 | `deep-research` | subagent | Exhaustive multi-step evidence gathering |
 | `r-analysis` | primary | R / Quarto pipeline edits and statistical-code changes |
 
-## Routing Table
+#anti-fabrication-short
 
-| Task Type | Agent | Role |
-|-----------|-------|------|
-| Drafting or revising manuscript prose | `writer` | Writing only; use verified inputs |
-| Manuscript review collation | `editor` | Sort reviewer outputs into chronological edit list |
-| Fast citation support or paper lookup | `literature-reviewer` | Retrieval only; structured source notes |
-| Exhaustive, conflicting, or multi-hop research | `deep-research` | Evidence mapping, coverage expansion |
-| Big-picture review | `reviewer-structure` | Structure, arguments, impact critique |
-| Detail review | `reviewer-detail` | Citations, conceptual clarity, argument issues |
-| Prose review | `copyeditor` | Titles, paragraphs, sentences, words, markdown compliance |
-| R / Quarto analysis edits | `r-analysis` | Analysis and pipeline changes |
-| Shell / git / repo automation | `automation` | Command-line execution |
-| Safety, regression, loop monitoring | `guard` | Auto-triggered or user-requested |
-
-## Workflow Modes
-
-**Default**: High-Control Mode. Use this unless the user explicitly requests autonomous batch mode.
-
-### High-Control Mode
-Pause for approval at:
-- outline creation
-- topic-sentence planning
-- large structural rewrites
-- reviewer-suggested fixes before implementation
-- substantial methods, results, or discussion edits
-
-Use when the task is ambiguous, high-stakes, or the user requests supervision.
-
-### Autonomous Batch Mode
-Continue until:
-- a guard checkpoint is triggered
-- a loop signal is detected
-- a blocker requires clarification
-- the user stops the workflow
-
-Use when the task is well-scoped and routine enough to execute end to end.
-
-## Anti-Loop Policy
-
-### Planner stop-loss rules
-Interrupt and reroute when any of the following occurs:
-- 2 failed attempts to locate a file or directory without broadening scope
-- 3 semantically similar grep/find/rg/search attempts with no useful hit
-- repeated tool calls in the same path with no new evidence
-- no material state change after 4 tool calls in a row
-- an agent repeats a previously failed strategy without explaining why it should now work
-
-### Guard escalation rules
-Guard flags:
-- repeated rewrite loops in the same section
-- repeated low-information tool-use patterns
-- wrong-directory or wrong-pattern probing that continues after failure
-- oscillation between prior states without net improvement
-
-### Delegation-time prevention (mandatory)
-Every agent delegation must include explicit stop-loss limits:
-- max 6 tool calls unless user-approved
-- stop after 2 failed path/file lookups
-- stop after 3 similar search attempts without useful hit
-- stop after 4 calls with no new material evidence/state change
-- If a strategy fails once, do not repeat without changing scope and explaining why.
-- When a limit triggers, return immediately with a blocker report containing:
-  - objective
-  - attempts made
-  - evidence found
-  - blocker
-  - recommended next step (reroute / broaden search / ask user)
-
-## Checkpoint Schedule
-
-Guard is auto-triggered after:
-1. outline generation
-2. first full draft of a major section or manuscript
-3. reviewer-fix application
-4. major refactors of methods, results, or discussion
-5. branch-wide automated rewrites
-6. any suspected loop or thrashing pattern
-
-## Research Separation
-
-- `literature-reviewer` is for fast retrieval, source discovery, and concise per-source notes.
-- `deep-research` is for exhaustive coverage, conflicting literatures, and multi-hop evidence gathering.
-- Both research agents have access to MCP servers for structured academic search (OpenAlex and Semantic Scholar) that return abstracts and DOIs directly. The Semantic Scholar MCP (paperplain-mcp) bundles PubMed, ArXiv, and Semantic Scholar coverage. **Note:** MCP servers must be defined in the top-level `"mcp"` object of `opencode.json`; per-agent `"mcp"` blocks are not registered by OpenCode. If MCP tools fail, agents should report the error explicitly before falling back to webfetch.
-- `writer` consumes research outputs but does not replace retrieval.
-- `reviewer-structure`, `reviewer-detail`, `copyeditor` critique claims and support but do not act as primary search agents.
-
-## Anti-Fabrication Rules
-
-### Mandatory rules
-1. No invented numbers.
-2. No invented citations.
-3. No invented findings.
-4. No silent reinterpretation.
-
-### Placeholder discipline
-
-# Placeholder Discipline
-
-Use explicit placeholders for unresolved content:
-- `<!-- TODO: compute X -->` for calculations that need to be performed
-- `<!-- TODO: cite -->` for claims requiring references
-- `<!-- TODO: verify -->` for facts that need confirmation
-- `<!-- TODO: describe -->` for concepts needing elaboration
-
-Placeholders must be preserved until resolved by evidence or explicit user instruction.
-Do not replace placeholders with invented content.
-
-### Agent-specific enforcement
-- `writer`: use placeholders instead of inventing content
-- `literature-reviewer`: never invent metadata or summaries
-- `deep-research`: report coverage limits and conflicts explicitly
-- `reviewer-structure`, `reviewer-detail`, `copyeditor`: flag unsupported claims and missing placeholders
-- `r-analysis`: describe only actual outputs or clearly marked uncertainties
-- `guard`: detect fabrication risk and placeholder loss
-
-## Git Workflow
-
-Solo-owner hybrid of gitflow and gitlabflow:
-
-- `main` is the development branch.
-- `refactor` is the primary feature/development branch.
-- Stable release branches are created only when needed (rare).
-- Hotfix branches are created only when needed (very rare).
-- Feature branches use a descriptive name only — no `feature/` prefix.
-- If two refactors are concurrent, use separate descriptive branches.
-
-Commit style (kernel-inspired):
-- Atomic commits with very short subjects.
-- Descriptive body when detail is needed.
-- The `git graph` alias is available: `git log --all --graph --oneline`.
-
-Commit delegation:
-- `planner`, `automation`, and `r-analysis` may run `git commit` (permission: ask).
-- All other agents are barred from committing.
-- Before delegating to read-only agents, `planner` must check `git status` and commit any pending changes atomically.
-- `guard` should suggest an atomic commit checkpoint after substantial writes.
-
-Merge strategy:
-- Prefer true merge commits over squash cleanup unless the user explicitly requests squash.
+#placeholder-discipline
 
 ## User Invocation
 
