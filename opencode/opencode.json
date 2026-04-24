@@ -389,7 +389,11 @@
   },
   "plugin": [
     "opencode-snippets",
-    "@cortexkit/opencode-magic-context"
+    "@cortexkit/opencode-magic-context",
+    ["@plannotator/opencode@latest", {
+      "workflow": "plan-agent",
+      "planningAgents": ["plan", "planner"]
+    }]
   ],
   "compaction": {
     "auto": false,
