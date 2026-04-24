@@ -2,6 +2,26 @@
 All notable changes to the OpenCode Manuscript Workflow will be documented in this file.
 
 ## [Unreleased]
+### Added
+- New snippets: `agents-ref`, `stop-loss-limits`, `routing-table`, `research-separation`, `checkpoint-schedule`, `git-workflow`, `read-style`, `mcp-tool-awareness`, `snippet-catalog`, `plannotator-awareness`
+- Per-agent `steps` limits in `opencode.json` as hard structural backstops for loop prevention (planner=20, automation=30, writer=10, reviewer-structure=10, reviewer-detail=10, copyeditor=10, editor=8, guard=10, literature-reviewer=12, deep-research=20, r-analysis=30)
+- Plannotator awareness in planner config — agents should use `submit_plan` for plan-style decisions instead of the `question` tool
+- citecheck and context7 MCP awareness in relevant agents
+
+### Changed
+- AGENTS.md slimmed from ~183 to ~45 lines; all agent-specific content extracted into snippets
+- planner.md restructured with explicit routing table, edge-case decision tree, snippet catalog, Plannotator awareness, "When NOT to delegate" section, and research separation
+- All agent files updated with snippet references replacing inline boilerplate (`#agents-ref`, `#read-style`, `#mcp-tool-awareness`, `#checkpoint-schedule`, `#stop-loss-limits`, `#research-separation`, `#git-workflow`)
+- Skills updated to use `#mcp-academic-search` snippet for MCP tool descriptions
+- Routing constraints relaxed: built-in agents (`@explore`, `@general`, `@build`) allowed for tasks outside manuscript workflow scope (but still prohibited for workflow tasks)
+- Edge-case routing refined: "fix a citation" → literature-reviewer then reviewer-detail; "improve this section" → all three reviewers then editor; "check the stats" → r-analysis + reviewer-detail; no-match → ask user or use built-ins (never `@plan`)
+- Git workflow snippet includes rebase rule: when `refactor` is behind `main`, rebase onto `main` before merging
+- Temperatures migrated from agent frontmatter to `opencode.json` per-agent config
+
+### Deleted
+- `note-on-examples.md` snippet (merged into `examples-disclaimer`)
+
+## [Unreleased]
 ### Fixed
 - MCP servers moved from per-agent blocks to top-level `"mcp"` object in `opencode.json` so OpenCode actually registers them
 - README.md corrected MCP server attachment description from "per-agent" to "top-level object"

@@ -37,8 +37,9 @@ Do not use this skill when:
  
 For each request:
  1. Break the problem into 2–6 subquestions.
-  2. **Use MCP tools as primary search** (configured globally in `opencode.json`): `openalex` for broad coverage and DOI resolution, `semantic-scholar` for medical/psychology topics and cross-source comparison. If MCP tools are unreachable, report the error before falling back.
- 3. Search each subquestion using MCP tools first. If they fail after reporting the error, use webfetch or direct REST APIs for supplementary coverage.
+  2. **Use MCP tools as primary search** (configured globally in `opencode.json`):
+#mcp-academic-search
+  3. Search each subquestion using MCP tools first. If they fail after reporting the error, use webfetch or direct REST APIs for supplementary coverage.
  4. Use multiple angles: core terms, synonyms, competing terminology, adjacent fields, and method-specific queries.
  5. Retrieve abstract and DOI for each result via MCP tools.
  6. Deduplicate near-identical sources.

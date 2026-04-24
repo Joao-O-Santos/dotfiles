@@ -40,7 +40,8 @@ Do not use this skill when:
 
 For each request:
 1. Identify the exact question or claim to support.
-2. **Use MCP tools first** (configured globally in `opencode.json`): `openalex` for broad coverage, `semantic-scholar` for medical/psychology topics and cross-source comparison. If MCP tools are unreachable, report the error before falling back.
+2. **Use MCP tools first** (configured globally in `opencode.json`):
+#mcp-academic-search
 3. Retrieve abstract and DOI for each result via MCP tools.
 4. Gather a small set of the most relevant sources.
 5. Deduplicate overlapping hits.
