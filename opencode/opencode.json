@@ -8,9 +8,21 @@
   "permission": {
     "bash": {
       "*": "allow",
-      "git commit *": "deny", "git merge *": "deny",
-      "rm *": "ask", "git push *": "ask", "git reset --hard *": "ask", "git clean *": "ask", "yay -S *": "ask", "pacman -S *": "ask",
-      "sudo *": "deny", "rm -rf /": "deny", "rm -rf ~": "deny", "dd *": "deny", "mkfs *": "deny", "fdisk *": "deny", "chmod 777 *": "deny"
+      "git commit *": "deny",
+      "git merge *": "deny",
+      "rm *": "ask",
+      "git push *": "ask",
+      "git reset --hard *": "ask",
+      "git clean *": "ask",
+      "yay -S *": "ask",
+      "pacman -S *": "ask",
+      "sudo *": "deny",
+      "rm -rf /": "deny",
+      "rm -rf ~": "deny",
+      "dd *": "deny",
+      "mkfs *": "deny",
+      "fdisk *": "deny",
+      "chmod 777 *": "deny"
     },
     "external_directory": {
       "${HOME}/.config/opencode/**": "allow",
@@ -24,12 +36,20 @@
   "mcp": {
     "context7": {
       "type": "local",
-      "command": ["npx", "-y", "@upstash/context7-mcp@latest"],
+      "command": [
+        "npx",
+        "-y",
+        "@upstash/context7-mcp@latest"
+      ],
       "enabled": true
     },
     "citecheck": {
       "type": "local",
-      "command": ["npx", "-y", "@jhlee0619/citecheck@latest"],
+      "command": [
+        "npx",
+        "-y",
+        "@jhlee0619/citecheck@latest"
+      ],
       "environment": {
         "CROSSREF_MAILTO": "$CROSSREF_MAILTO"
       },
@@ -37,7 +57,11 @@
     },
     "openalex": {
       "type": "local",
-      "command": ["npx", "-y", "@cyanheads/openalex-mcp-server@latest"],
+      "command": [
+        "npx",
+        "-y",
+        "@cyanheads/openalex-mcp-server@latest"
+      ],
       "environment": {
         "OPENALEX_API_KEY": "$OPENALEX_API_KEY",
         "OPENALEX_EMAIL": "$OPENALEX_EMAIL"
@@ -46,7 +70,11 @@
     },
     "semantic-scholar": {
       "type": "local",
-      "command": ["npx", "-y", "paperplain-mcp@latest"],
+      "command": [
+        "npx",
+        "-y",
+        "paperplain-mcp@latest"
+      ],
       "enabled": true
     }
   },
@@ -58,7 +86,9 @@
       "permission": {
         "edit": "allow",
         "webfetch": "allow",
-        "task": { "*": "allow" },
+        "task": {
+          "*": "allow"
+        },
         "bash": {
           "*": "allow",
           "git commit *": "ask",
@@ -86,13 +116,29 @@
       "permission": {
         "edit": "deny",
         "webfetch": "allow",
-        "task": { "*": "allow" },
+        "task": {
+          "*": "allow"
+        },
         "bash": {
           "*": "deny",
-          "git status": "allow", "git log *": "allow", "git diff *": "allow", "git show *": "allow", "git commit *": "ask", "git merge *": "ask",
-          "cat *": "allow", "head *": "allow", "tail *": "allow", "grep *": "allow", "rg *": "allow", "find *": "allow", "wc *": "allow", "ls *": "allow"
+          "git status": "allow",
+          "git log *": "allow",
+          "git diff *": "allow",
+          "git show *": "allow",
+          "git commit *": "ask",
+          "git merge *": "ask",
+          "cat *": "allow",
+          "head *": "allow",
+          "tail *": "allow",
+          "grep *": "allow",
+          "rg *": "allow",
+          "find *": "allow",
+          "wc *": "allow",
+          "ls *": "allow"
         }
-      }
+      },
+      "temperature": 0.3,
+      "steps": 20
     },
     "automation": {
       "model": "opencode-go/qwen3.6-plus",
@@ -102,11 +148,25 @@
         "webfetch": "allow",
         "bash": {
           "*": "allow",
-          "git commit *": "ask", "git merge *": "ask",
-          "rm *": "ask", "git push *": "ask", "git reset --hard *": "ask", "git clean *": "ask", "yay -S *": "ask", "pacman -S *": "ask",
-          "sudo *": "deny", "rm -rf /": "deny", "rm -rf ~": "deny", "dd *": "deny", "mkfs *": "deny", "fdisk *": "deny", "chmod 777 *": "deny"
+          "git commit *": "ask",
+          "git merge *": "ask",
+          "rm *": "ask",
+          "git push *": "ask",
+          "git reset --hard *": "ask",
+          "git clean *": "ask",
+          "yay -S *": "ask",
+          "pacman -S *": "ask",
+          "sudo *": "deny",
+          "rm -rf /": "deny",
+          "rm -rf ~": "deny",
+          "dd *": "deny",
+          "mkfs *": "deny",
+          "fdisk *": "deny",
+          "chmod 777 *": "deny"
         }
-      }
+      },
+      "temperature": 0.3,
+      "steps": 30
     },
     "writer": {
       "model": "opencode-go/qwen3.6-plus",
@@ -117,11 +177,25 @@
         "webfetch": "allow",
         "bash": {
           "*": "allow",
-          "git commit *": "deny", "git merge *": "deny",
-          "rm *": "ask", "git push *": "ask", "git reset --hard *": "ask", "git clean *": "ask", "yay -S *": "ask", "pacman -S *": "ask",
-          "sudo *": "deny", "rm -rf /": "deny", "rm -rf ~": "deny", "dd *": "deny", "mkfs *": "deny", "fdisk *": "deny", "chmod 777 *": "deny"
+          "git commit *": "deny",
+          "git merge *": "deny",
+          "rm *": "ask",
+          "git push *": "ask",
+          "git reset --hard *": "ask",
+          "git clean *": "ask",
+          "yay -S *": "ask",
+          "pacman -S *": "ask",
+          "sudo *": "deny",
+          "rm -rf /": "deny",
+          "rm -rf ~": "deny",
+          "dd *": "deny",
+          "mkfs *": "deny",
+          "fdisk *": "deny",
+          "chmod 777 *": "deny"
         }
-      }
+      },
+      "temperature": 0.7,
+      "steps": 10
     },
     "reviewer-structure": {
       "model": "opencode-go/kimi-k2.6",
@@ -132,9 +206,17 @@
         "webfetch": "allow",
         "bash": {
           "*": "deny",
-          "cat *": "allow", "head *": "allow", "tail *": "allow", "grep *": "allow", "rg *": "allow", "find *": "allow", "wc *": "allow"
+          "cat *": "allow",
+          "head *": "allow",
+          "tail *": "allow",
+          "grep *": "allow",
+          "rg *": "allow",
+          "find *": "allow",
+          "wc *": "allow"
         }
-      }
+      },
+      "temperature": 0.3,
+      "steps": 10
     },
     "reviewer-detail": {
       "model": "opencode-go/kimi-k2.6",
@@ -145,9 +227,17 @@
         "webfetch": "allow",
         "bash": {
           "*": "deny",
-          "cat *": "allow", "head *": "allow", "tail *": "allow", "grep *": "allow", "rg *": "allow", "find *": "allow", "wc *": "allow"
+          "cat *": "allow",
+          "head *": "allow",
+          "tail *": "allow",
+          "grep *": "allow",
+          "rg *": "allow",
+          "find *": "allow",
+          "wc *": "allow"
         }
-      }
+      },
+      "temperature": 0.3,
+      "steps": 10
     },
     "copyeditor": {
       "model": "opencode-go/qwen3.5-plus",
@@ -158,9 +248,17 @@
         "webfetch": "allow",
         "bash": {
           "*": "deny",
-          "cat *": "allow", "head *": "allow", "tail *": "allow", "grep *": "allow", "rg *": "allow", "find *": "allow", "wc *": "allow"
+          "cat *": "allow",
+          "head *": "allow",
+          "tail *": "allow",
+          "grep *": "allow",
+          "rg *": "allow",
+          "find *": "allow",
+          "wc *": "allow"
         }
-      }
+      },
+      "temperature": 0.4,
+      "steps": 10
     },
     "editor": {
       "model": "opencode-go/kimi-k2.6",
@@ -171,11 +269,25 @@
         "webfetch": "allow",
         "bash": {
           "*": "allow",
-          "git commit *": "deny", "git merge *": "deny",
-          "rm *": "ask", "git push *": "ask", "git reset --hard *": "ask", "git clean *": "ask", "yay -S *": "ask", "pacman -S *": "ask",
-          "sudo *": "deny", "rm -rf /": "deny", "rm -rf ~": "deny", "dd *": "deny", "mkfs *": "deny", "fdisk *": "deny", "chmod 777 *": "deny"
+          "git commit *": "deny",
+          "git merge *": "deny",
+          "rm *": "ask",
+          "git push *": "ask",
+          "git reset --hard *": "ask",
+          "git clean *": "ask",
+          "yay -S *": "ask",
+          "pacman -S *": "ask",
+          "sudo *": "deny",
+          "rm -rf /": "deny",
+          "rm -rf ~": "deny",
+          "dd *": "deny",
+          "mkfs *": "deny",
+          "fdisk *": "deny",
+          "chmod 777 *": "deny"
         }
-      }
+      },
+      "temperature": 0.3,
+      "steps": 8
     },
     "guard": {
       "model": "opencode-go/minimax-m2.5",
@@ -186,9 +298,20 @@
         "webfetch": "allow",
         "bash": {
           "*": "deny",
-          "cat *": "allow", "git log *": "allow", "git diff *": "allow", "git show *": "allow", "git status *": "allow", "grep *": "allow", "rg *": "allow", "find *": "allow", "tail *": "allow", "wc *": "allow"
+          "cat *": "allow",
+          "git log *": "allow",
+          "git diff *": "allow",
+          "git show *": "allow",
+          "git status *": "allow",
+          "grep *": "allow",
+          "rg *": "allow",
+          "find *": "allow",
+          "tail *": "allow",
+          "wc *": "allow"
         }
-      }
+      },
+      "temperature": 0.2,
+      "steps": 10
     },
     "literature-reviewer": {
       "model": "opencode-go/qwen3.5-plus",
@@ -199,9 +322,18 @@
         "webfetch": "allow",
         "bash": {
           "*": "deny",
-          "cat *": "allow", "head *": "allow", "tail *": "allow", "grep *": "allow", "rg *": "allow", "find *": "allow", "wc *": "allow", "pdftotext *": "allow"
+          "cat *": "allow",
+          "head *": "allow",
+          "tail *": "allow",
+          "grep *": "allow",
+          "rg *": "allow",
+          "find *": "allow",
+          "wc *": "allow",
+          "pdftotext *": "allow"
         }
-      }
+      },
+      "temperature": 0.3,
+      "steps": 12
     },
     "deep-research": {
       "model": "opencode-go/kimi-k2.6",
@@ -212,9 +344,18 @@
         "webfetch": "allow",
         "bash": {
           "*": "deny",
-          "cat *": "allow", "head *": "allow", "tail *": "allow", "grep *": "allow", "rg *": "allow", "find *": "allow", "wc *": "allow", "pdftotext *": "allow"
+          "cat *": "allow",
+          "head *": "allow",
+          "tail *": "allow",
+          "grep *": "allow",
+          "rg *": "allow",
+          "find *": "allow",
+          "wc *": "allow",
+          "pdftotext *": "allow"
         }
-      }
+      },
+      "temperature": 0.3,
+      "steps": 20
     },
     "r-analysis": {
       "model": "opencode-go/qwen3.6-plus",
@@ -225,11 +366,25 @@
         "webfetch": "allow",
         "bash": {
           "*": "allow",
-          "git commit *": "ask", "git merge *": "ask",
-          "rm *": "ask", "git push *": "ask", "git reset --hard *": "ask", "git clean *": "ask", "yay -S *": "ask", "pacman -S *": "ask",
-          "sudo *": "deny", "rm -rf /": "deny", "rm -rf ~": "deny", "dd *": "deny", "mkfs *": "deny", "fdisk *": "deny", "chmod 777 *": "deny"
+          "git commit *": "ask",
+          "git merge *": "ask",
+          "rm *": "ask",
+          "git push *": "ask",
+          "git reset --hard *": "ask",
+          "git clean *": "ask",
+          "yay -S *": "ask",
+          "pacman -S *": "ask",
+          "sudo *": "deny",
+          "rm -rf /": "deny",
+          "rm -rf ~": "deny",
+          "dd *": "deny",
+          "mkfs *": "deny",
+          "fdisk *": "deny",
+          "chmod 777 *": "deny"
         }
-      }
+      },
+      "temperature": 0.2,
+      "steps": 30
     }
   },
   "plugin": [
