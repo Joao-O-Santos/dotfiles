@@ -27,9 +27,12 @@
     "external_directory": {
       "${HOME}/.config/opencode/**": "allow",
       "${HOME}/.config/opencode/auth.json": "deny",
-      "~/lit/**": "allow"
+      "~/lit/**": "allow",
+      "/tmp/**": "allow"
     },
     "read": {
+      "~/lit/**": "allow",
+      "${HOME}/.config/opencode/**": "allow",
       "${HOME}/.config/opencode/auth.json": "deny"
     }
   },
