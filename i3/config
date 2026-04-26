@@ -32,9 +32,10 @@ exec --no-startup-id dex --autostart --environment i3
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
+# CHANGED: disabled
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
+#exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -48,7 +49,7 @@ floating_modifier $mod
 
 # CHANGED: expressely set `st` as the terminal with hermit font.
 # start a terminal
-bindsym $mod+Return exec st -f hermit:size=13.9
+bindsym $mod+Return exec ghostty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -61,7 +62,7 @@ bindsym $mod+d exec --no-startup-id dmenu_run
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
-# CHANGED: use vi keys 
+# CHANGED: use vi keys
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -74,7 +75,7 @@ bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-# CHANGED: use vi keys 
+# CHANGED: use vi keys
 # move focused window
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
@@ -178,14 +179,14 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
 
-	# CHANGED: use vi keys and smaller steps (2pt/px vs 10)
+        # CHANGED: use vi keys and smaller steps (2pt/px vs 10)
         # Pressing left will shrink the window’s width.
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
         bindsym h resize shrink width 2 px or 2 ppt
         bindsym j resize shrink height 2 px or 2 ppt
-	bindsym k resize grow height 2 px or 2 ppt
+        bindsym k resize grow height 2 px or 2 ppt
         bindsym l resize grow width 2 px or 2 ppt
 
         # same bindings, but for the arrow keys
