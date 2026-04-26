@@ -16,7 +16,8 @@ Commit style (kernel-inspired):
 - The `git graph` alias is available: `git log --all --graph --oneline`
 
 Commit delegation:
-- `planner`, `automation`, and `r-analysis` may run `git commit` (permission: ask)
+- `automation` and `r-analysis` may run `git commit` (permission: ask)
+- `planner` is barred from committing — delegates to `automation`
 - All other agents are barred from committing
 - Before delegating to read-only agents, `planner` must check `git status` and commit any pending changes atomically
 - `guard` should suggest an atomic commit checkpoint after substantial writes

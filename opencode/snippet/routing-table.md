@@ -14,6 +14,7 @@
 | R / Quarto analysis edits | `r-analysis` | Analysis and pipeline changes |
 | Shell / git / repo automation | `automation` | Command-line execution |
 | Safety, regression, loop monitoring | `guard` | Auto-triggered or user-requested |
+| Non-manuscript coding, quick scripts, tooling | `build` | General SWE only; avoid for manuscript workflow |
 
 ## Edge-Case Decision Tree
 
@@ -22,5 +23,10 @@
 - **"Check the stats"** → `r-analysis` for R pipeline + `reviewer-detail` for verifying R output interpretation
 - **"Find papers on X"** → quick? `literature-reviewer`; exhaustive? `deep-research`
 - **"Commit changes"** → `automation`
-- **Simple question** → planner handles directly
+- **"R analysis or statistical task"** → `r-analysis`
+- **"Write a general system script"** → `automation`
+- **"Write a JS program, Python app, general software dev"** → `build`
+- **"How does this JS library work?"** → `automation` (has `context7` MCP for docs) or `build`
+- **Trivial factual question** → planner handles directly (math, definitions, dates)
+- **Non-manuscript coding (utility scripts, tooling, debugging)** → `build` (built-in)
 - **No matching agent** → ask user if in high-scrutiny mode; use `automation` for file handling; consider `@explore`, `@general`, or `@build` if appropriate — **but NEVER `@plan`**

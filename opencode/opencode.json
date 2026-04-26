@@ -5,389 +5,175 @@
     "${HOME}/.config/opencode/AGENTS.md"
   ],
   "default_agent": "planner",
+  "enabled_providers": [
+    "opencode-go", "opencode", "ollama-cloud",
+    "mistral", "openrouter"
+  ],
   "permission": {
     "bash": {
-      "*": "allow",
-      "git commit *": "deny",
-      "git merge *": "deny",
-      "rm *": "ask",
-      "git push *": "ask",
-      "git reset --hard *": "ask",
-      "git clean *": "ask",
-      "yay -S *": "ask",
-      "pacman -S *": "ask",
-      "sudo *": "deny",
-      "rm -rf /": "deny",
-      "rm -rf ~": "deny",
-      "dd *": "deny",
-      "mkfs *": "deny",
-      "fdisk *": "deny",
-      "chmod 777 *": "deny"
+      "*": "deny",
+      "git status": "allow", "git log *": "allow",
+      "git diff *": "allow", "git show *": "allow",
+      "ls *": "allow", "wc *": "allow",
+      "grep *": "allow", "rg *": "allow", "find *": "allow",
+      "tso *": "allow", "chkdrft *": "allow", "toc *": "allow",
+      "pdftotext *": "allow"
     },
     "external_directory": {
       "${HOME}/.config/opencode/**": "allow",
       "${HOME}/.config/opencode/auth.json": "deny",
-      "~/lit/**": "allow",
+      "${HOME}/.config/opencode/mcp_keys.sh": "deny",
       "/tmp/**": "allow"
     },
     "read": {
-      "~/lit/**": "allow",
       "${HOME}/.config/opencode/**": "allow",
-      "${HOME}/.config/opencode/auth.json": "deny"
+      "${HOME}/.config/opencode/auth.json": "deny",
+      "${HOME}/.config/opencode/mcp_keys.sh": "deny",
+      "/tmp/**": "allow"
     }
   },
   "mcp": {
     "context7": {
-      "type": "local",
+      "type": "local", "enabled": true,
       "command": [
-        "npx",
-        "-y",
-        "@upstash/context7-mcp@latest"
-      ],
-      "enabled": true
+        "npx", "-y", "@upstash/context7-mcp",
+        "--api-key", "{env:CONTEXT7_API_KEY}"
+      ]
     },
     "citecheck": {
-      "type": "local",
-      "command": [
-        "npx",
-        "-y",
-        "@jhlee0619/citecheck@latest"
-      ],
-      "environment": {
-        "CROSSREF_MAILTO": "$CROSSREF_MAILTO"
-      },
-      "enabled": true
+      "type": "local", "enabled": true,
+      "command": ["npx", "-y", "@jhlee0619/citecheck@latest"],
+      "environment": { "CROSSREF_MAILTO": "{env:CROSSREF_MAILTO}" }
     },
     "openalex": {
-      "type": "local",
-      "command": [
-        "npx",
-        "-y",
-        "@cyanheads/openalex-mcp-server@latest"
-      ],
+      "type": "local", "enabled": true,
+      "command": ["npx", "-y", "@cyanheads/openalex-mcp-server@latest"],
       "environment": {
-        "OPENALEX_API_KEY": "$OPENALEX_API_KEY",
-        "OPENALEX_EMAIL": "$OPENALEX_EMAIL"
-      },
-      "enabled": true
+        "OPENALEX_API_KEY": "{env:OPENALEX_API_KEY}",
+        "OPENALEX_EMAIL": "{env:OPENALEX_EMAIL}"
+      }
     },
     "semantic-scholar": {
-      "type": "local",
-      "command": [
-        "npx",
-        "-y",
-        "paperplain-mcp@latest"
-      ],
-      "enabled": true
+      "type": "local", "enabled": true,
+      "command": ["npx", "-y", "paperplain-mcp@latest"]
     }
   },
   "agent": {
-    "build": {
-      "model": "opencode-go/kimi-k2.6",
-      "description": "Full-access development agent",
+    "planner": {
+      "description": "Primary orchestrator and default agent",
       "mode": "primary",
+      "model": "{env:PLANNER_MODEL}", "temperature": 0.1,
+      "steps": 20,
+      "permission": { "edit": "deny", "webfetch": "allow", "task": { "*": "allow" } }
+    },
+    "automation": {
+      "description": "Shell, git, and terminal-native execution",
+      "mode": "primary",
+      "model": "{env:AUTOMATION_MODEL}", "temperature": 0.3,
+      "steps": 30,
       "permission": {
         "edit": "allow",
         "webfetch": "allow",
-        "task": {
-          "*": "allow"
-        },
         "bash": {
           "*": "allow",
-          "git commit *": "ask",
-          "git merge *": "ask",
-          "rm *": "ask",
-          "git push *": "ask",
-          "git reset --hard *": "ask",
-          "git clean *": "ask",
-          "yay -S *": "ask",
-          "pacman -S *": "ask",
-          "sudo *": "deny",
-          "rm -rf /": "deny",
-          "rm -rf ~": "deny",
-          "dd *": "deny",
-          "mkfs *": "deny",
-          "fdisk *": "deny",
-          "chmod 777 *": "deny"
+          "git commit *": "ask", "git merge *": "ask",
+          "git reset --hard *": "ask", "git clean *": "ask",
+          "rm *": "ask", "chmod 777 *": "ask",
+          "git push *": "deny",
+          "sudo *": "deny", "yay -S *": "deny", "pacman -S *": "deny",
+          "rm -rf /": "deny", "rm -rf ~": "deny",
+          "dd *": "deny", "mkfs *": "deny", "fdisk *": "deny"
         }
       }
     },
-    "planner": {
-      "model": "opencode-go/kimi-k2.6",
-      "description": "Primary orchestrator and default agent",
-      "mode": "primary",
-      "permission": {
-        "edit": "deny",
-        "webfetch": "allow",
-        "task": {
-          "*": "allow"
-        },
-        "bash": {
-          "*": "deny",
-          "git status": "allow",
-          "git log *": "allow",
-          "git diff *": "allow",
-          "git show *": "allow",
-          "git commit *": "ask",
-          "git merge *": "ask",
-          "cat *": "allow",
-          "head *": "allow",
-          "tail *": "allow",
-          "grep *": "allow",
-          "rg *": "allow",
-          "find *": "allow",
-          "wc *": "allow",
-          "ls *": "allow"
-        }
-      },
-      "temperature": 0.3,
-      "steps": 20
-    },
-    "automation": {
-      "model": "opencode-go/qwen3.6-plus",
-      "mode": "primary",
-      "permission": {
-        "edit": "allow",
-        "webfetch": "allow",
-        "bash": {
-          "*": "allow",
-          "git commit *": "ask",
-          "git merge *": "ask",
-          "rm *": "ask",
-          "git push *": "ask",
-          "git reset --hard *": "ask",
-          "git clean *": "ask",
-          "yay -S *": "ask",
-          "pacman -S *": "ask",
-          "sudo *": "deny",
-          "rm -rf /": "deny",
-          "rm -rf ~": "deny",
-          "dd *": "deny",
-          "mkfs *": "deny",
-          "fdisk *": "deny",
-          "chmod 777 *": "deny"
-        }
-      },
-      "temperature": 0.3,
-      "steps": 30
-    },
     "writer": {
-      "model": "opencode-go/qwen3.6-plus",
       "description": "Unified manuscript drafting (empirical/theoretical)",
       "mode": "primary",
+      "model": "{env:WRITER_MODEL}", "temperature": 0.8,
+      "steps": 10,
       "permission": {
         "edit": "allow",
         "webfetch": "allow",
         "bash": {
-          "*": "allow",
-          "git commit *": "deny",
-          "git merge *": "deny",
-          "rm *": "ask",
-          "git push *": "ask",
-          "git reset --hard *": "ask",
-          "git clean *": "ask",
-          "yay -S *": "ask",
-          "pacman -S *": "ask",
-          "sudo *": "deny",
-          "rm -rf /": "deny",
-          "rm -rf ~": "deny",
-          "dd *": "deny",
-          "mkfs *": "deny",
-          "fdisk *": "deny",
-          "chmod 777 *": "deny"
+          "*": "deny",
+          "git status": "allow", "git log *": "allow",
+          "git diff *": "allow", "git show *": "allow",
+          "ls *": "allow", "wc *": "allow",
+          "grep *": "allow", "rg *": "allow", "find *": "allow",
+          "sed *": "allow",
+          "tso *": "allow", "chkdrft *": "allow", "toc *": "allow"
         }
-      },
-      "temperature": 0.7,
-      "steps": 10
+      }
     },
     "reviewer-structure": {
-      "model": "opencode-go/kimi-k2.6",
       "description": "Big-picture critique: structure, arguments, impact",
       "mode": "subagent",
-      "permission": {
-        "edit": "deny",
-        "webfetch": "allow",
-        "bash": {
-          "*": "deny",
-          "cat *": "allow",
-          "head *": "allow",
-          "tail *": "allow",
-          "grep *": "allow",
-          "rg *": "allow",
-          "find *": "allow",
-          "wc *": "allow"
-        }
-      },
-      "temperature": 0.3,
+      "model": "{env:REVIEWER_STRUCTURE_MODEL}",
+      "permission": { "edit": "deny", "webfetch": "allow" },
       "steps": 10
     },
     "reviewer-detail": {
-      "model": "opencode-go/kimi-k2.6",
       "description": "Detail critique: citations, conceptual clarity, argument issues",
       "mode": "subagent",
-      "permission": {
-        "edit": "deny",
-        "webfetch": "allow",
-        "bash": {
-          "*": "deny",
-          "cat *": "allow",
-          "head *": "allow",
-          "tail *": "allow",
-          "grep *": "allow",
-          "rg *": "allow",
-          "find *": "allow",
-          "wc *": "allow"
-        }
-      },
-      "temperature": 0.3,
-      "steps": 10
+      "model": "{env:REVIEWER_DETAIL_MODEL}", "temperature": 0.3,
+      "steps": 10,
+      "permission": { "edit": "deny", "webfetch": "allow" }
     },
     "copyeditor": {
-      "model": "opencode-go/qwen3.5-plus",
       "description": "Prose review: titles, paragraphs, sentences, words, markdown compliance",
       "mode": "subagent",
-      "permission": {
-        "edit": "deny",
-        "webfetch": "allow",
-        "bash": {
-          "*": "deny",
-          "cat *": "allow",
-          "head *": "allow",
-          "tail *": "allow",
-          "grep *": "allow",
-          "rg *": "allow",
-          "find *": "allow",
-          "wc *": "allow"
-        }
-      },
-      "temperature": 0.4,
-      "steps": 10
+      "model": "{env:COPYEDITOR_MODEL}", "temperature": 0.4,
+      "steps": 10,
+      "permission": { "edit": "deny", "webfetch": "allow" }
     },
     "editor": {
-      "model": "opencode-go/kimi-k2.6",
       "description": "Manuscript review collation agent: sorts reviewer output chronologically",
       "mode": "subagent",
-      "permission": {
-        "edit": "deny",
-        "webfetch": "allow",
-        "bash": {
-          "*": "allow",
-          "git commit *": "deny",
-          "git merge *": "deny",
-          "rm *": "ask",
-          "git push *": "ask",
-          "git reset --hard *": "ask",
-          "git clean *": "ask",
-          "yay -S *": "ask",
-          "pacman -S *": "ask",
-          "sudo *": "deny",
-          "rm -rf /": "deny",
-          "rm -rf ~": "deny",
-          "dd *": "deny",
-          "mkfs *": "deny",
-          "fdisk *": "deny",
-          "chmod 777 *": "deny"
-        }
-      },
-      "temperature": 0.3,
-      "steps": 8
+      "model": "{env:EDITOR_MODEL}", "temperature": 0.3,
+      "steps": 8,
+      "permission": { "edit": "deny", "webfetch": "allow" }
     },
     "guard": {
-      "model": "opencode-go/minimax-m2.5",
       "description": "Safety checkpoints and regression control",
       "mode": "subagent",
-      "permission": {
-        "edit": "deny",
-        "webfetch": "allow",
-        "bash": {
-          "*": "deny",
-          "cat *": "allow",
-          "git log *": "allow",
-          "git diff *": "allow",
-          "git show *": "allow",
-          "git status *": "allow",
-          "grep *": "allow",
-          "rg *": "allow",
-          "find *": "allow",
-          "tail *": "allow",
-          "wc *": "allow"
-        }
-      },
-      "temperature": 0.2,
-      "steps": 10
+      "model": "{env:GUARD_MODEL}", "temperature": 0.2,
+      "steps": 10,
+      "permission": { "edit": "deny", "webfetch": "allow" }
     },
     "literature-reviewer": {
-      "model": "opencode-go/qwen3.5-plus",
       "description": "Fast academic search and paper summaries",
       "mode": "subagent",
-      "permission": {
-        "edit": "deny",
-        "webfetch": "allow",
-        "bash": {
-          "*": "deny",
-          "cat *": "allow",
-          "head *": "allow",
-          "tail *": "allow",
-          "grep *": "allow",
-          "rg *": "allow",
-          "find *": "allow",
-          "wc *": "allow",
-          "pdftotext *": "allow"
-        }
-      },
+      "model": "{env:LITERATURE_REVIEWER_MODEL}",
       "temperature": 0.3,
-      "steps": 12
+      "steps": 12,
+      "permission": { "edit": "deny", "webfetch": "allow" }
     },
     "deep-research": {
-      "model": "opencode-go/kimi-k2.6",
       "description": "Exhaustive multi-step research",
       "mode": "subagent",
-      "permission": {
-        "edit": "deny",
-        "webfetch": "allow",
-        "bash": {
-          "*": "deny",
-          "cat *": "allow",
-          "head *": "allow",
-          "tail *": "allow",
-          "grep *": "allow",
-          "rg *": "allow",
-          "find *": "allow",
-          "wc *": "allow",
-          "pdftotext *": "allow"
-        }
-      },
-      "temperature": 0.3,
-      "steps": 20
+      "model": "{env:DEEP_RESEARCH_MODEL}",
+      "steps": 20,
+      "permission": { "edit": "deny", "webfetch": "allow" }
     },
     "r-analysis": {
-      "model": "opencode-go/qwen3.6-plus",
       "description": "R/Quarto pipeline edits",
       "mode": "primary",
+      "model": "{env:R_ANALYSIS_MODEL}", "temperature": 0.2,
+      "steps": 30,
       "permission": {
         "edit": "allow",
         "webfetch": "allow",
         "bash": {
           "*": "allow",
-          "git commit *": "ask",
-          "git merge *": "ask",
-          "rm *": "ask",
-          "git push *": "ask",
-          "git reset --hard *": "ask",
+          "git commit *": "ask", "git merge *": "ask", "git reset --hard *": "ask",
           "git clean *": "ask",
-          "yay -S *": "ask",
-          "pacman -S *": "ask",
-          "sudo *": "deny",
-          "rm -rf /": "deny",
-          "rm -rf ~": "deny",
-          "dd *": "deny",
-          "mkfs *": "deny",
-          "fdisk *": "deny",
-          "chmod 777 *": "deny"
+          "rm *": "ask",
+          "git push *": "deny", "sudo *": "deny", "chmod 777 *": "deny",
+          "yay -S *": "deny", "pacman -S *": "deny",
+          "rm -rf /": "deny", "rm -rf ~": "deny",
+          "dd *": "deny", "mkfs *": "deny", "fdisk *": "deny"
         }
-      },
-      "temperature": 0.2,
-      "steps": 30
+      }
     }
   },
   "plugin": [
@@ -398,8 +184,5 @@
       "planningAgents": ["plan", "planner"]
     }]
   ],
-  "compaction": {
-    "auto": false,
-    "prune": false
-  }
+  "compaction": { "auto": false, "prune": false }
 }

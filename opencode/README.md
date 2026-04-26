@@ -196,7 +196,7 @@ See `opencode.json` for the exact mappings.
 MCP servers are defined in the top‑level `"mcp"` object of `opencode.json` (globally available, not per‑agent):
 
 - **Context7** (`@upstash/context7-mcp`)
-  - Agents: `build`, `r-analysis`
+  - Agents: `r-analysis`, `automation`
   - Purpose: library/docs/API‑reference lookup for R, Quarto, and general coding
   - Env: `CONTEXT7_API_KEY`
 - **Citecheck** (`@jhlee0619/citecheck`)
@@ -255,9 +255,13 @@ The core manuscript revision pipeline is:
 
 ### Modifying Agent Permissions
 
-Adjust the `permission` blocks in `opencode.json`:
+Permissions are set at two levels:
 
+1. **Global defaults** (top‑level `permission` block): apply to all agents unless overridden.
+2. **Agent‑level overrides** (`agent.<name>.permission`): completely replace the global setting for that category — they do not merge.
+
+Key permission categories:
 - `edit`: allow/deny file editing.
 - `webfetch`: allow/deny `webfetch` calls.
-- `bash`: fine‑grained bash permissions (including specific `git` commands).
-- `external_directory` & `read`: control what parts of your filesystem agents can see.
+- `bash`: fine‑grained bash permissions. Most agents inherit the global allowlist (read‑only commands + git inspection). Only `automation`, `r-analysis`, and `writer` define custom bash blocks.
+- `external_directory` & `read`: filesystem access. Global allows `~/.config/opencode/**` (except `auth.json` and `mcp_keys.sh`) and `/tmp/**`.
