@@ -23,13 +23,18 @@ export XDG_STATE_HOME=$HOME/.cache
 export LESSHISTFILE=/dev/null/
 export XAUTHORITY=$XDG_CONFIG_HOME/xorg/Xauthority
 export R_PROFILE_USER=$XDG_CONFIG_HOME/R/Rprofile
+export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/nmprc
+export NPM_CONFIG_CACHE=$XDG_CACHE_HOME
 export TASKRC=$XDG_CONFIG_HOME/task/taskrc
 export TASKDATA=$XDG_CONFIG_HOME/task/
 
 # Use vi mode in the shell
 set -o vi
 
-# MCP API keys
+# Open Code
+# Set models
+. "$XDG_CONFIG_HOME/opencode/set_models.sh"
+# MCP keys
 . "$XDG_CONFIG_HOME/opencode/mcp_keys.sh"
 
 # Aliases
@@ -39,7 +44,6 @@ alias grep='grep --color'
 alias mutt='neomutt'
 alias gpg='gpg2'
 alias R='R --no-save --quiet'
-alias st='st -f hermit:size=13.9'
 # Shorter aliases for faster typing
 alias m='neomutt'
 alias e='nvim'
@@ -74,14 +78,6 @@ alias kbd="setxkbmap -option caps:swapescape -layout 'us,pt' -variant 'altgr-int
 # TODO: move most of these functions to scripts.
 function f {
 	find ./ -name "*$@*"
-}
-
-# see: https://blog.petehouston.com/execute-linux-commands-in-background-and-detach-from-terminal-session/
-function xst {
-	for i in $(seq 1 $1)
-	do
-		(setsid st -f hermit:size=13.9 > /dev/null &) > /dev/null 2>&1
-	done
 }
 
 # see: https://blog.petehouston.com/execute-linux-commands-in-background-and-detach-from-terminal-session/
