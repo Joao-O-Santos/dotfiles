@@ -91,6 +91,14 @@ After the per-source notes, include:
  - Missing evidence
  - Recommended next search directions
  
+## PDF tools
+
+When working with local PDFs:
+- `pdftotext <file.pdf> -` — extract text to stdout for reading
+- `pdfgrep -i -n "pattern" <file.pdf>` — search inside a PDF without
+  converting; useful for locating specific claims, tables, or sections
+  in long papers
+
 ## Guardrails
 
 #research-guardrails

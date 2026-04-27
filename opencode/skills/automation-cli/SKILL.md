@@ -18,6 +18,8 @@ Key helpers already defined in the user's shellrc:
 - `toc <file>`      – extract headings as a table of contents
 - `tso <file>`      – extract topic-sentence outline (first line of each paragraph)
 - `chkdrft <file>`  – count `CN`, `TODO:`, and `<!--` markers in a draft
+- `pdftotext <file.pdf> -` – extract PDF text to stdout
+- `pdfgrep -i -n "pattern" <file.pdf>` – search inside a PDF without converting
 - `R`               – aliased to `R --no-save --quiet`
 
 ## Design principles

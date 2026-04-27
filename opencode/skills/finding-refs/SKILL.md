@@ -95,6 +95,13 @@ If a paper or local PDF is provided:
 - summarize the paper in the same per-source note format
 - do not assume missing metadata from partial text
 
+### PDF tools
+
+- `pdftotext <file.pdf> -` — extract text to stdout for reading
+- `pdfgrep -i -n "pattern" <file.pdf>` — search inside a PDF without
+  converting; useful for locating specific claims, tables, or sections
+  in long papers
+
 ## Guardrails
 
 #research-guardrails
