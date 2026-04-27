@@ -17,7 +17,7 @@
       "ls *": "allow", "wc *": "allow",
       "grep *": "allow", "rg *": "allow", "find *": "allow",
       "tso *": "allow", "chkdrft *": "allow", "toc *": "allow",
-      "pdftotext *": "allow"
+      "pdftotext *": "allow", "pdfgrep *": "allow"
     },
     "external_directory": {
       "${HOME}/.config/opencode/**": "allow",
