@@ -20,6 +20,7 @@ Use this agent for:
 - multi-hop research questions
 - conflicting or fragmented literatures
 - broad coverage across subquestions
+- searching inside local PDFs with `pdftotext` and `pdfgrep`
 
 Do not use this agent for:
 - quick citation lookup (use `finding-refs` instead)

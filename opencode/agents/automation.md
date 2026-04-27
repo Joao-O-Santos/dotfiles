@@ -13,6 +13,7 @@ routing through the planner. Use this for:
 
 - Running the R pipeline: `run_all.R`, `quarto render`
 - Document conversion: `twrd`, `tmd`, `tpres`
+- PDF operations: `pdftotext`, `pdfgrep`
 - Git workflows: cloning, branching, committing
 - Installing dependencies: `yay -S <pkg>`
 - Debugging shell scripts

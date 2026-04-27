@@ -20,6 +20,7 @@ Use this agent for:
 - related-work lookup
 - finding a small set of relevant papers
 - checking whether a claim already has obvious literature support
+- searching inside local PDFs with `pdftotext` and `pdfgrep`
 
 Do not use this agent for:
 - exhaustive or systematic review
