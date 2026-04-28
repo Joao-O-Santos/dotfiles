@@ -5,6 +5,8 @@ maximize = true
 confirm-close-surface = false
 quit-after-last-window-closed = true
 clipboard-paste-protection = false
+working-directory = home
+window-inherit-working-directory = false
 window-subtitle = working-directory
 window-decoration = server
 window-padding-x = 1
@@ -35,3 +37,4 @@ palette = 14=#007373
 palette = 15=#eef1f8
 font-size = 14
 font-family = hermit
+focus-follows-mouse = true
