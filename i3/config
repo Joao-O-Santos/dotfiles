@@ -224,7 +224,7 @@ bindsym $mod+Print exec ffmpeg -f x11grab -i $DISPLAY -vframes 1 -strftime 1 "%H
 exec setxkbmap -option caps:swapescape -layout 'us,pt' -variant 'altgr-intl,' -option 'grp:alt_shift_toggle'
 exec xrandr --output HDMI-2 --rotate right
 # User defined background --bg-center is another sound preset
-exec feh --no-fehbg --bg-fill $XDG_CONFIG_HOME/wallpapers/wallpaper
+exec feh --no-fehbg --image-bg "white" --bg-max $XDG_CONFIG_HOME/wallpapers/wallpaper
 
 # Hide mouse cursor after three seconds
 exec unclutter -grab -idle 3 &
