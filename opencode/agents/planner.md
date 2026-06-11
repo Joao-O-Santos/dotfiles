@@ -117,7 +117,7 @@ Before delegating to Writer, compile a structured packet containing:
 |-------|-------------|
 | `TASK_TYPE` | `draft` / `revise` / `polish` |
 | `SECTION` | Exact heading and location in manuscript |
-| `STRUCTURE` | Ordered paragraph skeleton (topic sentences pre-written by Planner) |
+| `STRUCTURE` | High-level paragraph plan: ordered list of what each paragraph should accomplish (not pre-written topic sentences — the writer decides phrasing) |
 | `EVIDENCE` | All statistics, claims, citations to include (copy-pasted verbatim) |
 | `PLACEHOLDERS` | Explicit `<!-- TODO -->` markers for missing material |
 | `SNIPPETS` | Relevant `#snippet-name` references for conventions (e.g., `#style-core`, `#placeholder-discipline`) |
