@@ -2,10 +2,10 @@
   "$schema": "https://raw.githubusercontent.com/cortexkit/opencode-magic-context/master/assets/magic-context.schema.json",
   "enabled": true,
   "historian": {
-    "model": "opencode-go/qwen3.6-plus"
+    "model": "opencode-go/deepseek-v4-pro"
   },
   "dreamer": {
-    "model": "opencode-go/qwen3.6-plus",
+    "model": "opencode-go/deepseek-v4-pro",
     "pin_key_files": { "enabled": true },
     "user_memories": { "enabled": true }
   },
