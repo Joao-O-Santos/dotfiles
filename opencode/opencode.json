@@ -64,7 +64,7 @@
     "planner": {
       "description": "Primary orchestrator and default agent",
       "mode": "primary",
-      "model": "{env:PLANNER_MODEL}", "temperature": 0.1,
+      "model": "{env:PLANNER_MODEL}", "temperature": 0.2,
       "steps": 20,
       "permission": { "edit": "deny", "webfetch": "allow", "task": { "*": "allow" } }
     },
@@ -91,8 +91,8 @@
     "writer": {
       "description": "Unified manuscript drafting (empirical/theoretical)",
       "mode": "primary",
-      "model": "{env:WRITER_MODEL}", "temperature": 0.8,
-      "steps": 10,
+      "model": "{env:WRITER_MODEL}",
+      "steps": 20,
       "permission": {
         "edit": "allow",
         "webfetch": "allow",
@@ -110,7 +110,7 @@
     "reviewer-structure": {
       "description": "Big-picture critique: structure, arguments, impact",
       "mode": "subagent",
-      "model": "{env:REVIEWER_STRUCTURE_MODEL}",
+      "model": "{env:REVIEWER_STRUCTURE_MODEL}", "temperature": 0.3,
       "permission": { "edit": "deny", "webfetch": "allow" },
       "steps": 10
     },
@@ -138,7 +138,7 @@
     "guard": {
       "description": "Safety checkpoints and regression control",
       "mode": "subagent",
-      "model": "{env:GUARD_MODEL}", "temperature": 0.2,
+      "model": "{env:GUARD_MODEL}",
       "steps": 10,
       "permission": { "edit": "deny", "webfetch": "allow" }
     },
@@ -146,14 +146,13 @@
       "description": "Fast academic search and paper summaries",
       "mode": "subagent",
       "model": "{env:LITERATURE_REVIEWER_MODEL}",
-      "temperature": 0.3,
       "steps": 12,
       "permission": { "edit": "deny", "webfetch": "allow" }
     },
     "deep-research": {
       "description": "Exhaustive multi-step research",
       "mode": "subagent",
-      "model": "{env:DEEP_RESEARCH_MODEL}",
+      "model": "{env:DEEP_RESEARCH_MODEL}", "temperature": 0.3,
       "steps": 20,
       "permission": { "edit": "deny", "webfetch": "allow" }
     },
