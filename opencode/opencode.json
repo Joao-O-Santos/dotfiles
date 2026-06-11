@@ -22,12 +22,14 @@
     "external_directory": {
       "${HOME}/.config/opencode/**": "allow",
       "${HOME}/.config/opencode/auth.json": "deny",
+      "${HOME}/.config/opencode/account.json": "deny",
       "${HOME}/.config/opencode/mcp_keys.sh": "deny",
       "/tmp/**": "allow"
     },
     "read": {
       "${HOME}/.config/opencode/**": "allow",
       "${HOME}/.config/opencode/auth.json": "deny",
+      "${HOME}/.config/opencode/account.json": "deny",
       "${HOME}/.config/opencode/mcp_keys.sh": "deny",
       "/tmp/**": "allow"
     }
