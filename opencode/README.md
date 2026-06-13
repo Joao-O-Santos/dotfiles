@@ -36,6 +36,8 @@ The OpenCode Manuscript Workflow implements a multi‑agent system where each ag
 
 - **Magic Context**: A context management plugin that replaces default compaction with cache‑aware summarization and long‑term memory.
 
+- **Plannotator**: A plan‑based decision plugin (`@plannotator/opencode@latest`) that enables agents to use `submit_plan` for structured planning instead of the `question` tool.
+
 - **MCP‑backed literature search**: OpenAlex and Semantic Scholar MCP servers provide structured academic metadata and PDFs for the literature-reviewing agents.
 
 ## Installation & Setup
@@ -115,7 +117,11 @@ Magic Context is already registered in `opencode.json` via the plugin `"@cortexk
 ```json
 "plugin": [
   "opencode-snippets",
-  "@cortexkit/opencode-magic-context"
+  "@cortexkit/opencode-magic-context",
+  ["@plannotator/opencode@latest", {
+    "workflow": "plan-agent",
+    "planningAgents": ["plan", "planner"]
+  }]
 ],
 "compaction": {
   "auto": false,
@@ -130,12 +136,19 @@ You still need a `magic-context.jsonc` (stored in `~/.config/opencode/magic-cont
   "$schema": "https://raw.githubusercontent.com/cortexkit/opencode-magic-context/master/assets/magic-context.schema.json",
   "enabled": true,
   "historian": {
-    "model": "opencode-go/qwen3.5-plus"
+    "model": "opencode-go/deepseek-v4-pro"
   },
   "dreamer": {
-    "model": "opencode-go/qwen3.5-plus",
-    "pin_key_files": { "enabled": true },
-    "user_memories": { "enabled": true }
+    "model": "opencode-go/deepseek-v4-pro",
+    "pin_key_files": { "enabled": true }
+  },
+  "memory": {
+    "enabled": true,
+    "git_commit_indexing": { "enabled": true }
+  },
+  "sidekick": {
+    "enabled": true,
+    "model": "opencode-go/deepseek-v4-flash"
   }
 }
 ```
@@ -181,15 +194,15 @@ Examples:
 
 ### Current Model Assignments (summarized)
 
-Actual model names live only in `opencode.json`, but at a high level:
+Actual model names are set via environment variables in `set_models.sh` (sourced before launching OpenCode) and referenced in `opencode.json` as `{env:AGENT_MODEL}`. At a high level:
 
-- Planner / Editor / Reviewer‑Detail / Deep‑Research / Build: strong reasoning/coding models from the same family.
-- Writer / Automation / R‑Analysis: cost‑effective general models (Qwen family) tuned for drafting or code.
-- Copyeditor: mid‑sized model optimized for prose cleanup.
-- Guard: cheaper model adequate for safety and regression checks.
-- Literature‑reviewer: mid‑sized model good at search‑plus‑summarize.
+- Planner: `opencode-go/mimo-v2.5-pro` (strong reasoning)
+- Automation / Copyeditor / Editor / R‑Analysis: `opencode-go/qwen3.7-plus` (cost‑effective general)
+- Writer / Guard / Literature‑Reviewer: `opencode-go/deepseek-v4-pro` (drafting and research)
+- Reviewer‑Structure / Deep‑Research: `opencode-go/glm-5.1` (review and research)
+- Reviewer‑Detail: `opencode-go/mimo-v2.5` (detail critique)
 
-See `opencode.json` for the exact mappings.
+See `set_models.sh` and `opencode.json` for the exact mappings.
 
 ### MCP Servers
 
@@ -264,4 +277,4 @@ Key permission categories:
 - `edit`: allow/deny file editing.
 - `webfetch`: allow/deny `webfetch` calls.
 - `bash`: fine‑grained bash permissions. Most agents inherit the global allowlist (read‑only commands + git inspection). Only `automation`, `r-analysis`, and `writer` define custom bash blocks.
-- `external_directory` & `read`: filesystem access. Global allows `~/.config/opencode/**` (except `auth.json` and `mcp_keys.sh`) and `/tmp/**`.
+- `external_directory` & `read`: filesystem access. Global allows `~/.config/opencode/**` (except `auth.json`, `account.json`, and `mcp_keys.sh`) and `/tmp/**`.
