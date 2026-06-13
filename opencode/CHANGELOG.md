@@ -1,41 +1,84 @@
 # Changelog
 All notable changes to the OpenCode Manuscript Workflow will be documented in this file.
 
-## [Unreleased]
+## [2026-06-13] — Documentation sync and environment refinements
+
+README was comprehensively synced with current config state. Plannotator plugin documented in Key Features. Magic-context example updated to reflect current models and expanded config. Model assignments now reference `set_models.sh` with actual model names per agent.
+
 ### Added
+- Plannotator plugin documented in README Key Features and plugin example
+- `account.json` added to denied files list in README permissions section
+
+### Changed
+- README magic-context.jsonc example updated (deepseek-v4-pro, memory block with git_commit_indexing, sidekick block)
+- README model assignments section now references `set_models.sh` as source of truth with actual model names
+- Plannotator data directory environment variable added to shellrc
+- r-analysis agent updated in opencode+planner temp config (Makefile and skill docs)
+
+## [2026-06-11] — Model upgrades, writer autonomy, account.json lockdown
+
+Writer empowered with more creative autonomy: WIP specifies paragraph purposes instead of pre-written topic sentences; writer reframed as "prose architect" with creative judgment in phrasing, paragraph construction, and transitions.
+
+### Changed
+- Magic Context historian and dreamer models upgraded to `deepseek-v4-pro`
+- Model assignments upgraded across agents; temperatures adjusted
+- `account.json` added to read/external_directory deny list alongside `auth.json` and `mcp_keys.sh`
+
+## [2026-04-27] — PDF tooling and model bumps
+
+### Added
+- PDF tool guidance (`pdftotext`, `pdfgrep`) in research and automation skills
+- `pdfgrep` added to global bash permissions alongside `pdftotext`
+
+### Changed
+- Historian/dreamer models bumped to `qwen3.6-plus`
+
+## [2026-04-24–26] — Major refactor: Plannotator, snippets DRY, config consolidation
+
+Transformative period: Plannotator plugin added for plan-based decisions, AGENTS.md slimmed from ~183 to ~45 lines via snippet extraction, temperatures and steps limits moved to opencode.json, and `set_models.sh` introduced as canonical model source.
+
+### Added
+- Plannotator plugin (`@plannotator/opencode@latest`) with `plan-agent` workflow — agents use `submit_plan` for structured planning instead of `question` tool
 - New snippets: `agents-ref`, `stop-loss-limits`, `routing-table`, `research-separation`, `checkpoint-schedule`, `git-workflow`, `read-style`, `mcp-tool-awareness`, `snippet-catalog`, `plannotator-awareness`
-- Per-agent `steps` limits in `opencode.json` as hard structural backstops for loop prevention (planner=20, automation=30, writer=10, reviewer-structure=10, reviewer-detail=10, copyeditor=10, editor=8, guard=10, literature-reviewer=12, deep-research=20, r-analysis=30)
-- Plannotator awareness in planner config — agents should use `submit_plan` for plan-style decisions instead of the `question` tool
+- Per-agent `steps` limits as hard structural backstops for loop prevention (planner=20, automation=30, writer=10, reviewer-structure=10, reviewer-detail=10, copyeditor=10, editor=8, guard=10, literature-reviewer=12, deep-research=20, r-analysis=30)
+- Plannotator awareness in planner config
 - citecheck and context7 MCP awareness in relevant agents
+- Commands directory
 
 ### Changed
 - AGENTS.md slimmed from ~183 to ~45 lines; all agent-specific content extracted into snippets
 - planner.md restructured with explicit routing table, edge-case decision tree, snippet catalog, Plannotator awareness, "When NOT to delegate" section, and research separation
-- All agent files updated with snippet references replacing inline boilerplate (`#agents-ref`, `#read-style`, `#mcp-tool-awareness`, `#checkpoint-schedule`, `#stop-loss-limits`, `#research-separation`, `#git-workflow`)
+- All agent files updated with snippet references replacing inline boilerplate
 - Skills updated to use `#mcp-academic-search` snippet for MCP tool descriptions
 - Routing constraints relaxed: built-in agents (`@explore`, `@general`, `@build`) allowed for tasks outside manuscript workflow scope (but still prohibited for workflow tasks)
 - Edge-case routing refined: "fix a citation" → literature-reviewer then reviewer-detail; "improve this section" → all three reviewers then editor; "check the stats" → r-analysis + reviewer-detail; no-match → ask user or use built-ins (never `@plan`)
 - Git workflow snippet includes rebase rule: when `refactor` is behind `main`, rebase onto `main` before merging
 - Temperatures migrated from agent frontmatter to `opencode.json` per-agent config
+- `set_models.sh` introduced as canonical source for model assignments, replacing inline model names with environment variable references
 
 ### Deleted
 - `note-on-examples.md` snippet (merged into `examples-disclaimer`)
 
-## [Unreleased]
+## [2026-04-22–23] — MCP integration, Magic Context, Git workflow hardening
+
+Four MCP servers configured for academic research (Context7, Citecheck, OpenAlex, Semantic Scholar). Magic Context plugin installed replacing built-in compaction. Git workflow hardened with explicit commit approval. Critical fix: MCP servers moved from per-agent blocks to top-level `mcp` object where OpenCode actually registers them.
+
 ### Fixed
 - MCP servers moved from per-agent blocks to top-level `"mcp"` object in `opencode.json` so OpenCode actually registers them
 - README.md corrected MCP server attachment description from "per-agent" to "top-level object"
 
 ### Added
+- MCP servers: Context7 (docs/API reference), Citecheck (bibliographic verification via Crossref), OpenAlex (structured scholarly metadata), Semantic Scholar (paper retrieval and summaries)
+- Magic Context plugin (`@cortexkit/opencode-magic-context`) with `magic-context.jsonc` — replaces built-in compaction with cache-aware summarization and long-term memory
 - Node.js and npm installed to support npx-based MCP servers
 - New snippets: `reviewer-collaboration`, `mcp-academic-search`, `context-management-reduce` to DRY repeated text across agent files
-- Added `magic-context.jsonc` for context management configuration
-- Added `mcp-procurement-rule` snippet to DRY procurement guidelines
-- Added GPG signing workflow snippet and documentation across planner, automation, guard, and r-analysis agents
-- Added `build` agent (primary) for build/test tasks
-- Added `gpgwarm` shell alias for GPG agent warm-up
+- `mcp-procurement-rule` snippet to DRY procurement guidelines
+- GPG signing workflow snippet referenced in planner, automation, guard, and r-analysis agents
+- `build` agent (primary) for build/test tasks
+- `gpgwarm` shell alias for GPG agent warm-up
 
 ### Changed
+- MCP-first search strategy adopted for literature-reviewer and deep-research agents (fallback to webfetch only when MCP tools fail)
 - Research agent instructions updated to report MCP errors explicitly before falling back to webfetch
 - Removed standalone `pubmed` MCP references; medical/psychology coverage reassigned to `semantic-scholar` (paperplain-mcp bundles PubMed + ArXiv + Semantic Scholar)
 - Replaced inline collaboration rules in reviewer/editor agents with `#reviewer-collaboration` snippet
@@ -46,14 +89,20 @@ All notable changes to the OpenCode Manuscript Workflow will be documented in th
 - Updated default model for planner/automation/r-analysis from `kimi-k2.5` to `kimi-k2.6`
 - Git commit rules: commits require explicit approval; only planner/automation/r-analysis may commit
 - Expanded Git Workflow section with solo-owner branch model
+- STYLE.md updated: custom styles reduced to 3 `:::` markers
 
-## [2026-04-21] - Editor Agent & Workflow Refactor
+## [2026-04-21] — Editor Agent & Workflow Refactor
+
+Formalized the Review → Edit → Write pipeline. Editor agent added as dedicated collation agent. Reviewers changed to subagent mode. Writer reframed as instruction-following prose engine. Planner given strict non-negotiable prohibition (no prose, no file editing, no mutating shell).
+
 ### Added
-- New `editor` agent (primary): sorts reviewer outputs into chronological edit list
+- New `editor` agent: collates and sorts reviewer outputs into chronological edit list
 - `read-for-context` snippet for pre-session file loading
 - Writer Instruction Packet (WIP) specification in planner.md
 - Input handling steps to Review → Edit → Write Pipeline
 - Strict non-negotiable prohibition in planner.md (no prose writing, no file editing, no mutating shell commands)
+- `apa7-refs` skill for APA 7th edition reference formatting
+- Snippets for anti-fabrication notices and reviewer collaboration rules
 
 ### Changed
 - `reviewer-structure`, `reviewer-detail`, `copyeditor` mode changed from `primary` to `subagent`
@@ -69,9 +118,13 @@ All notable changes to the OpenCode Manuscript Workflow will be documented in th
 - Editor role description (receives outputs from Planner, does not launch reviewers)
 - AGENTS.md editor responsibility wording ("sorts" not "launches and sorts")
 
-## [2026-04-19] - Manuscript Workflow Refactor (Completed)
+## [2026-04-19] — Manuscript Workflow Refactor (Completed)
+
+Shared snippets system established to DRY repeated text across skills. Agent and skill renames for consistency.
+
 ### Added
 - Four shared snippets: style-core, placeholder-discipline, anti-fabrication-short, note-on-examples
+
 ### Changed
 - Replaced STYLE.md file-load instructions with #style-core snippet inclusions in intro, lit-review, abstract, discussion, methods, results, title, r-analysis-quarto skills
 - Added #style-core snippet inclusion to discussion skills Rules section
@@ -83,20 +136,24 @@ All notable changes to the OpenCode Manuscript Workflow will be documented in th
 - Updated all references in AGENTS.md, opencode.json, planner, writer, deep-research agents
 - Updated skill descriptions and frontmatter to match new directory names
 
-## [2026-04-18] - Major Manuscript Workflow Refactor
+## [2026-04-18] — Major Manuscript Workflow Refactor
+
+Major architectural shift: paper-type skills replaced with section-based skills. Specialized reviewer agents created for triangulated feedback. opencode-snippets plugin integrated.
+
 ### Added
 - New section-based skills: intro, lit-review, methods, results, discussion, manuscript-workflow
-- Specialized reviewer agents: reviewer-structure, reviewer-detail, copyeditor  
+- Specialized reviewer agents: reviewer-structure, reviewer-detail, copyeditor
 - opencode-snippets plugin integration with synthetic examples
 - Streamlined AGENTS.md (~100 lines) and STYLE.md (~80 lines)
 - tui.json for snippets plugin UI configuration
+- Title and abstract skills
 
 ### Changed
 - Replaced empirical-paper and theoretical-paper skills with section-specific skills
 - Updated writer agent with primary model: ollama-cloud/gemma-2-9b
 - Optimized reviewer model assignments for family diversity:
   * Reviewer-structure: qwen/qwen2.5-7b-instruct (Qwen family)
-  * Reviewer-detail: microsoft/phi-3-mini-128k-instruct (Phi family)  
+  * Reviewer-detail: microsoft/phi-3-mini-128k-instruct (Phi family)
   * Copyeditor: mistral/mistral-7b-instruct (Mistral family)
 - Updated agent permissions and configurations
 - Enhanced workflow documentation and routing logic
@@ -106,10 +163,32 @@ All notable changes to the OpenCode Manuscript Workflow will be documented in th
 - Legacy reviewer.md agent file
 - Separate example files for skills (replaced with synthetic snippets)
 
-## [2026-04-16] - Initial Setup
+## [2026-04-14–17] — Provider refactor and early iterations
+
+Model providers refactored: HuggingFace replaced with OpenCode Go, Zen, and OpenRouter for more reliable and performant providers. Multiple config iterations refined agent definitions, model assignments, and workflow logic.
+
+### Changed
+- Model providers refactored: HuggingFace → OpenCode Go + Zen + OpenRouter
+- File references updated to use explicit paths
+
+## [2026-04-06–10] — Initial setup and foundational architecture
+
+Multi-agent system for academic manuscript writing first established. Initial architecture: planner (orchestrator), automation (shell/git), writer (drafting), guard (safety), literature-review (search), deep-research (evidence gathering), r-analysis (R/Quarto), generic reviewer. Config consolidated to fix model conflicts and establish primary/subagent hierarchy.
+
 ### Added
 - Core agent definitions: planner, automation, writer, guard, literature-reviewer, deep-research, r-analysis
 - Generic reviewer agent
 - Empirical-paper and theoretical-paper skills
 - STYLE.md and AGENTS.md documentation
 - Basic opencode.json configuration
+- workflow-state.json and checkpoints/ directory for state tracking
+
+### Changed
+- Config consolidated: automation as primary agent, deep-research as subagent
+- Model conflicts and fallbacks fixed
+- OpenCode-first quota strategy adopted
+
+### Fixed
+- Critical bugs and structural issues from initial workflow critique
+- Edit permissions enabled for automation and deep-research agents
+- Guard granted read-only bash access and independent model
