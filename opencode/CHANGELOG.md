@@ -1,7 +1,6 @@
 # Changelog — OpenCode Manuscript Workflow
 
 All notable changes to the OpenCode configuration will be documented in this file.
-For the broader dotfiles project history, see `~/.config/CHANGELOG.md`.
 
 ## [2026-06-13] — Config audit fixes, shell script refactoring, and DRY improvements
 
