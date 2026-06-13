@@ -6,6 +6,53 @@ This project follows [Semantic Versioning](https://semver.org/).
 For detailed OpenCode Manuscript Workflow changes, see `opencode/CHANGELOG.md`.
 
 
+## [v6.9.0] — 2026-06-13
+
+**Script consolidation and smarter chkdrft output.**
+
+### Shell
+- Consolidated `tmd.sh`, `tpres.sh`, `twrd.sh` into single `convert.sh` with format options (md, html, docx)
+- Shellrc aliases updated: `tmd='convert md'`, `tpres='convert html'`, `twrd='convert docx'`
+- `chkdrft.sh` improved: reports each category individually
+  - "No citations needed" / "3 citations needed"
+  - "No TODOs left" / "2 TODOs left"
+  - "No unaddressed comments" / "1 unaddressed comment"
+- 16 tests passing across all scripts
+
+
+## [v6.8.0] — 2026-06-13
+
+**Shell script improvements and test refactoring.**
+
+### Shell
+- `chkdrft.sh`: cleaner output when no issues found
+- `f.sh`: refactored to use ripgrep (`rg --files --glob`) for faster file searching
+- Removed `xst.sh` (obsolete with ghostty terminal)
+- Split monolithic `test_scripts.sh` into individual test files (`test_toc.sh`, `test_chkdrft.sh`, `test_tso.sh`)
+- `test_scripts.sh` now acts as a test runner
+
+
+## [v6.7.2] — 2026-06-13
+
+**Fix snippet expansion in CHANGELOGs.**
+
+Removed `#` prefix from snippet references in both CHANGELOG files to prevent automatic expansion when files are read.
+
+
+## [v6.7.1] — 2026-06-13
+
+**Fix CHANGELOG cross-reference direction.**
+
+The opencode CHANGELOG now stands alone without referencing the top-level dotfiles CHANGELOG. Only the general log references the specific one.
+
+
+## [v6.7.0] — 2026-06-13
+
+**CHANGELOG refactor by scope.**
+
+Documentation improvements: top-level CHANGELOG organized by semver with full dotfiles history, OpenCode CHANGELOG cleaned up with snippet references instead of inline expansions. Both files now self-contained for their respective scopes.
+
+
 ## [v6.6.0] — 2026-06-13
 
 **Config audit, shell script refactoring, and DRY improvements.**
