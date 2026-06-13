@@ -74,7 +74,6 @@ export PATH="$HOME/.config/scripts:$PATH"
 
 # Alias wrappers for scripts (optional, for shorter commands)
 alias f='f.sh'
-alias xst='xst.sh'
 alias o='o.sh'
 alias pull_all='pull_all.sh'
 alias toc='toc.sh'

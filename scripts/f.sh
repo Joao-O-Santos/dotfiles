@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Find files by name pattern
+# Find files by name pattern using ripgrep
 # Usage: f <pattern>
 
 if [[ $# -eq 0 ]]; then
@@ -7,4 +7,4 @@ if [[ $# -eq 0 ]]; then
     exit 1
 fi
 
-find ./ -name "*$*"
+rg --files --glob "*$*"
