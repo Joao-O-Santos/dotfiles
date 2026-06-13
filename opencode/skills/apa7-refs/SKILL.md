@@ -160,4 +160,4 @@ Use sparingly. Format: "as cited in Original Author, Year". Only list the source
 7. **DOI formatting** — Always include DOI if available; no period after DOI URL
 8. **Inconsistent author lists** — Match exact author names as they appear on the source, including middle initials
 
-#note-on-examples
+#examples-disclaimer

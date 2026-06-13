@@ -66,83 +66,20 @@ alias record_no_audio="ffmpeg -video_size 2560x1440 -framerate 60 \
 alias kbd="setxkbmap -option caps:swapescape -layout 'us,pt' -variant 'altgr-intl,' -option 'grp:alt_shift_toggle'"
 
 # Functions (for commands that need more than an alias)
-# TODO: move most of these functions to scripts.
-function f {
-	find ./ -name "*$@*"
-}
+# Most functions moved to scripts in $HOME/.config/scripts/
+# Source them here or add scripts dir to PATH
 
-# see: https://blog.petehouston.com/execute-linux-commands-in-background-and-detach-from-terminal-session/
-function xst {
-	for i in $(seq 1 $1)
-	do
-		(setsid st -f hermit:size=13.9 > /dev/null &) > /dev/null 2>&1
-	done
-}
+# Add scripts to PATH
+export PATH="$HOME/.config/scripts:$PATH"
 
-# see: https://blog.petehouston.com/execute-linux-commands-in-background-and-detach-from-terminal-session/
-function o {
-	for file in "$@"
-	do
-		(setsid xdg-open $file > /dev/null &) > /dev/null 2>&1
-	done
-}
-
-function pull_all {
-	for dir in $(find $HOME -name ".git")
-	do
-		echo $dir
-		git -C "$dir/.." pull
-		printf "\n"
-	done
-}
-
-function toc {
-	# TODO: consider checking for no arguments and for file type
-	# TODO: move everything to an awk script
-	for file in "$@"
-	do
-		echo - "TOC for: $file"
-		cat $file | grep -e '#' -e '<h.>' | sed -e 's/^#//g; s/#/\t/g'
-	done
-}
-
-function tso {
-	for file in "$@"
-	do
-		echo - "Topic Senctence Outline for: $file"
-		grep -A3 '^$' $file
-	done
-}
-
-function tmd {
-	fnm=$1
-	fnm=$(echo $1| sed 's/\..*$/.md/g')
-	pandoc $1 -o $fnm
-}
-
-function tpres {
-	fnm=$1
-	fnm=$(echo $1| sed 's/\..*$/.html/g')
-	pandoc -it revealjs --variable transition=convex -so $fnm $1
-}
-
-# TODO: move all this to an awk script
-function chkdrft {
-	for file in "$@"
-	do
-		awk -F " " '/CN/{cns++} /<!--/{cmnts++} /TODO:/{todos++} \
-		     END {print cns " citations needed/missing, " \
-		                todos " TODOs, and " \
-		                cmnts - todos " unaddresed comments " \
-		                "(excluding TODOs) still left in " FILENAME}' \
-		    $file
-	done
-}
-
-function twrd {
-	echo "Warning: html comments are lost in .docx conversion!"
-	chkdrft $1
-	fnm=$1
-	fnm=$(echo $1| sed 's/\.md/.docx/g')
-	pandoc $1 -f markdown+autolink_bare_uris-fancy_lists -o $fnm
-}
+# Alias wrappers for scripts (optional, for shorter commands)
+alias f='f.sh'
+alias xst='xst.sh'
+alias o='o.sh'
+alias pull_all='pull_all.sh'
+alias toc='toc.sh'
+alias tso='tso.sh'
+alias tmd='tmd.sh'
+alias tpres='tpres.sh'
+alias chkdrft='chkdrft.sh'
+alias twrd='twrd.sh'

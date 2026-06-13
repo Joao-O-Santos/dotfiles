@@ -1,3 +1,8 @@
+---
+name: title
+description: Draft or revise titles for academic papers.
+---
+
 # Skill: title
 
 #style-core

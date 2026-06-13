@@ -1,6 +1,39 @@
 # Changelog
 All notable changes to the OpenCode Manuscript Workflow will be documented in this file.
 
+## [2026-06-13] — Config audit fixes, shell script refactoring, and DRY improvements
+
+Comprehensive audit identified broken references, orphaned files, permission contradictions, and hardcoded paths. Fixed all issues and refactored shell functions into standalone scripts with comprehensive test coverage.
+
+### Fixed
+- Broken snippet reference in `apa7-refs/SKILL.md` (`#note-on-examples` → `#examples-disclaimer`)
+- Missing YAML frontmatter in `abstract/SKILL.md` and `title/SKILL.md` (skills now discoverable)
+- Planner permission contradiction: removed direct commit permission, now delegates to automation
+- Removed unnecessary planner checkpoint rule (reviewers read files, don't need git state)
+- Deleted redundant `opencode/.gitignore` (top-level `.gitignore` already handles everything)
+
+### Changed
+- Planner now delegates git commits to automation agent (cleaner separation of concerns)
+- `gpg-signing-workflow.md` updated: planner barred from committing, automation handles all commits
+- Orphaned skills (`manuscript-workflow`, `lit-review-section`) added to planner WIP skill selection guidance
+- R coding conventions consolidated: `coding_style.md` is single source of truth, removed duplicates from `SKILL.md`
+- Reviewer agents now use shared `#reviewer-output-format` snippet (DRY)
+- Hardcoded paths parameterized with `$HOME` in `read-style.md` and `agents-ref.md`
+- Magic-context models moved to `set_models.sh` as env vars (`HISTORIAN_MODEL`, `DREAMER_MODEL`, `SIDEKICK_MODEL`)
+- `magic-context.jsonc` now uses `{env:VAR}` syntax for model names
+
+### Added
+- New shared snippet: `reviewer-output-format.md` (standardizes reviewer output structure)
+- 10 standalone shell scripts in `~/.config/scripts/` with proper error handling and input validation:
+  - `f.sh`, `xst.sh`, `o.sh`, `pull_all.sh`, `toc.sh`, `tso.sh`, `tmd.sh`, `tpres.sh`, `chkdrft.sh`, `twrd.sh`
+- Comprehensive test suite (`test_scripts.sh`) with 27 tests covering existence, usage, validation, and functionality
+- `shellrc` refactored: functions extracted to scripts, scripts added to PATH, alias wrappers created
+
+### Removed
+- 4 orphaned snippets: `read-for-context.md`, `our-approach.md`, `hamburger-paragraph.md`, `topic-sentence-outline.md`
+- Duplicate R formatting rules from `r-analysis-quarto/SKILL.md`
+- Inline shell functions from `shellrc` (moved to standalone scripts)
+
 ## [2026-06-13] — Documentation sync and environment refinements
 
 README was comprehensively synced with current config state. Plannotator plugin documented in Key Features. Magic-context example updated to reflect current models and expanded config. Model assignments now reference `set_models.sh` with actual model names per agent.

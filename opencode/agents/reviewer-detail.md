@@ -26,11 +26,4 @@ Do not use this agent for:
 
 ## Output Format
 
-Follow the format specified in `review-detail/SKILL.md`:
-#reviewer-output-rules
-
-## Collaboration Rules
-
-- Report to `editor` (via Planner's parallel launch).
-- Output is consumed by the Editor for chronological sorting.
-#reviewer-collaboration
+#reviewer-output-format

@@ -30,19 +30,13 @@ Data flow (do not alter without approval):
 - Object naming: models `m_<label>`, ANOVA tables `aov_<label>`, emmeans `emm_<label>`
 - Use lists of specs to supply to get every emm and comparison emmeans,
   ex: `emmeans(m, list(~ 1, pairwise ~ A, pairwise ~ B, pairwise ~ A  B, pairwise ~ B | A))`
-- Use base pipe `|>` only; never `%>%`.
-- Pipes only when they materially improve readability.
 - `snake_case` identifiers throughout.
-- Indentation with tabs; alignment with spaces.
-- First argument on the same line as the function call; later arguments aligned.
-- Function bodies ~24 lines; hard limit ~48.
-- Code lines ~80 chars; comment/prose lines ~72 chars.
 - Be very, very sparse with comments, document only non-obvious gotchas
   (e.g., `# Doing x here or otherwise y() will err`) or important
   decisions (`# Full model returned isSingular warning, this is the final model`)
 
-For extended coding style guidance (tab size, spacing, function limits,
-linting), see `coding_style.md` in this skill directory.
+For all formatting rules (indentation, line length, spacing, pipes,
+function limits, linting), see `coding_style.md` in this skill directory.
 
 ## Style conventions
 

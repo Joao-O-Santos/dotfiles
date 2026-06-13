@@ -2,10 +2,10 @@
   "$schema": "https://raw.githubusercontent.com/cortexkit/opencode-magic-context/master/assets/magic-context.schema.json",
   "enabled": true,
   "historian": {
-    "model": "opencode-go/deepseek-v4-pro"
+    "model": "{env:HISTORIAN_MODEL}"
   },
   "dreamer": {
-    "model": "opencode-go/deepseek-v4-pro",
+    "model": "{env:DREAMER_MODEL}",
     "pin_key_files": { "enabled": true }
   },
     "memory": {
@@ -14,6 +14,6 @@
   },
   "sidekick": {
     "enabled": true,
-    "model": "opencode-go/deepseek-v4-flash"
+    "model": "{env:SIDEKICK_MODEL}"
   }
 }

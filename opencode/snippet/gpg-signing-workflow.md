@@ -24,12 +24,13 @@ After the first successful commit, the agent may commit freely for the remainder
 ## Commit permissions
 
 Agents permitted to commit (via `git commit *: ask`):
-- `planner` — commits atomically after writes, before delegating to read-only agents
-- `automation` — shell-level commits, git workflow automation
+- `automation` — shell-level commits, git workflow automation (planner delegates commits here)
 - `r-analysis` — commits pipeline changes when appropriate
 
 Agents barred from committing (via `git commit *: deny`):
-- `writer`, `editor`, `reviewer-structure`, `reviewer-detail`, `copyeditor`, `guard`, `literature-reviewer`, `deep-research`
+- `planner`, `writer`, `editor`, `reviewer-structure`, `reviewer-detail`, `copyeditor`, `guard`, `literature-reviewer`, `deep-research`
+
+**Planner commit delegation**: When planner needs to commit (e.g., before launching reviewers), it delegates to `automation` with explicit commit instructions rather than committing directly.
 
 ## Git commands that trigger GPG signing
 
@@ -37,12 +38,3 @@ Any command that creates a signed commit requires the warm-up:
 - `git commit`
 - `git merge` (when creating a merge commit)
 - `git cherry-pick`, `git revert`, `git am` (if used)
-
-## Planner checkpoint rule
-
-Before delegating to read-only agents (`reviewer-structure`, `reviewer-detail`, `copyeditor`, `guard`), the planner must:
-1. Run `git status` via `automation`
-2. If changes exist, commit atomically first
-3. Then delegate to the read-only agent
-
-This ensures reviewers see a clean, committed state.

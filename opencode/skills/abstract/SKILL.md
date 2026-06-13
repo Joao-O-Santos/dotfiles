@@ -1,3 +1,8 @@
+---
+name: abstract
+description: Draft or revise abstracts for empirical or theoretical papers.
+---
+
 # Skill: abstract
 
 #style-core
