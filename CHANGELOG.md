@@ -16,7 +16,7 @@ Comprehensive audit of the OpenCode configuration identified broken references, 
 - Planner now delegates git commits to automation (cleaner separation of concerns)
 - Broken snippet references fixed; missing YAML frontmatter added to skills
 - R coding conventions consolidated to single source of truth (`coding_style.md`)
-- New shared `#reviewer-output-format` snippet eliminates duplication across reviewer agents
+- New shared `reviewer-output-format` snippet eliminates duplication across reviewer agents
 - Hardcoded paths parameterized with `$HOME`; magic-context models moved to env vars
 - 4 orphaned snippets and redundant `.gitignore` deleted
 - See `opencode/CHANGELOG.md` for full details
@@ -160,7 +160,7 @@ Major architectural shift: paper-type skills replaced with section-based skills.
 
 **BREAKING: OpenCode workflow added.**
 
-Multi-agent system for academic manuscript writing first established. This was the most significant addition to the dotfiles project — an entire AI-assisted manuscript workflow system with planner, writer, reviewers, guard, and research agents.
+Multi-agent system for academic manuscript writing first established. This was the most significant addition to the dotfiles project — an entire AI-assisted manuscript workflows system with planner, writer, reviewers, guard, and research agents.
 
 ### OpenCode (new)
 - Core agents: planner, automation, writer, guard, literature-reviewer, deep-research, r-analysis

@@ -7,7 +7,7 @@ All notable changes to the OpenCode configuration will be documented in this fil
 Comprehensive audit identified broken references, orphaned files, permission contradictions, and hardcoded paths. Fixed all issues and refactored shell functions into standalone scripts with comprehensive test coverage.
 
 ### Fixed
-- Broken snippet reference in `apa7-refs/SKILL.md` (`#note-on-examples` → `#examples-disclaimer`)
+- Broken snippet reference in `apa7-refs/SKILL.md` (note-on-examples → examples-disclaimer)
 - Missing YAML frontmatter in `abstract/SKILL.md` and `title/SKILL.md` (skills now discoverable)
 - Planner permission contradiction: removed direct commit permission, now delegates to automation
 - Removed unnecessary planner checkpoint rule (reviewers read files, don't need git state)
@@ -18,7 +18,7 @@ Comprehensive audit identified broken references, orphaned files, permission con
 - `gpg-signing-workflow.md` updated: planner barred from committing, automation handles all commits
 - Orphaned skills (`manuscript-workflow`, `lit-review-section`) added to planner WIP skill selection guidance
 - R coding conventions consolidated: `coding_style.md` is single source of truth, removed duplicates from `SKILL.md`
-- Reviewer agents now use shared `#reviewer-output-format` snippet (DRY)
+- Reviewer agents now use shared `reviewer-output-format` snippet (DRY)
 - Hardcoded paths parameterized with `$HOME` in `read-style.md` and `agents-ref.md`
 - Magic-context models moved to `set_models.sh` as env vars (`HISTORIAN_MODEL`, `DREAMER_MODEL`, `SIDEKICK_MODEL`)
 - `magic-context.jsonc` now uses `{env:VAR}` syntax for model names
@@ -82,7 +82,7 @@ Transformative period: Plannotator plugin added for plan-based decisions, AGENTS
 - AGENTS.md slimmed from ~183 to ~45 lines; all agent-specific content extracted into snippets
 - planner.md restructured with explicit routing table, edge-case decision tree, snippet catalog, Plannotator awareness, "When NOT to delegate" section, and research separation
 - All agent files updated with snippet references replacing inline boilerplate
-- Skills updated to use `#mcp-academic-search` snippet for MCP tool descriptions
+- Skills updated to use `mcp-academic-search` snippet for MCP tool descriptions
 - Routing constraints relaxed: built-in agents (`@explore`, `@general`, `@build`) allowed for tasks outside manuscript workflow scope (but still prohibited for workflow tasks)
 - Edge-case routing refined: "fix a citation" → literature-reviewer then reviewer-detail; "improve this section" → all three reviewers then editor; "check the stats" → r-analysis + reviewer-detail; no-match → ask user or use built-ins (never `@plan`)
 - Git workflow snippet includes rebase rule: when `refactor` is behind `main`, rebase onto `main` before merging
@@ -114,10 +114,10 @@ Four MCP servers configured for academic research (Context7, Citecheck, OpenAlex
 - MCP-first search strategy adopted for literature-reviewer and deep-research agents (fallback to webfetch only when MCP tools fail)
 - Research agent instructions updated to report MCP errors explicitly before falling back to webfetch
 - Removed standalone `pubmed` MCP references; medical/psychology coverage reassigned to `semantic-scholar` (paperplain-mcp bundles PubMed + ArXiv + Semantic Scholar)
-- Replaced inline collaboration rules in reviewer/editor agents with `#reviewer-collaboration` snippet
-- Replaced inline MCP tool sections in research agents with `#mcp-academic-search` snippet
-- Replaced inline context-management sections in research agents with `#context-management-reduce` snippet
-- Replaced inline placeholder discipline in AGENTS.md with `#placeholder-discipline` snippet
+- Replaced inline collaboration rules in reviewer/editor agents with `reviewer-collaboration` snippet
+- Replaced inline MCP tool sections in research agents with `mcp-academic-search` snippet
+- Replaced inline context-management sections in research agents with `context-management-reduce` snippet
+- Replaced inline placeholder discipline in AGENTS.md with `placeholder-discipline` snippet
 - `editor` mode changed from `primary` to `subagent` (reports to planner)
 - Updated default model for planner/automation/r-analysis from `kimi-k2.5` to `kimi-k2.6`
 - Git commit rules: commits require explicit approval; only planner/automation/r-analysis may commit
@@ -141,7 +141,7 @@ Formalized the Review → Edit → Write pipeline. Editor agent added as dedicat
 - `reviewer-structure`, `reviewer-detail`, `copyeditor` mode changed from `primary` to `subagent`
 - `editor` added to agent roster and routing table
 - `planner` bash permissions limited to read-only commands (git status, cat, grep, etc.)
-- `planner` WIP field simplified: SKILL (single skill name), SNIPPETS (list of #snippet-name references)
+- `planner` WIP field simplified: SKILL (single skill name), SNIPPETS (list of snippet-name references)
 - Writer reframed as instruction-following prose engine (receives WIP, loads specified skill, executes exactly)
 - Editor description changed from "orchestrator" to "collation agent" throughout
 - Editor task permission removed (Planner launches reviewers, not Editor)
@@ -159,8 +159,8 @@ Shared snippets system established to DRY repeated text across skills. Agent and
 - Four shared snippets: style-core, placeholder-discipline, anti-fabrication-short, note-on-examples
 
 ### Changed
-- Replaced STYLE.md file-load instructions with `#style-core` snippet inclusions in intro, lit-review, abstract, discussion, methods, results, title, r-analysis-quarto skills
-- Added `#style-core` snippet inclusion to discussion skills Rules section
+- Replaced STYLE.md file-load instructions with `style-core` snippet inclusions in intro, lit-review, abstract, discussion, methods, results, title, r-analysis-quarto skills
+- Added `style-core` snippet inclusion to discussion skills Rules section
 - Added anti-fabrication and placeholder discipline snippets to results skill
 - Added placeholder discipline and note on examples to manuscript-workflow skill
 - Renamed lit-review skill directory to lit-review-section
