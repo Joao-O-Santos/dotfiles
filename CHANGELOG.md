@@ -1,359 +1,312 @@
-# Changelog
+# Changelog — Dotfiles
 
 All notable changes to this dotfiles configuration will be documented in this file.
+This project follows [Semantic Versioning](https://semver.org/).
 
-## [Unreleased]
+For detailed OpenCode Manuscript Workflow changes, see `opencode/CHANGELOG.md`.
 
-## 2026-04-21
 
-- agents: update roster - reviewers to subagent, add editor primary
-- agents: add editor agent - collates and sorts reviewer output
-- planner: add non-negotiable prohibition, WIP spec, review pipeline
-- writer: reframe as instruction-following prose engine
-- reviewers: update collaboration rules for subagent mode
-- opencode.json: reviewers to subagent, add editor, planner read-only bash
-- snippets: add agent-anti-fabrication-notice and reviewer-collaboration-rules
-- agents: refactor to use snippets for anti-fab notice and collaboration rules
-- revert: undo snippet usage, restore verbatim text in agents
-- fix: editor remove task perm, add read-for-context snippet, fix collaboration
-- fix: add input handling to pipeline, fix editor description, clarify skill loading
-- fix: writer skill loading, remove orchestration from editor, clean up WIP fields
-- docs: update CHANGELOG and README for editor agent refactor
-- Fix mimo slug
-- update agent models to use opencode/* versions
-- Update playlist (6 stations removed)
+## [v6.6.0] — 2026-06-13
 
-## 2026-04-19
+**Config audit, shell script refactoring, and DRY improvements.**
 
-- refactor: shared snippets, skill edits, agent/skill renames
+Comprehensive audit of the OpenCode configuration identified broken references, orphaned files, permission contradictions, and hardcoded paths. All issues fixed. Shell functions extracted into standalone scripts with proper error handling and a 27-test suite.
 
-## 2026-04-18
+### OpenCode
+- Planner now delegates git commits to automation (cleaner separation of concerns)
+- Broken snippet references fixed; missing YAML frontmatter added to skills
+- R coding conventions consolidated to single source of truth (`coding_style.md`)
+- New shared `#reviewer-output-format` snippet eliminates duplication across reviewer agents
+- Hardcoded paths parameterized with `$HOME`; magic-context models moved to env vars
+- 4 orphaned snippets and redundant `.gitignore` deleted
+- See `opencode/CHANGELOG.md` for full details
 
-- Refactor OpenCode Manuscript Workflow: replace paper-type skills with section skills, create specialized reviewer agents, integrate opencode-snippets, optimize model assignments, and streamline configuration files
-- Add tui.json for snippets plugin
-- Add README.md and CHANGELOG.md documentation; clean up cache/temp files while preserving directory structure
-- Add title and abstract skills for manuscript workflow enhancement
-- Update title skill with real examples from examples.md
-- Update examples in title skill
-- Remove useless fallback parameters
-- Update models
+### Shell
+- 10 shell functions extracted from `shellrc` into standalone scripts in `scripts/`:
+  `f.sh`, `xst.sh`, `o.sh`, `pull_all.sh`, `toc.sh`, `tso.sh`, `tmd.sh`, `tpres.sh`, `chkdrft.sh`, `twrd.sh`
+- All scripts include input validation, usage messages, and error handling
+- `shellrc` refactored: scripts directory added to PATH, alias wrappers for shorter commands
+- Comprehensive test suite (`scripts/test_scripts.sh`) with 27 tests — all passing
 
-## 2026-04-17
 
-- Update refs to files with explicit paths (opencode config files)
-- Update playlist (21 stations added, 69 removed)
-- Refactor opencode config (AGENTS.md, STYLE.md, reviewer.md, opencode.json - 213 insertions, 233 deletions)
-- Yet another refactor (16 files changed across opencode agents, skills, and shellrc)
+## [v6.5.1] — 2026-06-13
 
-## 2026-04-16
+**Documentation sync and environment refinements.**
 
-- Fix opencode (STYLE.md, planner.md, opencode.json - 42 insertions, 26 deletions)
+README comprehensively synced with current config state. Plannotator plugin documented. Magic-context example updated. Model assignments now reference `set_models.sh`.
 
-## 2026-04-14
+### OpenCode
+- Plannotator plugin documented in README Key Features and plugin example
+- `account.json` added to denied files list
+- Magic-context config updated (memory block, sidekick block)
+- Plannotator data directory environment variable added to shellrc
+- r-analysis agent updated in opencode+planner temp config
 
-- Continue updating opencode.json
-- Refactor model providers: HuggingFace → OpenCode Go + Zen + OpenRouter
 
-## 2026-04-10
+## [v6.5.0] — 2026-06-11
 
-- Remove useless lock file
-- Git ignore package-lock file
+**Model upgrades, writer autonomy, account.json lockdown.**
 
-## 2026-04-08
+Writer empowered with more creative autonomy: WIP specifies paragraph purposes instead of pre-written topic sentences; writer reframed as "prose architect" with creative judgment.
 
-- Update opencode config
-- Update opencode workflow
+### OpenCode
+- Magic Context historian and dreamer models upgraded to `deepseek-v4-pro`
+- Model assignments upgraded across agents; temperatures adjusted
+- `account.json` added to read/external_directory deny list
 
-## 2026-04-07
 
-- Update opencode config
+## [v6.4.0] — 2026-05-29
 
-## 2026-04-06
+**Shell consolidation and Zen browser integration.**
 
-- Add opencode workflow files
-- Consolidate OpenCode config: primary automation agent, deep-research subagent, fix model conflicts and fallbacks, OpenCode-first quota strategy
-- Fix critical bugs and structural issues from workflow critique
+Shell configuration consolidated: `bash_profile` merged into `shellrc`, environment variables moved to `xinit`. R browser and mimeapps updated to use Zen browser. Ghostty tweaked for better workflow.
 
-## 2026-03-31
+### Shell
+- `bash_profile` merged into `shellrc` — single source for shell configuration
+- Environment variables moved to `xinit` for cleaner session startup
+- `link_configs` updated for bash
 
-- Update playlist
-- Move from firefox to zen (i3/config, mimeapps.list)
+### Desktop
+- R browser and mimeapps updated to Zen
+- Wallpaper updated
+- Ghostty: new splits now open in current working directory
 
-## 2026-01-08
+### OpenCode
+- PDF tool guidance (`pdftotext`, `pdfgrep`) added to research and automation skills
+- Historian/dreamer models bumped to `qwen3.6-plus`
 
-- Pin odd workspaces to main monitor and even to secondary (i3/config)
 
-## 2025-10-25
+## [v6.3.0] — 2026-04-28
 
-- Remove pulseaudio conf (94 lines deleted) + change dac in shellrc
+**Revert to bash for shell.**
 
-## 2025-09-26
+Reverted from alternative shell back to bash for consistency and compatibility. Shellrc reorganized accordingly.
 
-- Add ecampus and pad to work tabs (i3/config)
 
-## 2025-09-19
+## [v6.2.0] — 2026-04-26
 
-- Update neovim config (init.vim)
-- Add mimeapps.list association (3 lines added)
-- Move mash radio to top of playlist
+**Ghostty terminal emulator added.**
 
-## 2025-07-28
+Ghostty added as a terminal emulator alongside st. i3 and shellrc updated to support it. npm moved off home directory.
 
-- Use us altgr-intl layout (i3/config, shellrc)
-- Update radio playlist
-- Attempt to get nvim to work well with quarto (init.vim tweaks)
+### Desktop
+- Ghostty config added
+- i3/config updated for ghostty
+- shellrc updated for ghostty and npm path cleanup
 
-## 2025-05-26
 
-- Change recording resolution and fps (shellrc ffmpeg settings)
+## [v6.1.0] — 2026-04-24
 
-## 2025-05-12
+**Plannotator, snippets DRY, and config consolidation.**
 
-- Add and remove radios
-- Merge branch 'main' into desktop
+Transformative period for OpenCode: Plannotator plugin added for plan-based decisions, AGENTS.md slimmed from ~183 to ~45 lines via snippet extraction, temperatures and steps limits moved to opencode.json, and `set_models.sh` introduced as canonical model source.
 
-## 2025-05-10
+### OpenCode
+- Plannotator plugin with `plan-agent` workflow
+- AGENTS.md slimmed via snippet extraction; 10+ new shared snippets
+- Per-agent `steps` limits for loop prevention
+- Temperatures migrated to `opencode.json`
+- `set_models.sh` as canonical model source
+- See `opencode/CHANGELOG.md` for full details
 
-- Merge branch 'main' into desktop
 
-## 2025-05-09
+## [v6.0.0] — 2026-04-23
 
-- Fix radio links
+**BREAKING: MCP integration, Magic Context, Git workflow hardening.**
 
-## 2025-05-06
+Four MCP servers configured for academic research. Magic Context plugin installed replacing built-in compaction. Git workflow hardened with explicit commit approval. Critical fix: MCP servers moved from per-agent blocks to top-level `mcp` object.
 
-- Add pulseaudio config (pulse/daemon.conf - 92 lines added)
-- Update radio list
-- Add simplified i3 config for desktop (i3/config, i3status/config)
+### OpenCode
+- MCP servers: Context7, Citecheck, OpenAlex, Semantic Scholar
+- Magic Context plugin (`@cortexkit/opencode-magic-context`)
+- Git commit rules: explicit approval required
+- `build` agent added
+- `gpgwarm` shell alias for GPG agent warm-up
+- Editor changed from primary to subagent
+- See `opencode/CHANGELOG.md` for full details
 
-## 2025-04-17
 
-- Replace plugin that controls smart tabs (nvim/init.vim)
-- Increase font size in i3bar (i3/config)
-- Generalize screen capture to work with native res
+## [v5.0.0] — 2026-04-21
 
-## 2025-01-16
+**BREAKING: Editor agent and workflow refactor.**
 
-- Make ffmpeg screen capture size agnostic (i3/config)
+Formalized the Review → Edit → Write pipeline. Editor agent added as dedicated collation agent. Reviewers changed to subagent mode. Writer reframed as instruction-following prose engine. Planner given strict prohibition against prose, file editing, and mutating shell.
 
-## 2025-01-13
+### OpenCode
+- New `editor` agent for collation
+- Reviewers → subagent mode
+- Writer reframed as instruction-following prose engine
+- Planner: strict non-negotiable prohibition
+- `apa7-refs` skill added
+- See `opencode/CHANGELOG.md` for full details
 
-- Replace mod+t shortcut (i3/config)
 
-## 2024-10-28
+## [v4.1.0] — 2026-04-18
 
-- Disable vim-pandoc-syntax for rmd and pandoc
+**Major manuscript workflow refactor.**
 
-## 2024-10-09
+Major architectural shift: paper-type skills replaced with section-based skills. Specialized reviewer agents created for triangulated feedback. opencode-snippets plugin integrated.
 
-- Update pandoc word styles
-- Update unsafest user.js
+### OpenCode
+- Section-based skills: intro, lit-review, methods, results, discussion, manuscript-workflow
+- Specialized reviewer agents: reviewer-structure, reviewer-detail, copyeditor
+- opencode-snippets plugin integration
+- Streamlined AGENTS.md and STYLE.md
+- Title and abstract skills added
+- See `opencode/CHANGELOG.md` for full details
 
-## 2024-07-06
 
-- Add git alias for graphical logs (git/config, scripts/exclude)
+## [v4.0.0] — 2026-04-06
 
-## 2024-07-01
+**BREAKING: OpenCode workflow added.**
 
-- Increase ram limit for compressing backup
+Multi-agent system for academic manuscript writing first established. This was the most significant addition to the dotfiles project — an entire AI-assisted manuscript workflow system with planner, writer, reviewers, guard, and research agents.
 
-## 2024-06-21
+### OpenCode (new)
+- Core agents: planner, automation, writer, guard, literature-reviewer, deep-research, r-analysis
+- Empirical-paper and theoretical-paper skills
+- STYLE.md and AGENTS.md documentation
+- Basic opencode.json configuration
+- See `opencode/CHANGELOG.md` for full details
 
-- Add muttrc (mail config)
 
-## 2024-05-23
+## [v3.1.0] — 2026-03-31
 
-- Teach pull_all to run from HOME
-- Remove LimeLight + custom colorscheme
+**Firefox → Zen browser migration.**
 
-## 2024-05-14
+Migrated from Firefox to Zen browser for both i3 config and mimeapps. Zen is a Firefox fork with a more modern UI and better privacy defaults.
 
-- Update radio playlist
-- Stop automatically enabling limelight with goyo
+### Desktop
+- i3/config updated for Zen
+- mimeapps.list updated for Zen
 
-## 2024-04-11
 
-- Improve radio and dacmpv (shellrc tweaks)
-- Use base firefox profile for comms
-- Reconfigure nvim for writing
+## [v3.0.0] — 2026-01-08
 
-## 2024-03-07
+**BREAKING: Multi-monitor workspace pinning.**
 
-- Switch to firefox for comms as well
+i3 workspaces pinned to specific monitors: odd workspaces on main monitor, even on secondary. This is a breaking change for anyone used to the previous workspace behavior.
 
-## 2024-02-22
+### Desktop
+- i3/config: workspace pinning by monitor
 
-- Add MAKEFLAGS to profile (shellrc)
-- Add screenshot hotkey (i3/config)
-- Rename Bibliography References but keep alias
-- Add Rock station to playlist (3 lines added)
 
-## 2024-01-27
+## [v2.2.0] — 2025-05-06
 
-- Add nvim as git difftool and mergetool (git/config)
-- Allow xz to use more memory (shellrc, scripts/backup.sh)
-- Add alias to screen capture without audio
+**Desktop i3 config and pulseaudio.**
 
-## 2023-10-05
+Added a simplified i3 config for the desktop machine, pulseaudio configuration for DAC output, and expanded the radio playlist.
 
-- Disable fancy lists + Get bold table headers in docx
+### Desktop
+- Simplified i3 config for desktop (i3/config, i3status/config)
+- Pulseaudio config added (pulse/daemon.conf)
+- Radio playlist updated
 
-## 2023-09-29
+### Shell
+- DAC output aliases added to shellrc
 
-- Update git config
 
-## 2023-09-08
+## [v2.1.0] — 2025-04-17
 
-- Report correct user agent even in hardened
-- Report Linux user-agent in unsafe as well
+**Screen capture and editor improvements.**
 
-## 2023-09-01
+Screen capture generalized to work with native resolution. Neovim smart tabs plugin replaced. i3bar font size increased.
 
-- Add spotify to unsafe keybind
+### Desktop
+- Screen capture generalized to work with native res (i3/config)
+- i3bar font size increased
+- Smart tabs plugin replaced in nvim
 
-## 2023-07-17
 
-- Refactor chkdrft function/awk script
+## [v2.0.0] — 2024-01-27
 
-## 2023-06-07
+**BREAKING: nvim as git difftool and mergetool.**
 
-- Add alias for keyboard config
+Neovim configured as the default git difftool and mergetool, replacing the previous defaults. XZ compression memory limit increased. Screen capture without audio alias added.
 
-## 2023-05-31
+### Git
+- nvim configured as difftool and mergetool (git/config)
 
-- Refactor init.vim to use vim-pandoc
-- Tweak vim-pandoc config
+### Shell
+- XZ memory limit increased (shellrc, scripts/backup.sh)
+- Screen capture without audio alias added
 
-## 2023-05-23
+### Desktop
+- Screenshot hotkey added (i3/config)
+- MAKEFLAGS added to profile
 
-- Add function to update all git repos
 
-## 2023-05-03
+## [v1.3.0] — 2023-05-31
 
-- Update submodule handling in git config
+**vim-pandoc integration.**
 
-## 2023-03-03
+Neovim refactored to use vim-pandoc for markdown/pandoc editing. This provides syntax highlighting, folding, and formatting specifically designed for academic writing.
 
-- Define new context for task + new bindings in i3 (taskrc, i3/config)
+### Editor
+- init.vim refactored to use vim-pandoc
+- vim-pandoc config tweaked
 
-## 2023-03-02
+### Shell
+- `pull_all` function added to update all git repos
 
-- Import gitlab todos with bugwarrior
-- Refactor shellrc
-- Revert "Import gitlab todos with bugwarrior"
 
-## 2023-03-01
+## [v1.2.0] — 2023-03-01
 
-- Add TASKDATA to shellrc + labels to bugwarrior
-- Add taskrc
-- Add license for taskrc
-- Add copyright info to taskrc
+**Task management with taskwarrior.**
 
-## 2023-02-23
+Taskwarrior (taskrc) added for task management, with bugwarrior integration for importing external todos. TASKDATA environment variable added to shellrc.
 
-- Add TASKDATA to shellrc + labels to bugwarrior
+### New
+- taskrc configuration
+- TASKDATA and TASKRC environment variables in shellrc
+- Bugwarrior labels configuration
 
-## 2023-02-20
+### Desktop
+- New task context and i3 keybindings
 
-- Restore desktop record profile
 
-## 2023-02-07
+## [v1.1.0] — 2022-07-25
 
-- Ignore rsconnect config
+**GPG/SSH setup and directory aliases.**
 
-## 2022-12-19
+GPG and SSH agent configuration added to shellrc. Directory aliases extracted to their own script for portability.
 
-- Start setting up task+bugwarrior
-- Fix bugwarriorrc config
+### Shell
+- GPG, SSH, and directory aliases added to shellrc
+- dir_aliases extracted to separate script
 
-## 2022-12-10
+### Firefox
+- Firefox-view disabled in configs
 
-- Add Heading 5 style to pandoc
 
-## 2022-10-22
+## [v1.0.0] — 2022-04-05
 
-- Fix sourcing with ksh in shellrc (5 insertions, 1 deletion)
+**First stable release.**
 
-## 2022-10-21
+Neovim configuration added. Firefox user.js hardened. Backup scripts created. i3status refactored. This marks the point where the dotfiles are considered stable for daily use.
 
-- Move dir_aliases to their own script (shellrc)
+### New
+- Neovim configuration (init.vim)
+- Firefox user.js hardening
+- Tar backup script
+- i3status refactored
 
-## 2022-10-19
+### Desktop
+- i3 resize increments reduced (100px → 50px)
+- Profile and xinitrc links added
 
-- Update firefox configs to disable firefox-view
 
-## 2022-09-27
+## [v0.1.0] — 2022-03-30
 
-- Update shortcuts
-- Update git config
+**Initial development release.**
 
-## 2022-07-27
+First tracked version of the dotfiles. Core configuration for shell, git, i3, R, and pandoc established.
 
-- ffmpeg recording settings for desktop
-
-## 2022-07-25
-
-- Add gpg, ssh, and dir aliases to shellrc (11 insertions, 4 deletions)
-
-## 2022-06-23
-
-- Take no chances with Rprofile licensing
-
-## 2022-06-09
-
-- Add nvim options for yaml
-
-## 2022-05-25
-
-- Remove needless clear alias
-
-## 2022-04-13
-
-- Add thesis to shell aliases
-
-## 2022-04-11
-
-- Set unsafest as R's browser + slow ffpmeg preset
-
-## 2022-04-08
-
-- Add verbatim char style to pandoc/docx
-
-## 2022-04-07
-
-- Fix "Body Text" style in pandoc docx
-- Add title,block quotes, and bib to pandoc/docx
-
-## 2022-04-05
-
-- Add nvim config
-
-## 2022-04-04
-
-- Add actual user.js in firefox + refactor i3status (2547 lines added to firefox configs)
-- Add links to profile and xinitrc
-- Make i3 to resize in smaller increments (from 100px to 50px)
-- Fix firefox/unsafe cookie policy
-- Revert cookie policy for unsafe
-- Add tar backup script
-- Refactor backup script
-
-## 2022-04-02
-
-- Add table with file-licenses
-
-## 2022-04-01
-
-- Add LICENSES, README, firefox + make some tweaks
-- Fix README type, add more exceptions to .gitignore
-- Try to prevent misinterpretation of README
-
-## 2022-03-30
-
-- Add more dotfiles (git/config, i3/config, i3status/config, shellrc, Rprofile - 395 lines added)
-- Add mime (i.e., default) apps + radio playlist
-- Make minor tweaks to shellrc (cleanup, 2 insertions, 5 deletions)
-
-## 2022-03-29
-
-- Initial commit: pandoc apa styles draft
+### New
+- Shell configuration (shellrc)
+- Git configuration (git/config)
+- i3 window manager configuration (i3/config, i3status/config)
+- R profile (Rprofile)
+- Pandoc APA styles draft
+- MIME apps and radio playlist
+- LICENSES directory

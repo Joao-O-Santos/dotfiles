@@ -1,5 +1,7 @@
-# Changelog
-All notable changes to the OpenCode Manuscript Workflow will be documented in this file.
+# Changelog — OpenCode Manuscript Workflow
+
+All notable changes to the OpenCode configuration will be documented in this file.
+For the broader dotfiles project history, see `~/.config/CHANGELOG.md`.
 
 ## [2026-06-13] — Config audit fixes, shell script refactoring, and DRY improvements
 
@@ -24,8 +26,7 @@ Comprehensive audit identified broken references, orphaned files, permission con
 
 ### Added
 - New shared snippet: `reviewer-output-format.md` (standardizes reviewer output structure)
-- 10 standalone shell scripts in `~/.config/scripts/` with proper error handling and input validation:
-  - `f.sh`, `xst.sh`, `o.sh`, `pull_all.sh`, `toc.sh`, `tso.sh`, `tmd.sh`, `tpres.sh`, `chkdrft.sh`, `twrd.sh`
+- 10 standalone shell scripts in `~/.config/scripts/` with proper error handling and input validation
 - Comprehensive test suite (`test_scripts.sh`) with 27 tests covering existence, usage, validation, and functionality
 - `shellrc` refactored: functions extracted to scripts, scripts added to PATH, alias wrappers created
 
@@ -159,8 +160,8 @@ Shared snippets system established to DRY repeated text across skills. Agent and
 - Four shared snippets: style-core, placeholder-discipline, anti-fabrication-short, note-on-examples
 
 ### Changed
-- Replaced STYLE.md file-load instructions with #style-core snippet inclusions in intro, lit-review, abstract, discussion, methods, results, title, r-analysis-quarto skills
-- Added #style-core snippet inclusion to discussion skills Rules section
+- Replaced STYLE.md file-load instructions with `#style-core` snippet inclusions in intro, lit-review, abstract, discussion, methods, results, title, r-analysis-quarto skills
+- Added `#style-core` snippet inclusion to discussion skills Rules section
 - Added anti-fabrication and placeholder discipline snippets to results skill
 - Added placeholder discipline and note on examples to manuscript-workflow skill
 - Renamed lit-review skill directory to lit-review-section
