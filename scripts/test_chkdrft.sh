@@ -48,17 +48,41 @@ else
     fail "chkdrft.sh doesn't count citations"
 fi
 
-# Test: Shows "No comments..." when clean
+if "$SCRIPTS_DIR/chkdrft.sh" "$test_file.md" | grep -q "TODOs left"; then
+    pass "chkdrft.sh counts TODOs"
+else
+    fail "chkdrft.sh doesn't count TODOs"
+fi
+
+if "$SCRIPTS_DIR/chkdrft.sh" "$test_file.md" | grep -q "unaddressed comments"; then
+    pass "chkdrft.sh counts comments"
+else
+    fail "chkdrft.sh doesn't count comments"
+fi
+
+# Test: Shows "No <x>" when clean
 cat > "$test_file.md" << 'EOF'
 # Clean Document
 
 This document has no issues.
 EOF
 
-if "$SCRIPTS_DIR/chkdrft.sh" "$test_file.md" | grep -q "No comments"; then
-    pass "chkdrft.sh shows clean message when no issues"
+if "$SCRIPTS_DIR/chkdrft.sh" "$test_file.md" | grep -q "No citations needed"; then
+    pass "chkdrft.sh shows 'No citations needed' when clean"
 else
-    fail "chkdrft.sh doesn't show clean message"
+    fail "chkdrft.sh doesn't show clean citations message"
+fi
+
+if "$SCRIPTS_DIR/chkdrft.sh" "$test_file.md" | grep -q "No TODOs left"; then
+    pass "chkdrft.sh shows 'No TODOs left' when clean"
+else
+    fail "chkdrft.sh doesn't show clean TODOs message"
+fi
+
+if "$SCRIPTS_DIR/chkdrft.sh" "$test_file.md" | grep -q "No unaddressed comments"; then
+    pass "chkdrft.sh shows 'No unaddressed comments' when clean"
+else
+    fail "chkdrft.sh doesn't show clean comments message"
 fi
 
 rm -f "$test_file.md"

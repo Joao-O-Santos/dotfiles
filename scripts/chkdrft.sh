@@ -28,11 +28,22 @@ for file in "$@"; do
             cmnts = cmnts + 0
             comments = cmnts - todos
             
-            if (cns == 0 && todos == 0 && comments == 0) {
-                printf "No comments, TODOs, or citations needed in %s\n", FILENAME
+            if (cns == 0) {
+                printf "No citations needed in %s\n", FILENAME
             } else {
-                printf "%d citations needed/missing, %d TODOs, and %d unaddressed comments (excluding TODOs) still left in %s\n",
-                    cns, todos, comments, FILENAME
+                printf "%d citations needed/missing in %s\n", cns, FILENAME
+            }
+            
+            if (todos == 0) {
+                printf "No TODOs left in %s\n", FILENAME
+            } else {
+                printf "%d TODOs left in %s\n", todos, FILENAME
+            }
+            
+            if (comments == 0) {
+                printf "No unaddressed comments in %s\n", FILENAME
+            } else {
+                printf "%d unaddressed comments (excluding TODOs) in %s\n", comments, FILENAME
             }
         }
     ' "$file"
