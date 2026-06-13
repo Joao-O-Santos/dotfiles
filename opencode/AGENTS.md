@@ -23,7 +23,7 @@ If this file and `opencode.json` disagree about runtime behavior, `opencode.json
 | `guard` | subagent | Safety, regression, loop detection |
 | `literature-reviewer` | subagent | Fast literature search and source notes |
 | `deep-research` | subagent | Exhaustive multi-step evidence gathering |
-| `r-analysis` | primary | R / Quarto pipeline edits and statistical-code changes |
+| `r-analysis` | primary | R / Quarto pipeline coding and editing |
 
 #anti-fabrication-short
 

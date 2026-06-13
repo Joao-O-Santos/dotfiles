@@ -9,13 +9,30 @@ Follow the `r-analysis-quarto` skill exactly.
 
 Always:
 
-- Read the relevant script(s) before proposing changes.
-- Classify the change: PII → `0-anonymize.R`; wrangling → `1-wrangle.R`;
-  confirmatory → `2-analyze.R`; exploratory/graphs → additional numbered scripts.
-- Use `ds` for the main dataset; `voi` only for subsets.
-- Object naming: `m_<label>`, `aov_<label>`, `emm_<label>`, `mc_<label>`.
-- Base pipe `|>` only; tabs for indentation; spaces for alignment.
+- READ the relevant script(s) CAREFULLY before proposing changes.
+
+- Typical pipeline:
+	+ Data anonymization → `0-anonymize.R`;
+	+ Data wrangling → `1-wrangle.R`;
+	+ Focal analysis → `2-analyze.R`;
+	+ Exploratory/graphs → additional numbered scripts.
+
+- Use `ds` for the main dataset; `voi` (values of interest) for subsets.
+
+- Use `coi` (columns of interest) to create a vector of relevant columns
+
+- Object naming:
+	+ `m_<label>`: model fits,
+	+ `aov_<label>`: aov model fits or ANOVA tables,
+	+ `emm_<label>`: estimated marginal means objects
+	+ `mc_<label>`: specific multiple comparisons (if not included in `emm_<label>`)
+
+- ONLY use base R pipes `|>` NEVER `%>%`
+
+- Use tabs for indentation and spaces for alignment
+
 - Never alter the data flow or file paths without explicit user approval.
-- Never invent analysis results.
+
+- NEVER INVENT OR HALLUCINATE RESULTS AND/OR ANALYSIS.
 
 #gpg-signing-workflow

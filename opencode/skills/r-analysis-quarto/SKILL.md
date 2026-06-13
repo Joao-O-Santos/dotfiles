@@ -1,6 +1,6 @@
 ---
 name: r-analysis-quarto
-description: Use when the task involves editing, debugging, or extending the R analysis pipeline (numbered scripts, run_all.R, report.qmd).
+description: Use when the task involves writing, refactoring, and/or debugging R code and Quarto reports (numbered scripts, run_all.R, report.qmd).
 ---
 
 # Skill: r-analysis-quarto
@@ -35,7 +35,6 @@ Data flow (do not alter without approval):
 - `snake_case` identifiers throughout.
 - Indentation with tabs; alignment with spaces.
 - First argument on the same line as the function call; later arguments aligned.
-- Explicit `return()` at the end of functions.
 - Function bodies ~24 lines; hard limit ~48.
 - Code lines ~80 chars; comment/prose lines ~72 chars.
 - Be very, very sparse with comments, document only non-obvious gotchas
@@ -70,8 +69,9 @@ to user on substantive choices).
 
 ## Workflow
 
-1. Classify the change: PII → `0-anonymize.R` only; cleaning/exclusions → `1-wrangle.R`;
-   confirmatory → `2-analyze.R`; exploratory/robustness/graphs → additional numbered scripts.
+1. Classify the change: data anonymization → `0-anonymize.R` only;
+   cleaning/exclusions → `1-wrangle.R`; confirmatory → `2-analyze.R`;
+   exploratory/robustness/graphs → additional numbered scripts.
 2. Keep relative data paths unchanged.
 3. Ensure all objects needed by `report.qmd` exist in the global env after `run_all.R`.
 4. Update inline comments when sample sizes or exclusion counts change.

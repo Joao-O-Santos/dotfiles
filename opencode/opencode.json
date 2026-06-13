@@ -64,7 +64,7 @@
     "planner": {
       "description": "Primary orchestrator and default agent",
       "mode": "primary",
-      "model": "{env:PLANNER_MODEL}", "temperature": 0.2,
+      "model": "{env:PLANNER_MODEL}", "temperature": 0.8,
       "steps": 20,
       "permission": { "edit": "deny", "webfetch": "allow", "task": { "*": "allow" } }
     },
@@ -157,7 +157,7 @@
       "permission": { "edit": "deny", "webfetch": "allow" }
     },
     "r-analysis": {
-      "description": "R/Quarto pipeline edits",
+      "description": "R/Quarto pipeline coding and editing",
       "mode": "primary",
       "model": "{env:R_ANALYSIS_MODEL}", "temperature": 0.2,
       "steps": 30,
