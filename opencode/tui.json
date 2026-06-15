@@ -1,6 +1,7 @@
 {
   "plugin": [
     "opencode-snippets",
-    "@cortexkit/opencode-magic-context@latest"
+    "@cortexkit/opencode-magic-context@latest",
+    "@cortexkit/aft-opencode@latest"
   ]
 }

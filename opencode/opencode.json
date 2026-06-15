@@ -64,7 +64,7 @@
     "planner": {
       "description": "Primary orchestrator and default agent",
       "mode": "primary",
-      "model": "{env:PLANNER_MODEL}", "temperature": 0.8,
+      "model": "{env:PLANNER_MODEL}",
       "steps": 20,
       "permission": { "edit": "deny", "webfetch": "allow", "task": { "*": "allow" } }
     },
@@ -110,14 +110,14 @@
     "reviewer-structure": {
       "description": "Big-picture critique: structure, arguments, impact",
       "mode": "subagent",
-      "model": "{env:REVIEWER_STRUCTURE_MODEL}", "temperature": 0.3,
+      "model": "{env:REVIEWER_STRUCTURE_MODEL}", "temperature": 0.8,
       "permission": { "edit": "deny", "webfetch": "allow" },
       "steps": 10
     },
     "reviewer-detail": {
       "description": "Detail critique: citations, conceptual clarity, argument issues",
       "mode": "subagent",
-      "model": "{env:REVIEWER_DETAIL_MODEL}", "temperature": 0.3,
+      "model": "{env:REVIEWER_DETAIL_MODEL}", "temperature": 0.5,
       "steps": 10,
       "permission": { "edit": "deny", "webfetch": "allow" }
     },
@@ -138,7 +138,7 @@
     "guard": {
       "description": "Safety checkpoints and regression control",
       "mode": "subagent",
-      "model": "{env:GUARD_MODEL}",
+      "model": "{env:GUARD_MODEL}", "temperature": 0.3,
       "steps": 10,
       "permission": { "edit": "deny", "webfetch": "allow" }
     },
@@ -152,7 +152,7 @@
     "deep-research": {
       "description": "Exhaustive multi-step research",
       "mode": "subagent",
-      "model": "{env:DEEP_RESEARCH_MODEL}", "temperature": 0.3,
+      "model": "{env:DEEP_RESEARCH_MODEL}", "temperature": 0.5,
       "steps": 20,
       "permission": { "edit": "deny", "webfetch": "allow" }
     },
@@ -180,6 +180,7 @@
   "plugin": [
     "opencode-snippets",
     "@cortexkit/opencode-magic-context",
+    "@cortexkit/aft-opencode@latest",
     ["@plannotator/opencode@latest", {
       "workflow": "plan-agent",
       "planningAgents": ["plan", "planner"]
