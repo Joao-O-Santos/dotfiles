@@ -2,6 +2,22 @@
 
 All notable changes to the OpenCode configuration will be documented in this file.
 
+## [2026-06-16] — Agent capabilities, Plannotator handling, and DOI extraction
+
+### Added
+- `AGENTS.md` now includes Agent Capabilities section (edit/bash/commit/push permissions summary) and Delegation Guide (which agent for which task type)
+- New `commands/lit-search.md` — agent guide for searching the local literature library
+- New `commands/lit-index.md` — agent guide for re-indexing the literature library
+- `lit-index` snippet expanded: DOI search query and full metadata retrieval
+
+### Changed
+- `plannotator-awareness` snippet: added explicit Plannotator feedback processing rules (approved with annotations → revise first; clean approval → delegate, not self-implement)
+- `planner.md`: reinforced delegation rule for plan approval — "Proceed with implementation" means launch agents, not execute yourself
+- `_index.py` now extracts DOIs from PDFs (`10.xxxx/...` pattern); `doi` column added to DB schema
+
+### Fixed
+- Planner no longer confused by Plannotator's default "Proceed with implementation" prompt — now correctly delegates instead of attempting self-execution
+
 ## [2026-06-16] — Literature library indexer
 
 New indexing system for `~/lit` (~1,529 PDFs across 22 topics):

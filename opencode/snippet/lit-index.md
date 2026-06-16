@@ -26,6 +26,16 @@ Full-text search (FTS5):
 sqlite3 ~/lit/_index.db "SELECT filepath, title FROM papers_fts WHERE papers_fts MATCH 'dehumanization AND prejudice' ORDER BY rank LIMIT 10"
 ```
 
+Search by DOI:
+```bash
+sqlite3 ~/lit/_index.db "SELECT filepath, title, year FROM papers WHERE doi LIKE '%10.1234%'"
+```
+
+Get full metadata for a paper:
+```bash
+sqlite3 ~/lit/_index.db "SELECT filepath, doi, year, first_author, title FROM papers WHERE filepath LIKE '%AuthorYear%'"
+```
+
 Count papers per directory:
 ```bash
 sqlite3 ~/lit/_index.db "SELECT directory, COUNT(*) FROM papers GROUP BY directory ORDER BY 2 DESC"

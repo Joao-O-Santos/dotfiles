@@ -82,3 +82,7 @@ alias chkdrft='chkdrft.sh'
 alias tmd='convert md'
 alias tpres='convert html'
 alias twrd='convert docx'
+
+# Literature library shortcuts
+alias litindex='litindex.sh'
+alias litsearch='litsearch.sh'

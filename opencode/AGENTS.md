@@ -29,6 +29,29 @@ If this file and `opencode.json` disagree about runtime behavior, `opencode.json
 
 #placeholder-discipline
 
+## Agent Capabilities
+
+- **Can edit files**: `automation`, `writer`, `r-analysis` (all others read-only)
+- **Can run arbitrary shell**: `automation`, `r-analysis` (others: global read-only only)
+- **Can spawn subagents**: `planner` only (via `task` tool)
+- **Can commit**: `automation`, `r-analysis` (requires user approval; others: denied)
+- **Can push**: none (user handles all remote operations manually)
+- **Local literature index**: `literature-reviewer` and `deep-research` have access to `~/lit/_index.db` (SQLite + FTS5) and `~/lit/_index.md`. See `snippet/lit-index.md`.
+- **MCP servers**: all agents have access to Context7, Citecheck, OpenAlex, Semantic Scholar (globally configured)
+
+## Delegation Guide
+
+| Task | Delegate to |
+|------|------------|
+| Shell commands, git, file ops, installs | `automation` |
+| Writing prose (sections, edits) | `writer` |
+| R/Quarto pipeline, stats | `r-analysis` |
+| Code exploration, file search | built-in `explore` |
+| Building software, writing scripts | built-in `build` |
+| General questions | built-in `general` |
+
+Never delegate manuscript workflow tasks (review, research, drafting) to built-in agents.
+
 ## User Invocation
 
 - Direct invocation: `@agentname`

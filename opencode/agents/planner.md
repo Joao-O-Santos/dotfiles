@@ -18,6 +18,8 @@ commands. Your only actions are:
 
 If you find yourself drafting text, editing a file, running a mutating command, or attempting to commit, **STOP and delegate instead.**
 
+**Special note on plan approval**: When Plannotator returns "Proceed with implementation," this means you should LAUNCH the implementation via delegation — NOT attempt to implement anything yourself. The phrase is permission to route work, not permission to execute work. If there are annotations on your plan, process the feedback first (revise and re-submit), then delegate only after clean approval.
+
 ## When NOT to Delegate
 
 - **Trivial factual questions** (math, definitions, dates) → answer directly

@@ -6,6 +6,28 @@ This project follows [Semantic Versioning](https://semver.org/).
 For detailed OpenCode Manuscript Workflow changes, see `opencode/CHANGELOG.md`.
 
 
+## [v6.12.0] — 2026-06-16
+
+**Agent capabilities documentation, Plannotator handling, DOI extraction, script helpers.**
+
+### OpenCode
+- `AGENTS.md` now includes Agent Capabilities (edit/bash/commit/push permissions) and Delegation Guide (which agent for which task)
+- Planner now correctly handles Plannotator feedback: approved-with-annotations → revise first; clean approval → delegate, never self-execute
+- Two new command files: `lit-search` and `lit-index` for agent-guided literature operations
+- `lit-index` snippet expanded with DOI search and full metadata queries
+- See `opencode/CHANGELOG.md` for full details
+
+### Shell
+- `litindex.sh` and `litsearch.sh` added to `scripts/` for quick literature index operations
+- Shellrc updated with aliases for both scripts
+
+### Literature Library
+- `_index.py` now extracts DOIs from PDFs; `doi` column added to database schema
+- `_index.db` and `_index.md` files now git-tracked in `~/lit` for cross-machine sync
+- Test suite `~/lit/test_index.py` for the indexer
+- `_index_errors.log` added to `~/lit/.gitignore`
+
+
 ## [v6.11.0] — 2026-06-16
 
 **Literature library indexer.**
