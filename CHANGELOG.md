@@ -32,6 +32,38 @@ For detailed OpenCode Manuscript Workflow changes, see `opencode/CHANGELOG.md`.
 - See `opencode/CHANGELOG.md` for full details.
 
 
+## [v7.3.0] — 2026-06-16
+
+**Comprehensive DB healing, lit-heal skill rewrite, lit-alert skill, directory restructure.**
+
+### Literature Library (~/lit)
+- All 1,515 papers verified: titles read from PDF text by LLM, 0 garbage/missing
+- All records locked to prevent mechanical re-extraction of boilerplate
+- Directory restructure: 22 → 14 top-level dirs (mindwise→dehuman, hist→epistem, dormant topics→other/)
+- Database cleanup: 77 duplicate records removed, 15 orphan records removed
+- 3 scanned PDFs OCR'd via Tesseract
+
+### Skills
+- `lit-heal` skill rewritten: bold warning against mechanical fixer scripts
+  (_heal.py, _fix_all.py), LLM-reads-text workflow, DOI verification step
+- `lit-alert` skill: personalized new-paper notification (author × topic × since-last-check)
+- `lit-index` skill loaded into literature-reviewer and deep-research agents
+
+### Models
+- literature-reviewer, deep-research, automation switched to `deepseek-v4-flash`
+
+## [v7.2.0] — 2026-06-16
+
+**Lit-heal skill: LLM-powered database audit and repair.**
+
+### Skills
+- `lit-heal` skill created and loaded into both literature-reviewer and deep-research
+- 3-phase audit/fix/report workflow for garbled metadata
+- All three lit skills (lit-index, lit-alert, lit-heal) now loaded by both agents
+
+See `opencode/CHANGELOG.md` for full details.
+
+
 ## [v6.10.0] — 2026-06-16
 
 **AFT plugin and temperature tweaks.**

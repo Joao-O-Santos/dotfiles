@@ -2,6 +2,45 @@
 
 All notable changes to the OpenCode configuration will be documented in this file.
 
+## [2026-06-16] — v7.3.0: Comprehensive DB healing, lit-heal skill rewrite
+
+### Changed
+- `lit-heal` skill rewritten with lessons from healing 1,515 papers:
+  - **Bold DO-NOT-USE warning** against mechanical fixer scripts
+    (_heal.py, _fix_all.py, litfix). These scripts cannot distinguish
+    between an article's own DOI and DOIs cited in its reference list.
+  - **LLM-reads-text workflow** replaces broken mechanical extraction.
+    LLM reads first 5 pages of PDF text, identifies real title
+    semantically, verifies DOI against OpenAlex before applying.
+  - **Cardinal rule**: filenames are authoritative for author and
+    publication year. Do NOT change year or first_author fields.
+  - **Real garbage patterns** documented from actual data (journal
+    names, watermarks, SAGE artifacts, ScienceDirect headers,
+    ResearchGate boilerplate, ALL-CAPS running heads).
+  - Direct `sqlite3 UPDATE` replaces `litfix` wrapper (unreliable).
+
+### Fixed
+- 1,515 papers verified, 0 garbage titles, 0 missing titles, all locked
+- 3 scanned PDFs OCR'd via Tesseract
+- Wrong DOIs corrected (cited-paper DOIs replaced with article DOIs)
+- 77 duplicate records removed, 15 orphan records removed
+
+## [2026-06-16] — v7.2.0: Lit-heal skill (LLM-powered audit and repair)
+
+### Added
+- `lit-heal` skill: instructs agents (literature-reviewer, deep-research) to:
+  1. Query DB for garbage titles, missing DOIs, empty fields
+  2. Look up real metadata via OpenAlex
+  3. Apply fixes via direct SQL
+  4. Report summary
+- All three lit skills now loaded by both lit agents
+
+### Changed
+- `lit-alert` replaces `lit-recommend` (redundant with regular lit-reviewer
+  invocations). Lit-alert is unique: personalized, incremental, state-tracking
+  (reads `~/lit/_last_check`, searches your authors × your topics × since
+  last check).
+
 ## [2026-06-16] — v7.1.0: Lit-recommend skill (LLM-curated paper recommendations)
 
 ### Added
