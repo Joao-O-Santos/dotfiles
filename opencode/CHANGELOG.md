@@ -2,6 +2,24 @@
 
 All notable changes to the OpenCode configuration will be documented in this file.
 
+## [2026-06-16] — Literature library indexer
+
+New indexing system for `~/lit` (~1,529 PDFs across 22 topics):
+
+- **`~/lit/_index.py`** — Python script (stdlib only) that scans all PDFs, extracts title/year/author/abstract via `pdftotext -l 1`
+- **`~/lit/_index.db`** — SQLite database with FTS5 full-text search
+- **`~/lit/_index.md`** — top-level index with quick-reference table
+- **`~/lit/<topic>/_index.md`** — per-directory paper tables
+- Existing hand-written `.md` notes preserved unchanged
+
+### Added
+- New snippet `lit-index` documents the local index, SQLite queries, and limitations
+- `literature-reviewer` and `deep-research` agents now know about the local index
+
+### Limitations
+- Year extraction ~75% accurate (filename year is more reliable)
+- Abstract extraction ~30% accurate (some journals bury abstracts mid-page)
+
 ## [2026-06-13] — Config audit fixes, shell script refactoring, and DRY improvements
 
 Comprehensive audit identified broken references, orphaned files, permission contradictions, and hardcoded paths. Fixed all issues and refactored shell functions into standalone scripts with comprehensive test coverage.

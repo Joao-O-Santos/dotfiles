@@ -6,6 +6,18 @@ This project follows [Semantic Versioning](https://semver.org/).
 For detailed OpenCode Manuscript Workflow changes, see `opencode/CHANGELOG.md`.
 
 
+## [v6.11.0] — 2026-06-16
+
+**Literature library indexer.**
+
+### Shell / Tools
+- `~/lit/_index.py` — Python indexer (stdlib only) for the 1,529-PDF local literature library
+- `~/lit/_index.db` — SQLite database with FTS5 full-text search
+- `~/lit/_index.md` + per-directory `_index.md` — human-readable indexes
+- Hand-written `.md` notes preserved
+- `literature-reviewer` and `deep-research` agents now know about the local index via `lit-index` snippet
+
+
 ## [v6.9.0] — 2026-06-13
 
 **Script consolidation and smarter chkdrft output.**

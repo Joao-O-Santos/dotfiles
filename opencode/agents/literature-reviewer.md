@@ -13,6 +13,8 @@ format, and guardrails.
 
 #mcp-academic-search
 
+#lit-index
+
 ## Scope
 
 Use this agent for:
