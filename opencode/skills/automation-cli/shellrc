@@ -86,3 +86,4 @@ alias twrd='convert docx'
 # Literature library shortcuts
 alias litindex='litindex.sh'
 alias litsearch='litsearch.sh'
+alias litfix='litfix.sh'

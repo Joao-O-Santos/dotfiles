@@ -2,6 +2,18 @@
 
 All notable changes to the OpenCode configuration will be documented in this file.
 
+## [2026-06-16] — Agent-editable DB, recommendation script, changelog fixes
+
+### Added
+- `_index.py --update` now skips locked (manually-edited) records via `locked` column
+- `litfix.sh` + `litfix` alias: agent command to fix individual metadata fields in the DB
+- `_recommend.py`: queries OpenAlex for candidate papers, outputs `_recommendations.md`
+- `_recommendations.md`: generated report with OA/paywalled papers split by directory
+
+### Changed
+- `~/lit/.gitignore`: added `__pycache__/`, `*.db-shm`, `*.db-wal`
+- All missing CHANGELOG entries added (v6.12.1, v6.10.1, v6.10.0, v6.9.1 in .config; v0.2.0 in lit)
+
 ## [2026-06-16] — Agent capabilities, Plannotator handling, and DOI extraction
 
 ### Added
