@@ -6,18 +6,29 @@
   ],
   "default_agent": "planner",
   "enabled_providers": [
-    "opencode-go", "opencode", "ollama-cloud",
-    "mistral", "openrouter"
+    "opencode-go",
+    "opencode",
+    "ollama-cloud",
+    "mistral",
+    "openrouter"
   ],
   "permission": {
     "bash": {
       "*": "deny",
-      "git status": "allow", "git log *": "allow",
-      "git diff *": "allow", "git show *": "allow",
-      "ls *": "allow", "wc *": "allow",
-      "grep *": "allow", "rg *": "allow", "find *": "allow",
-      "tso *": "allow", "chkdrft *": "allow", "toc *": "allow",
-      "pdftotext *": "allow", "pdfgrep *": "allow"
+      "git status": "allow",
+      "git log *": "allow",
+      "git diff *": "allow",
+      "git show *": "allow",
+      "ls *": "allow",
+      "wc *": "allow",
+      "grep *": "allow",
+      "rg *": "allow",
+      "find *": "allow",
+      "tso *": "allow",
+      "chkdrft *": "allow",
+      "toc *": "allow",
+      "pdftotext *": "allow",
+      "pdfgrep *": "allow"
     },
     "external_directory": {
       "${HOME}/.config/opencode/**": "allow",
@@ -36,28 +47,49 @@
   },
   "mcp": {
     "context7": {
-      "type": "local", "enabled": true,
+      "type": "local",
+      "enabled": true,
       "command": [
-        "npx", "-y", "@upstash/context7-mcp",
-        "--api-key", "{env:CONTEXT7_API_KEY}"
+        "npx",
+        "-y",
+        "@upstash/context7-mcp",
+        "--api-key",
+        "{env:CONTEXT7_API_KEY}"
       ]
     },
     "citecheck": {
-      "type": "local", "enabled": true,
-      "command": ["npx", "-y", "@jhlee0619/citecheck@latest"],
-      "environment": { "CROSSREF_MAILTO": "{env:CROSSREF_MAILTO}" }
+      "type": "local",
+      "enabled": true,
+      "command": [
+        "npx",
+        "-y",
+        "@jhlee0619/citecheck@latest"
+      ],
+      "environment": {
+        "CROSSREF_MAILTO": "{env:CROSSREF_MAILTO}"
+      }
     },
     "openalex": {
-      "type": "local", "enabled": true,
-      "command": ["npx", "-y", "@cyanheads/openalex-mcp-server@latest"],
+      "type": "local",
+      "enabled": true,
+      "command": [
+        "npx",
+        "-y",
+        "@cyanheads/openalex-mcp-server@latest"
+      ],
       "environment": {
         "OPENALEX_API_KEY": "{env:OPENALEX_API_KEY}",
         "OPENALEX_EMAIL": "{env:OPENALEX_EMAIL}"
       }
     },
     "semantic-scholar": {
-      "type": "local", "enabled": true,
-      "command": ["npx", "-y", "paperplain-mcp@latest"]
+      "type": "local",
+      "enabled": true,
+      "command": [
+        "npx",
+        "-y",
+        "paperplain-mcp@latest"
+      ]
     }
   },
   "agent": {
@@ -66,25 +98,40 @@
       "mode": "primary",
       "model": "{env:PLANNER_MODEL}",
       "steps": 20,
-      "permission": { "edit": "deny", "webfetch": "allow", "task": { "*": "allow" } }
+      "permission": {
+        "edit": "deny",
+        "webfetch": "allow",
+        "task": {
+          "*": "allow"
+        }
+      }
     },
     "automation": {
       "description": "Shell, git, and terminal-native execution",
       "mode": "primary",
-      "model": "{env:AUTOMATION_MODEL}", "temperature": 0.3,
+      "model": "{env:AUTOMATION_MODEL}",
+      "temperature": 0.3,
       "steps": 30,
       "permission": {
         "edit": "allow",
         "webfetch": "allow",
         "bash": {
           "*": "allow",
-          "git commit *": "ask", "git merge *": "ask",
-          "git reset --hard *": "ask", "git clean *": "ask",
-          "rm *": "ask", "chmod 777 *": "ask",
+          "git commit *": "ask",
+          "git merge *": "ask",
+          "git reset --hard *": "ask",
+          "git clean *": "ask",
+          "rm *": "ask",
+          "chmod 777 *": "ask",
           "git push *": "deny",
-          "sudo *": "deny", "yay -S *": "deny", "pacman -S *": "deny",
-          "rm -rf /": "deny", "rm -rf ~": "deny",
-          "dd *": "deny", "mkfs *": "deny", "fdisk *": "deny"
+          "sudo *": "deny",
+          "yay -S *": "deny",
+          "pacman -S *": "deny",
+          "rm -rf /": "deny",
+          "rm -rf ~": "deny",
+          "dd *": "deny",
+          "mkfs *": "deny",
+          "fdisk *": "deny"
         }
       }
     },
@@ -98,93 +145,145 @@
         "webfetch": "allow",
         "bash": {
           "*": "deny",
-          "git status": "allow", "git log *": "allow",
-          "git diff *": "allow", "git show *": "allow",
-          "ls *": "allow", "wc *": "allow",
-          "grep *": "allow", "rg *": "allow", "find *": "allow",
+          "git status": "allow",
+          "git log *": "allow",
+          "git diff *": "allow",
+          "git show *": "allow",
+          "ls *": "allow",
+          "wc *": "allow",
+          "grep *": "allow",
+          "rg *": "allow",
+          "find *": "allow",
           "sed *": "allow",
-          "tso *": "allow", "chkdrft *": "allow", "toc *": "allow"
+          "tso *": "allow",
+          "chkdrft *": "allow",
+          "toc *": "allow"
         }
       }
     },
     "reviewer-structure": {
       "description": "Big-picture critique: structure, arguments, impact",
       "mode": "subagent",
-      "model": "{env:REVIEWER_STRUCTURE_MODEL}", "temperature": 0.8,
-      "permission": { "edit": "deny", "webfetch": "allow" },
+      "model": "{env:REVIEWER_STRUCTURE_MODEL}",
+      "temperature": 0.8,
+      "permission": {
+        "edit": "deny",
+        "webfetch": "allow"
+      },
       "steps": 10
     },
     "reviewer-detail": {
       "description": "Detail critique: citations, conceptual clarity, argument issues",
       "mode": "subagent",
-      "model": "{env:REVIEWER_DETAIL_MODEL}", "temperature": 0.5,
+      "model": "{env:REVIEWER_DETAIL_MODEL}",
+      "temperature": 0.5,
       "steps": 10,
-      "permission": { "edit": "deny", "webfetch": "allow" }
+      "permission": {
+        "edit": "deny",
+        "webfetch": "allow"
+      }
     },
     "copyeditor": {
       "description": "Prose review: titles, paragraphs, sentences, words, markdown compliance",
       "mode": "subagent",
-      "model": "{env:COPYEDITOR_MODEL}", "temperature": 0.4,
+      "model": "{env:COPYEDITOR_MODEL}",
+      "temperature": 0.4,
       "steps": 10,
-      "permission": { "edit": "deny", "webfetch": "allow" }
+      "permission": {
+        "edit": "deny",
+        "webfetch": "allow"
+      }
     },
     "editor": {
       "description": "Manuscript review collation agent: sorts reviewer output chronologically",
       "mode": "subagent",
-      "model": "{env:EDITOR_MODEL}", "temperature": 0.3,
+      "model": "{env:EDITOR_MODEL}",
+      "temperature": 0.3,
       "steps": 8,
-      "permission": { "edit": "deny", "webfetch": "allow" }
+      "permission": {
+        "edit": "deny",
+        "webfetch": "allow"
+      }
     },
     "guard": {
       "description": "Safety checkpoints and regression control",
       "mode": "subagent",
-      "model": "{env:GUARD_MODEL}", "temperature": 0.3,
+      "model": "{env:GUARD_MODEL}",
+      "temperature": 0.3,
       "steps": 10,
-      "permission": { "edit": "deny", "webfetch": "allow" }
+      "permission": {
+        "edit": "deny",
+        "webfetch": "allow"
+      }
     },
     "literature-reviewer": {
       "description": "Fast academic search and paper summaries",
       "mode": "subagent",
       "model": "{env:LITERATURE_REVIEWER_MODEL}",
       "steps": 12,
-      "permission": { "edit": "deny", "webfetch": "allow" }
+      "permission": {
+        "edit": "deny",
+        "webfetch": "allow"
+      }
     },
     "deep-research": {
       "description": "Exhaustive multi-step research",
       "mode": "subagent",
-      "model": "{env:DEEP_RESEARCH_MODEL}", "temperature": 0.5,
+      "model": "{env:DEEP_RESEARCH_MODEL}",
+      "temperature": 0.5,
       "steps": 20,
-      "permission": { "edit": "deny", "webfetch": "allow" }
+      "permission": {
+        "edit": "deny",
+        "webfetch": "allow"
+      }
     },
     "r-analysis": {
       "description": "R/Quarto pipeline coding and editing",
       "mode": "primary",
-      "model": "{env:R_ANALYSIS_MODEL}", "temperature": 0.2,
+      "model": "{env:R_ANALYSIS_MODEL}",
+      "temperature": 0.2,
       "steps": 30,
       "permission": {
         "edit": "allow",
         "webfetch": "allow",
         "bash": {
           "*": "allow",
-          "git commit *": "ask", "git merge *": "ask", "git reset --hard *": "ask",
+          "git commit *": "ask",
+          "git merge *": "ask",
+          "git reset --hard *": "ask",
           "git clean *": "ask",
           "rm *": "ask",
-          "git push *": "deny", "sudo *": "deny", "chmod 777 *": "deny",
-          "yay -S *": "deny", "pacman -S *": "deny",
-          "rm -rf /": "deny", "rm -rf ~": "deny",
-          "dd *": "deny", "mkfs *": "deny", "fdisk *": "deny"
+          "git push *": "deny",
+          "sudo *": "deny",
+          "chmod 777 *": "deny",
+          "yay -S *": "deny",
+          "pacman -S *": "deny",
+          "rm -rf /": "deny",
+          "rm -rf ~": "deny",
+          "dd *": "deny",
+          "mkfs *": "deny",
+          "fdisk *": "deny"
         }
       }
     }
   },
   "plugin": [
     "opencode-snippets",
-    "@cortexkit/opencode-magic-context",
+    "@cortexkit/opencode-magic-context@latest",
     "@cortexkit/aft-opencode@latest",
-    ["@plannotator/opencode@latest", {
-      "workflow": "plan-agent",
-      "planningAgents": ["plan", "planner"]
-    }]
+    [
+      "@plannotator/opencode@latest",
+      {
+        "workflow": "plan-agent",
+        "planningAgents": [
+          "plan",
+          "planner"
+        ]
+      }
+    ]
   ],
-  "compaction": { "auto": false, "prune": false }
+  "compaction": {
+    "auto": false,
+    "prune": false
+  }
 }

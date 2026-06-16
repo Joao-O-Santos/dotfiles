@@ -14,10 +14,4 @@ export LITERATURE_REVIEWER_MODEL="opencode-go/deepseek-v4-pro"
 export DEEP_RESEARCH_MODEL="opencode-go/glm-5.1"
 export AUTOMATION_MODEL="opencode-go/minimax-m3"
 export R_ANALYSIS_MODEL="opencode-go/qwen3.7-plus"
-
-# Magic Context models
-export HISTORIAN_MODEL="opencode-go/deepseek-v4-pro"
-export DREAMER_MODEL="opencode-go/deepseek-v4-pro"
-export SIDEKICK_MODEL="opencode-go/deepseek-v4-flash"
-
 # Temperatures are set directly in opencode.json for each agent.
