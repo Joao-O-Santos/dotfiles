@@ -15,6 +15,8 @@ format, and guardrails.
 
 #lit-index
 
+#lit-recommend
+
 ## Scope
 
 Use this agent for:

@@ -2,6 +2,27 @@
 
 All notable changes to the OpenCode configuration will be documented in this file.
 
+## [2026-06-16] — v7.1.0: Lit-recommend skill (LLM-curated paper recommendations)
+
+### Added
+- `lit-recommend` skill: instructs agents (literature-reviewer, deep-research) to:
+  1. Analyze existing directory content (index, notes, top authors)
+  2. Search OpenAlex by author, topic, and citation graph
+  3. **Judge relevance semantically** — read each candidate's title/abstract
+  4. Output curated recommendations to `_recommendations.md`
+- `lit-recommend` command: user-invocable paper recommendation workflow
+- `literature-reviewer` agent now loads `#lit-recommend` snippet
+
+### Changed
+- Recommendation quality: replaces keyword-matching `_recommend.py` approach
+  with LLM-in-the-loop curation (eliminates off-target suggestions like
+  ChatGPT papers in crisis/ directories)
+
+### Design Rationale
+Python scripts cannot judge semantic relevance. An LLM agent can read a
+candidate's title and abstract and decide: "Does this belong in `discrim`,
+or is it a CS paper that happened to match the keyword 'bias'?"
+
 ## [2026-06-16] — v7.0.0: Literature library indexer, agent-editable DB, recommendation system
 
 ### Added
