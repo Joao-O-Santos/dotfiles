@@ -6,6 +6,19 @@ This project follows [Semantic Versioning](https://semver.org/).
 For detailed OpenCode Manuscript Workflow changes, see `opencode/CHANGELOG.md`.
 
 
+## [v6.12.1] — 2026-06-16
+
+**Lit indexer v3: PyMuPDF, pdfgrep, line-wrap repair, and DOI improvements.**
+
+### Literature Library
+- DOI extraction uses 3-strategy pipeline: PyMuPDF link annotations, pdfgrep PCRE, pdftotext with line-wrap repair
+- Asset DOI filter strips .g001/.t001/.s001/.e001/.supp suffixes
+- DOI coverage: 915/1529 (59.8%)
+- `_recommend.py`: script to query OpenAlex for candidate papers
+- Test suite expanded to 41 tests
+- See `opencode/CHANGELOG.md` for full details.
+
+
 ## [v6.12.0] — 2026-06-16
 
 **Agent capabilities documentation, Plannotator handling, DOI extraction, script helpers.**
@@ -38,6 +51,37 @@ For detailed OpenCode Manuscript Workflow changes, see `opencode/CHANGELOG.md`.
 - `~/lit/_index.md` + per-directory `_index.md` — human-readable indexes
 - Hand-written `.md` notes preserved
 - `literature-reviewer` and `deep-research` agents now know about the local index via `lit-index` snippet
+
+
+## [v6.10.1] — 2026-06-16
+
+**Hardcode magic-context models after env var support dropped in v0.24.1.**
+
+### OpenCode
+- Models moved from `set_models.sh` back to `magic-context.jsonc` as literals
+- `{env:HISTORIAN_MODEL}` → hardcoded model name
+- Folded in cosmetic formatting changes from magic-context doctor and AFT plugin
+- See `opencode/CHANGELOG.md` for full details.
+
+
+## [v6.10.0] — 2026-06-16
+
+**AFT plugin and temperature tweaks.**
+
+### OpenCode
+- Added `@cortexkit/aft-opencode@latest` plugin with `aft.json` configuration
+- Updated `tui.json` to reference AFT plugin
+- Fixup commit folded into original via interactive rebase
+- See `opencode/CHANGELOG.md` for full details.
+
+
+## [v6.9.1] — 2026-06-13
+
+**Add missing CHANGELOG entries for v6.7.0 through v6.9.0.**
+
+### Shell / Tools
+- Updated `.config/CHANGELOG.md` with entries for recent shell script refactoring
+- See `opencode/CHANGELOG.md` for full details.
 
 
 ## [v6.9.0] — 2026-06-13
