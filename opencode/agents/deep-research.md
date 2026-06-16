@@ -15,6 +15,10 @@ and guardrails.
 
 #lit-index
 
+#lit-alert
+
+#lit-heal
+
 ## Scope
 
 Use this agent for:

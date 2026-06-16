@@ -17,6 +17,8 @@ format, and guardrails.
 
 #lit-alert
 
+#lit-heal
+
 ## Scope
 
 Use this agent for:
