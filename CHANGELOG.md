@@ -6,61 +6,29 @@ This project follows [Semantic Versioning](https://semver.org/).
 For detailed OpenCode Manuscript Workflow changes, see `opencode/CHANGELOG.md`.
 
 
-## [v6.12.1] — 2026-06-16
+## [v7.0.0] — 2026-06-16
 
-**Lit indexer v3: PyMuPDF, pdfgrep, line-wrap repair, and DOI improvements.**
+**Literature library indexer, agent-editable DB, recommendation system.**
 
-### Literature Library
-- DOI extraction uses 3-strategy pipeline: PyMuPDF link annotations, pdfgrep PCRE, pdftotext with line-wrap repair
-- Asset DOI filter strips .g001/.t001/.s001/.e001/.supp suffixes
-- DOI coverage: 915/1529 (59.8%)
-- `_recommend.py`: script to query OpenAlex for candidate papers
-- Test suite expanded to 41 tests
-- See `opencode/CHANGELOG.md` for full details.
-
-
-## [v6.12.0] — 2026-06-16
-
-**Agent capabilities documentation, Plannotator handling, DOI extraction, script helpers.**
-
-### OpenCode
-- `AGENTS.md` now includes Agent Capabilities (edit/bash/commit/push permissions) and Delegation Guide (which agent for which task)
-- Planner now correctly handles Plannotator feedback: approved-with-annotations → revise first; clean approval → delegate, never self-execute
-- Two new command files: `lit-search` and `lit-index` for agent-guided literature operations
-- `lit-index` snippet expanded with DOI search and full metadata queries
-- See `opencode/CHANGELOG.md` for full details
+### Literature Library (~/lit)
+- SQLite + FTS5 index of 1,529 papers across 22 topic directories (v0.1.0 → v0.3.0)
+- 3-strategy DOI extraction: PyMuPDF link annotations, pdfgrep PCRE, pdftotext with line-wrap repair
+- Asset DOI filter (.g001/.t001/.s001/.e001/.supp), 915/1529 papers with DOIs (59.8%)
+- `_recommend.py`: OpenAlex API queries for candidate papers, supports `OPENALEX_API_KEY` + `OPENALEX_EMAIL` for polite pool
+- Locked column: `--update` preserves manually-corrected records via `locked` flag
+- 41 unit tests for the indexer
+- `.gitignore` updated for build artifacts (`__pycache__/`, `*.db-shm`, `*.db-wal`)
 
 ### Shell
-- `litindex.sh` and `litsearch.sh` added to `scripts/` for quick literature index operations
-- Shellrc updated with aliases for both scripts
+- `litindex.sh`, `litsearch.sh`, `litfix.sh` + aliases in shellrc
+- `litfix.sh` lets agents fix individual metadata fields (title, year, DOI, author)
 
-### Literature Library
-- `_index.py` now extracts DOIs from PDFs; `doi` column added to database schema
-- `_index.db` and `_index.md` files now git-tracked in `~/lit` for cross-machine sync
-- Test suite `~/lit/test_index.py` for the indexer
-- `_index_errors.log` added to `~/lit/.gitignore`
-
-
-## [v6.11.0] — 2026-06-16
-
-**Literature library indexer.**
-
-### Shell / Tools
-- `~/lit/_index.py` — Python indexer (stdlib only) for the 1,529-PDF local literature library
-- `~/lit/_index.db` — SQLite database with FTS5 full-text search
-- `~/lit/_index.md` + per-directory `_index.md` — human-readable indexes
-- Hand-written `.md` notes preserved
-- `literature-reviewer` and `deep-research` agents now know about the local index via `lit-index` snippet
-
-
-## [v6.10.1] — 2026-06-16
-
-**Hardcode magic-context models after env var support dropped in v0.24.1.**
-
-### OpenCode
-- Models moved from `set_models.sh` back to `magic-context.jsonc` as literals
-- `{env:HISTORIAN_MODEL}` → hardcoded model name
-- Folded in cosmetic formatting changes from magic-context doctor and AFT plugin
+### OpenCode Config
+- `AGENTS.md`: Agent Capabilities section (edit/bash/commit/push per-agent) and Delegation Guide
+- Planner now correctly handles Plannotator feedback: delegates, not self-executes
+- Two new commands: `lit-search.md` and `lit-index.md`
+- `lit-index` snippet: SQLite queries, DOI search, re-indexing docs
+- Missing CHANGELOG entries filled (v6.10.1, v6.10.0, v6.9.1)
 - See `opencode/CHANGELOG.md` for full details.
 
 
@@ -72,15 +40,6 @@ For detailed OpenCode Manuscript Workflow changes, see `opencode/CHANGELOG.md`.
 - Added `@cortexkit/aft-opencode@latest` plugin with `aft.json` configuration
 - Updated `tui.json` to reference AFT plugin
 - Fixup commit folded into original via interactive rebase
-- See `opencode/CHANGELOG.md` for full details.
-
-
-## [v6.9.1] — 2026-06-13
-
-**Add missing CHANGELOG entries for v6.7.0 through v6.9.0.**
-
-### Shell / Tools
-- Updated `.config/CHANGELOG.md` with entries for recent shell script refactoring
 - See `opencode/CHANGELOG.md` for full details.
 
 

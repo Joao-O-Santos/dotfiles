@@ -2,51 +2,26 @@
 
 All notable changes to the OpenCode configuration will be documented in this file.
 
-## [2026-06-16] — Agent-editable DB, recommendation script, changelog fixes
+## [2026-06-16] — v7.0.0: Literature library indexer, agent-editable DB, recommendation system
 
 ### Added
-- `_index.py --update` now skips locked (manually-edited) records via `locked` column
-- `litfix.sh` + `litfix` alias: agent command to fix individual metadata fields in the DB
-- `_recommend.py`: queries OpenAlex for candidate papers, outputs `_recommendations.md`
-- `_recommendations.md`: generated report with OA/paywalled papers split by directory
+- `~/lit/_index.py`: PDF indexer (stdlib only) with 3-strategy DOI extraction (PyMuPDF, pdfgrep, pdftotext)
+- `~/lit/_index.db`: SQLite database with FTS5 full-text search, `locked` column for manual corrections
+- `~/lit/_index.md` + per-directory `_index.md`: human-readable paper indexes
+- `~/lit/test_index.py`: 41-unit test suite for the indexer
+- `~/lit/_recommend.py`: OpenAlex API queries for candidate papers, supports polite pool
+- `~/lit/_recommendations.md`: generated report with OA/paywalled split
+- `litindex.sh`, `litsearch.sh`, `litfix.sh`: shell wrappers + aliases
+- `lit-search.md` + `lit-index.md`: agent command guides
+- `AGENTS.md`: Agent Capabilities section and Delegation Guide
+- `plannotator-awareness` snippet: Plannotator feedback processing rules (approve-with-annotations → revise first; clean → delegate)
 
 ### Changed
+- `_index.py --update` now skips locked (manually-corrected) records
+- Planner: "Proceed with implementation" now correctly triggers delegation, not self-execution
+- `lit-index` snippet: expanded with DOI, metadata, and re-indexing queries
 - `~/lit/.gitignore`: added `__pycache__/`, `*.db-shm`, `*.db-wal`
-- All missing CHANGELOG entries added (v6.12.1, v6.10.1, v6.10.0, v6.9.1 in .config; v0.2.0 in lit)
-
-## [2026-06-16] — Agent capabilities, Plannotator handling, and DOI extraction
-
-### Added
-- `AGENTS.md` now includes Agent Capabilities section (edit/bash/commit/push permissions summary) and Delegation Guide (which agent for which task type)
-- New `commands/lit-search.md` — agent guide for searching the local literature library
-- New `commands/lit-index.md` — agent guide for re-indexing the literature library
-- `lit-index` snippet expanded: DOI search query and full metadata retrieval
-
-### Changed
-- `plannotator-awareness` snippet: added explicit Plannotator feedback processing rules (approved with annotations → revise first; clean approval → delegate, not self-implement)
-- `planner.md`: reinforced delegation rule for plan approval — "Proceed with implementation" means launch agents, not execute yourself
-- `_index.py` now extracts DOIs from PDFs (`10.xxxx/...` pattern); `doi` column added to DB schema
-
-### Fixed
-- Planner no longer confused by Plannotator's default "Proceed with implementation" prompt — now correctly delegates instead of attempting self-execution
-
-## [2026-06-16] — Literature library indexer
-
-New indexing system for `~/lit` (~1,529 PDFs across 22 topics):
-
-- **`~/lit/_index.py`** — Python script (stdlib only) that scans all PDFs, extracts title/year/author/abstract via `pdftotext -l 1`
-- **`~/lit/_index.db`** — SQLite database with FTS5 full-text search
-- **`~/lit/_index.md`** — top-level index with quick-reference table
-- **`~/lit/<topic>/_index.md`** — per-directory paper tables
-- Existing hand-written `.md` notes preserved unchanged
-
-### Added
-- New snippet `lit-index` documents the local index, SQLite queries, and limitations
-- `literature-reviewer` and `deep-research` agents now know about the local index
-
-### Limitations
-- Year extraction ~75% accurate (filename year is more reliable)
-- Abstract extraction ~30% accurate (some journals bury abstracts mid-page)
+- All CHANGELOG gaps filled across both repos
 
 ## [2026-06-13] — Config audit fixes, shell script refactoring, and DRY improvements
 
