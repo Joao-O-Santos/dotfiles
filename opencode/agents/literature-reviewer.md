@@ -15,7 +15,7 @@ format, and guardrails.
 
 #lit-index
 
-#lit-recommend
+#lit-alert
 
 ## Scope
 
