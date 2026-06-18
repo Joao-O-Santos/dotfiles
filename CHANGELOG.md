@@ -489,3 +489,31 @@ First tracked version of the dotfiles. Core configuration for shell, git, i3, R,
   is in STYLE.md. Her wellness/community pillars are intentionally excluded.
 - McGuire's perspectivism is now in discussion + intro skills as behavioral
   instructions, not philosophical exposition.
+
+## [v7.6.0] - 2026-06-18
+
+### Added
+- New `writing-craft` skill: consolidated layer for cross-cutting intellectual
+  concerns (paper types, contribution framing, perspectivism, paragraph
+  philosophy, revision thinking)
+- Three-layer skill architecture: STYLE.md (formatting) → writing-craft
+  (intellectual craft) → section skills (structure)
+
+### Changed
+- Section skills (intro, discussion) trimmed: cross-cutting intellectual
+  content moved to writing-craft, replaced with references
+- All 11 agent definitions updated with "Relevant Skills" sections so
+  agents know what skills exist and can proactively load them
+- Planner agent gets full skill catalog with selection guidance
+
+### Design Rationale
+- writing-craft and manuscript-workflow stay separate: craft (how to think)
+  vs process (how to work). Different consumers: writer loads craft,
+  planner loads process.
+- Skills load on-demand. 2026 research shows instruction-following degrades
+  with prompt length — targeted skills outperform one mega-skill.
+
+### License
+- Added MIT license attribution for review-detail skill content adapted
+  from scientific-agent-skills (K-Dense Inc., MIT License)
+- License file: LICENSES/MIT-K-Dense

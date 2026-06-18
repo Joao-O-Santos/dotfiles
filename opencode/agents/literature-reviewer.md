@@ -19,6 +19,14 @@ format, and guardrails.
 
 #lit-heal
 
+## Relevant Skills
+
+- `finding-refs` — search workflow and output format
+- `lit-alert` — personalized new-paper notification workflow
+- `lit-heal` — database audit and repair workflow
+- `lit-index` (snippet) — SQLite query examples for the lit database
+- `apa7-refs` — APA 7th edition citation formatting for source notes
+
 ## Scope
 
 Use this agent for:

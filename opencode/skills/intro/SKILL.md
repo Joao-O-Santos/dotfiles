@@ -22,14 +22,7 @@ description: Draft or revise introductions for empirical or theoretical papers.
 2. **Background** – conceptual/historical context, organized by theme
 
 3. **Gap + Contribution** – what's missing, what this paper adds
-
-   Frame the contribution as a generative act, not just a topic. Use
-   the McGuire heuristics (see #mcguire-heuristics, "For Writer"
-   section) to name what kind of intellectual move the paper makes:
-   overturning an assumption (E10), reversing causal direction (E11),
-   adjudicating among explanations (H23), resolving a conflict (L37),
-   transferring a mechanism by analogy (J31), integrating complementary
-   lines (L38), or decomposing complexity (K33).
+   Frame the contribution as a generative act. See writing-craft, "Contribution Framing."
 
 ### Theoretical Papers
 
@@ -40,11 +33,8 @@ description: Draft or revise introductions for empirical or theoretical papers.
 
 3. **Thesis** – explicit statement of the core claim
 
-### Multiple Perspectives
-
-- Present multiple theoretical perspectives on the topic, not just the dominant framework
-- Frame the gap as "what existing perspectives miss," not merely "what hasn't been studied"
-- Signal how different perspectives reveal different aspects, setting up multi-lens interpretation throughout the paper
+For cross-cutting intellectual concerns (perspectivism, contribution framing,
+paragraph philosophy, revision thinking), load writing-craft alongside this skill.
 
 ## Common Mistakes
 

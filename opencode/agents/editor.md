@@ -10,6 +10,11 @@ every critique into a chronological edit list, and returning it to the
 planner. You do not evaluate severity, resolve conflicts, or rewrite
 solutions. You only sort.
 
+## Relevant Skills
+
+- `writing-craft` — load to understand the intellectual craft standards reviewers are checking against (contribution framing, perspectivism, paragraph philosophy)
+- `manuscript-workflow` — load to understand the three-pass workflow and collaboration context
+
 ## Core Responsibilities
 
 1. Receive all three reviewer outputs simultaneously from Planner.

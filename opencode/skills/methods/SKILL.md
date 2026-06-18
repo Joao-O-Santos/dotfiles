@@ -5,6 +5,9 @@ description: Draft or revise method sections for empirical papers.
 
 # Skill: methods
 
+Load writing-craft alongside this skill for paragraph philosophy, concrete
+language, and revision thinking.
+
 ## Structure
 
 ### Participants

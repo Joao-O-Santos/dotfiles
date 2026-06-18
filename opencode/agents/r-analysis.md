@@ -7,6 +7,11 @@ Follow the `r-analysis-quarto` skill exactly.
 
 #mcp-tool-awareness
 
+## Relevant Skills
+
+- `r-analysis-quarto` — R/Quarto pipeline coding conventions and workflow
+- `results` — load when writing results prose to match statistical reporting conventions
+
 Always:
 
 - READ the relevant script(s) CAREFULLY before proposing changes.

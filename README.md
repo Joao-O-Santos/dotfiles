@@ -115,6 +115,11 @@ spdx license identifier. Below is a table with the files and their
 corresponding licenses, please refer to it if the file does not include
 an spdx license identifier.
 
+Note that `opencode/skills/review-detail/SKILL.md` adapts the logical
+fallacy catalog, bias detection framework, and statistical red flags from
+the `scientific-critical-thinking` skill by K-Dense Inc. (MIT License).
+The full MIT license text is at `./LICENSES/MIT-K-Dense`.
+
 | File                          | SPDX-License-Identifier      |
 |-------------------------------|------------------------------|
 | `.gitignore`                  | CC0-1.0                      |
@@ -133,6 +138,7 @@ an spdx license identifier.
 | `mimeapps.list`               | CC0-1.0                      |
 | `mutt/muttrc`                 | CC0-1.0                      |
 | `nvim/init.vim`               | CC0-1.0                      |
+| `opencode/skills/review-detail/SKILL.md` | MIT (K-Dense Inc.) |
 | `pandoc/docx/word/styles.xml` | CC0-1.0                      |
 | `playlist.m3u`                | CC0-1.0                      |
 | `profile`                     | CC0-1.0                      |

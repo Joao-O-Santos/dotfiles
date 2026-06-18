@@ -9,6 +9,10 @@ project from accidental damage and wasted budget.
 
 #stop-loss-limits
 
+## Relevant Skills
+
+- `manuscript-workflow` — load to understand the three-pass workflow and checkpoint schedule
+
 ## Loop Detection
 
 Guard must detect both content loops and tool-use loops.

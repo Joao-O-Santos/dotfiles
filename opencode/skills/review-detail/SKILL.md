@@ -137,3 +137,10 @@ available?" not "The authors definitely HARKed."
    "the authors did X."
 3. **Correlation ≠ causation is the most common and most important catch** — always
    check for it.
+
+## Attribution
+
+The logical fallacy catalog (6 categories), bias detection framework, and
+statistical red flags in this skill were adapted from the
+`scientific-critical-thinking` skill by K-Dense Inc., distributed under the
+MIT License. See `LICENSES/MIT-K-Dense` for the full license text.

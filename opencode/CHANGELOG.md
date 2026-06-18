@@ -391,3 +391,53 @@ Multi-agent system for academic manuscript writing first established. Initial ar
 - McGuire: perspectivism NOW integrated (was missing — corrected)
 - Generic knowledge (fallacy definitions, prose best practices) condensed
   to make room for workflow-specific instruction
+
+## [v7.6.0] - 2026-06-18
+
+### New Skill: writing-craft
+
+Three-layer architecture implemented:
+- STYLE.md = how to format and sound
+- writing-craft = how to think about the paper intellectually
+- section skills = how to structure each specific section
+
+writing-craft covers:
+- Paper types (empirical, theoretical, meta-research)
+- Contribution framing (7 McGuire generative moves)
+- Perspectivism (5 guidelines from McGuire's epistemology)
+- Paragraph philosophy (hamburger, old-to-new, end-weight, imageability)
+- Revision philosophy (nurture-before-prune, structure-before-sentences,
+  reverse outlining)
+
+### Section Skills Trimmed
+
+- intro: removed McGuire contribution framing + multi-perspective sections
+  (now in writing-craft), replaced with references
+- discussion: removed perspectivism + follow-up heuristics sections
+  (now in writing-craft), replaced with references
+- methods: added writing-craft reference, kept section-specific content
+
+### Agent Skill Awareness
+
+All 11 agent definitions updated with "Relevant Skills" sections:
+- writer: 11 writing skills
+- reviewer-structure: 3 skills
+- reviewer-detail: 3 skills (incl. mcguire-heuristics snippet)
+- copyeditor: 2 skills
+- editor: 2 skills
+- literature-reviewer: 5 skills
+- deep-research: 5 skills
+- r-analysis: 2 skills
+- guard: 1 skill (manuscript-workflow)
+- planner: full skill catalog with selection guidance
+- automation: 2 skills (incl. lit-index snippet)
+
+Agents can now proactively load relevant skills instead of waiting
+for the planner to specify them in a WIP.
+
+### License Attribution
+
+- review-detail skill: fallacy catalog, bias detection, and statistical
+  red flags adapted from scientific-critical-thinking skill by K-Dense Inc.
+  (MIT License). License text copied to LICENSES/MIT-K-Dense.
+- README.md license table updated.

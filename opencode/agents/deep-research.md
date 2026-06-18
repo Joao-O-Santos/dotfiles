@@ -19,6 +19,14 @@ and guardrails.
 
 #lit-heal
 
+## Relevant Skills
+
+- `deep-research` — search strategy, output format, sources discipline
+- `finding-refs` — fast citation retrieval for specific claims
+- `lit-heal` — database audit and repair (load when healing is needed)
+- `lit-index` (snippet) — SQLite query examples for the lit database
+- `lit-alert` — new-paper notification (load when alert is requested)
+
 ## Scope
 
 Use this agent for:
