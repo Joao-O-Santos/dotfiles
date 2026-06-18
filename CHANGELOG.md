@@ -517,3 +517,26 @@ First tracked version of the dotfiles. Core configuration for shell, git, i3, R,
 - Added MIT license attribution for review-detail skill content adapted
   from scientific-agent-skills (K-Dense Inc., MIT License)
 - License file: LICENSES/MIT-K-Dense
+
+## [v7.7.0] - 2026-06-18
+
+### Removed
+- firefox/ directory (replaced by zen browser in v3.1.0)
+- i3 firefox bindings (kept zen binding)
+- TASKRC and TASKDATA exports from shellrc (task/ directory no longer exists)
+- Stale README entries for bugwarrior, taskwarrior, firefox
+
+### Added
+- opencode/COPYING.md: central attribution file (keeps author names out
+  of skill files to avoid polluting LLM context)
+- LICENSES/MIT-K-Dense: MIT license for adapted review-detail content
+
+### Changed
+- review-detail/SKILL.md: inline attribution moved to COPYING.md
+- README.md: stale entries removed, wallpapers restored, version updated
+- writing-craft/SKILL.md: trimmed (paragraph/revision philosophy moved
+  to pointer referencing STYLE.md — was duplicating content)
+
+### Fixed
+- Deleted duplicate home PDFs (Hartgerink, Voelkle — identical to lit copies)
+- Meehl1990 and Voelkle_etal2007 DB metadata corrected (see lit v1.2.1)

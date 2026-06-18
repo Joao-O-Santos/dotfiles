@@ -441,3 +441,22 @@ for the planner to specify them in a WIP.
   red flags adapted from scientific-critical-thinking skill by K-Dense Inc.
   (MIT License). License text copied to LICENSES/MIT-K-Dense.
 - README.md license table updated.
+
+## [v7.7.0] - 2026-06-18
+
+### Added
+- COPYING.md: central attribution file for adapted content
+  - review-detail fallacy catalog/bias detection: K-Dense Inc. (MIT)
+  - editor blind spot detection: inspired by consciousness-council
+  - deep-research/lit-reviewer sources discipline: inspired by research-lookup
+
+### Removed
+- Inline attribution from review-detail/SKILL.md (moved to COPYING.md
+  to avoid polluting LLM context with author names)
+
+### Changed
+- writing-craft/SKILL.md: trimmed from 120 to 75 lines
+  - Removed Paragraph Philosophy and Revision Philosophy sections
+    (were duplicating STYLE.md content)
+  - Replaced with 7-line pointer to STYLE.md and manuscript-workflow
+  - Updated frontmatter description to match trimmed scope
