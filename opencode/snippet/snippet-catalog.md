@@ -12,10 +12,6 @@ Available snippets (use `#snippet-name` in WIPs and agent instructions):
 | `reviewer-output-rules` | Reviewer output format requirements | reviewers |
 | `reviewer-role-constraint` | Role boundary enforcement for reviewers | reviewers |
 | `research-guardrails` | Research agent safety rules | research skills |
-| `our-approach` | "Our approach" paragraph template | skills |
-| `read-for-context` | Pre-session file loading instructions | skills |
-| `hamburger-paragraph` | Paragraph structure template | skills |
-| `topic-sentence-outline` | Topic sentence planning | skills |
 | `results-reporting` | Results reporting conventions | skills |
 | `method-procedure` | Method procedure example | skills |
 | `method-participants` | Method participants example | skills |
@@ -34,3 +30,5 @@ Available snippets (use `#snippet-name` in WIPs and agent instructions):
 | `read-style` | STYLE.md reference | writer, r-analysis |
 | `mcp-tool-awareness` | MCP tool catalog | planner, reviewer-detail, automation, r-analysis |
 | `plannotator-awareness` | Plannotator plan review tool | planner |
+| `lit-index` | Local literature index queries (SQLite + FTS5) | lit-reviewer, deep-research |
+| `mcguire-heuristics` | McGuire hypothesis-generation heuristics | review-detail, discussion, writing-craft |

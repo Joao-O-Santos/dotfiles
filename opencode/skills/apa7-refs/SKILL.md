@@ -10,14 +10,23 @@ license: MIT
 
 ## Reference List: General Rules
 
-1. **Hanging indent**: All references use a hanging indent (first line flush left, subsequent lines indented 0.5"). In markdown, use `<p style="text-indent: -0.5in; padding-left: 0.5in;">` or rely on the conversion tool to apply it.
+1. **Hanging indent**: All references use a hanging indent (first line flush left, subsequent lines indented 0.5"). In (pandoc) markdown, use the custom style "References" after the References section header:
+```
+# References
+
+::: {.custom-style="References"}
+
+[...references go here...]
+
+:::
+```
 2. **Alphabetical order**: Sort by first author's last name, then initials. Use letter-by-letter for names without dates. Multiple works by the same author: order by year (earliest first).
 3. **Italicization**: Only italicize titles of standalone works (books, journals, websites). Do NOT italicize article titles, chapter titles, or DOIs.
 4. **Sentence case for article titles**: Capitalize only the first word, proper nouns, and words after colons. Journal names use title case and are always italicized.
 5. **Author name format**: Last name, Initials with periods. Use comma between last name and initials. Separate multiple authors with commas (not &).
 6. **Year**: Place immediately after last author name in parentheses.
 7. **DOI format**: Always use `https://doi.org/...` — never "Retrieved from" URLs for DOIs. No period after DOI.
-8. **URL format**: Only for works without a DOI. Include "Retrieved from" before the URL. Do not include access dates unless the source is a wiki or archival document with no publication date.
+8. **URL format**: Only for works without a DOI. Do not include access dates unless the source is a wiki or archival document with no publication date.
 
 ## Reference Types
 

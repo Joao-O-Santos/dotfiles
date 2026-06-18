@@ -1,5 +1,3 @@
-# Style Core Conventions
-
 This snippet contains the core writing conventions that should be referenced by all skills.
 
 ## Voice and Tone

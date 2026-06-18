@@ -42,6 +42,4 @@ For perspectivism and follow-up heuristics, load writing-craft alongside this sk
 3. Add limitations and future work
 4. Craft punchy conclusion
 
-## Note on Examples
-
 #examples-disclaimer

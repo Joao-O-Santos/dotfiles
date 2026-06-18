@@ -540,3 +540,37 @@ First tracked version of the dotfiles. Core configuration for shell, git, i3, R,
 ### Fixed
 - Deleted duplicate home PDFs (Hartgerink, Voelkle — identical to lit copies)
 - Meehl1990 and Voelkle_etal2007 DB metadata corrected (see lit v1.2.1)
+
+## [v7.7.1] - 2026-06-18
+
+### Fixed
+- methods/SKILL.md: power analysis section trimmed from 82 to 25 lines
+  (was recapping user's paper in non-actionable prose; now actionable
+  bullets for drafting methods sections)
+- Snippet heading nesting: removed h1 headers from examples-disclaimer,
+  reviewer-output-rules, and style-core snippets (were breaking document
+  structure when expanded inline in skill files)
+- mcguire-heuristics: removed # prefix from inline references in
+  review-detail and writing-craft (was causing 118-line expansion
+  mid-sentence)
+- Snippet catalog: removed 4 deleted entries (our-approach,
+  read-for-context, hamburger-paragraph, topic-sentence-outline),
+  added 2 missing entries (lit-index, mcguire-heuristics)
+
+## [v7.7.2] - 2026-06-18
+
+### Fixed
+- methods/SKILL.md: removed detailed power analysis philosophy (was
+  recapping user's unpublished paper in non-actionable prose). Replaced
+  with 4-line reminder to include power/sample-size justification.
+  Power philosophy belongs in reply-to-reviewers skill, not methods
+  drafting.
+- review-detail/SKILL.md: added 2 neutral power checks to Statistical
+  Red Flags ("no power analysis provided", "arbitrary effect-size
+  benchmarks without justification"). Reviewer checks for presence and
+  adequacy without imposing a specific philosophy.
+- STYLE.md 5.1: strengthened passive voice guidance. Now explicitly
+  names the anti-passive dogma as misguided, cites Pullman (2014), and
+  instructs the model to resist reflexive passive-flagging. LLMs are
+  trained on anti-passive writing advice; a single bullet saying
+  "passive is allowed" was insufficient to overcome that default.

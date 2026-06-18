@@ -36,6 +36,4 @@ description: Draft or revise the literature review section of a manuscript.
 2. If revising: reverse-outline to check theme coherence
 3. Ensure every theme connects to your paper's contribution
 
-## Note on Examples
-
 #examples-disclaimer

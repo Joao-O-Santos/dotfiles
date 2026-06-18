@@ -460,3 +460,40 @@ for the planner to specify them in a WIP.
     (were duplicating STYLE.md content)
   - Replaced with 7-line pointer to STYLE.md and manuscript-workflow
   - Updated frontmatter description to match trimmed scope
+
+## [v7.7.1] - 2026-06-18
+
+### Fixed
+- methods skill power analysis: 82 → 25 lines, actionable only
+  - Dropped "broader judgment" section (rebuttal arguments belong in
+    reply-to-reviewers, not methods drafting)
+  - Condensed prose to bullets
+  - Shortened Remember items to single lines
+- Snippet heading nesting:
+  - examples-disclaimer.md: removed h1 (was nesting under h2 in skills)
+  - reviewer-output-rules.md: removed h1, demoted h2→h3 subsections
+  - style-core.md: removed h1 (h2s become direct skill subsections)
+- mcguire-heuristics references: removed # prefix in review-detail and
+  writing-craft (was expanding 118 lines mid-sentence)
+- Snippet catalog sync: removed 4 deleted, added 2 missing
+
+## [v7.7.2] - 2026-06-18
+
+### Rationale
+
+The power analysis section was recapping the user's unpublished
+manuscript in non-actionable prose. It made the reviewer adopt the
+user's specific power philosophy rather than checking whether power
+was adequately addressed. The passive voice guidance was too quiet
+to overcome the anti-passive bias in LLM training data.
+
+### Fixed
+- methods skill: power philosophy removed (39 lines → 4-line reminder).
+  The writer should write standard adequate power analysis, not adopt
+  the user's personal stance on T-shirt effect sizes and N-hacking.
+- review-detail skill: 2 neutral power checks added to Statistical
+  Red Flags. Checks for presence and adequacy, not specific philosophy.
+- STYLE.md 5.1: passive voice section rewritten. Explicitly cites
+  Pullman (2014), names the anti-passive crusade as misguided, and
+  instructs resistance to reflexive passive-flagging. Five concrete
+  rules replacing the previous three quiet bullet points.

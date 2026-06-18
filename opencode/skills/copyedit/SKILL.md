@@ -75,10 +75,6 @@ with THIS project's standards:
 - **Problem** (10-25 words): [description]
 - **Solution**: [proposed fix]
 
-## Rules
-
 #reviewer-output-rules
-
-## Note on Examples
 
 #examples-disclaimer

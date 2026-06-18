@@ -33,7 +33,7 @@ Load alongside any section skill (intro, methods, results, discussion, lit-revie
 
 ## Contribution Framing
 
-See `#mcguire-heuristics`, "For Writer" section for the full list.
+See `mcguire-heuristics`, "For Writer" section for the full list.
 
 Frame the contribution as a generative act, not just a topic.
 Name what kind of intellectual move the paper makes:

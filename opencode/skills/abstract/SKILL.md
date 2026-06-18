@@ -40,6 +40,4 @@ description: Draft or revise abstracts for empirical or theoretical papers.
 3. Tighten to word limit without losing specifics
 4. Check: can a reader fully understand the study from this alone?
 
-## Note on Examples
-
 #examples-disclaimer

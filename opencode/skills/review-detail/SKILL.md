@@ -31,7 +31,7 @@ correlation-masquerading-as-causation.
 
 A core function of peer review is surfacing competing explanations
 the authors may not have considered or rebutted. Use the McGuire
-heuristics (see #mcguire-heuristics) to systematically generate
+heuristics (see mcguire-heuristics) to systematically generate
 alternative accounts:
 
 - Has the contrary been considered? (E10)
@@ -106,6 +106,9 @@ available?" not "The authors definitely HARKed."
 - Non-significance interpreted as "no effect" (absence of evidence ≠ evidence of absence)
 - Statistical significance conflated with practical or clinical importance
 - Suspicious clustering of p-values just below .05
+- No power analysis or sample-size justification provided
+- Power analysis uses arbitrary effect-size benchmarks (Cohen's small/medium/large)
+  without justification from the specific literature
 
 ## Output Format
 
@@ -121,11 +124,7 @@ available?" not "The authors definitely HARKed."
 - **Problem** (10-25 words): [description]
 - **Solution**: [proposed fix]
 
-## Rules
-
 #reviewer-output-rules
-
-## Note on Examples
 
 #examples-disclaimer
 
@@ -137,4 +136,3 @@ available?" not "The authors definitely HARKed."
    "the authors did X."
 3. **Correlation ≠ causation is the most common and most important catch** — always
    check for it.
-

@@ -58,9 +58,29 @@ Short connector or transition paragraphs without a full hamburger structure are 
 
 ### 5.1 Active vs Passive Voice
 
-- **Passive voice is allowed and sometimes preferred.** Use passive when the actor is unknown, irrelevant, obvious, or when the focus should be on the patient rather than the agent.
-- Prefer **active constructions** when participants, experimenters, or software are clear actors, especially in methods and when describing what was done.
-- Avoid long strings of agentless passives that obscure who did what; if multiple actions share the same agent, name it early and then omit only when unambiguous.
+The common advice to "always use active voice" is misguided. Pullman
+(2014) shows that the anti-passive crusade rests on misunderstandings:
+passive voice is not weak, evasive, or unscientific — it is a normal
+English construction that places the patient (the thing acted on) in
+the subject position, which is often exactly where the reader's
+attention should be.
+
+- **Use passive when the focus belongs on the patient, not the agent.**
+  "Participants were debriefed" — the point is that debriefing happened,
+  not who did it. "The data were analyzed using..." — the method matters,
+  not the analyst.
+- **Use passive when the actor is unknown, irrelevant, or obvious.**
+  Methods sections naturally favor passive because the researcher is
+  the implied agent throughout.
+- **Prefer active when a specific actor does something noteworthy.**
+  "We preregistered the hypothesis" is stronger than "The hypothesis was
+  preregistered" because the agency is the point.
+- **Avoid strings of agentless passives that obscure who did what.** If
+  multiple actions share the same agent, name it early, then omit only
+  when unambiguous.
+- **Do not "fix" passive voice reflexively.** Copyediting software that
+  flags every passive sentence is wrong. Judge each case on where the
+  reader's attention should fall.
 
 ### 5.2 Information Flow and Main Verb Placement
 

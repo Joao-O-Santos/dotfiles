@@ -37,7 +37,6 @@ Based on actual academic works, here are effective title transformations:
 | "AI advisor type and advice-taking behavior" | "Would You Like to Update Now? Depends on Who's Asking: Human or AI?"
 | "Studies on discriminatory blame attribution to children" | "Innocent until proven child? Adults expect children to commit more misconducts than adults" |
 | "Review of research on prejudice against children" | "Are we still too young to understand? Three years of investigating prejudice and discrimination against children" |
-| "Philosophy of science approach to replication crisis" | "Sorting Out the Replication Crisis with Philosophy of Science" |
 
 ## Workflow
 
@@ -46,7 +45,5 @@ Based on actual academic works, here are effective title transformations:
 3. Write subtitles that anchor each option to the study
 4. Pick the one with the highest curiosity-to-clarity ratio
 5. Confirm word count fits journal requirements
-
-## Note on Examples
 
 #examples-disclaimer
