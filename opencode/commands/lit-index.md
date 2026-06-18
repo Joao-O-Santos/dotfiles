@@ -40,6 +40,12 @@ python3 ~/lit/_index.py --stats
 - **Abstract** — first 500 chars from "Abstract" section (~30% accurate)
 - **File size** — from filesystem
 
+All index modes (full re-index, `--update`, `--dir`) respect the
+`locked` flag. Records with `locked=1` skip re-extraction entirely —
+their title, doi, abstract, year, and first_author are preserved as-is.
+Only file-location fields (filepath, topic directory, file size) are
+refreshed for locked records.
+
 ## Index Files
 
 - `~/lit/_index.db` — SQLite database with FTS5 full-text search

@@ -106,8 +106,10 @@ sqlite3 ~/lit/_index.db "UPDATE papers SET title='<real title>', locked=1, index
 
 **Escape single quotes** by doubling them (`''`): `SET title='Don''t Show'`.
 
-`locked=1` in the UPDATE locks the record atomically. To unlock a
-mistake:
+`locked=1` in the UPDATE locks the record atomically. This is now even
+more important: all re-index modes respect the `locked` flag, so
+locked records survive future re-index runs with their corrected
+metadata fully preserved. To unlock a mistake:
 
 ```bash
 sqlite3 ~/lit/_index.db "UPDATE papers SET locked=0 WHERE filepath='<full path>';"
@@ -119,6 +121,12 @@ sqlite3 ~/lit/_index.db "UPDATE papers SET locked=0 WHERE filepath='<full path>'
 ```bash
 python3 ~/lit/_index.py
 ```
+
+All re-index modes (full, `--update`, `--dir`) now respect the `locked`
+flag. Records with `locked=1` are skipped during re-extraction — their
+title, doi, abstract, year, and first_author are preserved exactly as
+set by the UPDATE in Phase 4. Only file-location metadata (filepath,
+directory, file size) is refreshed. No manual corrections are lost.
 
 
 ## Audit Queries — Find Bad Entries

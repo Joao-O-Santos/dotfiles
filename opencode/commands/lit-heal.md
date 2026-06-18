@@ -24,8 +24,8 @@ garbage titles, missing DOIs, and wrong years, fixing them via OpenAlex.
    - DOI lookup via OpenAlex (fastest)
    - Re-extracting title from PDF text (fallback)
    - OpenAlex search by author+year (if no DOI)
-4. Applies fixes via `litfix` and locks corrected records
-5. Re-indexes to refresh `_index.md` files
+4. Applies fixes via direct SQL (not litfix) and locks corrected records
+5. Re-indexes to refresh `_index.md` files (locked records preserved in all modes)
 
 ## When to Run
 

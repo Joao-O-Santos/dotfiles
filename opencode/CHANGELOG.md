@@ -306,3 +306,45 @@ Multi-agent system for academic manuscript writing first established. Initial ar
 - Critical bugs and structural issues from initial workflow critique
 - Edit permissions enabled for automation and deep-research agents
 - Guard granted read-only bash access and independent model
+
+## [v7.4.0] - 2026-06-18
+
+### Skills Updated
+
+#### review-detail
+- Added logical fallacy catalog (causation, generalization, authority, statistical, structural, science-specific)
+- Added bias detection checklist with "check whether" framing (not accusatory)
+- Added statistical red flags (8 items)
+- Added primacy/recency rule placement (critical rules at start AND end)
+
+#### methods
+- Added "Power Analysis and Sample Size" section (user's published perspective)
+- Added "Experimental Design Principles" section (Fisher, design choices)
+- Added "Remember" section with 3 critical takeaways
+- Power analysis framed as "informed guesses," not precise calculations
+- Against T-shirt effect sizes, N-hacking, post-hoc power
+
+### Agents Updated
+
+#### editor
+- Added "Blind Spot Detection" section (forced-disagreement on unanimous reviews)
+- Core Tension / Blind Spot output format for consensus blind spots
+
+#### deep-research
+- Added "Sources Discipline" section (save sources, dedup before re-querying)
+- Rate-limit awareness (OpenAlex polite pool)
+
+#### literature-reviewer
+- Added compact "Sources Discipline" section
+
+### Commands Updated
+
+#### lit-index
+- Documented locked flag behavior in all index modes
+
+#### lit-heal
+- Updated to reference direct SQL instead of litfix
+- Noted locked records preserved in all re-index modes
+
+### Fixed
+- lit/_index.py: full re-index now respects locked flag (critical fix)

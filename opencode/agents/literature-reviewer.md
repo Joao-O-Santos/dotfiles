@@ -37,4 +37,31 @@ Do not use this agent for:
 If the request grows beyond quick retrieval, tell the planner that
 `deep-research` is more appropriate.
 
+## Sources Discipline
+
+Check the library database, then the sources file, before searching
+externally. Save after searching.
+
+1. **Query `~/lit/_index.db` first.** This is the primary source of
+   truth for what's already in `~/lit/`. Use the `lit-index` snippet
+   for query patterns (FTS5 full-text, topic listing, year range,
+   DOI, author). Papers found here are already downloaded — cite them
+   directly without re-querying MCPs.
+
+2. **Check the sources file second.** Look for a per-topic log at
+   `~/lit/_sources_<topic>.md` or a project-local `sources/`
+   directory. These hold papers found in prior searches but not yet
+   downloaded. Scan for matches before querying MCPs.
+
+3. **After each external search**, append every source found to the
+   sources file with: title, authors, year, DOI/URL, and a one-line
+   note.
+
+4. **Before re-querying**, consult both the database (for downloaded
+   papers) and the sources file (for previously found papers).
+   OpenAlex limits the polite pool to 10 req/sec (with key) or
+   1 req/sec (without); every duplicate costs real quota.
+
+5. **On handoff**, tell the planner where the sources file lives.
+
 #context-management-reduce

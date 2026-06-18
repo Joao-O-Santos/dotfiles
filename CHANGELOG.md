@@ -440,3 +440,27 @@ First tracked version of the dotfiles. Core configuration for shell, git, i3, R,
 - Pandoc APA styles draft
 - MIME apps and radio playlist
 - LICENSES directory
+
+## [v7.4.0] - 2026-06-18
+
+### Added
+- review-detail skill: logical fallacy catalog (6 categories, 21 fallacies)
+- review-detail skill: bias detection checklist (check-for framing, not accusatory)
+- review-detail skill: statistical red flags
+- methods skill: power analysis guidance (user's own published perspective)
+- methods skill: experimental design principles (Fisher, design choices)
+- editor agent: blind spot detection (forced-disagreement on unanimous reviews)
+- deep-research agent: sources discipline (save/dedup before re-querying)
+- literature-reviewer agent: sources discipline (compact version)
+
+### Fixed
+- lit/_index.py: full re-index now respects locked flag (was overwriting manual edits)
+- lit-index command: documented locked flag behavior
+- lit-heal skill: removed obsolete warning about full re-index clobbering
+- lit-heal command: updated to reference direct SQL instead of litfix
+
+### Changed
+- Skills designed for 2026 Chinese open-weight models (deepseek-v4-pro, glm-5.2, etc.)
+- Skills reference MCP tools without re-documenting them
+- Skills do not include context management (handled by magic-context plugin)
+- Skills do not include code navigation (handled by AFT plugin)
