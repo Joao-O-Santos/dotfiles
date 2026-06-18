@@ -6,6 +6,25 @@ This project follows [Semantic Versioning](https://semver.org/).
 For detailed OpenCode Manuscript Workflow changes, see `opencode/CHANGELOG.md`.
 
 
+## [v7.8.0] - 2026-06-18
+
+### Added
+- reply-to-reviewers skill: 4-step process for drafting response letters
+  (distinguish editor from reviewers, decide on each comment, make
+  changes, write point-by-point response). Includes rebuttal ammunition
+  for power analysis, passive voice, and reviewer overreach scenarios.
+- reply-to-reviewers command routing to writer agent
+- Abstract examples: two annotated talk abstracts added to abstract skill
+  showing gap-first openings, N reporting, null result reporting, and
+  implications beyond "more research needed"
+- Agent skill awareness: writer and planner updated with reply-to-reviewers
+
+### Source
+- Reply-to-reviewers 4-step process adapted from Sarnecka (2024),
+  The Writing Workshop, Chapter 5
+- Abstract examples are the user's own talk abstracts (appe2026, escon2021)
+
+
 ## [v7.3.0] — 2026-06-16
 
 **Comprehensive DB healing, lit-heal skill rewrite, lit-alert skill, directory restructure.**

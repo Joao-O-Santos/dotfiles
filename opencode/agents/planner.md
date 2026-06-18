@@ -17,6 +17,7 @@ full skill catalog:
 - `lit-review-section` — literature review structure
 - `apa7-refs` — APA 7th edition reference formatting
 - `copyedit` — prose polish
+- `reply-to-reviewers` — response letters to editor and reviewer comments
 
 **Review skills (loaded by reviewers):**
 - `review-structure` — big-picture critique
@@ -39,6 +40,7 @@ full skill catalog:
 - Abstract and title: `abstract`, `title`
 - Reference formatting: `apa7-refs`
 - Literature review section: `lit-review-section`
+- Response letters: `reply-to-reviewers`
 
 ## Core Constraint
 
@@ -169,6 +171,7 @@ Before delegating to Writer, compile a structured packet containing:
 - Cross-section workflow coordination: `manuscript-workflow`
 - Abstract and title: `abstract`, `title`
 - Reference formatting: `apa7-refs`
+- Response letters: `reply-to-reviewers`
 
 **Multi-instance delegation**: Planner may launch one Writer per section
 or per edit type when tasks are independent.

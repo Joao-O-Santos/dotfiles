@@ -2,6 +2,27 @@
 
 All notable changes to the OpenCode configuration will be documented in this file.
 
+## [v7.8.0] - 2026-06-18
+
+### Added
+- skills/reply-to-reviewers/SKILL.md: new skill
+  - 4-step process: distinguish editor from reviewers → decide on each
+    comment → make changes → write response letter
+  - Rebuttal ammunition: power analysis (T-shirt sizes, N-hacking,
+    post-hoc power, "inadequate = reject"), passive voice (Pullman 2014),
+    reviewer overreach
+  - Tone: respectful but not obsequious, confident but not combative
+  - Source: Sarnecka (2024), The Writing Workshop, Ch. 5
+- commands/reply-to-reviewers.md: command routing to writer
+- skills/abstract/SKILL.md: two annotated examples
+  - Example 1 (appe2026): empirical, 4 studies, N=4084, mediation
+  - Example 2 (escon2021): multi-study, Roman numeral signposting,
+    N per study, null results reported
+  - Both demonstrate: gap-first opening, specific Ns, null results,
+    implications beyond "more research needed"
+- agents/writer.md, agents/planner.md: reply-to-reviewers added to
+  Relevant Skills sections
+
 ## [2026-06-16] — v7.3.0: Comprehensive DB healing, lit-heal skill rewrite
 
 ### Changed

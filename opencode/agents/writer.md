@@ -31,6 +31,7 @@ available skills and load them when the task warrants:
 - `lit-review-section` — literature review structure (themes, claims)
 - `apa7-refs` — APA 7th edition reference formatting
 - `copyedit` — prose polish, markdown compliance, terminology consistency
+- `reply-to-reviewers` — response letters to editor and reviewer comments
 
 ## Core Responsibilities
 
