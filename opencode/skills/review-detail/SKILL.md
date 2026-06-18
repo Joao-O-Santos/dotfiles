@@ -27,52 +27,44 @@ correlation-masquerading-as-causation.
 - Lack of clarity
 - Ignored counterfactuals
 
+### Alternative Explanations (McGuire Heuristics)
+
+A core function of peer review is surfacing competing explanations
+the authors may not have considered or rebutted. Use the McGuire
+heuristics (see #mcguire-heuristics) to systematically generate
+alternative accounts:
+
+- Has the contrary been considered? (E10)
+- Could causal direction be reversed? (E11)
+- What moderators qualify the effect? (E14)
+- Are there multiple explanations for the finding? (H23)
+- Could opposing counterforces be at work? (H25)
+- What do deviant cases/outliers reveal? (K35)
+- Can conflicting prior results be reconciled? (L37)
+
+Raise these as questions, not accusations. Frame as: "Have the
+authors considered the possibility that...?"
+
 ## Logical Fallacies
 
-When you spot a fallacy, name it specifically—don't just say "this is
-flawed." Explain why the reasoning doesn't hold. Note: fallacious
-reasoning doesn't prove the conclusion false; it only means this
-argument doesn't support it.
+Check for fallacies in these categories. Name the specific fallacy when
+found, but don't limit checking to this list — the categories are prompts,
+not exhaustive catalogs.
 
-### Causation Fallacies
-- **Post hoc ergo propter hoc**: "B followed A, therefore A caused B."
-- **Correlation ≠ causation**: Treating association as evidence of causality.
-- **Reverse causation**: Mistaking cause for effect (does X cause Y, or does Y cause X?).
-- **Single cause**: Attributing complex outcomes to one factor when many are at play.
+- **Causation fallacies** (e.g., post hoc ergo propter hoc, correlation=causation,
+  reverse causation)
+- **Generalization fallacies** (e.g., hasty generalization, cherry-picking,
+  ecological fallacy)
+- **Authority fallacies** (e.g., appeal to authority, ad hominem, genetic fallacy)
+- **Statistical fallacies** (e.g., base rate neglect, Texas sharpshooter,
+  prosecutor's fallacy)
+- **Structural fallacies** (e.g., false dichotomy, begging the question, straw man)
+- **Science-specific fallacies** (e.g., Galileo gambit, argument from ignorance,
+  nirvana fallacy, unfalsifiability)
 
-### Generalization Fallacies
-- **Hasty generalization**: Broad conclusions from samples too small or unrepresentative
-  to support them.
-- **Cherry-picking / Suppressed evidence**: Selecting only supporting evidence while
-  ignoring contrary findings.
-- **Ecological fallacy**: Applying group-level patterns to individuals within the group.
-
-### Authority Fallacies
-- **Appeal to authority**: "Expert X said it, so it's true"—without the supporting evidence.
-- **Ad hominem**: Attacking the person making the argument, not the argument itself.
-- **Genetic fallacy**: Judging a claim by its origin (who said it, where it came from)
-  rather than its merits.
-
-### Statistical Fallacies
-- **Base rate neglect**: Ignoring the underlying probability when evaluating conditional
-  evidence.
-- **Texas sharpshooter**: Drawing a target around the bullet holes—finding patterns in
-  data after the fact and treating them as hypotheses confirmed.
-- **Prosecutor's fallacy**: Confusing P(evidence | hypothesis) with
-  P(hypothesis | evidence).
-
-### Structural Fallacies
-- **False dichotomy**: Presenting two options as the only possibilities when others exist.
-- **Begging the question**: Assuming the conclusion within the premise (circular reasoning).
-- **Straw man**: Misrepresenting an opponent's argument to make it easier to attack.
-
-### Science-Specific Fallacies
-- **Galileo gambit**: "They laughed at Galileo, so my rejected/fringe idea must be correct."
-- **Argument from ignorance**: "It hasn't been proven false, therefore it's true"
-  (or vice versa).
-- **Nirvana fallacy**: Rejecting a real, imperfect solution because it falls short of an
-  idealized alternative.
-- **Unfalsifiability**: Making claims that cannot be tested or disproven.
+When identifying a fallacy: name it, explain why the reasoning is flawed,
+note that fallacious reasoning doesn't prove the conclusion false — just
+that this argument doesn't support it.
 
 ## Bias Detection
 

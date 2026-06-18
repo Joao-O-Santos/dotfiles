@@ -318,7 +318,7 @@ Multi-agent system for academic manuscript writing first established. Initial ar
 - Added primacy/recency rule placement (critical rules at start AND end)
 
 #### methods
-- Added "Power Analysis and Sample Size" section (user's published perspective)
+- Added "Power Analysis and Sample Size" section (user's perspective on power analysis)
 - Added "Experimental Design Principles" section (Fisher, design choices)
 - Added "Remember" section with 3 critical takeaways
 - Power analysis framed as "informed guesses," not precise calculations
@@ -348,3 +348,46 @@ Multi-agent system for academic manuscript writing first established. Initial ar
 
 ### Fixed
 - lit/_index.py: full re-index now respects locked flag (critical fix)
+
+## [v7.5.0] - 2026-06-18
+
+### Skills Refined (post-audit)
+
+#### review-detail
+- Fallacy catalog condensed: 21 named fallacies → 6 categories with examples
+- Rationale: models know the instances; instruction is the category check
+
+#### copyedit
+- Generic prose sections (Structure, Paragraph, Sentence, Word) condensed into
+  single "Prose Quality" section anchored to STYLE.md paragraphs
+- Expanded: Markdown compliance, terminology consistency, custom Word styles,
+  pandoc pipe tables, OpenXML page breaks
+- Focus: what's SPECIFIC to this workflow, not what models already know
+
+#### discussion
+- Added "Multiple Theoretical Perspectives (Perspectivism)" section
+- McGuire's perspectivism as behavioral instruction: multiply lenses, avoid
+  single-framework absolutism, frame limitations perspectivally
+
+#### intro
+- Added "Multiple Perspectives" subsection
+- Frame gaps as "what existing perspectives miss" not just "what's unstudied"
+
+### Documentation Updated
+
+#### README.md (top-level)
+- Added: ghostty, zen, scripts/, ~/lit library, versioning section
+- Updated: license table, Quick Start with set_models.sh
+
+#### README.md (opencode)
+- Fixed stale model assignments (now references set_models.sh)
+- Added: AFT plugin, lit skills (index/alert/heal), scientific workflow
+  integrations, snippets expansion note, 4-plugin config example
+
+### Audit Summary
+- Sarnecka: craft already in STYLE.md (hamburger, end-weight, imageability
+  via concrete-words rule). Wellness pillars intentionally excluded.
+- Pullman: passive voice nuance already in STYLE.md §5.1
+- McGuire: perspectivism NOW integrated (was missing — corrected)
+- Generic knowledge (fallacy definitions, prose best practices) condensed
+  to make room for workflow-specific instruction

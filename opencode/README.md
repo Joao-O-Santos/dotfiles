@@ -8,45 +8,53 @@ The OpenCode Manuscript Workflow implements a multi‑agent system where each ag
 
 - **Planner** (primary): Orchestrates the workflow, decomposes tasks, manages overall progress, and delegates to specialist agents.
 
-- **Writer** (primary): Handles manuscript drafting and revision, executing Planner’s structured Writer Instruction Packets (WIP).
+- **Writer** (primary): Handles manuscript drafting and revision, executing Planner's structured Writer Instruction Packets (WIP).
 
-- **Editor** (subagent): Collates reviewer outputs into a chronological edit list.
+- **Editor** (subagent): Collates reviewer outputs into a chronological edit list. Detects blind spots such as unanimous reviewer consensus — when all three reviewers miss the same issue, the editor flags it for Planner attention.
 
 - **Reviewer Trio** (subagents, launched by Planner):
   - `reviewer-structure`: Big‑picture critique (structure, arguments, impact).
-  - `reviewer-detail`: Citations, conceptual clarity, and argument issues.
+  - `reviewer-detail`: Citations, conceptual clarity, and argument issues. Includes a logical fallacy catalog, bias‑detection checklist (framed as questions, not accusations), and statistical red‑flag patterns (e.g., correlation‑masquerading‑as‑causation).
   - `copyeditor`: Prose, titles, paragraphs, sentences, words, markdown compliance.
 
 - **Support Agents**:
-  - `literature-reviewer`: Fast academic search and paper summaries.
-  - `deep-research`: Exhaustive multi‑step evidence gathering.
+  - `literature-reviewer`: Fast academic search and paper summaries. DB‑first sourcing: consult `~/lit/_index.db` before falling back to MCP/API searches.
+  - `deep-research`: Exhaustive multi‑step evidence gathering. Same DB‑first discipline, plus a sources file for tracking provenance.
   - `r-analysis`: R / Quarto pipeline edits and statistical code changes.
   - `automation`: Shell, git, and terminal‑native execution.
   - `guard`: Safety checkpoints, regression control, and loop detection.
 
 ## Key Features
 
-- **Section‑based skills**: Skills are organized around manuscript sections (introduction, literature review, methods, results, discussion) rather than paper “types”.
+- **Section‑based skills**: Skills are organized around manuscript sections (introduction, literature review, methods, results, discussion) rather than paper "types." Recent additions include the `methods` skill with power‑analysis guidance (rooted in the user's perspective on a priori power analysis as informed guessing) and general experimental‑design principles.
+
+- **Local literature library**: The `~/lit` directory holds ~1,500 indexed papers across 22 topics in a SQLite + FTS5 database (`~/lit/_index.db`). Three tools support it:
+  - **lit-index** — indexes `~/lit` PDFs into the SQLite/FTS5 database for structured queries and full‑text search.
+  - **lit-alert** — personalized new‑paper notification (like Google Scholar alerts for your `~/lit` library), checking for recent papers by your authors on your topics.
+  - **lit-heal** — LLM‑powered database audit and repair; fixes garbled titles, missing DOIs, and wrong years that the mechanical indexer cannot resolve.
+  These are loaded by the `literature-reviewer` and `deep-research` agents.
 
 - **Specialized reviewer system**: Three distinct reviewer agents provide triangulated feedback that is richer than a single generic reviewer.
 
 - **Writer Instruction Packets (WIP)**: Planner sends Writer highly structured packets (task type, section, paragraph skeleton, evidence, placeholders, and skills) to keep drafting grounded in evidence.
 
-- **Guarded automation**: Guard enforces checkpoint and anti‑loop rules; only a small subset of agents can commit or run mutating git commands (and even then, only with “ask” permission).
+- **Guarded automation**: Guard enforces checkpoint and anti‑loop rules; only a small subset of agents can commit or run mutating git commands (and even then, only with "ask" permission).
 
 - **Magic Context**: A context management plugin that replaces default compaction with cache‑aware summarization and long‑term memory.
 
+- **AFT (Abstract File Trees)**: A code‑analysis plugin (`@cortexkit/aft-opencode@latest`) providing tree‑sitter‑powered symbol outlines, inline zoom, AST‑aware search/replace, code diagnostics, and import management — available to `r-analysis`, `automation`, and `writer`.
+
 - **Plannotator**: A plan‑based decision plugin (`@plannotator/opencode@latest`) that enables agents to use `submit_plan` for structured planning instead of the `question` tool.
 
-- **MCP‑backed literature search**: OpenAlex and Semantic Scholar MCP servers provide structured academic metadata and PDFs for the literature-reviewing agents.
+- **MCP‑backed literature search**: OpenAlex and Semantic Scholar MCP servers provide structured academic metadata and PDFs for the literature‑reviewing agents.
 
 ## Installation & Setup
 
 ### Prerequisites
 
-- Node.js (for `npx`-based MCP servers and optional plugins).
-- Access to at least one LLM provider configured in `auth.json` (e.g., OpenRouter, Mistral, Opencode-go).
-- Bash shell (for `mcp_keys.sh`).
+- Node.js (for `npx`‑based MCP servers and optional plugins).
+- Access to at least one LLM provider configured in `auth.json` (e.g., OpenRouter, Mistral, Opencode‑go).
+- Bash shell (for `mcp_keys.sh` and `set_models.sh`).
 
 ### 1. Clone and install
 
@@ -68,7 +76,7 @@ Edit `~/.config/opencode/auth.json` to include the providers you actually use, f
 }
 ```
 
-Remove providers you don’t use (e.g., `huggingface`, `ollama-cloud`) to keep things clean.
+Remove providers you don't use (e.g., `huggingface`, `ollama-cloud`) to keep things clean.
 
 ### 3. Configure MCP API keys
 
@@ -88,19 +96,20 @@ export OPENALEX_EMAIL="your_email@example.com"
 export CROSSREF_MAILTO="your_email@example.com"
 ```
 
-Make it non‑world‑readable and don’t commit it:
+Make it non‑world‑readable and don't commit it:
 
 ```bash
 chmod 600 ~/.config/opencode/mcp_keys.sh
 echo "mcp_keys.sh" >> ~/.config/opencode/.gitignore  # if you track that directory
 ```
 
-### 4. Launch OpenCode with MCP keys
+### 4. Launch OpenCode with MCP keys and model assignments
 
 In your shell rc (e.g., `.zshrc`):
 
 ```bash
 source ~/.config/opencode/mcp_keys.sh
+source ~/.config/opencode/set_models.sh
 alias oc="opencode --config ~/.config/opencode/opencode.json"
 ```
 
@@ -117,7 +126,8 @@ Magic Context is already registered in `opencode.json` via the plugin `"@cortexk
 ```json
 "plugin": [
   "opencode-snippets",
-  "@cortexkit/opencode-magic-context",
+  "@cortexkit/opencode-magic-context@latest",
+  "@cortexkit/aft-opencode@latest",
   ["@plannotator/opencode@latest", {
     "workflow": "plan-agent",
     "planningAgents": ["plan", "planner"]
@@ -192,17 +202,9 @@ Examples:
 
 `opencode.json` is the single source of truth for model selection, permissions, MCP servers, and plugins. `AGENTS.md` is the single source for agent responsibilities and routing rules and **does not contain any model names** (kept model‑agnostic by design).
 
-### Current Model Assignments (summarized)
+### Current Model Assignments
 
-Actual model names are set via environment variables in `set_models.sh` (sourced before launching OpenCode) and referenced in `opencode.json` as `{env:AGENT_MODEL}`. At a high level:
-
-- Planner: `opencode-go/mimo-v2.5-pro` (strong reasoning)
-- Automation / Copyeditor / Editor / R‑Analysis: `opencode-go/qwen3.7-plus` (cost‑effective general)
-- Writer / Guard / Literature‑Reviewer: `opencode-go/deepseek-v4-pro` (drafting and research)
-- Reviewer‑Structure / Deep‑Research: `opencode-go/glm-5.1` (review and research)
-- Reviewer‑Detail: `opencode-go/mimo-v2.5` (detail critique)
-
-See `set_models.sh` and `opencode.json` for the exact mappings.
+Model assignments are set via environment variables in `set_models.sh` (sourced before launching OpenCode) and referenced in `opencode.json` as `{env:AGENT_MODEL}`. The current mix uses DeepSeek, GLM, Qwen, MiniMax, and MiMo models via the `opencode-go` provider. See `set_models.sh` for exact per‑agent mappings.
 
 ### MCP Servers
 
@@ -242,6 +244,7 @@ The core manuscript revision pipeline is:
 
 3. **Collate Edits**
    - Planner passes all reviewer outputs to `editor`, which produces a **Chronological Edit List** describing what to change where.
+   - Editor also runs a blind‑spot check: if all three reviewers are silent on the same area, it flags the potential gap for Planner attention.
 
 4. **Checkpoint & Mode‑Dependent Handling**
    - In **High‑Control Mode**: Planner presents the edit list plus an execution plan to the user and waits for approval.
@@ -250,7 +253,7 @@ The core manuscript revision pipeline is:
 5. **Write & Commit**
    - Writer applies edits or drafts new text according to the WIP.
    - Guard checks for regressions, loops, and placeholder discipline.
-   - Planner/Automation/R‑Analysis may propose git commits (always with “ask” permission).
+   - Planner/Automation/R‑Analysis may propose git commits (always with "ask" permission).
 
 ## Extending the System
 
@@ -263,8 +266,9 @@ The core manuscript revision pipeline is:
 ### Adding Snippet Examples
 
 1. Create markdown files in the `snippet/` directory.
-2. Use `#snippet-name` tags in skills or messages to inject examples via the `opencode-snippets` plugin.
-3. Look at existing snippets for formatting and naming conventions.
+2. Use `snippet-name` references (without the `#` prefix) in skills or agent instructions to inject content via the `opencode-snippets` plugin. The plugin inline‑expands snippet references at load time.
+3. **Important**: Omit the `#` prefix when writing snippet references in documentation (README, AGENTS.md, etc.). The `#` prefix triggers syntax‑highlighted inline display in the OpenCode UI and should only appear in agent definitions that the plugin actively processes. In plain docs, the unprefixed form prevents accidental expansion.
+4. Look at existing snippets for formatting and naming conventions. The snippet catalog (`snippet/snippet-catalog.md`) lists all available snippets with descriptions and primary users.
 
 ### Modifying Agent Permissions
 

@@ -447,7 +447,7 @@ First tracked version of the dotfiles. Core configuration for shell, git, i3, R,
 - review-detail skill: logical fallacy catalog (6 categories, 21 fallacies)
 - review-detail skill: bias detection checklist (check-for framing, not accusatory)
 - review-detail skill: statistical red flags
-- methods skill: power analysis guidance (user's own published perspective)
+- methods skill: power analysis guidance (user's own perspective on power analysis)
 - methods skill: experimental design principles (Fisher, design choices)
 - editor agent: blind spot detection (forced-disagreement on unanimous reviews)
 - deep-research agent: sources discipline (save/dedup before re-querying)
@@ -464,3 +464,28 @@ First tracked version of the dotfiles. Core configuration for shell, git, i3, R,
 - Skills reference MCP tools without re-documenting them
 - Skills do not include context management (handled by magic-context plugin)
 - Skills do not include code navigation (handled by AFT plugin)
+
+## [v7.5.0] - 2026-06-18
+
+### Refined
+- Skills audited against Sarnecka, McGuire, and Pullman gold nuggets
+- review-detail: fallacy catalog condensed from 21 named fallacies to 6 categories
+  (models know the instances — instruction is the category, not the enumeration)
+- copyedit: generic prose sections condensed; focus shifted to STYLE.md compliance,
+  markdown formatting, terminology consistency, and title provocativeness
+- discussion: added perspectivism section (multiple theoretical lenses, McGuire)
+- intro: added multi-perspective framing (gap as "what perspectives miss")
+
+### Updated
+- README.md: added ghostty, zen, scripts/, ~/lit, versioning section, license table
+- opencode/README.md: fixed stale model assignments, added AFT plugin, lit skills,
+  scientific workflow integrations, snippets documentation, 4-plugin config example
+
+### Design Principle
+- Skills teach BEHAVIOR specific to this workflow, not knowledge the models
+  already have. Frontier-adjacent models know what "post hoc" means — they
+  need the instruction to CHECK for causation fallacies, not a definition.
+- Sarnecka's craft (imageability, end-weight, hamburger, reverse outlining)
+  is in STYLE.md. Her wellness/community pillars are intentionally excluded.
+- McGuire's perspectivism is now in discussion + intro skills as behavioral
+  instructions, not philosophical exposition.
