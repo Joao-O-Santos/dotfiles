@@ -1,7 +1,6 @@
 [Default Applications]
 x-scheme-handler/http=zen.desktop
 x-scheme-handler/https=zen.desktop
-x-scheme-handler/ftp=hardfox.desktop
 x-scheme-handler/chrome=zen.desktop
 application/x-extension-htm=zen.desktop
 application/x-extension-html=zen.desktop
@@ -18,7 +17,7 @@ image/png=feh.desktop
 application/octet-stream=libreoffice-base.desktop
 
 [Added Associations]
-application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=libreoffice-calc.desktop;hardfox.desktop;
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=libreoffice-calc.desktop;
 x-scheme-handler/http=zen.desktop;
 x-scheme-handler/https=zen.desktop;
 x-scheme-handler/chrome=zen.desktop;
