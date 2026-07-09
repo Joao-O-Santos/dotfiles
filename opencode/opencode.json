@@ -28,13 +28,15 @@
       "chkdrft *": "allow",
       "toc *": "allow",
       "pdftotext *": "allow",
-      "pdfgrep *": "allow"
+      "pdfgrep *": "allow",
+      "sqlite3 *": "allow"
     },
     "external_directory": {
       "${HOME}/.config/opencode/**": "allow",
       "${HOME}/.config/opencode/auth.json": "deny",
       "${HOME}/.config/opencode/account.json": "deny",
       "${HOME}/.config/opencode/mcp_keys.sh": "deny",
+      "${HOME}/lit/**": "allow",
       "/tmp/**": "allow"
     },
     "read": {

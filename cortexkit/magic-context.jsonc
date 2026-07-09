@@ -1,0 +1,48 @@
+{
+  "$schema": "https://raw.githubusercontent.com/cortexkit/opencode-magic-context/master/assets/magic-context.schema.json",
+  "enabled": true,
+  "historian": {
+    "model": "opencode-go/deepseek-v4-pro"
+  },
+  "dreamer": {
+    "model": "opencode-go/deepseek-v4-pro",
+    "tasks": {
+      "verify": {
+        "schedule": "0 2 * * *"
+      },
+      "verify-broad": {
+        "schedule": "0 4 * * 0"
+      },
+      "curate": {
+        "schedule": "0 2 * * *"
+      },
+      "classify-memories": {
+        "schedule": "0 6 * * *"
+      },
+      "retrospective": {
+        "schedule": "0 5 * * *"
+      },
+      "maintain-docs": {
+        "schedule": ""
+      },
+      "map-memories": {
+        "schedule": "0 2 * * *"
+      },
+      "evaluate-smart-notes": {
+        "schedule": "0 2 * * *"
+      },
+      "review-user-memories": {
+        "schedule": "0 2 * * *"
+      }
+    }
+  },
+  "memory": {
+    "enabled": true,
+    "git_commit_indexing": {
+      "enabled": true
+    }
+  },
+  "sidekick": {
+    "model": "opencode-go/deepseek-v4-flash"
+  }
+}
