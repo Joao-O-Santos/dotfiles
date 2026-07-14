@@ -1,6 +1,6 @@
 # Checkpoint Schedule
 
-Guard is auto-triggered after:
+Planner-triggered at major milestones per AGENTS.md:
 1. Outline generation
 2. First full draft of a major section or manuscript
 3. Reviewer-fix application

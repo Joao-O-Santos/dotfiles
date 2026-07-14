@@ -28,7 +28,7 @@ Agents permitted to commit (via `git commit *: ask`):
 - `r-analysis` — commits pipeline changes when appropriate
 
 Agents barred from committing (via `git commit *: deny`):
-- `planner`, `writer`, `editor`, `reviewer-structure`, `reviewer-detail`, `copyeditor`, `guard`, `literature-reviewer`, `deep-research`
+- `planner`, `writer`, `editor`, `reviewer-structure`, `reviewer-detail`, `copyeditor`, `literature-reviewer`, `deep-research`
 
 **Planner commit delegation**: When planner needs to commit (e.g., before launching reviewers), it delegates to `automation` with explicit commit instructions rather than committing directly.
 

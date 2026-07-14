@@ -10,19 +10,32 @@ The OpenCode Manuscript Workflow implements a multi‑agent system where each ag
 
 - **Writer** (primary): Handles manuscript drafting and revision, executing Planner's structured Writer Instruction Packets (WIP).
 
-- **Editor** (subagent): Collates reviewer outputs into a chronological edit list. Detects blind spots such as unanimous reviewer consensus — when all three reviewers miss the same issue, the editor flags it for Planner attention.
+- **Editor** (subagent): Collates all four reviewer outputs, categorizing
+  issues by consensus level: Consensus Issues (flagged by ≥2 reviewers),
+  Single-Source Issues (1 reviewer), and Direct Disagreements.
 
-- **Reviewer Trio** (subagents, launched by Planner):
+- **Reviewer Ensemble** (subagents, launched by Planner):
   - `reviewer-structure`: Big‑picture critique (structure, arguments, impact).
-  - `reviewer-detail`: Citations, conceptual clarity, and argument issues. Includes a logical fallacy catalog, bias‑detection checklist (framed as questions, not accusations), and statistical red‑flag patterns (e.g., correlation‑masquerading‑as‑causation).
-  - `copyeditor`: Prose, titles, paragraphs, sentences, words, markdown compliance.
+  - `reviewer-structure-2`: Adversarial second structural opinion — runs only
+    at Full Ensemble Checkpoints with a deliberately skeptical posture.
+  - `reviewer-detail`: Citations, conceptual clarity, and argument issues.
+    Includes a logical fallacy catalog, bias‑detection checklist (framed as
+    questions, not accusations), and statistical red‑flag patterns.
+  - `copyeditor`: Prose, titles, paragraphs, sentences, words, markdown
+    compliance.
+
+- **Strategist** (subagent, checkpoints only): Tool‑less arbitration for
+  disputed or non‑obvious reviewer disagreements. Receives a batched
+  Escalation Packet from Planner; decisions are persisted to cross‑session
+  memory for citable evidence.
 
 - **Support Agents**:
-  - `literature-reviewer`: Fast academic search and paper summaries. DB‑first sourcing: consult `~/lit/_index.db` before falling back to MCP/API searches.
-  - `deep-research`: Exhaustive multi‑step evidence gathering. Same DB‑first discipline, plus a sources file for tracking provenance.
+  - `literature-reviewer`: Fast academic search and paper summaries.
+    DB‑first sourcing: consult `~/lit/_index.db` before MCP/API searches.
+  - `deep-research`: Exhaustive multi‑step evidence gathering. Same DB‑first
+    discipline, plus a sources file for tracking provenance.
   - `r-analysis`: R / Quarto pipeline edits and statistical code changes.
   - `automation`: Shell, git, and terminal‑native execution.
-  - `guard`: Safety checkpoints, regression control, and loop detection.
 
 ## Key Features
 
@@ -34,11 +47,16 @@ The OpenCode Manuscript Workflow implements a multi‑agent system where each ag
   - **lit-heal** — LLM‑powered database audit and repair; fixes garbled titles, missing DOIs, and wrong years that the mechanical indexer cannot resolve.
   These are loaded by the `literature-reviewer` and `deep-research` agents.
 
-- **Specialized reviewer system**: Three distinct reviewer agents provide triangulated feedback that is richer than a single generic reviewer.
+- **Two‑tier reviewer ensemble**: Fast Loop (3 reviewers in parallel for
+  iterative drafting) vs. Full Ensemble Checkpoint (4 reviewers plus editor
+  collation with consensus/single‑source/disagreement categorization, and
+  strategist arbitration for genuinely disputed issues). Keeps routine
+  iterations cheap while ensuring thorough scrutiny at major milestones.
 
 - **Writer Instruction Packets (WIP)**: Planner sends Writer highly structured packets (task type, section, paragraph skeleton, evidence, placeholders, and skills) to keep drafting grounded in evidence.
 
-- **Guarded automation**: Guard enforces checkpoint and anti‑loop rules; only a small subset of agents can commit or run mutating git commands (and even then, only with "ask" permission).
+- **Sandboxed permissions**: Only a small subset of agents can commit or run
+  mutating git commands (and even then, only with "ask" permission).
 
 - **Magic Context**: A context management plugin that replaces default compaction with cache‑aware summarization and long‑term memory.
 
@@ -165,6 +183,10 @@ You still need a `magic-context.jsonc` (stored in `~/.config/opencode/magic-cont
 
 Magic Context then runs automatically; no further config in this repo is needed.
 
+**Note:** `magic-context.jsonc` is not tracked in this repository — it
+contains user-specific model preferences and should be created manually
+alongside `opencode.json`. A minimal example is shown above.
+
 ## Usage
 
 ### Basic Commands
@@ -173,15 +195,16 @@ Magic Context then runs automatically; no further config in this repo is needed.
   - `@writer "Draft the introduction section for a paper on X"`
   - `@literature-reviewer "Find recent papers on Y"`
   - `@r-analysis "Refactor this R/Quarto analysis pipeline"`
-- Request checkpoints:
-  - `"guard checkpoint"` or `"run guard"`
+  - `@reviewer-structure-2 "Second opinion on the discussion structure"`
+- Run mechanical check:
+  - `"run chkdrft"` (counts citations needed, TODOs left)
 - Switch workflow modes:
   - `"high-control mode"` or `"autonomous batch mode"`
 
 ### Workflow Modes
 
 - **High‑Control Mode** (default): Planner pauses for approval at outline, topic‑sentence planning, large structural rewrites, major methods/results/discussion changes, and before executing reviewer‑suggested fixes.
-- **Autonomous Batch Mode**: Planner runs end‑to‑end until a guard checkpoint, loop signal, or blocker requires intervention.
+- **Autonomous Batch Mode**: Planner runs end‑to‑end until a loop signal or blocker requires intervention.
 
 ### Agent Invocation Format
 
@@ -231,29 +254,32 @@ Each MCP entry uses `"type": "local"` with an `npx` command and, where needed, a
 
 ## Review → Edit → Write Pipeline
 
-The core manuscript revision pipeline is:
+There are two review modes:
 
-1. **Identify Manuscript**
-   - Planner locates the manuscript file, reads relevant sections, and determines scope (whole document vs. specific section).
+### Fast Loop (default, iterative drafting)
 
-2. **Launch Reviews**
-   - Planner delegates simultaneously to:
-     - `reviewer-structure`
-     - `reviewer-detail`
-     - `copyeditor`
+1. **Launch Reviews**: Planner delegates simultaneously to
+   `reviewer-structure`, `reviewer-detail`, `copyeditor`.
+2. **Apply Fixes**: Planner applies straightforward fixes directly based
+   on reviewer output. No `editor` or `strategist` involvement.
+3. **Write & Commit**: Writer applies edits per WIP. Run `chkdrft` to
+   verify no citations/placeholders were lost.
 
-3. **Collate Edits**
-   - Planner passes all reviewer outputs to `editor`, which produces a **Chronological Edit List** describing what to change where.
-   - Editor also runs a blind‑spot check: if all three reviewers are silent on the same area, it flags the potential gap for Planner attention.
+### Full Ensemble Checkpoint (major milestones)
 
-4. **Checkpoint & Mode‑Dependent Handling**
-   - In **High‑Control Mode**: Planner presents the edit list plus an execution plan to the user and waits for approval.
-   - In **Autonomous Batch Mode**: Planner compiles WIP(s) from the edit list and delegates to `writer`, then triggers a `guard` checkpoint.
-
-5. **Write & Commit**
-   - Writer applies edits or drafts new text according to the WIP.
-   - Guard checks for regressions, loops, and placeholder discipline.
-   - Planner/Automation/R‑Analysis may propose git commits (always with "ask" permission).
+1. **Launch All Reviewers**: Planner delegates simultaneously to
+   `reviewer-structure`, `reviewer-structure-2`, `reviewer-detail`,
+   `copyeditor`.
+2. **Collate**: `editor` categorizes all four outputs into Consensus
+   Issues (≥2 reviewers), Single-Source Issues (1 reviewer), and Direct
+   Disagreements. Blind‑spot detection still runs.
+3. **Strategist Escalation**: For Single-Source Issues where the fix is
+   not mechanically obvious, and all Direct Disagreements, Planner
+   batches them into a single `strategist` call. Strategist has no
+   tools — it receives a curated Escalation Packet and returns
+   decisions. Consensus Issues auto‑apply per the Consensus Rule.
+4. **Write & Commit**: Writer applies edits per WIP. Planner persists
+   strategist decisions to cross‑session memory for citable evidence.
 
 ## Extending the System
 
@@ -261,7 +287,7 @@ The core manuscript revision pipeline is:
 
 1. Create a new directory under `skills/`.
 2. Add a `SKILL.md` describing the skill and any conventions.
-3. Reference the skill from `STYLE.md` or agent prompts as needed.
+3. Reference the skill from agent prompts (e.g., `agents/planner.md`, `agents/writer.md`) or the snippet catalog (`snippet/snippet-catalog.md`).
 
 ### Adding Snippet Examples
 
@@ -280,5 +306,5 @@ Permissions are set at two levels:
 Key permission categories:
 - `edit`: allow/deny file editing.
 - `webfetch`: allow/deny `webfetch` calls.
-- `bash`: fine‑grained bash permissions. Most agents inherit the global allowlist (read‑only commands + git inspection). Only `automation`, `r-analysis`, and `writer` define custom bash blocks.
+- `bash`: fine‑grained bash permissions. Most agents inherit the global allowlist (read‑only commands + git inspection). Only `automation`, `r-analysis`, `writer`, `literature-reviewer`, and `deep-research` define custom bash blocks.
 - `external_directory` & `read`: filesystem access. Global allows `~/.config/opencode/**` (except `auth.json`, `account.json`, and `mcp_keys.sh`) and `/tmp/**`.

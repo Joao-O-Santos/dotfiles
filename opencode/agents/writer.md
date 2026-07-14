@@ -72,7 +72,6 @@ Do not use this agent for:
 - Receive WIP from `planner` and execute it faithfully, making your own
   choices about phrasing, transitions, and paragraph rhythm.
 - Let `planner` decide when to pause, reroute, or escalate.
-- Let `guard` handle loop and regression monitoring.
 
 ## Output Expectations
 

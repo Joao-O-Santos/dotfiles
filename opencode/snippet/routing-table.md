@@ -13,7 +13,7 @@
 | Prose review | `copyeditor` | Titles, paragraphs, sentences, words, markdown compliance |
 | R / Quarto analysis edits | `r-analysis` | Analysis and pipeline changes |
 | Shell / git / repo automation | `automation` | Command-line execution |
-| Safety, regression, loop monitoring | `guard` | Auto-triggered or user-requested |
+
 | Non-manuscript coding, quick scripts, tooling | `build` | General SWE only; avoid for manuscript workflow |
 
 ## Edge-Case Decision Tree

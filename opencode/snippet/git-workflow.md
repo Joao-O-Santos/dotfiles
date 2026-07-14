@@ -20,7 +20,7 @@ Commit delegation:
 - `planner` is barred from committing — delegates to `automation`
 - All other agents are barred from committing
 - Before delegating to read-only agents, `planner` must check `git status` and commit any pending changes atomically
-- `guard` should suggest an atomic commit checkpoint after substantial writes
+- Suggest an atomic commit checkpoint after substantial writes
 
 Merge strategy:
 - Prefer true merge commits over squash cleanup unless the user explicitly requests squash
