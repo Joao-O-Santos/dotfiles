@@ -2,6 +2,36 @@
 
 All notable changes to the OpenCode configuration will be documented in this file.
 
+## v8.1.0 — 2026-07-15
+
+### AFT Configuration
+- Enable `bash.rewrite: true` so shell `grep`/`find`/`cat` calls are intercepted and rewritten to AFT tools with hints.
+- Explicitly set `hoist_builtin_tools` and `tool_surface` in `cortexkit/aft.jsonc`.
+
+### Permissions & Routing
+- Add planner bash block denying `grep`/`rg`/`find` (was inheriting global allows, enabling AFT-avoidance).
+- Remove `grep`/`rg`/`find` from writer bash allowlist.
+- Rename `@coding-style` to `@r-style`, point at full `skills/r-analysis-quarto/` directory.
+- Add `@writing-examples` hidden reference — grouped examples by section type from published papers and user's own work.
+
+### Agent Instructions
+- Planner: replace Inspect bash tools with AFT tools, add "Route first, explore never" rule, add r-analysis/automation expert delegation rules, rewrite WIP EVIDENCE field (facts not prose), add WIP principle, add concision rule.
+- r-analysis: remove redundant style snippet (already loaded in writing skills), add style checklist (tabs, base pipes, ≤80 chars), add Context7 trigger for bleeding-edge packages.
+- automation: add Context7 trigger for unfamiliar CLI tools.
+- strategist: add concision rule for expensive model.
+
+### Coding Style
+- Add concrete R code examples to `coding_style.md` (pipe style, indentation, function calls, helper functions, object naming).
+- Fix pipe-chain example: `filter(ds, ...) |>` not `ds |> filter(...)`.
+
+### Writing Examples
+- Create `writing-examples/` with 5 grouped files (abstract, intro, methods, results, discussion) covering 12 examples across the user's thesis, tgtbtu, Hagá, Sarnecka, and Earp & Trafimow.
+- Update all 9 writing skills to mention `@writing-examples` reference.
+
+### Documentation
+- Add commit-message conventions to `git-workflow` snippet and `automation` agent (verb-first, ≤50 chars, no `feat:`/`fix:` prefix).
+- Remove stale loop-prevention line from AGENTS.md.
+
 ## [v8.0.0] — 2026-07-14
 
 ### Added
