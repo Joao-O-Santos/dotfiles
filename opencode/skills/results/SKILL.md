@@ -5,6 +5,8 @@ description: Draft or revise results sections for empirical papers.
 
 # Skill: results
 
+#style-core
+
 ## Rules
 
 - **Lead with meaning**, then show evidence

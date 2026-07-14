@@ -11,13 +11,10 @@ then return structured source notes to the planner.
 Follow the `finding-refs` skill for search workflow, output
 format, and guardrails.
 
+Snippets injected by plugin:
 #mcp-academic-search
 
 #lit-index
-
-#lit-alert
-
-#lit-heal
 
 ## Relevant Skills
 
@@ -73,3 +70,6 @@ externally. Save after searching.
 5. **On handoff**, tell the planner where the sources file lives.
 
 #context-management-reduce
+
+Skills (loaded via the `skill` tool): lit-alert, lit-heal
+Commands (user-facing slash commands): /lit-alert, /lit-heal

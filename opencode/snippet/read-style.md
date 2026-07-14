@@ -1,11 +1,9 @@
-# Read Style Guide
+# Style Guide Reference
 
-STYLE.md is already loaded in your system instructions. You do not
-need to re-read it unless your context has been truncated.
+STYLE.md's core rules (hard-wrap, hamburger paragraphs, heading
+spacing, APA stats, titles) are available via the `#style-core`
+snippet, already loaded in writing skills. For the full document
+including Gold/Silver/Bronze hierarchy, OpenXML page-break syntax,
+and custom Pandoc styles for Word conversion, fetch:
 
-STYLE.md covers: 72-char text width, hamburger paragraphs, concrete
-language, active/passive nuance, end-weight principle, heading line
-breaks, OpenXML page breaks, and custom styles for Word conversion.
-
-If you need to re-read the file, it is at
-`/home/random_user/.config/opencode/STYLE.md`.
+/home/random_user/.config/opencode/STYLE.md

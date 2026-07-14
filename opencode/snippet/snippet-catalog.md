@@ -5,11 +5,12 @@ Available snippets (use `#snippet-name` in WIPs and agent instructions):
 | Snippet | Description | Primary Users |
 |---------|-------------|---------------|
 | `style-core` | Core style conventions for manuscript writing | writer, skills |
+| `theoretical-paper` | Theoretical paper routing (skip methods/results) | planner |
 | `placeholder-discipline` | Placeholder conventions for unresolved content | all agents |
 | `anti-fabrication-short` | Brief anti-fabrication rules | all agents |
 | `examples-disclaimer` | Disclaimer that examples show form only | skills |
 | `reviewer-collaboration` | Cross-reviewer collaboration rules | editor, reviewers |
-| `reviewer-output-rules` | Reviewer output format requirements | reviewers |
+| `reviewer-output-format` | Reviewer output format and principles | reviewers |
 | `reviewer-role-constraint` | Role boundary enforcement for reviewers | reviewers |
 | `research-guardrails` | Research agent safety rules | research skills |
 | `results-reporting` | Results reporting conventions | skills |
@@ -17,15 +18,15 @@ Available snippets (use `#snippet-name` in WIPs and agent instructions):
 | `method-participants` | Method participants example | skills |
 | `intro-hook-empirical` | Empirical intro hook examples | skills |
 | `intro-hook-theoretical` | Theoretical intro hook examples | skills |
-| `gpg-signing-workflow` | GPG signing workflow | planner, automation, guard, r-analysis |
+| `gpg-signing-workflow` | GPG signing workflow | planner, automation, r-analysis |
 | `mcp-academic-search` | Academic MCP tools (OpenAlex, Semantic Scholar) | research agents, skills |
 | `mcp-procurement-rule` | MCP procurement fallback rules | research skills |
 | `context-management-reduce` | Context reduction instructions | research agents |
 | `agents-ref` | Reference to AGENTS.md sections | all agents |
-| `stop-loss-limits` | Delegation stop-loss limits and blocker format | planner, guard |
+| `stop-loss-limits` | Delegation stop-loss limits and blocker format | planner |
 | `routing-table` | Task-to-agent routing + edge cases | planner |
 | `research-separation` | Research scope boundaries | research agents, planner |
-| `checkpoint-schedule` | Guard auto-trigger conditions | planner, guard |
+| `checkpoint-schedule` | Planner-triggered at major milestones per AGENTS.md | planner |
 | `git-workflow` | Git branching and commit conventions | planner, automation, r-analysis |
 | `read-style` | STYLE.md reference | writer, r-analysis |
 | `mcp-tool-awareness` | MCP tool catalog | planner, reviewer-detail, automation, r-analysis |

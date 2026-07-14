@@ -11,13 +11,10 @@ drafting.
 Follow the `deep-research` skill for search strategy, output format,
 and guardrails.
 
+Snippets injected by plugin:
 #mcp-academic-search
 
 #lit-index
-
-#lit-alert
-
-#lit-heal
 
 ## Relevant Skills
 
@@ -121,3 +118,6 @@ If only 2-5 relevant papers are needed, tell the planner that
 `finding-refs` would have been more appropriate.
 
 #context-management-reduce
+
+Skills (loaded via the `skill` tool): lit-alert, lit-heal
+Commands (user-facing slash commands): /lit-alert

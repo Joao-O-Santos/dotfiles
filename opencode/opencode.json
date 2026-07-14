@@ -1,10 +1,25 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "instructions": [
-    "${HOME}/.config/opencode/STYLE.md",
     "${HOME}/.config/opencode/AGENTS.md"
   ],
   "default_agent": "planner",
+  "references": {
+    "style": {
+      "path": "${HOME}/.config/opencode/STYLE.md",
+      "description": "Complete shared writing and formatting conventions. The 5 core rules are already inlined via the style-core snippet in relevant skills — consult this only for full detail beyond those (Gold/Silver/Bronze hierarchy, OpenXML page-break syntax, custom Pandoc styles for Word conversion)."
+    },
+    "coding-style": {
+      "path": "${HOME}/.config/opencode/skills/r-analysis-quarto/coding_style.md",
+      "description": "Full R coding style reference: tab/space conventions, function length limits, lintr exceptions to ignore. Supplements the summary already in r-analysis-quarto/SKILL.md — consult for edge cases the summary does not cover.",
+      "hidden": true
+    },
+    "lit-index": {
+      "path": "~/lit",
+      "description": "Local bibliography index (SQLite, file: _index.db). Query with sqlite3 ~/lit/_index.db '<SQL>' — do NOT attempt to read or cat this file directly, it is binary and will not render as text. Check here before marking a citation as <!-- TODO: cite -->, to see whether the reference already exists in the user's library.",
+      "hidden": true
+    }
+  },
   "permission": {
     "bash": {
       "*": "deny",
@@ -167,6 +182,17 @@
       },
       "steps": 10
     },
+    "reviewer-structure-2": {
+      "description": "Adversarial second-opinion structural critique (checkpoints only)",
+      "mode": "subagent",
+      "model": "{env:REVIEWER_STRUCTURE_2_MODEL}",
+      "temperature": 0.6,
+      "steps": 10,
+      "permission": {
+        "edit": "deny",
+        "webfetch": "allow"
+      }
+    },
     "reviewer-detail": {
       "description": "Detail critique: citations, conceptual clarity, argument issues",
       "mode": "subagent",
@@ -200,15 +226,17 @@
         "webfetch": "allow"
       }
     },
-    "guard": {
-      "description": "Safety checkpoints and regression control",
+    "strategist": {
+      "description": "Gated arbitration for non-obvious or disputed fixes — tool-less, single-turn, batched per checkpoint",
       "mode": "subagent",
-      "model": "{env:GUARD_MODEL}",
+      "model": "{env:STRATEGIST_MODEL}",
       "temperature": 0.3,
-      "steps": 10,
+      "steps": 1,
       "permission": {
         "edit": "deny",
-        "webfetch": "allow"
+        "read": "deny",
+        "webfetch": "deny",
+        "bash": { "*": "deny" }
       }
     },
     "literature-reviewer": {
@@ -218,7 +246,20 @@
       "steps": 12,
       "permission": {
         "edit": "deny",
-        "webfetch": "allow"
+        "webfetch": "allow",
+        "bash": {
+          "*": "deny",
+          "cat *": "allow",
+          "head *": "allow",
+          "tail *": "allow",
+          "grep *": "allow",
+          "rg *": "allow",
+          "find *": "allow",
+          "wc *": "allow",
+          "pdftotext *": "allow",
+          "pdfgrep *": "allow",
+          "sqlite3 *": "allow"
+        }
       }
     },
     "deep-research": {
@@ -229,7 +270,20 @@
       "steps": 20,
       "permission": {
         "edit": "deny",
-        "webfetch": "allow"
+        "webfetch": "allow",
+        "bash": {
+          "*": "deny",
+          "cat *": "allow",
+          "head *": "allow",
+          "tail *": "allow",
+          "grep *": "allow",
+          "rg *": "allow",
+          "find *": "allow",
+          "wc *": "allow",
+          "pdftotext *": "allow",
+          "pdfgrep *": "allow",
+          "sqlite3 *": "allow"
+        }
       }
     },
     "r-analysis": {

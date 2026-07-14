@@ -5,6 +5,8 @@ description: Draft or revise discussion sections for empirical or theoretical pa
 
 # Skill: discussion
 
+#style-core
+
 ## Structure
 
 ### Empirical Papers

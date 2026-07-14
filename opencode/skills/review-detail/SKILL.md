@@ -124,7 +124,7 @@ available?" not "The authors definitely HARKed."
 - **Problem** (10-25 words): [description]
 - **Solution**: [proposed fix]
 
-#reviewer-output-rules
+#reviewer-output-format
 
 #examples-disclaimer
 

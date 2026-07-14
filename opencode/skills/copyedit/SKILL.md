@@ -5,37 +5,35 @@ description: Paragraph, sentence, and word-level review for flow, clarity, and i
 
 # Skill: copyedit
 
+#style-core
+
 ## Focus Areas
 
 ### Prose Quality
 
-Check paragraph flow, sentence clarity, and word choice against STYLE.md
-conventions. The model already knows good prose — focus on compliance
-with THIS project's standards:
+Check paragraph flow, sentence clarity, and word choice against the
+style conventions inlined via the `#style-core` snippet. Focus on
+compliance with THIS project's standards:
 
-- Hamburger paragraph structure (STYLE.md §4.1)
-- Topic-sentence clarity and old-to-new information flow (STYLE.md
-  §4.2, §5.2)
-- Active/passive voice per STYLE.md §5.1 (passive is allowed when
-  appropriate)
+- Hamburger paragraphs: topic sentence → evidence → linking sentence
+- Topic-sentence clarity and old-to-new information flow
+- Active/passive voice: passive is allowed when the patient, not
+  the agent, should be the subject
 - Concrete, specific words; no nominalizations or needless words
-  (STYLE.md §5.4)
-- End-weight principle (STYLE.md §5.2)
-- No multiple negations (STYLE.md §5.3)
+- End-weight principle (longer phrases toward sentence end)
+- No multiple negations
 
 ### Markdown Style Compliance
 
-- 72-character line wrapping (MANDATORY, STYLE.md §5.5)
-- Heading spacing: 4/3/2/1 blank lines before H1/H2/H3/H4 (STYLE.md
-  §6)
+- 72-character line wrapping (MANDATORY)
+- Heading spacing: 4/3/2/1 blank lines before H1/H2/H3/H4
 - List formatting (consistent indentation, blank lines between items
   when multi-paragraph)
 - Custom styles for Word conversion preserved unchanged: `{custom-style=
   "Title"}`, `{custom-style="Abstract"}`, `{custom-style="Figure"}`,
-  `{custom-style="Compact"}`, `{custom-style="References"}` (STYLE.md
-  §8)
-- OpenXML page break blocks preserved unchanged (STYLE.md §7)
-- Pandoc pipe tables (APA-compliant via `twrd`; see STYLE.md §2 Format)
+  `{custom-style="Compact"}`, `{custom-style="References"}`
+- OpenXML page break blocks preserved unchanged
+- Pandoc pipe tables (APA-compliant via `twrd`)
 
 ### Terminology Consistency
 
@@ -43,12 +41,11 @@ with THIS project's standards:
   and R code
 - No multiple terms for the same concept
 - No same term for different concepts
-- Terminology aligned with STYLE.md §5.4 (consistent terminology
-  rule)
+- Terminology aligned with the consistent-terminology rule
 
 ### Titles
 
-- Provocative and memorable per STYLE.md §5.6: open with an idiom,
+- Provocative and memorable: open with an idiom,
   rhetorical question, cultural reference, or surprising juxtaposition
   rather than a neutral description
 - Header level appropriateness (correct depth for section importance)
@@ -75,6 +72,6 @@ with THIS project's standards:
 - **Problem** (10-25 words): [description]
 - **Solution**: [proposed fix]
 
-#reviewer-output-rules
+#reviewer-output-format
 
 #examples-disclaimer

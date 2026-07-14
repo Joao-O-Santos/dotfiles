@@ -25,4 +25,3 @@ All reviewers use this format for consistency:
 
 - Let `planner` decide which recommendations to implement
 - Let `writer` handle the actual revisions
-- Let `guard` handle loop and regression monitoring

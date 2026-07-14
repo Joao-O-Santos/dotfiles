@@ -5,7 +5,7 @@ description: Draft or revise the literature review section of a manuscript.
      use finding-refs for that.
 ---
 
-# Skill: lit-review
+# Skill: lit-review-section
 
 #style-core
 

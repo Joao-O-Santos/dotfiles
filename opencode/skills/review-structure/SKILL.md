@@ -37,6 +37,6 @@ description: Big-picture review focusing on structure, argument solidity, and ov
 - **Problem** (10-25 words): [description]
 - **Solution**: [proposed fix]
 
-#reviewer-output-rules
+#reviewer-output-format
 
 #examples-disclaimer
