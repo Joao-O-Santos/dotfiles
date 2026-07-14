@@ -2,5 +2,10 @@
   "$schema": "https://raw.githubusercontent.com/cortexkit/aft/main/assets/aft.schema.json",
   "enabled": true,
   "search_index": true,
-  "semantic_search": true
+  "semantic_search": true,
+  "hoist_builtin_tools": true,
+  "tool_surface": "recommended",
+  "bash": {
+    "rewrite": true
+  }
 }

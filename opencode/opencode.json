@@ -7,16 +7,16 @@
   "references": {
     "style": {
       "path": "${HOME}/.config/opencode/STYLE.md",
-      "description": "Complete shared writing and formatting conventions. The 5 core rules are already inlined via the style-core snippet in relevant skills — consult this only for full detail beyond those (Gold/Silver/Bronze hierarchy, OpenXML page-break syntax, custom Pandoc styles for Word conversion)."
-    },
-    "coding-style": {
-      "path": "${HOME}/.config/opencode/skills/r-analysis-quarto/coding_style.md",
-      "description": "Full R coding style reference: tab/space conventions, function length limits, lintr exceptions to ignore. Supplements the summary already in r-analysis-quarto/SKILL.md — consult for edge cases the summary does not cover.",
-      "hidden": true
+      "description": "Complete shared writing and formatting conventions. The 5 core rules are already inlined via the style-core snippet in relevant skills \u2014 consult this only for full detail beyond those (Gold/Silver/Bronze hierarchy, OpenXML page-break syntax, custom Pandoc styles for Word conversion)."
     },
     "lit-index": {
       "path": "~/lit",
-      "description": "Local bibliography index (SQLite, file: _index.db). Query with sqlite3 ~/lit/_index.db '<SQL>' — do NOT attempt to read or cat this file directly, it is binary and will not render as text. Check here before marking a citation as <!-- TODO: cite -->, to see whether the reference already exists in the user's library.",
+      "description": "Local bibliography index (SQLite, file: _index.db). Query with sqlite3 ~/lit/_index.db '<SQL>' \u2014 do NOT attempt to read or cat this file directly, it is binary and will not render as text. Check here before marking a citation as <!-- TODO: cite -->, to see whether the reference already exists in the user's library.",
+      "hidden": true
+    },
+    "r-style": {
+      "path": "${HOME}/.config/opencode/skills/r-analysis-quarto",
+      "description": "R/Quarto pipeline reference: SKILL.md, coding style, and example scripts",
       "hidden": true
     }
   },
@@ -113,6 +113,18 @@
         "webfetch": "allow",
         "task": {
           "*": "allow"
+        },
+        "bash": {
+          "*": "deny",
+          "git status": "allow",
+          "git log *": "allow",
+          "git diff *": "allow",
+          "git show *": "allow",
+          "ls *": "allow",
+          "wc *": "allow",
+          "tso *": "allow",
+          "chkdrft *": "allow",
+          "toc *": "allow"
         }
       }
     },
@@ -161,9 +173,6 @@
           "git show *": "allow",
           "ls *": "allow",
           "wc *": "allow",
-          "grep *": "allow",
-          "rg *": "allow",
-          "find *": "allow",
           "sed *": "allow",
           "tso *": "allow",
           "chkdrft *": "allow",
@@ -227,7 +236,7 @@
       }
     },
     "strategist": {
-      "description": "Gated arbitration for non-obvious or disputed fixes — tool-less, single-turn, batched per checkpoint",
+      "description": "Gated arbitration for non-obvious or disputed fixes \u2014 tool-less, single-turn, batched per checkpoint",
       "mode": "subagent",
       "model": "{env:STRATEGIST_MODEL}",
       "temperature": 0.3,
@@ -236,7 +245,9 @@
         "edit": "deny",
         "read": "deny",
         "webfetch": "deny",
-        "bash": { "*": "deny" }
+        "bash": {
+          "*": "deny"
+        }
       }
     },
     "literature-reviewer": {

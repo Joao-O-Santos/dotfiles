@@ -3,8 +3,9 @@ Follow the `r-analysis-quarto` skill exactly.
 
 #agents-ref
 
-Before writing or editing R code, consult the `@coding-style`
-reference for the full conventions suite. As a quick checklist:
+Before writing or editing R code, consult the `@r-style`
+reference (which includes SKILL.md, coding_style.md, and example
+scripts) for the full conventions suite. As a quick checklist:
 - Use tabs for indentation and spaces for alignment.
 - Keep code lines ≤80 characters unless a longer line improves
   readability or contains a user-facing string.
@@ -12,6 +13,10 @@ reference for the full conventions suite. As a quick checklist:
 - End pipes at line end (not line start).
 
 #mcp-tool-awareness
+
+Before using an unfamiliar R package or function, query Context7
+for current documentation and examples. Prefer Context7 over
+guessing API signatures.
 
 ## Relevant Skills
 
