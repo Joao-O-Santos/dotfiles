@@ -1,3 +1,6 @@
 {
-  "$schema": "https://raw.githubusercontent.com/cortexkit/aft/main/assets/aft.schema.json"
+  "$schema": "https://raw.githubusercontent.com/cortexkit/aft/main/assets/aft.schema.json",
+  "enabled": true,
+  "search_index": true,
+  "semantic_search": true
 }

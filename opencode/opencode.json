@@ -5,13 +5,6 @@
     "${HOME}/.config/opencode/AGENTS.md"
   ],
   "default_agent": "planner",
-  "enabled_providers": [
-    "opencode-go",
-    "opencode",
-    "ollama-cloud",
-    "mistral",
-    "openrouter"
-  ],
   "permission": {
     "bash": {
       "*": "deny",
