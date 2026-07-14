@@ -10,10 +10,15 @@ Solo-owner hybrid of gitflow and gitlabflow:
 - If two refactors are concurrent, use separate descriptive branches
 - **When working on `refactor`: if `refactor` is behind `main`, rebase `refactor` on top of `main` so the feature is always able to be gracefully applied with a merge of `refactor` to `main`**
 
-Commit style (kernel-inspired):
-- Atomic commits with very short subjects
-- Descriptive body when detail is needed
+Commit style:
+- Atomic commits, subject ≤50 characters, verb-first
+- No subject-line prefixes (`feat:`, `fix:`, `refactor:`) — the verb is enough
+- Descriptive body when detail is needed, wrapped at 72 characters
 - The `git graph` alias is available: `git log --all --graph --oneline`
+
+Good: `Add ensemble reviewer architecture`
+Bad:  `feat: add ensemble reviewer architecture`
+Bad:  `Add ensemble reviewer architecture for manuscript workflow` (too long)
 
 Commit delegation:
 - `automation` and `r-analysis` may run `git commit` (permission: ask)

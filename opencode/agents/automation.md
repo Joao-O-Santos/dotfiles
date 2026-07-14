@@ -36,3 +36,11 @@ Always:
 - Keep scripts idempotent and self-explanatory.
 - Avoid destructive commands unless explicitly requested.
 - Suggest `yay -S <pkg>` to install missing tools rather than assuming availability.
+
+## Commit Messages
+
+Follow `#git-workflow` conventions: subjects are verb-first, ≤50
+characters, with no `feat:`/`fix:` prefix. When the planner
+delegates a commit to you, edit the message to fit before
+committing — never let an over-long subject through. A
+descriptive body is fine; the subject must be tight.
