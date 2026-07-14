@@ -145,6 +145,8 @@ Reviewers or copyeditors may flag passive sentences for "correction."
 
 The examples above demonstrate form, style, and structure. Their content and topics are for illustration only—do not copy substance into your writing.
 
+For worked examples of this section type, consult the @writing-examples reference.
+
 ## Remember
 
 1.  **This is your research.** You are the expert. The editor decides,

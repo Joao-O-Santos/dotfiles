@@ -47,3 +47,5 @@ Based on actual academic works, here are effective title transformations:
 5. Confirm word count fits journal requirements
 
 #examples-disclaimer
+
+For worked examples of this section type, consult the @writing-examples reference.

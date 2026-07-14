@@ -37,3 +37,5 @@ description: Draft or revise the literature review section of a manuscript.
 3. Ensure every theme connects to your paper's contribution
 
 #examples-disclaimer
+
+For worked examples of this section type, consult the @writing-examples reference.

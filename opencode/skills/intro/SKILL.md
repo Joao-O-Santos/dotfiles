@@ -51,3 +51,5 @@ paragraph philosophy, revision thinking), load writing-craft alongside this skil
 ## Note on Examples
 
 #examples-disclaimer
+
+For worked examples of this section type, consult the @writing-examples reference.

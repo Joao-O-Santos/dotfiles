@@ -43,3 +43,6 @@ description: Draft or revise results sections for empirical papers.
 ## Note on Examples
 
 #examples-disclaimer
+
+For worked examples of this section type, consult the @writing-examples reference.
+The @writing-examples reference includes examples from both published papers and the user's own work, including statistical reporting conventions (afex + emmeans, robust methods over assumption tests).

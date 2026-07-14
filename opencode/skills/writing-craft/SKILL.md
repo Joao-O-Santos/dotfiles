@@ -69,6 +69,8 @@ nurture-before-prune), follow STYLE.md §4 and §5, and the
 three-pass workflow in `manuscript-workflow`. This skill does not
 duplicate those rules — it covers the intellectual layer above them.
 
+For worked examples of this section type, consult the @writing-examples reference.
+
 ## Remember
 
 1. Frame the contribution as a generative act — name the intellectual move.

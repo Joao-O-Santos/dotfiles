@@ -18,6 +18,11 @@
       "path": "${HOME}/.config/opencode/skills/r-analysis-quarto",
       "description": "R/Quarto pipeline reference: SKILL.md, coding style, and example scripts",
       "hidden": true
+    },
+    "writing-examples": {
+      "path": "${HOME}/.config/opencode/writing-examples",
+      "description": "Worked writing examples organized by section type (intro, methods, results, discussion, abstract). Use when drafting or revising to see exemplary prose from published papers and the user's own work.",
+      "hidden": true
     }
   },
   "permission": {
