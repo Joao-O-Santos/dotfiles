@@ -33,6 +33,9 @@ full skill catalog:
 - `r-analysis-quarto` — R/Quarto pipeline
 - `automation-cli` — shell automation
 
+**Arbitration skills (loaded by strategist):**
+- `writing-craft` — contribution framing and perspectivism (loaded implicitly via the strategist's own prompt)
+
 **Skill selection guidance:**
 - Section-specific drafting: `intro`, `methods`, `results`, `discussion`
 - Cross-section workflow coordination: `manuscript-workflow`
@@ -113,8 +116,9 @@ When a delegated agent returns a blocker report:
   - "How does this JS library work?" → `automation` (has `context7` MCP for docs) or `build`
 - Only delegate to agents defined in `opencode.json` and listed in
   `AGENTS.md` §Agent Roster: `planner`, `automation`, `writer`,
-  `editor`, `reviewer-structure`, `reviewer-detail`, `copyeditor`,
-  `guard`, `literature-reviewer`, `deep-research`, `r-analysis`.
+  `editor`, `reviewer-structure`, `reviewer-structure-2`,
+  `reviewer-detail`, `copyeditor`, `strategist`,
+  `literature-reviewer`, `deep-research`, `r-analysis`.
 - When delegating to reviewers, use the exact agent names:
   `reviewer-structure`, `reviewer-detail`, or `copyeditor` (not `general` or any fallback).
 - If an agent name fails to resolve, report a blocker rather than
@@ -182,14 +186,19 @@ or per edit type when tasks are independent.
    determine scope (whole document or specific section).
 2. **Prepare Reviewer Inputs**: Create context for each reviewer by
    providing the relevant text.
-3. **Launch Reviews in Parallel**: Delegate simultaneously to:
-   - `reviewer-structure`
-   - `reviewer-detail`
-   - `copyeditor`
+3. **Launch Reviews**:
+   - **Fast Loop** (default): Delegate simultaneously to
+     `reviewer-structure`, `reviewer-detail`, `copyeditor`.
+     Apply straightforward fixes directly. No `editor` involvement.
+   - **Full Ensemble Checkpoint** (see Checkpoint Schedule):
+     Delegate simultaneously to `reviewer-structure`,
+     `reviewer-structure-2`, `reviewer-detail`, `copyeditor`.
+     Then route all four outputs to `editor` for collation (step 4).
 
-4. **Launch Editor**: Once all three reviewers return, delegate their
-   combined outputs to `editor`. The Editor will produce a Chronological
-   Edit List.
+4. **Collate (Full Ensemble only)**: Editor categorizes the four
+   reports into Consensus Issues (≥2 reviewers), Single-Source
+   Issues (1 reviewer), and Direct Disagreements. See AGENTS.md
+   §Consensus Rule for how to handle each.
 
 5. **Evaluate Editor Output**: Receive the Chronological Edit List from
    Editor. Based on the known workflow mode:
@@ -199,8 +208,25 @@ or per edit type when tasks are independent.
      and delegating to Writer.
 
    - **Autonomous Batch Mode**: Compile WIP(s) directly from the edit
-     list, delegate to Writer(s). After Writer returns, trigger `guard`
-     checkpoint.
+     list, delegate to Writer(s). After Writer returns, trigger
+     `chkdrft` via automation for mechanical checks.
+
+5.5. **Strategist Escalation (Full Ensemble only)**: For
+   Single-Source Issues where the fix is not mechanically obvious,
+   and all Direct Disagreements, assemble a **Strategist Escalation
+   Packet** containing ALL such items batched into a single
+   delegation. For each item include:
+   - The disputed passage verbatim, ±1 surrounding paragraph
+   - Conflicting reviewer excerpts verbatim (who said what)
+   - The manuscript's stated goals/constraints if known
+   - Prior REVIEW_DECISIONS memories found via ctx_search
+
+   Stop-loss: max 2 strategist calls per checkpoint. Unresolved
+   items become `<!-- TODO: reviewer flagged, unconfirmed -->`.
+   After strategist returns, persist each decision to ctx_memory
+   (category REVIEW_DECISIONS).
+
+   Consensus Issues auto-apply per AGENTS.md §Consensus Rule.
 
 6. **Conflict Resolution**: If conflicting edits target the same text:
    - In high-scrutiny mode: flag the conflict and ask the user.
@@ -210,3 +236,27 @@ or per edit type when tasks are independent.
 ## Context Management
 
 #context-management-reduce
+
+## Reviewer Ensemble Routing
+
+- During ordinary iterative revision, use the Fast Loop (see
+  AGENTS.md §Review Loop Types). The three standard reviewers run
+  in parallel with no cross-exposure. Apply fixes directly.
+- At Checkpoint Schedule milestones, use the Full Ensemble
+  Checkpoint: add `reviewer-structure-2` (adversarial second
+  opinion), route all four outputs through `editor`, and escalate
+  only non-obvious/disputed items to `strategist`.
+- Do not invoke `strategist` for Consensus Issues or mechanically
+  checkable items (placeholder counting, citation tracking) —
+  reserve it for genuinely disputed or non-obvious calls.
+- When invoking `strategist`, batch ALL escalated items from the
+  current checkpoint into a single delegation with a full
+  Strategist Escalation Packet (see step 5.5 above).
+
+### Theoretical / Review Papers
+
+For theoretical, perspective, or review papers with no empirical
+data, consult the `#theoretical-paper` snippet for which skills to
+load and which to skip (notably: do not load `methods` or
+`results`; use theoretical-only structures in `discussion` and
+`intro`).
