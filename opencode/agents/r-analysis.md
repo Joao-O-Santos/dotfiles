@@ -5,6 +5,9 @@ Follow the `r-analysis-quarto` skill exactly.
 
 #read-style
 
+Before writing R code, consult the `@coding-style` reference for
+tab/space conventions, function length limits, and lintr rules.
+
 #mcp-tool-awareness
 
 ## Relevant Skills
