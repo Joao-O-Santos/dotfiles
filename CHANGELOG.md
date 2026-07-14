@@ -6,6 +6,92 @@ This project follows [Semantic Versioning](https://semver.org/).
 For detailed OpenCode Manuscript Workflow changes, see `opencode/CHANGELOG.md`.
 
 
+## [v8.0.0] - 2026-07-14
+
+### Breaking Changes
+- **Guard agent retired.** Step limits in opencode.json replace loop
+  detection; `chkdrft` handles mechanical placeholder/citation counting.
+- **STYLE.md removed from global instructions.** Core rules now delivered
+  via `This snippet contains the core writing conventions that should be referenced by all skills.
+
+## Voice and Tone
+- Use a confident, matter-of-fact academic voice
+- Assume a scientifically literate reader
+- Prefer concrete, example-rich explanations
+- Use first-person plural ("we") when standard for the venue
+
+## Paragraph Structure
+- Use the hamburger model (topic sentence, supporting evidence, concluding/linking sentence)
+- Create topic-sentence outlines for major sections
+- Use explicit signposting in early drafts, refine in later revisions
+
+## Sentence-Level Style
+- Bring main verbs early in sentences
+- Follow end-weight principle (longer phrases toward end)
+- Use topic → comment ordering
+- Avoid multiple negations
+- Prefer concrete, specific words over abstract nominalizations
+- Maintain consistent terminology across text, tables, figures, and code
+- **MANDATORY**: Hard-wrap all prose to 72 characters per line
+
+## Titles and Headings
+- Paper and section titles should be provocative and memorable
+- Use 4 blank lines before H1, 3 before H2, 2 before H3, 1 before H4
+
+## Page Breaks and Custom Styles
+- For Word conversion, use OpenXML page breaks with proper spacing
+- Apply custom styles: Title, Abstract, Figure, References
+- Do NOT remove custom styles when editing existing documents` snippet. Full document available as `@style` reference.
+- **Model reassignments**: planner retains exclusive `deepseek-v4-pro`;
+  most agents moved to cheaper pools (`deepseek-v4-flash`, `mimo-v2.5`).
+  See `opencode/CHANGELOG.md` v8.0.0 for full list.
+
+### Added
+- **Reviewer ensemble**: `reviewer-structure-2` (adversarial second
+  structural opinion, checkpoints only) and `strategist` (tool-less
+  arbitration for disputed reviewer disagreements). `editor` updated
+  for 4-reviewer collation with consensus/single-source/disagreement
+  categorization.
+- **Fast Loop vs. Full Ensemble Checkpoint** distinction in AGENTS.md.
+  Routine iterations use 3 reviewers; major milestones add
+  `reviewer-structure-2` and route through `editor` + `strategist`.
+- `references` block in `opencode.json`: `style` (STYLE.md),
+  `coding-style` (R coding conventions), `lit-index` (bibliography).
+- `This snippet contains the core writing conventions that should be referenced by all skills.
+
+## Voice and Tone
+- Use a confident, matter-of-fact academic voice
+- Assume a scientifically literate reader
+- Prefer concrete, example-rich explanations
+- Use first-person plural ("we") when standard for the venue
+
+## Paragraph Structure
+- Use the hamburger model (topic sentence, supporting evidence, concluding/linking sentence)
+- Create topic-sentence outlines for major sections
+- Use explicit signposting in early drafts, refine in later revisions
+
+## Sentence-Level Style
+- Bring main verbs early in sentences
+- Follow end-weight principle (longer phrases toward end)
+- Use topic → comment ordering
+- Avoid multiple negations
+- Prefer concrete, specific words over abstract nominalizations
+- Maintain consistent terminology across text, tables, figures, and code
+- **MANDATORY**: Hard-wrap all prose to 72 characters per line
+
+## Titles and Headings
+- Paper and section titles should be provocative and memorable
+- Use 4 blank lines before H1, 3 before H2, 2 before H3, 1 before H4
+
+## Page Breaks and Custom Styles
+- For Word conversion, use OpenXML page-breaks with proper spacing
+- Apply custom styles: Title, Abstract, Figure, References
+- Do NOT remove custom styles when editing existing documents` snippet now wired into all writing skills.
+- `theoretical-paper` snippet for planner routing.
+
+See `opencode/CHANGELOG.md` for the full entry.
+
+
 ## [v7.8.0] - 2026-06-18
 
 ### Added

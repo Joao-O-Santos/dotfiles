@@ -2,6 +2,128 @@
 
 All notable changes to the OpenCode configuration will be documented in this file.
 
+## [v8.0.0] — 2026-07-14
+
+### Added
+- `reviewer-structure-2`: adversarial second structural critique running
+  only at Full Ensemble Checkpoints with `deepseek-v4-pro`.
+- `strategist`: tool-less arbitration agent for disputed or non-obvious
+  reviewer disagreements. Batched, single-turn, zero-tool design caps
+  per-call cost. Decisions persisted to ctx_memory for citable evidence.
+- `theoretical-paper` snippet: planner routing guidance for
+  theoretical/review papers (skip methods/results, use theoretical
+  structures in intro/discussion).
+
+### Changed
+- **Editor** updated for 4-reviewer collation with consensus categories:
+  Consensus Issues (≥2 reviewers), Single-Source Issues (1 reviewer),
+  Direct Disagreements. Blind-spot detection preserved.
+- **Planner** now distinguishes Fast Loop vs. Full Ensemble Checkpoint
+  routing per AGENTS.md §Review Loop Types. Strategist Escalation
+  Protocol added with batched single-call-per-checkpoint design.
+- **Model reassignments** (see set_models.sh): writer, reviewer-structure,
+  editor, literature-reviewer moved to cheaper pools; lit-reviewer and
+  deep-research off glm-5.2; planner retains exclusive deepseek-v4-pro.
+
+### Removed
+- **Guard agent retired.** Step limits in opencode.json replace loop
+  detection; `chkdrft` handles mechanical placeholder/citation counting.
+  Guard's regression detection was unreliable for scientific prose (no
+  deterministic ground truth for text regressions).
+
+## [v7.8.1] — 2026-07-14
+
+### Changed
+- **STYLE.md removed from global instructions.** Core rules now delivered
+  via `This snippet contains the core writing conventions that should be referenced by all skills.
+
+## Voice and Tone
+- Use a confident, matter-of-fact academic voice
+- Assume a scientifically literate reader
+- Prefer concrete, example-rich explanations
+- Use first-person plural ("we") when standard for the venue
+
+## Paragraph Structure
+- Use the hamburger model (topic sentence, supporting evidence, concluding/linking sentence)
+- Create topic-sentence outlines for major sections
+- Use explicit signposting in early drafts, refine in later revisions
+
+## Sentence-Level Style
+- Bring main verbs early in sentences
+- Follow end-weight principle (longer phrases toward end)
+- Use topic → comment ordering
+- Avoid multiple negations
+- Prefer concrete, specific words over abstract nominalizations
+- Maintain consistent terminology across text, tables, figures, and code
+- **MANDATORY**: Hard-wrap all prose to 72 characters per line
+
+## Titles and Headings
+- Paper and section titles should be provocative and memorable
+- Use 4 blank lines before H1, 3 before H2, 2 before H3, 1 before H4
+
+## Page Breaks and Custom Styles
+- For Word conversion, use OpenXML page breaks with proper spacing
+- Apply custom styles: Title, Abstract, Figure, References
+- Do NOT remove custom styles when editing existing documents` snippet in writing skills; full document available on
+  demand as `@style` project reference. Saves ~222 lines of context per
+  session for non-writing agents (guard, automation, r-analysis, editor).
+- `This snippet contains the core writing conventions that should be referenced by all skills.
+
+## Voice and Tone
+- Use a confident, matter-of-fact academic voice
+- Assume a scientifically literate reader
+- Prefer concrete, example-rich explanations
+- Use first-person plural ("we") when standard for the venue
+
+## Paragraph Structure
+- Use the hamburger model (topic sentence, supporting evidence, concluding/linking sentence)
+- Create topic-sentence outlines for major sections
+- Use explicit signposting in early drafts, refine in later revisions
+
+## Sentence-Level Style
+- Bring main verbs early in sentences
+- Follow end-weight principle (longer phrases toward end)
+- Use topic → comment ordering
+- Avoid multiple negations
+- Prefer concrete, specific words over abstract nominalizations
+- Maintain consistent terminology across text, tables, figures, and code
+- **MANDATORY**: Hard-wrap all prose to 72 characters per line
+
+## Titles and Headings
+- Paper and section titles should be provocative and memorable
+- Use 4 blank lines before H1, 3 before H2, 2 before H3, 1 before H4
+
+## Page Breaks and Custom Styles
+- For Word conversion, use OpenXML page breaks with proper spacing
+- Apply custom styles: Title, Abstract, Figure, References
+- Do NOT remove custom styles when editing existing documents` added to `methods`, `results`, `discussion`, and
+  `copyedit` skills (was already in `intro`, `abstract`, `title`,
+  `lit-review-section`, `apa7-refs`, `finding-refs`, `r-analysis-quarto`).
+- `read-style` snippet updated to reflect new mechanism.
+- `copyedit/SKILL.md` section-number references replaced with descriptive
+  anchors (no longer depends on STYLE.md being in context).
+
+### Added
+- `references` block in `opencode.json`: `style` (STYLE.md), `coding-style`
+  (R coding conventions), `lit-index` (SQLite bibliography).
+- Explicit `sqlite3 *` bash permission for `literature-reviewer` and
+  `deep-research` agents (safer than relying on global inheritance given
+  known subagent permission propagation bug).
+
+### Fixed
+- `#lit-alert` and `#lit-heal` in `literature-reviewer.md` and
+  `deep-research.md` were snippet-style references pointing to non-existent
+  snippet files. Replaced with explicit labels: skills (loaded via `skill`
+  tool), commands (slash commands), and snippets (auto-expanded).
+- `skills/lit-review-section/SKILL.md` heading updated from stale
+  `# Skill: lit-review` to `# Skill: lit-review-section`.
+- `examples-disclaimer` snippet references verified across all skills.
+
+### Removed
+- `reviewer-output-rules` snippet consolidated into `reviewer-output-format`
+  (merged output template with output principles — 1 snippet instead of 2
+  with ~80% overlap).
+
 ## [v7.8.0] - 2026-06-18
 
 ### Added
