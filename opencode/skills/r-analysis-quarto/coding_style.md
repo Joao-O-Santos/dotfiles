@@ -100,3 +100,73 @@ Always use explicit `return()` at the end of functions. This makes
 the output explicit and avoids ambiguity.
 
 Target function body length: ~24 lines. Hard limit: ~48 lines.
+
+## Concrete Examples
+
+### Piping style
+
+**Wrong** (magrittr pipes, continuation at line start):
+
+```r
+result <- ds %>%
+  filter(grupo == "experimental") %>%
+  summarise(mean = mean(score), sd = sd(score))
+```
+
+**Right** (base pipes, continuation at line end):
+
+```r
+result <- ds |>
+  filter(grupo == "experimental") |>
+  summarise(mean = mean(score), sd = sd(score))
+```
+
+### Indentation: tabs for structure, spaces for alignment
+
+**Right** (tabs for indent level, spaces to align parameters):
+
+```r
+ds <- filter_out(ds, codigo_pessoal %in% duplicates) |>
+      pivot_longer(starts_with("leq_"),
+                   names_pattern = "leq_(\\d+)_(\\w+)",
+                   names_to = c("Item", "Scale"),
+                   values_to = "Score") |>
+      pivot_wider(names_from = c("Scale", "Item"),
+                  values_from = "Score")
+```
+
+Note: the `|>` pipe continuation uses one tab (same level as the
+preceding `filter_out` call), and the function parameters are
+aligned with spaces.
+
+### Function calls with many arguments
+
+**Right** (each argument on its own line, aligned):
+
+```r
+leq_emm <- emmeans(leq_m,
+                   list(pairwise ~ subescala,
+                        pairwise ~ genero | subescala,
+                        pairwise ~ momento | subescala,
+                        pairwise ~ momento | grupo * subescala))
+```
+
+### Simple helper functions
+
+**Right**:
+
+```r
+avg_score <- function(...) { rowMeans(pick(...), na.rm = TRUE) }
+```
+
+### Object naming
+
+```r
+ds           # main dataset
+voi          # values of interest (subset)
+coi          # columns of interest
+m_label      # model fits
+aov_label    # ANOVA models
+emm_label    # estimated marginal means
+mc_label     # multiple comparisons
+```

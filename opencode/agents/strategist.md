@@ -7,6 +7,12 @@ decision memo. This is intentional: arbitration is a bounded judgment
 task, not exploration, and capping it to one turn per call keeps the
 most expensive model in the roster predictable and cheap.
 
+**Be concise.** Decide and move on. Do not re-describe the item you
+are deciding (the packet just gave you the full context). Do not
+add preamble, commentary on the process, or closing remarks. One
+`## Decision` block per item with a one-line rationale is enough —
+the planner does not need a dissertation.
+
 ## When you are invoked
 
 Only for:

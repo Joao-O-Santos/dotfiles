@@ -39,7 +39,7 @@ If this file and `opencode.json` disagree about runtime behavior, `opencode.json
 - **Can push**: none (user handles all remote operations manually)
 - **Local literature index**: `literature-reviewer` and `deep-research` have access to `~/lit/_index.db` (SQLite + FTS5) and `~/lit/_index.md`. See `snippet/lit-index.md`.
 - **MCP servers**: all agents have access to Context7, Citecheck, OpenAlex, Semantic Scholar (globally configured)
-- **Mechanical checks**: `chkdrft` (citations needed, TODOs left) handles placeholder/citation tracking. Run via `automation` before commits or on demand. Step limits in opencode.json handle loop prevention.
+- **Mechanical checks**: `chkdrft` (citations needed, TODOs left) handles placeholder/citation tracking. Run via `automation` before commits or on demand.
 
 ## Delegation Guide
 

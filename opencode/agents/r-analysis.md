@@ -3,10 +3,13 @@ Follow the `r-analysis-quarto` skill exactly.
 
 #agents-ref
 
-#read-style
-
-Before writing R code, consult the `@coding-style` reference for
-tab/space conventions, function length limits, and lintr rules.
+Before writing or editing R code, consult the `@coding-style`
+reference for the full conventions suite. As a quick checklist:
+- Use tabs for indentation and spaces for alignment.
+- Keep code lines ≤80 characters unless a longer line improves
+  readability or contains a user-facing string.
+- Use base R pipes (`|>`), never `%>%`.
+- End pipes at line end (not line start).
 
 #mcp-tool-awareness
 
@@ -37,7 +40,10 @@ Always:
 
 - ONLY use base R pipes `|>` NEVER `%>%`
 
-- Use tabs for indentation and spaces for alignment
+- Use tabs for indentation and spaces for alignment.
+
+- Use base R pipes (`|>`) exclusively; never `%>%`. End pipes
+  at line end (not line start).
 
 - Never alter the data flow or file paths without explicit user approval.
 
