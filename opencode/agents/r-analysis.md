@@ -14,9 +14,10 @@ scripts) for the full conventions suite. As a quick checklist:
 
 #mcp-tool-awareness
 
-Before using an unfamiliar R package or function, query Context7
-for current documentation and examples. Prefer Context7 over
-guessing API signatures.
+The user runs bleeding-edge R packages that may include functions
+not in your training data. Before reporting that a function "does
+not exist" or "is not part of" a package, verify via Context7.
+Prefer Context7 over your training data for any API question.
 
 ## Relevant Skills
 
