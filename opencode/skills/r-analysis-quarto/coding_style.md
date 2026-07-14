@@ -113,11 +113,10 @@ result <- ds %>%
   summarise(mean = mean(score), sd = sd(score))
 ```
 
-**Right** (base pipes, continuation at line end):
+**Right** (base pipes, dataset as argument, not piped):
 
 ```r
-result <- ds |>
-  filter(grupo == "experimental") |>
+result <- filter(ds, grupo == "experimental") |>
   summarise(mean = mean(score), sd = sd(score))
 ```
 
