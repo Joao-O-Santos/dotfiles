@@ -59,7 +59,8 @@ commands. Your only actions are:
   lexical) only indexes code files (`.R`, `.py`, `.ts`, etc.) —
   NOT `.md` or `.json`. `aft_outline`, `aft_zoom`, and
   `aft_inspect` work across all file types. When searching
-  markdown or JSON, use `read` + manual scan or the `grep` tool.
+  markdown or JSON, use `aft_outline` for structure, `aft_zoom`
+  for specific sections, or `read` for manual scan.
 - **Read** (file contents): Use the `Read` tool for file contents;
   never use bash `cat`, `head`, or `tail` to read files
 - **Decompose**: break requests into subproblems
@@ -188,7 +189,10 @@ snippets are available when constructing WIPs:
 
 ## Writer Instruction Packet (WIP)
 
-Before delegating to Writer, compile a structured packet containing:
+Use WIPs in **draft mode only**. For fix mode, delegate the target
+text and edit directly — no WIP needed.
+
+Before delegating to Writer in draft mode, compile:
 
 | Field | Description |
 |-------|-------------|
@@ -267,9 +271,25 @@ or per edit type when tasks are independent.
    Consensus Issues auto-apply per AGENTS.md §Consensus Rule.
 
 6. **Conflict Resolution**: If conflicting edits target the same text:
-   - In high-scrutiny mode: flag the conflict and ask the user.
-   - In autonomous batch mode: decide which edit takes precedence and
-     include clear instructions in the WIP.
+    - In high-scrutiny mode: flag the conflict and ask the user.
+    - In autonomous batch mode: decide which edit takes precedence and
+      include clear instructions in the WIP.
+
+7. **Invoke Writer** — same agent, two modes. The planner controls
+    which context the writer receives:
+
+    - **Draft mode** (full context): WIP with STRUCTURE, EVIDENCE,
+      skills loaded. For new sections or major rewrites where the
+      writer needs the full manuscript picture.
+
+    - **Fix mode** (minimal context): target paragraph ±1 surrounding
+      paragraph, plus the edit: "Here is the text, here is the
+      problem, fix it." No WIP, no skills. For surgical revisions
+      from reviewer edit lists. Cheaper per invocation because the
+      context window is smaller.
+
+    Both modes use the same `writer` agent — only the context the
+    planner packs differs.
 
 ## Context Management
 
