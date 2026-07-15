@@ -27,33 +27,20 @@
   },
   "permission": {
     "bash": {
-      "*": "deny",
-      "git status": "allow",
-      "git log *": "allow",
-      "git diff *": "allow",
-      "git show *": "allow",
-      "ls *": "allow",
-      "wc *": "allow",
-      "tso *": "allow",
-      "chkdrft *": "allow",
-      "toc *": "allow",
-      "pdftotext *": "allow",
-      "pdfgrep *": "allow",
-      "sqlite3 *": "allow"
+      "*": "deny"
+    },
+    "read": {
+      "*": "allow",
+      "*.env": "deny",
+      "*.env.*": "deny",
+      "*.env.example": "allow",
+      "${HOME}/.config/opencode/auth.json": "deny",
+      "${HOME}/.config/opencode/account.json": "deny",
+      "${HOME}/.config/opencode/mcp_keys.env": "deny"
     },
     "external_directory": {
       "${HOME}/.config/opencode/**": "allow",
-      "${HOME}/.config/opencode/auth.json": "deny",
-      "${HOME}/.config/opencode/account.json": "deny",
-      "${HOME}/.config/opencode/mcp_keys.sh": "deny",
       "${HOME}/lit/**": "allow",
-      "/tmp/**": "allow"
-    },
-    "read": {
-      "${HOME}/.config/opencode/**": "allow",
-      "${HOME}/.config/opencode/auth.json": "deny",
-      "${HOME}/.config/opencode/account.json": "deny",
-      "${HOME}/.config/opencode/mcp_keys.sh": "deny",
       "/tmp/**": "allow"
     }
   },
@@ -109,25 +96,10 @@
       "description": "Primary orchestrator and default agent",
       "mode": "primary",
       "model": "{env:PLANNER_MODEL}",
-      "steps": 20,
       "permission": {
-        "edit": "deny",
+        "task": "allow",
         "webfetch": "allow",
-        "task": {
-          "*": "allow"
-        },
-        "bash": {
-          "*": "deny",
-          "git status": "allow",
-          "git log *": "allow",
-          "git diff *": "allow",
-          "git show *": "allow",
-          "ls *": "allow",
-          "wc *": "allow",
-          "tso *": "allow",
-          "chkdrft *": "allow",
-          "toc *": "allow"
-        }
+        "question": "allow"
       }
     },
     "automation": {
@@ -137,11 +109,16 @@
       "temperature": 0.3,
       "steps": 30,
       "permission": {
+        "read": "allow",
+        "grep": "allow",
+        "glob": "allow",
         "edit": "allow",
         "webfetch": "allow",
+        "websearch": "allow",
+        "lsp": "allow",
         "bash": {
           "*": "allow",
-          "git commit *": "ask",
+          "git commit *": "allow",
           "git merge *": "ask",
           "git reset --hard *": "ask",
           "git clean *": "ask",
@@ -165,20 +142,10 @@
       "model": "{env:WRITER_MODEL}",
       "steps": 20,
       "permission": {
-        "edit": "allow",
-        "webfetch": "allow",
-        "bash": {
-          "*": "deny",
-          "git status": "allow",
-          "git log *": "allow",
-          "git diff *": "allow",
-          "git show *": "allow",
-          "ls *": "allow",
-          "wc *": "allow",
-          "tso *": "allow",
-          "chkdrft *": "allow",
-          "toc *": "allow"
-        }
+        "read": "allow",
+        "grep": "allow",
+        "glob": "allow",
+        "edit": "allow"
       }
     },
     "reviewer-structure": {
@@ -186,14 +153,10 @@
       "mode": "subagent",
       "model": "{env:REVIEWER_STRUCTURE_MODEL}",
       "temperature": 0.8,
+      "steps": 10,
       "permission": {
-        "edit": "deny",
-        "webfetch": "allow",
-        "bash": {
-          "*": "deny"
-        }
-      },
-      "steps": 10
+        "edit": "deny"
+      }
     },
     "reviewer-structure-2": {
       "description": "Adversarial second-opinion structural critique (checkpoints only)",
@@ -202,11 +165,7 @@
       "temperature": 0.6,
       "steps": 10,
       "permission": {
-        "edit": "deny",
-        "webfetch": "allow",
-        "bash": {
-          "*": "deny"
-        }
+        "edit": "deny"
       }
     },
     "reviewer-detail": {
@@ -216,11 +175,7 @@
       "temperature": 0.5,
       "steps": 10,
       "permission": {
-        "edit": "deny",
-        "webfetch": "allow",
-        "bash": {
-          "*": "deny"
-        }
+        "edit": "deny"
       }
     },
     "copyeditor": {
@@ -230,25 +185,17 @@
       "temperature": 0.4,
       "steps": 10,
       "permission": {
-        "edit": "deny",
-        "webfetch": "allow",
-        "bash": {
-          "*": "deny"
-        }
+        "edit": "deny"
       }
     },
     "editor": {
       "description": "Manuscript review collation agent: categorizes reviewer output by consensus level",
       "mode": "subagent",
       "model": "{env:EDITOR_MODEL}",
-      "temperature": 0.3,
-      "steps": 8,
+      "temperature": 0.5,
+      "steps": 10,
       "permission": {
-        "edit": "deny",
-        "webfetch": "allow",
-        "bash": {
-          "*": "deny"
-        }
+        "edit": "deny"
       }
     },
     "strategist": {
@@ -256,33 +203,21 @@
       "mode": "subagent",
       "model": "{env:STRATEGIST_MODEL}",
       "temperature": 0.3,
-      "steps": 1,
+      "steps": 3,
       "permission": {
-        "edit": "deny",
-        "read": "deny",
-        "webfetch": "deny",
-        "bash": {
-          "*": "deny"
-        }
+        "edit": "deny"
       }
     },
     "literature-reviewer": {
       "description": "Fast academic search and paper summaries",
       "mode": "subagent",
       "model": "{env:LITERATURE_REVIEWER_MODEL}",
-      "steps": 12,
+      "steps": 20,
       "permission": {
-        "edit": "deny",
         "webfetch": "allow",
+        "websearch": "allow",
         "bash": {
           "*": "deny",
-          "cat *": "allow",
-          "head *": "allow",
-          "tail *": "allow",
-          "grep *": "allow",
-          "rg *": "allow",
-          "find *": "allow",
-          "wc *": "allow",
           "pdftotext *": "allow",
           "pdfgrep *": "allow",
           "sqlite3 *": "allow"
@@ -294,19 +229,12 @@
       "mode": "subagent",
       "model": "{env:DEEP_RESEARCH_MODEL}",
       "temperature": 0.5,
-      "steps": 20,
+      "steps": 30,
       "permission": {
-        "edit": "deny",
         "webfetch": "allow",
+        "websearch": "allow",
         "bash": {
           "*": "deny",
-          "cat *": "allow",
-          "head *": "allow",
-          "tail *": "allow",
-          "grep *": "allow",
-          "rg *": "allow",
-          "find *": "allow",
-          "wc *": "allow",
           "pdftotext *": "allow",
           "pdfgrep *": "allow",
           "sqlite3 *": "allow"
@@ -320,8 +248,12 @@
       "temperature": 0.2,
       "steps": 30,
       "permission": {
+        "read": "allow",
+        "grep": "allow",
+        "glob": "allow",
         "edit": "allow",
         "webfetch": "allow",
+        "websearch": "allow",
         "bash": {
           "*": "allow",
           "git commit *": "ask",

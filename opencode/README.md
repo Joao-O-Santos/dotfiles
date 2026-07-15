@@ -72,7 +72,7 @@ The OpenCode Manuscript Workflow implements a multi‑agent system where each ag
 
 - Node.js (for `npx`‑based MCP servers and optional plugins).
 - Access to at least one LLM provider configured in `auth.json` (e.g., OpenRouter, Mistral, Opencode‑go).
-- Bash shell (for `mcp_keys.sh` and `set_models.sh`).
+- Bash shell (for `mcp_keys.env` and `set_models.sh`).
 
 ### 1. Clone and install
 
@@ -98,7 +98,7 @@ Remove providers you don't use (e.g., `huggingface`, `ollama-cloud`) to keep thi
 
 ### 3. Configure MCP API keys
 
-Create `~/.config/opencode/mcp_keys.sh`:
+Create `~/.config/opencode/mcp_keys.env`:
 
 ```bash
 #!/usr/bin/env bash
@@ -117,8 +117,8 @@ export CROSSREF_MAILTO="your_email@example.com"
 Make it non‑world‑readable and don't commit it:
 
 ```bash
-chmod 600 ~/.config/opencode/mcp_keys.sh
-echo "mcp_keys.sh" >> ~/.config/opencode/.gitignore  # if you track that directory
+chmod 600 ~/.config/opencode/mcp_keys.env
+echo "mcp_keys.env" >> ~/.config/opencode/.gitignore  # if you track that directory
 ```
 
 ### 4. Launch OpenCode with MCP keys and model assignments
@@ -126,7 +126,7 @@ echo "mcp_keys.sh" >> ~/.config/opencode/.gitignore  # if you track that directo
 In your shell rc (e.g., `.zshrc`):
 
 ```bash
-source ~/.config/opencode/mcp_keys.sh
+source ~/.config/opencode/mcp_keys.env
 source ~/.config/opencode/set_models.sh
 alias oc="opencode --config ~/.config/opencode/opencode.json"
 ```
@@ -307,4 +307,4 @@ Key permission categories:
 - `edit`: allow/deny file editing.
 - `webfetch`: allow/deny `webfetch` calls.
 - `bash`: fine‑grained bash permissions. Most agents inherit the global allowlist (read‑only commands + git inspection). Only `automation`, `r-analysis`, `writer`, `literature-reviewer`, and `deep-research` define custom bash blocks.
-- `external_directory` & `read`: filesystem access. Global allows `~/.config/opencode/**` (except `auth.json`, `account.json`, and `mcp_keys.sh`) and `/tmp/**`.
+- `external_directory` & `read`: filesystem access. Global allows `~/.config/opencode/**` (except `auth.json`, `account.json`, and `mcp_keys.env`) and `/tmp/**`.

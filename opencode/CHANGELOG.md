@@ -2,6 +2,24 @@
 
 All notable changes to the OpenCode configuration will be documented in this file.
 
+## v8.2.0 — 2026-07-16
+
+### Permissions
+- Global bash set to deny-all; per-agent overrides for automation (full), r-analysis (full), lit-reviewer/deep-research (pdfgrep/pdfgrep/sqlite3 only)
+- Planner has no bash — uses task delegation, AFT tools, and MCP tools only
+- Writer has read + edit only (no bash)
+- Reviewers/editor/strategist have empty {} (inherit global read-only)
+- AFT tools (aft_outline, aft_zoom, aft_inspect, aft_search, aft_safety) explicitly allowed for planner
+- MCP tools (Context7, Citecheck, OpenAlex, Semantic Scholar) explicitly allowed for planner
+
+### Documentation
+- Fixed planner.md contradictions: removed references to planner bash commands
+- Fixed git-workflow.md: planner delegates git status check to automation
+- Strategist now prioritizes correctness over diplomatic compromise
+- Reviewers identify problems only; planner prescribes fixes
+- Dual writer invocation modes documented (draft vs fix)
+- Remove lit-heal from deep-research (expensive agent shouldn't do DB maintenance)
+
 ## v8.1.2 — 2026-07-15
 
 ### Permissions
@@ -353,7 +371,7 @@ Writer empowered with more creative autonomy: WIP specifies paragraph purposes i
 ### Changed
 - Magic Context historian and dreamer models upgraded to `deepseek-v4-pro`
 - Model assignments upgraded across agents; temperatures adjusted
-- `account.json` added to read/external_directory deny list alongside `auth.json` and `mcp_keys.sh`
+- `account.json` added to read/external_directory deny list alongside `auth.json` and `mcp_keys.env`
 
 ## [2026-04-27] — PDF tooling and model bumps
 

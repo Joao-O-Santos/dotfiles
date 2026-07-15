@@ -24,7 +24,7 @@ Commit delegation:
 - `automation` and `r-analysis` may run `git commit` (permission: ask)
 - `planner` is barred from committing — delegates to `automation`
 - All other agents are barred from committing
-- Before delegating to read-only agents, `planner` must check `git status` and commit any pending changes atomically
+- Before delegating to read-only agents, `planner` must delegate a `git status` check to `automation` and ensure any pending changes are committed atomically
 - Suggest an atomic commit checkpoint after substantial writes
 
 Merge strategy:
