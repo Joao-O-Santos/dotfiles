@@ -2,6 +2,39 @@
 
 All notable changes to the OpenCode configuration will be documented in this file.
 
+## v8.1.2 — 2026-07-15
+
+### Permissions
+- Deny bash for all 5 reviewer/editor agents (were inheriting global allows)
+- Remove sed from writer bash allowlist
+- Trim global grep/rg/find (only needed by lit agents with their own allows)
+
+### Review Workflow
+- Reviewers identify problems only; Fix field removed from output format.
+  Planner prescribes solutions, writer implements them.
+- Reviewer-structure-2 instructed to never suggest fixes (adversarial
+  role is to find problems others miss).
+- Remove lit-heal from deep-research (expensive agent shouldn't do DB
+  maintenance; kept on literature-reviewer).
+
+### Writer Invocation
+- Planner docs dual writer modes: draft mode (full WIP with skills) for
+  new sections, fix mode (target text + edit, no WIP) for surgical
+  revisions. Same agent, same quality, cheaper per-fix invocation.
+
+### Semantic Search
+- Switch AFT semantic backend from local fastembed to Mistral
+  mistral-embed (1024-dim, OpenAI-compatible endpoint).
+- Clear 103MB cached fastembed index for clean rebuild.
+- Document AFT tool coverage in planner.md: aft_search only indexes
+  code files; use aft_outline/aft_zoom for markdown.
+
+### Documentation
+- oksh reference removed from automation.md (stale)
+- OpenCode README now documents cortexkit/{aft,magic-context}.jsonc
+- Editor description in opencode.json matches AGENTS.md
+- Top-level README config table includes cortexkit entries
+
 ## v8.1.1 — 2026-07-15
 
 ### Attribution
