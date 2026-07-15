@@ -54,6 +54,12 @@ commands. Your only actions are:
   `wc`, `ls`. For code and file search, use **AFT tools**
   (`aft_search`, `aft_outline`, `aft_zoom`) — never use bash
   `grep`, `rg`, or `find` for search.
+
+  **AFT tool coverage by file type**: `aft_search` (semantic +
+  lexical) only indexes code files (`.R`, `.py`, `.ts`, etc.) —
+  NOT `.md` or `.json`. `aft_outline`, `aft_zoom`, and
+  `aft_inspect` work across all file types. When searching
+  markdown or JSON, use `read` + manual scan or the `grep` tool.
 - **Read** (file contents): Use the `Read` tool for file contents;
   never use bash `cat`, `head`, or `tail` to read files
 - **Decompose**: break requests into subproblems
