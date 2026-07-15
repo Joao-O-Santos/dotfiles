@@ -34,9 +34,6 @@
       "git show *": "allow",
       "ls *": "allow",
       "wc *": "allow",
-      "grep *": "allow",
-      "rg *": "allow",
-      "find *": "allow",
       "tso *": "allow",
       "chkdrft *": "allow",
       "toc *": "allow",
@@ -178,7 +175,6 @@
           "git show *": "allow",
           "ls *": "allow",
           "wc *": "allow",
-          "sed *": "allow",
           "tso *": "allow",
           "chkdrft *": "allow",
           "toc *": "allow"
@@ -192,7 +188,10 @@
       "temperature": 0.8,
       "permission": {
         "edit": "deny",
-        "webfetch": "allow"
+        "webfetch": "allow",
+        "bash": {
+          "*": "deny"
+        }
       },
       "steps": 10
     },
@@ -204,7 +203,10 @@
       "steps": 10,
       "permission": {
         "edit": "deny",
-        "webfetch": "allow"
+        "webfetch": "allow",
+        "bash": {
+          "*": "deny"
+        }
       }
     },
     "reviewer-detail": {
@@ -215,7 +217,10 @@
       "steps": 10,
       "permission": {
         "edit": "deny",
-        "webfetch": "allow"
+        "webfetch": "allow",
+        "bash": {
+          "*": "deny"
+        }
       }
     },
     "copyeditor": {
@@ -226,18 +231,24 @@
       "steps": 10,
       "permission": {
         "edit": "deny",
-        "webfetch": "allow"
+        "webfetch": "allow",
+        "bash": {
+          "*": "deny"
+        }
       }
     },
     "editor": {
-      "description": "Manuscript review collation agent: sorts reviewer output chronologically",
+      "description": "Manuscript review collation agent: categorizes reviewer output by consensus level",
       "mode": "subagent",
       "model": "{env:EDITOR_MODEL}",
       "temperature": 0.3,
       "steps": 8,
       "permission": {
         "edit": "deny",
-        "webfetch": "allow"
+        "webfetch": "allow",
+        "bash": {
+          "*": "deny"
+        }
       }
     },
     "strategist": {
