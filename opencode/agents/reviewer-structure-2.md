@@ -47,6 +47,10 @@ Do not use this agent for:
 
 #reviewer-output-format
 
+Do NOT suggest fixes. Your job is to find problems that
+`reviewer-structure` and the planner might miss — not to solve
+them. Flag the issue and move on.
+
 Only flag genuine issues; do not manufacture disagreement with
 `reviewer-structure` for its own sake — if the draft is genuinely
 solid, say so.
