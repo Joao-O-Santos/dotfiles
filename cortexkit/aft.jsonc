@@ -1,11 +1,18 @@
 {
   "$schema": "https://raw.githubusercontent.com/cortexkit/aft/main/assets/aft.schema.json",
   "enabled": true,
-  "search_index": true,
-  "semantic_search": true,
   "hoist_builtin_tools": true,
-  "tool_surface": "recommended",
   "bash": {
     "rewrite": true
+  },
+  "search_index": true,
+  "semantic_search": true,
+  "semantic": {
+    "backend": "openai_compatible",
+    "model": "mistral-embed",
+    "base_url": "https://api.mistral.ai/v1",
+    "api_key_env": "MISTRAL_API_KEY",
+    "timeout_ms": 25000,
+    "max_batch_size": 64
   }
 }
