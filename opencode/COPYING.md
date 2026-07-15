@@ -23,6 +23,7 @@ This file centralizes all attributions to keep skill files clean
 | `skills/review-detail/SKILL.md` | peer-review | scientific-agent-skills | Citation verification framework, conceptual clarity assessment |
 | `skills/finding-refs/SKILL.md` | literature-review | scientific-agent-skills | Systematic search methodology, database escalation pattern |
 | `skills/deep-research/SKILL.md` | literature-review | scientific-agent-skills | Multi-source synthesis, exhaustive evidence gathering |
+| `snippet/mcguire-heuristics.md` | McGuire (1997) | Creative Hypothesis Generating in Psychology | Heuristic framework adapted for three use cases (alternative explanations for reviewers, follow-up studies for discussion, contribution framing for writer) |
 
 ## License Files
 

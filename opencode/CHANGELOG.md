@@ -2,6 +2,17 @@
 
 All notable changes to the OpenCode configuration will be documented in this file.
 
+## v8.1.1 — 2026-07-15
+
+### Attribution
+- Add McGuire (1997) heuristic framework crediting in COPYING.md
+- Add full writing-examples author attribution table (Sarnecka, Hagá, Earp & Trafimow, Santos et al.)
+- Add scientific-writing, peer-review, literature-review skill inspirations
+
+### Cleanup
+- Remove stale commented_lit_tree file
+- Top-level README now documents cortexkit/{aft.jsonc,magic-context.jsonc}
+
 ## v8.1.0 — 2026-07-15
 
 ### AFT Configuration

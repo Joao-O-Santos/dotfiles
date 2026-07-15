@@ -19,6 +19,7 @@ My dotfiles for the programs I use. Updated continuously since 2022.
 | **xorg** | `xorg/xinitrc` | X11 init |
 | **wallpapers** | `wallpapers/` | Desktop backgrounds |
 | **opencode** | `opencode/*` | Multi-agent AI system for academic manuscript writing, revision, and review |
+| **cortexkit** | `cortexkit/aft.jsonc`, `cortexkit/magic-context.jsonc` | AFT code-analysis plugin and Magic Context session management |
 | **scripts** | `scripts/*.sh` | Shell scripts (added to PATH via `shellrc`) |
 
 ## Versioning
