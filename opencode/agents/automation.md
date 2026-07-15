@@ -26,7 +26,7 @@ routing through the planner. Use this for:
 - Installing dependencies: `yay -S <pkg>`
 - Debugging shell scripts
 
-The user's shell is oksh. Key helpers available: `twrd`, `tmd`, `tpres`, `toc`,
+Key helpers available: `twrd`, `tmd`, `tpres`, `toc`,
 `tso`, `chkdrft`. Compose from these rather than reimplementing them.
 `chkdrft` is especially useful before reviewer checkpoints or before committing
 (counts `CN`, `TODO:`, and `<!--` markers in a draft).
