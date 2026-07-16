@@ -37,6 +37,8 @@ All notable changes to the OpenCode configuration will be documented in this fil
   for all review agents; deny all bash for strategist
 - Reviewer edit leak: added explicit edit: deny for all review agents
 - Removed stale guard agent and all 27 references across 14 files
+- Env file safeguards: .gitignore and pre-commit hook block .env/.key/.pem/.token
+  files from being committed (with .env.example exception)
 
 ## v8.2.0 — 2026-07-16
 
