@@ -5,20 +5,20 @@ All notable changes to the OpenCode configuration will be documented in this fil
 ## v8.2.0 — 2026-07-16
 
 ### Permissions
-- Global bash set to deny-all; per-agent overrides for automation (full), r-analysis (full), lit-reviewer/deep-research (pdfgrep/pdfgrep/sqlite3 only)
-- Planner has no bash — uses task delegation, AFT tools, and MCP tools only
+- Simplified global permissions: removed `"*": "deny"` that broke AFT and MCP tools
+- Global bash deny with per-agent overrides (automation: full, r-analysis: full, lit-reviewer/deep-research: pdfgrep/pdfgrep/sqlite3)
+- Planner has no bash — uses task delegation, AFT tools, and MCP tools
 - Writer has read + edit only (no bash)
-- Reviewers/editor/strategist have empty {} (inherit global read-only)
-- AFT tools (aft_outline, aft_zoom, aft_inspect, aft_search, aft_safety) explicitly allowed for planner
-- MCP tools (Context7, Citecheck, OpenAlex, Semantic Scholar) explicitly allowed for planner
+- Reviewers/editor/strategist inherit global read-only defaults
+- AFT and MCP tools always available when plugin is loaded (not permission-controlled)
 
 ### Documentation
-- Fixed planner.md contradictions: removed references to planner bash commands
-- Fixed git-workflow.md: planner delegates git status check to automation
+- Fixed planner.md: removed references to planner bash commands
+- Fixed git-workflow.md: planner delegates git status to automation
 - Strategist now prioritizes correctness over diplomatic compromise
 - Reviewers identify problems only; planner prescribes fixes
 - Dual writer invocation modes documented (draft vs fix)
-- Remove lit-heal from deep-research (expensive agent shouldn't do DB maintenance)
+- Remove lit-heal from deep-research
 
 ## v8.1.2 — 2026-07-15
 
