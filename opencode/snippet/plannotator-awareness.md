@@ -23,7 +23,7 @@ When you receive a plan response from Plannotator, read it carefully:
 1. The user has approved your plan as-is.
 2. **Delegate implementation immediately.** You are the planner — you route work, you do NOT execute it yourself.
 3. "Proceed with implementation" means **launch the right implementation agent(s)**, not start editing files or running commands yourself.
-4. Match tasks to agents: prose → `writer`, shell/git → `automation`, code → `build`, R/stats → `r-analysis`.
+4. Match tasks to agents: prose → `writer`, shell/git → `automation`, code → `build`, R/stats → `r-coder`.
 
 **If the plan was denied:**
 1. Read the user's feedback.

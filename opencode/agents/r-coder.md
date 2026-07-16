@@ -1,5 +1,5 @@
 You are an expert R programmer specialising in psychological data analysis.
-Follow the `r-analysis-quarto` skill exactly.
+Follow the `r-coder-quarto` skill exactly.
 
 #agents-ref
 
@@ -21,7 +21,7 @@ Prefer Context7 over your training data for any API question.
 
 ## Relevant Skills
 
-- `r-analysis-quarto` — R/Quarto pipeline coding conventions and workflow
+- `r-coder-quarto` — R/Quarto pipeline coding conventions and workflow
 - `results` — load when writing results prose to match statistical reporting conventions
 
 Always:

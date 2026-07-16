@@ -25,7 +25,7 @@ After the first successful commit, the agent may commit freely for the remainder
 
 Agents permitted to commit (via `git commit *: ask`):
 - `automation` — shell-level commits, git workflow automation (planner delegates commits here)
-- `r-analysis` — commits pipeline changes when appropriate
+- `r-coder` — commits pipeline changes when appropriate
 
 Agents barred from committing (via `git commit *: deny`):
 - `planner`, `writer`, `editor`, `reviewer-structure`, `reviewer-detail`, `copyeditor`, `literature-reviewer`, `deep-research`

@@ -241,10 +241,10 @@
         }
       }
     },
-    "r-analysis": {
+    "r-coder": {
       "description": "R/Quarto pipeline coding and editing",
       "mode": "primary",
-      "model": "{env:R_ANALYSIS_MODEL}",
+      "model": "{env:R_CODER_MODEL}",
       "temperature": 0.2,
       "steps": 30,
       "permission": {

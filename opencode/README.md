@@ -34,7 +34,7 @@ The OpenCode Manuscript Workflow implements a multi‑agent system where each ag
     DB‑first sourcing: consult `~/lit/_index.db` before MCP/API searches.
   - `deep-research`: Exhaustive multi‑step evidence gathering. Same DB‑first
     discipline, plus a sources file for tracking provenance.
-  - `r-analysis`: R / Quarto pipeline edits and statistical code changes.
+  - `r-coder`: R / Quarto pipeline edits and statistical code changes.
   - `automation`: Shell, git, and terminal‑native execution.
 
 ## Key Features
@@ -60,7 +60,7 @@ The OpenCode Manuscript Workflow implements a multi‑agent system where each ag
 
 - **Magic Context**: A context management plugin that replaces default compaction with cache‑aware summarization and long‑term memory.
 
-- **AFT (Abstract File Trees)**: A code‑analysis plugin (`@cortexkit/aft-opencode@latest`) providing tree‑sitter‑powered symbol outlines, inline zoom, AST‑aware search/replace, code diagnostics, and import management — available to `r-analysis`, `automation`, and `writer`.
+- **AFT (Abstract File Trees)**: A code‑analysis plugin (`@cortexkit/aft-opencode@latest`) providing tree‑sitter‑powered symbol outlines, inline zoom, AST‑aware search/replace, code diagnostics, and import management — available to `r-coder`, `automation`, and `writer`.
 
 - **Plannotator**: A plan‑based decision plugin (`@plannotator/opencode@latest`) that enables agents to use `submit_plan` for structured planning instead of the `question` tool.
 
@@ -194,7 +194,7 @@ alongside `opencode.json`. A minimal example is shown above.
 - Invoke agents directly:
   - `@writer "Draft the introduction section for a paper on X"`
   - `@literature-reviewer "Find recent papers on Y"`
-  - `@r-analysis "Refactor this R/Quarto analysis pipeline"`
+  - `@r-coder "Refactor this R/Quarto analysis pipeline"`
   - `@reviewer-structure-2 "Second opinion on the discussion structure"`
 - Run mechanical check:
   - `"run chkdrft"` (counts citations needed, TODOs left)
@@ -234,7 +234,7 @@ Model assignments are set via environment variables in `set_models.sh` (sourced 
 MCP servers are defined in the top‑level `"mcp"` object of `opencode.json` (globally available, not per‑agent):
 
 - **Context7** (`@upstash/context7-mcp`)
-  - Agents: `r-analysis`, `automation`
+  - Agents: `r-coder`, `automation`
   - Purpose: library/docs/API‑reference lookup for R, Quarto, and general coding
   - Env: `CONTEXT7_API_KEY`
 - **Citecheck** (`@jhlee0619/citecheck`)
@@ -306,5 +306,5 @@ Permissions are set at two levels:
 Key permission categories:
 - `edit`: allow/deny file editing.
 - `webfetch`: allow/deny `webfetch` calls.
-- `bash`: fine‑grained bash permissions. Most agents inherit the global allowlist (read‑only commands + git inspection). Only `automation`, `r-analysis`, `writer`, `literature-reviewer`, and `deep-research` define custom bash blocks.
+- `bash`: fine‑grained bash permissions. Most agents inherit the global allowlist (read‑only commands + git inspection). Only `automation`, `r-coder`, `writer`, `literature-reviewer`, and `deep-research` define custom bash blocks.
 - `external_directory` & `read`: filesystem access. Global allows `~/.config/opencode/**` (except `auth.json`, `account.json`, and `mcp_keys.env`) and `/tmp/**`.

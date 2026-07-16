@@ -23,7 +23,7 @@ If this file and `opencode.json` disagree about runtime behavior, `opencode.json
 | `copyeditor` | subagent | Prose review: titles, paragraphs, sentences, words, markdown compliance |
 | `literature-reviewer` | subagent | Fast literature search and source notes |
 | `deep-research` | subagent | Exhaustive multi-step evidence gathering |
-| `r-analysis` | primary | R / Quarto pipeline coding and editing |
+| `r-coder` | primary | R / Quarto pipeline coding and editing |
 | `strategist` | subagent | Gated arbitration for disputed or non-obvious fixes |
 
 #anti-fabrication-short
@@ -32,10 +32,10 @@ If this file and `opencode.json` disagree about runtime behavior, `opencode.json
 
 ## Agent Capabilities
 
-- **Can edit files**: `automation`, `writer`, `r-analysis` (all others read-only)
-- **Can run arbitrary shell**: `automation`, `r-analysis` (others: global read-only only)
+- **Can edit files**: `automation`, `writer`, `r-coder` (all others read-only)
+- **Can run arbitrary shell**: `automation`, `r-coder` (others: global read-only only)
 - **Can spawn subagents**: `planner` only (via `task` tool)
-- **Can commit**: `automation`, `r-analysis` (requires user approval; others: denied)
+- **Can commit**: `automation`, `r-coder` (requires user approval; others: denied)
 - **Can push**: none (user handles all remote operations manually)
 - **Local literature index**: `literature-reviewer` and `deep-research` have access to `~/lit/_index.db` (SQLite + FTS5) and `~/lit/_index.md`. See `snippet/lit-index.md`.
 - **MCP servers**: all agents have access to Context7, Citecheck, OpenAlex, Semantic Scholar (globally configured)
@@ -47,7 +47,7 @@ If this file and `opencode.json` disagree about runtime behavior, `opencode.json
 |------|------------|
 | Shell commands, git, file ops, installs | `automation` |
 | Writing prose (sections, edits) | `writer` |
-| R/Quarto pipeline, stats | `r-analysis` |
+| R/Quarto pipeline, stats | `r-coder` |
 | Code exploration, file search | built-in `explore` |
 | Building software, writing scripts | built-in `build` |
 | General questions | built-in `general` |

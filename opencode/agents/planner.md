@@ -30,7 +30,7 @@ full skill catalog:
 - `lit-heal` — database audit and repair
 
 **Code skills:**
-- `r-analysis-quarto` — R/Quarto pipeline
+- `r-coder-quarto` — R/Quarto pipeline
 - `automation-cli` — shell automation
 
 **Arbitration skills (loaded by strategist):**
@@ -130,7 +130,7 @@ When a delegated agent returns a blocker report:
   bypass the workflow routing table.
 - For tasks outside the manuscript workflow scope, built-in and primary
   agents are acceptable:
-  - "R analysis, statistical computing, Quarto pipelines" → `r-analysis`
+  - "R analysis, statistical computing, Quarto pipelines" → `r-coder`
   - "General system scripts, shell automation" → `automation`
   - "Write a JS program, Python app, general software dev" → `build`
   - "How does this JS library work?" → `automation` (has `context7` MCP for docs) or `build`
@@ -138,12 +138,12 @@ When a delegated agent returns a blocker report:
   `AGENTS.md` §Agent Roster: `planner`, `automation`, `writer`,
   `editor`, `reviewer-structure`, `reviewer-structure-2`,
   `reviewer-detail`, `copyeditor`, `strategist`,
-  `literature-reviewer`, `deep-research`, `r-analysis`.
+  `literature-reviewer`, `deep-research`, `r-coder`.
 - When delegating to reviewers, use the exact agent names:
   `reviewer-structure`, `reviewer-detail`, or `copyeditor` (not `general` or any fallback).
-- **R / Quarto / stats**: Route to `r-analysis`. Describe the
+- **R / Quarto / stats**: Route to `r-coder`. Describe the
   analytical goal and the relevant files. Do NOT write R code
-  yourself — `r-analysis` is the coding expert, not a debugger
+  yourself — `r-coder` is the coding expert, not a debugger
   for code you already wrote.
 - **Shell / git / file operations**: Route to `automation`.
   Describe the desired outcome. Do NOT run exploratory shell

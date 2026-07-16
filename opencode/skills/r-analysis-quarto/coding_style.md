@@ -163,9 +163,32 @@ avg_score <- function(...) { rowMeans(pick(...), na.rm = TRUE) }
 ```r
 ds           # main dataset
 voi          # values of interest (subset)
-coi          # columns of interest
 m_label      # model fits
 aov_label    # ANOVA models
 emm_label    # estimated marginal means
 mc_label     # multiple comparisons
+```
+
+### Column selection
+
+Use `matches()` or tidyverse `select()` for column selection instead of
+creating a `coi` (columns of interest) vector:
+
+**Wrong** (creating a separate column vector):
+
+```r
+coi <- c("col1", "col2", "col3")
+ds <- ds[, coi]
+```
+
+**Right** (using tidyverse selection):
+
+```r
+ds <- ds |>
+  select(matches("pattern1|pattern2"))
+```
+
+```r
+ds <- ds |>
+  select(starts_with("leq_"), ends_with("_score"))
 ```

@@ -18,7 +18,7 @@ Available snippets (use `#snippet-name` in WIPs and agent instructions):
 | `method-participants` | Method participants example | skills |
 | `intro-hook-empirical` | Empirical intro hook examples | skills |
 | `intro-hook-theoretical` | Theoretical intro hook examples | skills |
-| `gpg-signing-workflow` | GPG signing workflow | planner, automation, r-analysis |
+| `gpg-signing-workflow` | GPG signing workflow | planner, automation, r-coder |
 | `mcp-academic-search` | Academic MCP tools (OpenAlex, Semantic Scholar) | research agents, skills |
 | `mcp-procurement-rule` | MCP procurement fallback rules | research skills |
 | `context-management-reduce` | Context reduction instructions | research agents |
@@ -27,9 +27,9 @@ Available snippets (use `#snippet-name` in WIPs and agent instructions):
 | `routing-table` | Task-to-agent routing + edge cases | planner |
 | `research-separation` | Research scope boundaries | research agents, planner |
 | `checkpoint-schedule` | Planner-triggered at major milestones per AGENTS.md | planner |
-| `git-workflow` | Git branching and commit conventions | planner, automation, r-analysis |
-| `read-style` | STYLE.md reference | writer, r-analysis |
-| `mcp-tool-awareness` | MCP tool catalog | planner, reviewer-detail, automation, r-analysis |
+| `git-workflow` | Git branching and commit conventions | planner, automation, r-coder |
+| `read-style` | STYLE.md reference | writer, r-coder |
+| `mcp-tool-awareness` | MCP tool catalog | planner, reviewer-detail, automation, r-coder |
 | `plannotator-awareness` | Plannotator plan review tool | planner |
 | `lit-index` | Local literature index queries (SQLite + FTS5) | lit-reviewer, deep-research |
 | `mcguire-heuristics` | McGuire hypothesis-generation heuristics | review-detail, discussion, writing-craft |
