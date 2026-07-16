@@ -45,3 +45,10 @@ R/rsconnect
 /opencode/package-lock.json
 /opencode/tui.json
 /opencode/checkpoints/
+opencode/mcp_keys.env
+
+# Never commit environment files — API keys live here
+*.env
+*.secret
+*.key
+!.env.example
