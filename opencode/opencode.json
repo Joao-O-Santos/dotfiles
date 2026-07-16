@@ -277,6 +277,7 @@
   },
   "plugin": [
     "opencode-snippets",
+    "opencode-token-monitor@latest",
     "@cortexkit/opencode-magic-context@latest",
     "@cortexkit/aft-opencode@latest",
     [

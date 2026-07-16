@@ -308,3 +308,16 @@ Key permission categories:
 - `webfetch`: allow/deny `webfetch` calls.
 - `bash`: fine‑grained bash permissions. Most agents inherit the global allowlist (read‑only commands + git inspection). Only `automation`, `r-coder`, `writer`, `literature-reviewer`, and `deep-research` define custom bash blocks.
 - `external_directory` & `read`: filesystem access. Global allows `~/.config/opencode/**` (except `auth.json`, `account.json`, and `mcp_keys.env`) and `/tmp/**`.
+
+## Using with Other Coding Agents
+
+If you use other coding assistants (Claude Code, Cursor, Copilot, Codex, etc.),
+you can keep them in sync with these rules using
+[agent-dotfiles](https://github.com/saqibameen/agent-dotfiles):
+
+```bash
+npx agent-dotfiles sync rules --from AGENTS.md --to all
+```
+
+This detects installed agents automatically and propagates your rules, skills, and
+configuration across them.

@@ -50,6 +50,24 @@ Planner will re-call once with the added context (max 2 calls per
 checkpoint; unresolved items become
 `<!-- TODO: reviewer flagged, unconfirmed -->`).
 
+### Requesting Literature Support
+
+When a disputed claim turns on domain-specific knowledge (psychological
+science, developmental methods, social cognition, etc.), the strategist may
+include in its CONTEXT REQUEST a request for literature dispatch:
+
+```
+LITERATURE REQUEST:
+  - Topic: [specific claim or concept to investigate]
+  - Domain: [relevant subfield]
+  - Agent: literature-reviewer | deep-research
+  - Note: [why this evidence is needed for the decision]
+```
+
+The planner will dispatch the requested agent, then re-call the strategist
+with the gathered evidence included in the Escalation Packet. This counts
+as the single allowed CONTEXT REQUEST follow-up.
+
 ## Output format (batched, one ## Decision block per item)
 
 ```

@@ -29,3 +29,28 @@ Commit delegation:
 
 Merge strategy:
 - Prefer true merge commits over squash cleanup unless the user explicitly requests squash
+
+### Rewriting History Safely (git ≥ 2.54)
+
+The `git history` experimental command provides atomic, conflict-safe history
+rewriting without manual rebase gymnastics:
+
+```bash
+# Fold staged changes into an old commit (auto-rebases all branches)
+git history fixup <commit>
+
+# Reword a past commit message
+git history reword <commit>
+
+# Split one commit into two interactively
+git history split <commit>
+```
+
+All three commands are atomic — they abort cleanly if conflicts arise, never
+leaving the tree half-broken. `reword` and `split` don't touch the working
+tree or index at all, so you can rewrite commits on a branch you don't have
+checked out.
+
+These are safer alternatives to `git rebase -i` for simple fixups and
+message rewrites. For complex multi-commit reorganizations, interactive
+rebase is still the right tool.
