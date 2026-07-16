@@ -47,8 +47,30 @@ R/rsconnect
 /opencode/checkpoints/
 opencode/mcp_keys.env
 
-# Never commit environment files — API keys live here
-*.env
 *.secret
 *.key
 !.env.example
+
+# --- NEVER commit secrets, credentials, or environment files ---
+*.env
+*.ENV
+*.Env
+*.env.*
+.envrc
+*.pwd
+*.secret
+*.SECRET
+*.key
+*.KEY
+*.pem
+*.pem.*
+*.crt
+*.cer
+credentials*
+secrets*
+*.token
+*.TOKEN
+
+# Exception: example files are safe
+!.env.example
+!.env.sample
