@@ -2,6 +2,43 @@
 
 All notable changes to the OpenCode configuration will be documented in this file.
 
+## v8.3.0 — 2026-07-16
+
+### Added
+- opencode-token-monitor plugin for per-agent cost tracking
+- Automated test framework with LLM-as-judge evaluation
+  - `run_test.sh`: single-session runner with export + evaluate pipeline
+  - `evaluate.sh`: LLM-as-judge against YAML criteria files
+  - `test_cases/`: intro-empirical and workflow-full prompts with criteria
+  - `cases/`: YAML test cases with eval-harness FAIL schema
+- Cost analysis scripts
+  - `cost-analysis.sh`: cross-session aggregation by model and session
+- R-coder exercises with measurable (exit code, iterations, time) and manual
+  (naming, style, comment) criteria
+- Writing exercises covering all manuscript sections (intro, methods, results,
+  discussion, abstract, workflow-test)
+- YAML test schema with 6-field FAIL format (failed_check_id, expected, actual,
+  diff_hint, transcript_span, attribution) and 4-class regression attribution
+- Permission and config validation tests
+- Strategist literature dispatch via CONTEXT REQUEST (can request
+  literature-reviewer or deep-research for domain evidence)
+- Agent-dotfiles section in README for interoperability with other coding agents
+- git-history command documentation in git-workflow snippet
+
+### Changed
+- Renamed r-analysis agent to r-coder (agent file, all skill references,
+  opencode config)
+- Renamed mcp_keys.sh to mcp_keys.env (now auto-protected by OpenCode)
+- Coding style: replaced coi pattern with matches()/tidyverse select();
+  documented first-function-as-argument pipe convention
+- Reviewers now diagnose problems only — never prescribe fixes
+
+### Fixed
+- Bash permissions: deny grep/rg/find for planner and writer; deny bash entirely
+  for all review agents; deny all bash for strategist
+- Reviewer edit leak: added explicit edit: deny for all review agents
+- Removed stale guard agent and all 27 references across 14 files
+
 ## v8.2.0 — 2026-07-16
 
 ### Permissions
