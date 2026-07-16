@@ -5,7 +5,6 @@ All notable changes to the OpenCode configuration will be documented in this fil
 ## v8.3.0 — 2026-07-16
 
 ### Added
-- opencode-token-monitor plugin for per-agent cost tracking
 - Automated test framework with LLM-as-judge evaluation
   - `run_test.sh`: single-session runner with export + evaluate pipeline
   - `evaluate.sh`: LLM-as-judge against YAML criteria files
