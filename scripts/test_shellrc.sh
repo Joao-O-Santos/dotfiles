@@ -26,6 +26,28 @@ else
     fail "shellrc starts successfully without optional files"
 fi
 
+mkdir -p "$tmp_home/bin"
+cat > "$tmp_home/bin/tty" <<'EOF'
+#!/usr/bin/env bash
+printf 'tty was called\n' >> "${TEST_GPG_LOG:?}"
+EOF
+cat > "$tmp_home/bin/gpg-connect-agent" <<'EOF'
+#!/usr/bin/env bash
+printf 'gpg-connect-agent was called\n' >> "${TEST_GPG_LOG:?}"
+EOF
+chmod +x "$tmp_home/bin/tty" "$tmp_home/bin/gpg-connect-agent"
+gpg_log="$tmp_home/gpg-setup.log"
+if output=$(HOME="$tmp_home" PATH="$tmp_home/bin:$PATH" TEST_GPG_LOG="$gpg_log" \
+    bash --noprofile --norc -c 'source "$1"; [[ $LESSHISTFILE == /dev/null ]]' _ "$shellrc" 2>&1); then
+    if [[ -z "$output" && ! -e "$gpg_log" && ! -e "$tmp_home/.lesshst" ]]; then
+        pass "noninteractive shell skips TTY/GPG setup and LESS history"
+    else
+        fail "noninteractive shell skips TTY/GPG setup and LESS history"
+    fi
+else
+    fail "noninteractive shell skips TTY/GPG setup and LESS history"
+fi
+
 cat > "$tmp_home/.config/opencode/mcp_keys.env" <<'EOF'
 export TEST_MCP_KEYS_SOURCED=1
 EOF

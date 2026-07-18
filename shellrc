@@ -9,10 +9,11 @@ export VISUAL=nvim
 # Performance preferences
 export MAKEFLAGS=-j12
 export XZ_DEFAULTS=--memlimit=8GB
-# Set vars to configure gpg for multiple terminals and for ssh
-export GPG_TTY=$(tty)
-export GPG_AGENT_INFO=" "
-gpg-connect-agent --quiet updatestartuptty /bye >/dev/null
+# Set vars to configure gpg for multiple terminals and for ssh.
+if [[ $- == *i* ]] && [[ -t 0 || -t 1 || -t 2 ]]; then
+    export GPG_TTY="$(tty)"
+    gpg-connect-agent --quiet updatestartuptty /bye >/dev/null 2>&1 || :
+fi
 unset SSH_AGENT_PID
 export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh"
 # Set vars to help keep $HOME directory clean
@@ -20,7 +21,7 @@ export XDG_CONFIG_HOME=$HOME/.config
 export XDG_DATA_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_STATE_HOME=$HOME/.cache
-export LESSHISTFILE=/dev/null/
+export LESSHISTFILE=/dev/null
 export HISTFILE=$XDG_CACHE_HOME/bash_history
 export XAUTHORITY=$XDG_CONFIG_HOME/xorg/Xauthority
 export R_PROFILE_USER=$XDG_CONFIG_HOME/R/Rprofile
