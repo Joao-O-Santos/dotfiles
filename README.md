@@ -22,16 +22,14 @@ My dotfiles for the programs I use. Updated continuously since 2022.
 | **cortexkit** | `cortexkit/aft.jsonc`, `cortexkit/magic-context.jsonc` | AFT code-analysis plugin and Magic Context session management |
 | **scripts** | `scripts/*.sh` | Shell scripts (added to PATH via `shellrc`) |
 
-OpenCode reviewer routing uses generated aliases in
-`opencode/agent-variants.jsonc`: `reviewer-structure-fast` (routine Fast
-Loop, parent `reviewer-structure`) and `reviewer-structure-2` (checkpoint-only
-adversarial Full Ensemble review, the same parent). Both inherit the parent's
-prompt, read-only permissions, tools, and subagent mode.
+OpenCode reviewer routing is defined by the tracked agent files and workflow
+rules in `opencode/AGENTS.md`. There is no agent-variants or token-monitor
+plugin; `reviewer-structure-2` is a supported checkpoint-only agent.
 
 ## Versioning
 
 This project uses annotated [semver](https://semver.org/) tags across the
-entire repository. The current version is **v7.6.0**. See
+entire repository. The current version is **v8.4.0**. See
 [CHANGELOG.md](CHANGELOG.md) for the full release history back to v0.1.0
 (2022-03-30).
 
@@ -42,7 +40,8 @@ Standalone shell scripts live in the `scripts/` directory and are added to
 repository root.
 
 **Converters:**
-- `convert.sh` — Pandoc wrapper for md, html, and docx output
+- `convert.sh` — Pandoc wrapper for Markdown, HTML, and DOCX output; it uses
+  the user's Pandoc configuration and installed custom styles by default
 
 **Literature tools (~/lit):**
 - `litindex.sh` — Re-index the literature library (SQLite + FTS5)

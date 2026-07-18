@@ -71,7 +71,7 @@ The OpenCode Manuscript Workflow implements a multi‑agent system where each ag
 ### Prerequisites
 
 - Node.js (for `npx`‑based MCP servers and optional plugins).
-- Access to at least one LLM provider configured in `auth.json` (e.g., OpenRouter, Mistral, Opencode‑go).
+- Access to the OpenAI models configured by `set_models.sh`.
 - Bash shell (for `mcp_keys.env` and `set_models.sh`).
 
 ### 1. Clone and install
@@ -88,9 +88,7 @@ Edit `~/.config/opencode/auth.json` to include the providers you actually use, f
 
 ```json
 {
-  "openrouter":   { "type": "api", "key": "your-openrouter-key" },
-  "mistral":      { "type": "api", "key": "your-mistral-key" },
-  "opencode-go":  { "type": "api", "key": "your-opencode-go-key" }
+  "openai":       { "type": "api", "key": "your-openai-key" }
 }
 ```
 
@@ -112,6 +110,9 @@ export OPENALEX_EMAIL="your_email@example.com"
 
 # Crossref (used by citecheck)
 export CROSSREF_MAILTO="your_email@example.com"
+
+# Optional AFT semantic embeddings; export the private value in your env
+export MISTRAL_API_KEY="your_mistral_key"
 ```
 
 Make it non‑world‑readable and don't commit it:
@@ -157,17 +158,19 @@ Magic Context is already registered in `opencode.json` via the plugin `"@cortexk
 }
 ```
 
-You still need a `magic-context.jsonc` (stored in `~/.config/opencode/magic-context.jsonc`) to pick the historian/dreamer model. A minimal example using your subscription models:
+The tracked `cortexkit/magic-context.jsonc` selects the historian, dreamer,
+and sidekick models. It is non-secret configuration and is intentionally
+tracked.
 
 ```jsonc
 {
   "$schema": "https://raw.githubusercontent.com/cortexkit/opencode-magic-context/master/assets/magic-context.schema.json",
   "enabled": true,
   "historian": {
-    "model": "opencode-go/deepseek-v4-pro"
+     "model": "openai/gpt-5.6-terra"
   },
   "dreamer": {
-    "model": "opencode-go/deepseek-v4-pro",
+     "model": "openai/gpt-5.6-terra",
     "tasks": {
       "maintain-docs": { "schedule": "0 7 * * 0" }
     },
@@ -179,7 +182,7 @@ You still need a `magic-context.jsonc` (stored in `~/.config/opencode/magic-cont
   },
   "sidekick": {
     "enabled": true,
-    "model": "opencode-go/deepseek-v4-flash"
+     "model": "openai/gpt-5.6-luna"
   }
 }
 ```
@@ -190,9 +193,9 @@ files available to Magic Context. `README.md` and `CHANGELOG.md` remain part
 of explicit documentation and release checks and are not maintained by this
 task.
 
-**Note:** `magic-context.jsonc` is not tracked in this repository — it
-contains user-specific model preferences and should be created manually
-alongside `opencode.json`. A minimal example is shown above.
+`maintain-docs` is limited to `ARCHITECTURE.md` and `STRUCTURE.md`; it does
+not maintain README files. The configuration is tracked and contains no
+secrets.
 
 ## Usage
 
@@ -234,7 +237,10 @@ Examples:
 
 ### Current Model Assignments
 
-Model assignments are set via environment variables in `set_models.sh` (sourced before launching OpenCode) and referenced in `opencode.json` as `{env:AGENT_MODEL}`. The current mix uses DeepSeek, GLM, Qwen, MiniMax, and MiMo models via the `opencode-go` provider. See `set_models.sh` for exact per‑agent mappings.
+Model assignments are set via exported environment variables in
+`set_models.sh` and referenced in `opencode.json` as `{env:AGENT_MODEL}`.
+The current wiring uses OpenAI Luna, Terra, Sol, and Codex Spark; Planner
+resolves to Terra.
 
 ### MCP Servers
 
@@ -254,8 +260,13 @@ prompts and workflow determine intended use, rather than per-agent ownership:
 - **Semantic Scholar MCP** (`paperplain-mcp`)
   - Purpose: Semantic Scholar‑backed paper retrieval and summaries
   - Env: none required for basic usage
+- **Scholar Gateway**
+  - Purpose: authenticated semantic search over covered peer-reviewed full
+    text, currently Wiley and PNAS
 
-Each MCP entry uses `"type": "local"` with an `npx` command and, where needed, an `environment` block referencing your shell env (e.g., `$OPENALEX_API_KEY`).
+These MCPs are globally registered and technically available to every agent;
+workflow prompts determine intended use. Scholar Gateway is intended for
+literature research. There are no agent-variants or token-monitor plugins.
 
 ## Review → Edit → Write Pipeline
 

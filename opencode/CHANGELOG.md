@@ -2,6 +2,20 @@
 
 All notable changes to the OpenCode configuration will be documented in this file.
 
+## v8.4.0 — 2026-07-18
+
+### Changed
+- Migrated model wiring to OpenAI Luna, Terra, Sol, and Codex Spark; Planner
+  resolves to Terra.
+- Repaired Mistral-backed AFT embeddings and documented optional exported
+  `MISTRAL_API_KEY` handling.
+- Documented globally registered MCPs and Scholar Gateway's Wiley + PNAS
+  scope, plus r-air, jarl, panache, and APA table-filter integration.
+- Clarified tracked Magic Context docs maintenance (`ARCHITECTURE.md` and
+  `STRUCTURE.md` only) and fixed reviewer, workflow, and script reliability.
+- Strengthened secret/OAuth protection and removed the failed agent-variants
+  experiment without changing supported agent names or interfaces.
+
 ## v8.3.0 — 2026-07-16
 
 ### Added

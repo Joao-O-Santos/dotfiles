@@ -6,13 +6,30 @@ This project follows [Semantic Versioning](https://semver.org/).
 For detailed OpenCode Manuscript Workflow changes, see `opencode/CHANGELOG.md`.
 
 
+## [v8.4.0] - 2026-07-18
+
+### Configuration and workflow reliability
+- Migrated supported agent model wiring to OpenAI Luna, Terra, Sol, and Codex
+  through `set_models.sh`; planner resolves to Terra.
+- Repaired Mistral-backed AFT semantic embeddings and documented optional
+  `MISTRAL_API_KEY` handling.
+- Documented globally registered MCPs, including Scholar Gateway's Wiley and
+  PNAS scope, and clarified intended workflow use.
+- Documented r-air, jarl, and panache tooling and APA table-filter integration.
+- Clarified tracked Magic Context configuration and its limited documentation
+  maintenance scope.
+- Fixed reviewer, workflow, conversion-script, secret/OAuth, and test
+  documentation reliability issues.
+- Removed the failed agent-variants experiment; supported agent names and
+  interfaces remain unchanged.
+
 ## [v8.0.0] - 2026-07-14
 
 ### Breaking Changes
 - **Guard agent retired.** Step limits in opencode.json replace loop
   detection; `chkdrft` handles mechanical placeholder/citation counting.
 - **STYLE.md removed from global instructions.** Core rules now delivered
-  via `This snippet contains the core writing conventions that should be referenced by all skills.
+  via the shared style-core snippet.
 
 ## Voice and Tone
 - Use a confident, matter-of-fact academic voice
@@ -47,47 +64,10 @@ For detailed OpenCode Manuscript Workflow changes, see `opencode/CHANGELOG.md`.
   See `opencode/CHANGELOG.md` v8.0.0 for full list.
 
 ### Added
-- **Reviewer ensemble**: `reviewer-structure-2` (adversarial second
-  structural opinion, checkpoints only) and `strategist` (tool-less
-  arbitration for disputed reviewer disagreements). `editor` updated
-  for 4-reviewer collation with consensus/single-source/disagreement
-  categorization.
-- **Fast Loop vs. Full Ensemble Checkpoint** distinction in AGENTS.md.
-  Routine iterations use 3 reviewers; major milestones add
-  `reviewer-structure-2` and route through `editor` + `strategist`.
-- `references` block in `opencode.json`: `style` (STYLE.md),
-  `coding-style` (R coding conventions), `lit-index` (bibliography).
-- `This snippet contains the core writing conventions that should be referenced by all skills.
-
-## Voice and Tone
-- Use a confident, matter-of-fact academic voice
-- Assume a scientifically literate reader
-- Prefer concrete, example-rich explanations
-- Use first-person plural ("we") when standard for the venue
-
-## Paragraph Structure
-- Use the hamburger model (topic sentence, supporting evidence, concluding/linking sentence)
-- Create topic-sentence outlines for major sections
-- Use explicit signposting in early drafts, refine in later revisions
-
-## Sentence-Level Style
-- Bring main verbs early in sentences
-- Follow end-weight principle (longer phrases toward end)
-- Use topic → comment ordering
-- Avoid multiple negations
-- Prefer concrete, specific words over abstract nominalizations
-- Maintain consistent terminology across text, tables, figures, and code
-- **MANDATORY**: Hard-wrap all prose to 72 characters per line
-
-## Titles and Headings
-- Paper and section titles should be provocative and memorable
-- Use 4 blank lines before H1, 3 before H2, 2 before H3, 1 before H4
-
-## Page Breaks and Custom Styles
-- For Word conversion, use OpenXML page-breaks with proper spacing
-- Apply custom styles: Title, Abstract, Figure, References
-- Do NOT remove custom styles when editing existing documents` snippet now wired into all writing skills.
-- `theoretical-paper` snippet for planner routing.
+- Reviewer ensemble with checkpoint-only `reviewer-structure-2`,
+  strategist arbitration, and editor collation.
+- Fast Loop versus Full Ensemble Checkpoint routing in AGENTS.md.
+- `references` entries for style, coding-style, and lit-index.
 
 See `opencode/CHANGELOG.md` for the full entry.
 
