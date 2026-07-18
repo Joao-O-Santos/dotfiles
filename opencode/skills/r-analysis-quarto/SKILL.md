@@ -36,7 +36,10 @@ Data flow (do not alter without approval):
   decisions (`# Full model returned isSingular warning, this is the final model`)
 
 For all formatting rules (indentation, line length, spacing, pipes,
-function limits, linting), see `coding_style.md` in this skill directory.
+function limits), see `coding_style.md` in this skill directory.
+Formatting is enforced by air, linting by jarl. After writing or
+editing R code, run `air format` and `jarl lint` on the file. Always
+fix issues they flag — if auto-fix breaks the code, fix it manually.
 
 ## Style conventions
 

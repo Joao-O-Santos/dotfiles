@@ -11,6 +11,7 @@ scripts) for the full conventions suite. As a quick checklist:
   readability or contains a user-facing string.
 - Use base R pipes (`|>`), never `%>%`.
 - End pipes at line end (not line start).
+- Format with air, lint with jarl. Always fix issues they flag.
 
 #mcp-tool-awareness
 
@@ -35,8 +36,6 @@ Always:
 	+ Exploratory/graphs → additional numbered scripts.
 
 - Use `ds` for the main dataset; `voi` (values of interest) for subsets.
-
-- Use `coi` (columns of interest) to create a vector of relevant columns
 
 - Object naming:
 	+ `m_<label>`: model fits,

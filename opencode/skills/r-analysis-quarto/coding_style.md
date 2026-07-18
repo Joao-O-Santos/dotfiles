@@ -6,6 +6,22 @@ ensure consistency and readability across scripts and analysis pipelines.
 When these rules conflict with the Tidyverse style guide referenced
 below, follow these rules.
 
+## Tooling
+
+Formatting, linting, and prose wrapping are enforced by three tools:
+
+- **air** — R code formatter (tabs, indent-width 4, line-width 80)
+- **jarl** — R linter (55+ rules, auto-fix support, faster than lintr)
+- **panache** — Markdown/Quarto formatter (72-char hard-wrap, reflow
+  mode, delegates R blocks to air/jarl)
+
+Install with `yay -S air jarl panache` (or equivalent). Config files
+are at `~/.config/air.toml` and `~/.config/panache/config.toml`.
+
+When running jarl or air, always fix any issues they flag. If
+auto-fix breaks the code, fix it manually — the agent is responsible
+for ensuring code runs after linting.
+
 
 ## Importing Data
 
@@ -19,17 +35,6 @@ directory (i.e., `setwd()`).
 
 Follow the [Tidyverse style guide](https://style.tidyverse.org/syntax.html)
 except where explicitly overridden below.
-
-Check code adherence with the
-[lintr](https://github.com/jimhester/lintr) R package:
-
-```r
-library(lintr)
-lint(filename = "file_to_check.R",
-     with_defaults(no_tab_linter = NULL))
-```
-
-See below for `lintr` warnings that should be ignored.
 
 
 
@@ -90,8 +95,6 @@ Prose line length limit (code comments and markdown): **72 characters**.
 Place a space **before** the comma when the row index is intentionally
 left blank. This makes it clear the object has two dimensions and the
 row value is intentionally missing.
-
-Note: `lintr` will warn about this spacing. Ignore those warnings.
 
 
 ### Functions
