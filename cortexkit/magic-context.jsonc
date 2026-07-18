@@ -2,10 +2,10 @@
   "$schema": "https://raw.githubusercontent.com/cortexkit/opencode-magic-context/master/assets/magic-context.schema.json",
   "enabled": true,
   "historian": {
-    "model": "opencode-go/deepseek-v4-pro"
+    "model": "openai/gpt-5.6-terra"
   },
   "dreamer": {
-    "model": "opencode-go/deepseek-v4-pro",
+    "model": "openai/gpt-5.6-terra",
     "tasks": {
       "verify": {
         "schedule": "0 2 * * *"
@@ -44,6 +44,6 @@
     }
   },
   "sidekick": {
-    "model": "opencode-go/deepseek-v4-flash"
+    "model": "openai/gpt-5.6-luna"
   }
 }
