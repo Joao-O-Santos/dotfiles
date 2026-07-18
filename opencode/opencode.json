@@ -101,6 +101,8 @@
       "description": "Primary orchestrator and default agent",
       "mode": "primary",
       "model": "{env:PLANNER_MODEL}",
+      "variant": "high",
+      "textVerbosity": "low",
       "permission": {
         "task": "allow",
         "webfetch": "allow",
@@ -111,6 +113,8 @@
       "description": "Shell, git, and terminal-native execution",
       "mode": "primary",
       "model": "{env:AUTOMATION_MODEL}",
+      "variant": "low",
+      "textVerbosity": "low",
       "temperature": 0.3,
       "steps": 30,
       "permission": {
@@ -145,6 +149,7 @@
       "description": "Unified manuscript drafting (empirical/theoretical)",
       "mode": "primary",
       "model": "{env:WRITER_MODEL}",
+      "variant": "low",
       "steps": 20,
       "permission": {
         "read": "allow",
@@ -157,6 +162,8 @@
       "description": "Big-picture critique: structure, arguments, impact",
       "mode": "subagent",
       "model": "{env:REVIEWER_STRUCTURE_MODEL}",
+      "variant": "high",
+      "textVerbosity": "low",
       "temperature": 0.8,
       "steps": 10,
       "permission": {
@@ -167,6 +174,8 @@
       "description": "Adversarial second-opinion structural critique (checkpoints only)",
       "mode": "subagent",
       "model": "{env:REVIEWER_STRUCTURE_2_MODEL}",
+      "variant": "high",
+      "textVerbosity": "low",
       "temperature": 0.6,
       "steps": 10,
       "permission": {
@@ -177,6 +186,8 @@
       "description": "Detail critique: citations, conceptual clarity, argument issues",
       "mode": "subagent",
       "model": "{env:REVIEWER_DETAIL_MODEL}",
+      "variant": "medium",
+      "textVerbosity": "low",
       "temperature": 0.5,
       "steps": 10,
       "permission": {
@@ -187,6 +198,8 @@
       "description": "Prose review: titles, paragraphs, sentences, words, markdown compliance",
       "mode": "subagent",
       "model": "{env:COPYEDITOR_MODEL}",
+      "variant": "low",
+      "textVerbosity": "low",
       "temperature": 0.4,
       "steps": 10,
       "permission": {
@@ -197,6 +210,8 @@
       "description": "Manuscript review collation agent: categorizes reviewer output by consensus level",
       "mode": "subagent",
       "model": "{env:EDITOR_MODEL}",
+      "variant": "low",
+      "textVerbosity": "low",
       "temperature": 0.5,
       "steps": 10,
       "permission": {
@@ -207,6 +222,8 @@
       "description": "Gated arbitration for non-obvious or disputed fixes \u2014 tool-less, single-turn, batched per checkpoint",
       "mode": "subagent",
       "model": "{env:STRATEGIST_MODEL}",
+      "variant": "high",
+      "textVerbosity": "low",
       "temperature": 0.3,
       "steps": 3,
       "permission": {
@@ -217,6 +234,8 @@
       "description": "Fast academic search and paper summaries",
       "mode": "subagent",
       "model": "{env:LITERATURE_REVIEWER_MODEL}",
+      "variant": "low",
+      "textVerbosity": "low",
       "steps": 20,
       "permission": {
         "webfetch": "allow",
@@ -233,6 +252,7 @@
       "description": "Exhaustive multi-step research",
       "mode": "subagent",
       "model": "{env:DEEP_RESEARCH_MODEL}",
+      "variant": "medium",
       "temperature": 0.5,
       "steps": 30,
       "permission": {
@@ -250,6 +270,8 @@
       "description": "R/Quarto pipeline coding and editing",
       "mode": "primary",
       "model": "{env:R_CODER_MODEL}",
+      "variant": "medium",
+      "textVerbosity": "low",
       "temperature": 0.2,
       "steps": 30,
       "permission": {
