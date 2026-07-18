@@ -3,6 +3,11 @@
   "instructions": [
     "${HOME}/.config/opencode/AGENTS.md"
   ],
+  "skills": {
+    "paths": [
+      "${HOME}/.config/opencode/skills"
+    ]
+  },
   "default_agent": "planner",
   "references": {
     "style": {
