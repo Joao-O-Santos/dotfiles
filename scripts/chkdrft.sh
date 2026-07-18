@@ -19,7 +19,7 @@ for file in "$@"; do
     fi
 
     awk -F " " '
-        /CN/ { cns++ }
+        /<!-- TODO: cite -->/ { cns++ }
         /<!--/ { cmnts++ }
         /TODO:/ { todos++ }
         END {

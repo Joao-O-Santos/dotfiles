@@ -35,7 +35,8 @@ test_file="/tmp/test_chkdrft_$$"
 cat > "$test_file.md" << 'EOF'
 # Test Document
 
-This has a citation needed: CN
+This has a citation needed: <!-- TODO: cite -->
+Ordinary prose can mention CN without needing a citation count.
 
 And a TODO: fix this
 
@@ -46,6 +47,12 @@ if "$SCRIPTS_DIR/chkdrft.sh" "$test_file.md" | grep -q "citations needed"; then
     pass "chkdrft.sh counts citations needed"
 else
     fail "chkdrft.sh doesn't count citations"
+fi
+
+if "$SCRIPTS_DIR/chkdrft.sh" "$test_file.md" | grep -q "1 citations needed"; then
+    pass "chkdrft.sh ignores ordinary CN text"
+else
+    fail "chkdrft.sh counts ordinary CN text"
 fi
 
 if "$SCRIPTS_DIR/chkdrft.sh" "$test_file.md" | grep -q "TODOs left"; then
