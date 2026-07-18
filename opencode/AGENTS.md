@@ -38,7 +38,7 @@ If this file and `opencode.json` disagree about runtime behavior, `opencode.json
 - **Can commit**: `automation`, `r-coder` (requires user approval; others: denied)
 - **Can push**: none (user handles all remote operations manually)
 - **Local literature index**: `literature-reviewer` and `deep-research` have access to `~/lit/_index.db` (SQLite + FTS5) and `~/lit/_index.md`. See `snippet/lit-index.md`.
-- **MCP servers**: all agents have access to Context7, Citecheck, OpenAlex, Semantic Scholar (globally configured)
+- **MCP servers**: all agents have access to Context7, Citecheck, OpenAlex, Semantic Scholar, and Scholar Gateway (globally configured). Scholar Gateway is an authenticated semantic-search source covering Wiley and PNAS peer-reviewed content. It complements OpenAlex, Semantic Scholar, and the local library; its coverage is not comprehensive. Use it when peer-reviewed full text or passages from its coverage are useful, while retaining DOI and source verification.
 - **Mechanical checks**: `chkdrft` (citations needed, TODOs left) handles placeholder/citation tracking. Run via `automation` before commits or on demand.
 
 ## Delegation Guide

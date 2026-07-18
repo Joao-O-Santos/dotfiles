@@ -44,6 +44,13 @@ If the request grows beyond quick retrieval, tell the planner that
 
 ## Sources Discipline
 
+Scholar Gateway is an authenticated, semantic-search source covering Wiley and
+PNAS peer-reviewed content. Use it when peer-reviewed full text or passages
+from its coverage are useful, alongside OpenAlex, Semantic Scholar, and the
+local library. Its coverage is complementary, not comprehensive: retain DOI
+and source verification for every result, and do not infer completeness from a
+Scholar Gateway search.
+
 Check the library database, then the sources file, before searching
 externally. Save after searching.
 

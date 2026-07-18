@@ -40,6 +40,13 @@ Do not use this agent for:
 
 ## Sources Discipline
 
+Scholar Gateway is an authenticated, semantic-search source covering Wiley and
+PNAS peer-reviewed content. Use it when peer-reviewed full text or passages
+from its coverage are useful, alongside OpenAlex, Semantic Scholar, and the
+local library. Its coverage is complementary, not comprehensive: retain DOI
+and source verification for every result, and do not infer completeness from a
+Scholar Gateway search.
+
 Every search session must leave a durable record, and every new session
 must consult the library index before querying MCPs.
 

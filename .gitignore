@@ -46,6 +46,7 @@ R/rsconnect
 /opencode/tui.json
 /opencode/checkpoints/
 opencode/mcp_keys.env
+opencode/mcp-auth.json
 
 *.secret
 *.key

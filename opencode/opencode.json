@@ -89,6 +89,11 @@
         "-y",
         "paperplain-mcp@latest"
       ]
+    },
+    "scholar-gateway": {
+      "type": "remote",
+      "url": "https://connector.scholargateway.ai/mcp",
+      "enabled": true
     }
   },
   "agent": {
