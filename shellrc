@@ -36,7 +36,9 @@ set -o vi
 # Set models
 source "$XDG_CONFIG_HOME/opencode/set_models.sh"
 # MCP keys
-source "$XDG_CONFIG_HOME/opencode/mcp_keys.env"
+if [[ -f "$XDG_CONFIG_HOME/opencode/mcp_keys.env" ]]; then
+    source "$XDG_CONFIG_HOME/opencode/mcp_keys.env"
+fi
 
 # Aliases
 # Set default options for recurrent commands
@@ -52,7 +54,9 @@ alias oc='opencode --continue'
 # GPG agent warm-up (run before first commit of a session to avoid pinentry hang)
 alias gpgwarm='echo "warmup" | gpg --clearsign -o /dev/null'
 # Set aliases for navigating to directories I'm currently working on
-source $HOME/.config/dir_aliases.sh
+if [[ -f "$HOME/.config/dir_aliases.sh" ]]; then
+    source "$HOME/.config/dir_aliases.sh"
+fi
 # Create alias for custom (long) commands that don't need a function
 alias radio="mpv --loop-playlist --no-audio-display $XDG_CONFIG_HOME/playlist.m3u"
 alias dacmpv="mpv --audio-device=alsa/iec958:CARD=AUDIO,DEV=0"
