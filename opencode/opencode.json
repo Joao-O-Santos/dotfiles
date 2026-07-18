@@ -36,7 +36,8 @@
       "*.env.example": "allow",
       "${HOME}/.config/opencode/auth.json": "deny",
       "${HOME}/.config/opencode/account.json": "deny",
-      "${HOME}/.config/opencode/mcp_keys.env": "deny"
+      "${HOME}/.config/opencode/mcp_keys.env": "deny",
+      "${HOME}/.config/opencode/mcp-auth.json": "deny"
     },
     "external_directory": {
       "${HOME}/.config/opencode/**": "allow",
