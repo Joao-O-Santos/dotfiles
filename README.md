@@ -29,7 +29,7 @@ plugin; `reviewer-structure-2` is a supported checkpoint-only agent.
 ## Versioning
 
 This project uses annotated [semver](https://semver.org/) tags across the
-entire repository. The current version is **v8.4.0**. See
+entire repository. **Current version:** v8.4.0. See
 [CHANGELOG.md](CHANGELOG.md) for the full release history back to v0.1.0
 (2022-03-30).
 

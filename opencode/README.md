@@ -158,7 +158,7 @@ Magic Context is already registered in `opencode.json` via the plugin `"@cortexk
 }
 ```
 
-The tracked `cortexkit/magic-context.jsonc` selects the historian, dreamer,
+The tracked [`cortexkit/magic-context.jsonc`](../cortexkit/magic-context.jsonc) selects the historian, dreamer,
 and sidekick models. It is non-secret configuration and is intentionally
 tracked.
 
