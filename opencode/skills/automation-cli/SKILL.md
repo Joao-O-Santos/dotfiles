@@ -1,6 +1,6 @@
 ---
 name: automation-cli
-description: Use when automating repetitive shell tasks: document conversion, pipeline runs, draft checks, or new shell scripts on Arch Linux.
+description: "Use when automating repetitive shell tasks: document conversion, pipeline runs, draft checks, or new shell scripts on Arch Linux."
 ---
 
 # Skill: automation-cli
