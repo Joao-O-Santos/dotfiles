@@ -5,8 +5,6 @@
 	signingkey = 1AEA77B0D5CE5C44!
 [commit]
 	gpgsign = true
-[credential]
-	helper = store
 [init]
 	defaultBranch = main
 [push]
