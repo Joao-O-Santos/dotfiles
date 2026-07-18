@@ -20,8 +20,6 @@ For detailed OpenCode Manuscript Workflow changes, see `opencode/CHANGELOG.md`.
   maintenance scope.
 - Fixed reviewer, workflow, conversion-script, secret/OAuth, and test
   documentation reliability issues.
-- Removed the failed agent-variants experiment; supported agent names and
-  interfaces remain unchanged.
 
 ## [v8.0.0] - 2026-07-14
 

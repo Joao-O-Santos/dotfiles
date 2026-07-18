@@ -266,7 +266,7 @@ prompts and workflow determine intended use, rather than per-agent ownership:
 
 These MCPs are globally registered and technically available to every agent;
 workflow prompts determine intended use. Scholar Gateway is intended for
-literature research. There are no agent-variants or token-monitor plugins.
+literature research.
 
 ## Review → Edit → Write Pipeline
 

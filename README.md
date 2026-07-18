@@ -23,8 +23,8 @@ My dotfiles for the programs I use. Updated continuously since 2022.
 | **scripts** | `scripts/*.sh` | Shell scripts (added to PATH via `shellrc`) |
 
 OpenCode reviewer routing is defined by the tracked agent files and workflow
-rules in `opencode/AGENTS.md`. There is no agent-variants or token-monitor
-plugin; `reviewer-structure-2` is a supported checkpoint-only agent.
+rules in `opencode/AGENTS.md`. `reviewer-structure-2` is a supported
+checkpoint-only agent.
 
 ## Versioning
 

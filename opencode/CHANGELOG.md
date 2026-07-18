@@ -13,8 +13,7 @@ All notable changes to the OpenCode configuration will be documented in this fil
   scope, plus r-air, jarl, panache, and APA table-filter integration.
 - Clarified tracked Magic Context docs maintenance (`ARCHITECTURE.md` and
   `STRUCTURE.md` only) and fixed reviewer, workflow, and script reliability.
-- Strengthened secret/OAuth protection and removed the failed agent-variants
-  experiment without changing supported agent names or interfaces.
+- Strengthened secret/OAuth protection.
 
 ## v8.3.0 — 2026-07-16
 
