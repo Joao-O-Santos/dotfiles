@@ -11,7 +11,7 @@ scripts) for the full conventions suite. As a quick checklist:
   readability or contains a user-facing string.
 - Use base R pipes (`|>`), never `%>%`.
 - End pipes at line end (not line start).
-- Format with air, lint with jarl. Always fix issues they flag.
+- Run `r-air format` and `jarl check`; always fix issues they flag.
 
 #mcp-tool-awareness
 
@@ -46,6 +46,9 @@ Always:
 - ONLY use base R pipes `|>` NEVER `%>%`
 
 - Use tabs for indentation and spaces for alignment.
+
+- Before using r-air in an R project, ensure its root contains the canonical
+  `air.toml` from the `r-analysis-quarto` skill; copy it there when absent.
 
 - Use base R pipes (`|>`) exclusively; never `%>%`. End pipes
   at line end (not line start).

@@ -1,0 +1,23 @@
+# Panache — Markdown/Quarto formatter and linter
+# https://panache.bz
+
+# Use Pandoc Markdown.
+flavor = "pandoc"
+
+[format]
+line-width = 72
+wrap = "reflow"
+
+# Delegate R code blocks to r-air (format) and jarl (lint).
+[formatters]
+r = "r-air"
+
+[linters]
+r = "jarl"
+
+# Formatter and linter commands receive the R fence as their final argument.
+[formatters.r-air]
+args = ["format", "{}"]
+
+[linters.jarl]
+args = ["check", "{}"]

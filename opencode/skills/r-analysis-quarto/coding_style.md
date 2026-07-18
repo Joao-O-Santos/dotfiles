@@ -10,15 +10,17 @@ below, follow these rules.
 
 Formatting, linting, and prose wrapping are enforced by three tools:
 
-- **air** — R code formatter (tabs, indent-width 4, line-width 80)
+- **r-air** — R code formatter (tabs, indent-width 4, line-width 80)
 - **jarl** — R linter (55+ rules, auto-fix support, faster than lintr)
-- **panache** — Markdown/Quarto formatter (72-char hard-wrap, reflow
-  mode, delegates R blocks to air/jarl)
+- **panache** — Markdown/Quarto formatter (72-character hard-wrap, reflow
+  mode, delegates R blocks to r-air/jarl)
 
-Install with `yay -S air jarl panache` (or equivalent). Config files
-are at `~/.config/air.toml` and `~/.config/panache/config.toml`.
+Install with `yay -S r-air jarl panache` (or equivalent). r-air 0.10
+requires a project-root or ancestor `air.toml`; each R project should use
+the canonical template in this skill directory. r-air, jarl, and panache
+are recommended tools for applying these conventions.
 
-Auto-fix (`jarl --fix`, `air format`) is recommended for most rules,
+Auto-fix (`jarl --fix`, `r-air format`) is recommended for most rules,
 but verify the result — some fixes (e.g., pipe reordering, argument
 extraction) can break logic. Run the script after auto-fix to confirm.
 
