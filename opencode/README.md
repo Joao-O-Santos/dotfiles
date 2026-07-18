@@ -238,22 +238,20 @@ Model assignments are set via environment variables in `set_models.sh` (sourced 
 
 ### MCP Servers
 
-MCP servers are defined in the top‑level `"mcp"` object of `opencode.json` (globally available, not per‑agent):
+MCP servers are defined in the top-level `"mcp"` object of `opencode.json`.
+They are globally registered and technically available to agents; the agent
+prompts and workflow determine intended use, rather than per-agent ownership:
 
 - **Context7** (`@upstash/context7-mcp`)
-  - Agents: `r-coder`, `automation`
   - Purpose: library/docs/API‑reference lookup for R, Quarto, and general coding
   - Env: `CONTEXT7_API_KEY`
 - **Citecheck** (`@jhlee0619/citecheck`)
-  - Agents: `reviewer-detail`, `copyeditor`
   - Purpose: bibliographic verification and repair via Crossref (and related sources)
   - Env: `CROSSREF_MAILTO`
 - **OpenAlex MCP** (`@cyanheads/openalex-mcp-server`)
-  - Agents: `literature-reviewer`, `deep-research`
   - Purpose: structured scholarly metadata and citation search
   - Env: `OPENALEX_API_KEY`, `OPENALEX_EMAIL`
 - **Semantic Scholar MCP** (`paperplain-mcp`)
-  - Agents: `literature-reviewer`, `deep-research`
   - Purpose: Semantic Scholar‑backed paper retrieval and summaries
   - Env: none required for basic usage
 

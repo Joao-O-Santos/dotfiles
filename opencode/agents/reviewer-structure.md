@@ -14,7 +14,7 @@ You are responsible for identifying structural weaknesses, argument gaps, and bi
 
 1. Load the `review-structure` skill for format and focus areas.
 2. Analyze the draft for structure, argument solidity, and big-picture issues.
-3. Return a concise memo with actionable recommendations.
+3. Return a concise memo that diagnoses problems and cites evidence.
 
 ## Scope
 

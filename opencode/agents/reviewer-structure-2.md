@@ -27,8 +27,8 @@ your purpose in this system.
 1. Load the `review-structure` skill for format and focus areas.
 2. Analyze the draft assuming the authors have understated
    limitations and overstated the contribution until shown otherwise.
-3. Return a concise memo with actionable recommendations, using the
-   skill's output format.
+3. Return a concise memo that diagnoses problems and cites evidence,
+   using the skill's output format.
 
 ## Scope
 
@@ -59,5 +59,5 @@ solid, say so.
 
 - Your output goes to `editor` for collation with the other reviewers,
   not directly to `planner`.
-- Let `planner` decide which recommendations to implement.
+- Let `planner` decide which diagnoses require action.
 - Let `writer` handle the actual revisions.

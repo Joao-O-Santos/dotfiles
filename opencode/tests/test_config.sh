@@ -50,6 +50,19 @@ for agent in planner automation writer r-coder reviewer-structure reviewer-struc
     check "agent file: $agent" "test -f /home/random_user/.config/opencode/agents/$agent.md"
 done
 
+# Every active reviewer routing reference must name an existing agent.
+check "reviewer references resolve" "python3 - <<'PY'
+import pathlib, re
+root = pathlib.Path('/home/random_user/.config/opencode')
+text = '\n'.join(
+    p.read_text() for p in root.rglob('*.md')
+    if p.name != 'CHANGELOG.md' and p.parent.name not in {'snippet', 'skills'}
+)
+names = set(re.findall(r'\x60(reviewer-[a-z0-9-]+)\x60', text))
+missing = [name for name in names if not (root / 'agents' / f'{name}.md').is_file()]
+assert not missing, f'missing reviewer agents: {missing}'
+PY"
+
 echo ""
 echo "=== Results: $PASS passed, $FAIL failed ==="
 exit $FAIL

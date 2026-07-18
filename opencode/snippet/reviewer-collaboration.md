@@ -1,2 +1,2 @@
-- Let `planner` decide which recommendations to implement.
+- Let `planner` decide which diagnoses require action.
 - Let `writer` handle the actual revisions.

@@ -16,7 +16,7 @@ You are responsible for identifying missing citations, conceptual inconsistencie
 
 1. Load the `review-detail` skill for format and focus areas.
 2. Analyze the draft for citations, conceptual clarity, and argument issues.
-3. Return a concise memo with actionable recommendations.
+3. Return a concise memo that diagnoses problems and cites evidence.
 
 ## Scope
 

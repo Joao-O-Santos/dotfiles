@@ -136,11 +136,11 @@ When a delegated agent returns a blocker report:
   - "How does this JS library work?" → `automation` (has `context7` MCP for docs) or `build`
 - Only delegate to agents defined in `opencode.json` and listed in
   `AGENTS.md` §Agent Roster: `planner`, `automation`, `writer`,
-  `editor`, `reviewer-structure`, `reviewer-structure-fast`, `reviewer-structure-2`,
+  `editor`, `reviewer-structure`, `reviewer-structure-2`,
   `reviewer-detail`, `copyeditor`, `strategist`,
   `literature-reviewer`, `deep-research`, `r-coder`.
 - When delegating to reviewers, use the exact agent names:
-  `reviewer-structure-fast`, `reviewer-structure`, `reviewer-structure-2`, `reviewer-detail`, or `copyeditor` (not `general` or any fallback).
+  `reviewer-structure`, `reviewer-structure-2`, `reviewer-detail`, or `copyeditor` (not `general` or any fallback).
 - **R / Quarto / stats**: Route to `r-coder`. Describe the
   analytical goal and the relevant files. Do NOT write R code
   yourself — `r-coder` is the coding expert, not a debugger
@@ -225,7 +225,7 @@ or per edit type when tasks are independent.
    providing the relevant text.
 3. **Launch Reviews**:
    - **Fast Loop** (default): Delegate simultaneously to
-      `reviewer-structure-fast`, `reviewer-detail`, `copyeditor`.
+      `reviewer-structure`, `reviewer-detail`, `copyeditor`.
      Apply straightforward fixes directly. No `editor` involvement.
    - **Full Ensemble Checkpoint** (see Checkpoint Schedule):
      Delegate simultaneously to `reviewer-structure`,
@@ -293,11 +293,11 @@ or per edit type when tasks are independent.
 ## Reviewer Ensemble Routing
 
    - During ordinary iterative revision, use the Fast Loop with
-     `reviewer-structure-fast`, `reviewer-detail`, and `copyeditor` (see
+      `reviewer-structure`, `reviewer-detail`, and `copyeditor` (see
      AGENTS.md §Review Loop Types). The three standard reviewers run
   in parallel with no cross-exposure. Apply fixes directly.
    - At Checkpoint Schedule milestones, use the Full Ensemble
-     Checkpoint: use base `reviewer-structure` plus generated alias
+      Checkpoint: use base `reviewer-structure` plus
      `reviewer-structure-2` (adversarial second
   opinion), route all four outputs through `editor`, and escalate
   only non-obvious/disputed items to `strategist`.
