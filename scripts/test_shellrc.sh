@@ -43,5 +43,27 @@ else
     fail "shellrc sources present optional files"
 fi
 
+mkdir -p "$tmp_home/.config/scripts"
+cat > "$tmp_home/.config/scripts/convert.sh" <<'EOF'
+#!/usr/bin/env bash
+printf '%s\n' "$@" > "${TEST_TWRD_LOG:?}"
+exit 17
+EOF
+chmod +x "$tmp_home/.config/scripts/convert.sh"
+twrd_log="$tmp_home/twrd-args"
+if output=$(HOME="$tmp_home" TEST_TWRD_LOG="$twrd_log" bash --noprofile --norc -c '
+    source "$1"
+    twrd "file with spaces.md" "extra argument"
+' _ "$shellrc" 2>&1); then
+    fail "twrd returns converter status"
+else
+    status=$?
+    if [[ $status -eq 17 && -z "$output" && $(<"$twrd_log") == $'docx\nfile with spaces.md\nextra argument' ]]; then
+        pass "twrd delegates arguments to canonical converter"
+    else
+        fail "twrd delegates arguments to canonical converter"
+    fi
+fi
+
 echo "shellrc tests: $tests_passed passed, $tests_failed failed"
 exit "$tests_failed"

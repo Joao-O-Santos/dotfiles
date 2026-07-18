@@ -150,11 +150,5 @@ function chkdrft {
 }
 
 function twrd {
-	echo "Warning: html comments are lost in .docx conversion!"
-	chkdrft $1
-	fnm=$1
-	fnm=$(echo $1| sed 's/\.md/.docx/g')
-    pandoc $1 -f markdown+autolink_bare_uris-fancy_lists \
-        --lua-filter="${XDG_CONFIG_HOME:-$HOME/.config}/pandoc/filters/apa-tables.lua" \
-        -o $fnm
+	"${XDG_CONFIG_HOME:-$HOME/.config}/scripts/convert.sh" docx "$@"
 }
