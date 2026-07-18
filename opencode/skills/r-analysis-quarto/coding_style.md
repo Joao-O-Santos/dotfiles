@@ -18,9 +18,9 @@ Formatting, linting, and prose wrapping are enforced by three tools:
 Install with `yay -S air jarl panache` (or equivalent). Config files
 are at `~/.config/air.toml` and `~/.config/panache/config.toml`.
 
-When running jarl or air, always fix any issues they flag. If
-auto-fix breaks the code, fix it manually — the agent is responsible
-for ensuring code runs after linting.
+Auto-fix (`jarl --fix`, `air format`) is recommended for most rules,
+but verify the result — some fixes (e.g., pipe reordering, argument
+extraction) can break logic. Run the script after auto-fix to confirm.
 
 
 ## Importing Data
