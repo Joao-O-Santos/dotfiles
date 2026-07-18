@@ -316,8 +316,7 @@
           "planner"
         ]
       }
-    ],
-    "@mirrowel/opencode-agent-variants@latest"
+    ]
   ],
   "compaction": {
     "auto": false,
