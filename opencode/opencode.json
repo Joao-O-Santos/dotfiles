@@ -170,6 +170,18 @@
         "edit": "deny"
       }
     },
+    "reviewer-structure-2": {
+      "description": "Adversarial second-opinion structural critique (checkpoints only)",
+      "mode": "subagent",
+      "model": "{env:REVIEWER_STRUCTURE_2_MODEL}",
+      "variant": "high",
+      "textVerbosity": "low",
+      "temperature": 0.6,
+      "steps": 10,
+      "permission": {
+        "edit": "deny"
+      }
+    },
     "reviewer-detail": {
       "description": "Detail critique: citations, conceptual clarity, argument issues",
       "mode": "subagent",

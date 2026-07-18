@@ -18,8 +18,7 @@ If this file and `opencode.json` disagree about runtime behavior, `opencode.json
 | `writer` | primary | Manuscript drafting and revision (instruction-following) |
 | `editor` | subagent | Collates reviewer outputs, categorizes by consensus level |
 | `reviewer-structure` | subagent | Big-picture review: structure, arguments, impact |
-| `reviewer-structure-fast` | generated alias of `reviewer-structure` from `opencode/agent-variants.jsonc` | Routine Fast Loop structural review |
-| `reviewer-structure-2` | generated alias of `reviewer-structure` from `opencode/agent-variants.jsonc` | Adversarial second structural critique (checkpoints only) |
+| `reviewer-structure-2` | subagent | Adversarial second structural critique (checkpoints only) |
 | `reviewer-detail` | subagent | Detail review: citations, conceptual clarity, argument issues |
 | `copyeditor` | subagent | Prose review: titles, paragraphs, sentences, words, markdown compliance |
 | `literature-reviewer` | subagent | Fast literature search and source notes |
@@ -75,7 +74,7 @@ When agents disagree:
 Two review loop types exist:
 
 **Fast Loop** (default, used for ordinary iterative draft↔revise
-cycles): `reviewer-structure-fast`, `reviewer-detail`, `copyeditor` run
+cycles): `reviewer-structure`, `reviewer-detail`, `copyeditor` run
 independently, in parallel, with no cross-exposure between them.
 Planner applies straightforward fixes directly. No `editor`,
 `reviewer-structure-2`, or `strategist` involvement.
