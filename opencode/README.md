@@ -168,7 +168,10 @@ You still need a `magic-context.jsonc` (stored in `~/.config/opencode/magic-cont
   },
   "dreamer": {
     "model": "opencode-go/deepseek-v4-pro",
-    "pin_key_files": { "enabled": true }
+    "tasks": {
+      "maintain-docs": { "schedule": "0 7 * * 0" }
+    },
+    "inject_docs": true
   },
   "memory": {
     "enabled": true,
@@ -181,7 +184,11 @@ You still need a `magic-context.jsonc` (stored in `~/.config/opencode/magic-cont
 }
 ```
 
-Magic Context then runs automatically; no further config in this repo is needed.
+The weekly `maintain-docs` task automatically creates or updates only the
+project-root `ARCHITECTURE.md` and `STRUCTURE.md`; `inject_docs` makes those
+files available to Magic Context. `README.md` and `CHANGELOG.md` remain part
+of explicit documentation and release checks and are not maintained by this
+task.
 
 **Note:** `magic-context.jsonc` is not tracked in this repository — it
 contains user-specific model preferences and should be created manually

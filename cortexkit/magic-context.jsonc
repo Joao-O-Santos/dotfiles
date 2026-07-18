@@ -23,7 +23,7 @@
         "schedule": "0 5 * * *"
       },
       "maintain-docs": {
-        "schedule": ""
+        "schedule": "0 7 * * 0"
       },
       "map-memories": {
         "schedule": "0 2 * * *"
@@ -34,7 +34,8 @@
       "review-user-memories": {
         "schedule": "0 2 * * *"
       }
-    }
+    },
+    "inject_docs": true
   },
   "memory": {
     "enabled": true,
