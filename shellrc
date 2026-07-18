@@ -34,9 +34,9 @@ set -o vi
 
 # Open Code
 # Set models
-. "$XDG_CONFIG_HOME/opencode/set_models.sh"
+source "$XDG_CONFIG_HOME/opencode/set_models.sh"
 # MCP keys
-. "$XDG_CONFIG_HOME/opencode/mcp_keys.env"
+source "$XDG_CONFIG_HOME/opencode/mcp_keys.env"
 
 # Aliases
 # Set default options for recurrent commands
@@ -52,10 +52,7 @@ alias oc='opencode --continue'
 # GPG agent warm-up (run before first commit of a session to avoid pinentry hang)
 alias gpgwarm='echo "warmup" | gpg --clearsign -o /dev/null'
 # Set aliases for navigating to directories I'm currently working on
-# NOTE: ksh uses `. <file>` while bash uses `source <file>`
-# If on bash comment out the line below and uncomment the line under it
-. $HOME/.config/dir_aliases.sh
-#source dir_aliases.sh
+source $HOME/.config/dir_aliases.sh
 # Create alias for custom (long) commands that don't need a function
 alias radio="mpv --loop-playlist --no-audio-display $XDG_CONFIG_HOME/playlist.m3u"
 alias dacmpv="mpv --audio-device=alsa/iec958:CARD=AUDIO,DEV=0"
