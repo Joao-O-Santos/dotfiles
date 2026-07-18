@@ -7,8 +7,8 @@ all:
 site: all
 
 deps:
-	Rscript utils/install_packages.R
-	./utils/add_extensions.sh
+	Rscript install_packages.R
+	./add_extensions.sh
 
 cached:
 	quarto render --cache

@@ -5,11 +5,11 @@ description: Use when automating repetitive shell tasks: document conversion, pi
 
 # Skill: automation-cli
 
-Design small, safe shell workflows for the user's Arch Linux / oksh environment.
+Design small, safe shell workflows for the user's Arch Linux / Bash environment.
 
 ## Environment
 
-Shell: oksh (POSIX-compatible); bash also available.
+Shell: Bash.
 Key helpers already defined in the user's shellrc:
 
 - `twrd <file.md>`  – convert markdown to DOCX via pandoc (warns about lost HTML comments; runs `chkdrft` first)

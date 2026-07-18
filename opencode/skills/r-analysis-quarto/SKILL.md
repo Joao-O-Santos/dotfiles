@@ -12,6 +12,9 @@ readable.
 
 ## Project layout
 
+The bundled `_quarto.yml` and `report.qmd` are project-specific examples, not
+runnable global templates.
+
 Scripts live under `project/scripts/`; data under `project/data/`.
 Always reference data as `../data/<name>.csv` from inside the scripts directory.
 
