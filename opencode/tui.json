@@ -2,6 +2,7 @@
   "plugin": [
     "opencode-snippets",
     "@cortexkit/opencode-magic-context@latest",
-    "@cortexkit/aft-opencode@latest"
+    "@cortexkit/aft-opencode@latest",
+    "@mirrowel/opencode-agent-variants@latest"
   ]
 }

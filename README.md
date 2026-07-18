@@ -22,6 +22,12 @@ My dotfiles for the programs I use. Updated continuously since 2022.
 | **cortexkit** | `cortexkit/aft.jsonc`, `cortexkit/magic-context.jsonc` | AFT code-analysis plugin and Magic Context session management |
 | **scripts** | `scripts/*.sh` | Shell scripts (added to PATH via `shellrc`) |
 
+OpenCode reviewer routing uses generated aliases in
+`opencode/agent-variants.jsonc`: `reviewer-structure-fast` (routine Fast
+Loop, parent `reviewer-structure`) and `reviewer-structure-2` (checkpoint-only
+adversarial Full Ensemble review, the same parent). Both inherit the parent's
+prompt, read-only permissions, tools, and subagent mode.
+
 ## Versioning
 
 This project uses annotated [semver](https://semver.org/) tags across the
