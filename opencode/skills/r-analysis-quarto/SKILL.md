@@ -5,8 +5,8 @@ description: Use when the task involves writing, refactoring, and/or debugging R
 
 # Skill: r-analysis-quarto
 
-Maintain and extend the R analysis pipeline so that it stays reproducible, readable,
-and aligned with the project's house style.
+Maintain and extend the R analysis pipeline so that it stays reproducible and
+readable.
 
 #style-core
 
@@ -24,24 +24,15 @@ Data flow (do not alter without approval):
 5. `run_all.R`     → sources the above in order, skipping `0-anonymize.R` by default
 6. `report.qmd`    → sources `run_all.R`, prints objects via `knitr::kable()` / `DT::datatable()`
 
-## R coding conventions
+## R tool enforcement
 
-- Main dataset: `ds`. Subset when needed: `voi` (only when `ds` must survive).
-- Object naming: models `m_<label>`, ANOVA tables `aov_<label>`, emmeans `emm_<label>`
-- Use lists of specs to supply to get every emm and comparison emmeans,
-  ex: `emmeans(m, list(~ 1, pairwise ~ A, pairwise ~ B, pairwise ~ A  B, pairwise ~ B | A))`
-- `snake_case` identifiers throughout.
-- Be very, very sparse with comments, document only non-obvious gotchas
-  (e.g., `# Doing x here or otherwise y() will err`) or important
-  decisions (`# Full model returned isSingular warning, this is the final model`)
-
-For all formatting rules (indentation, line length, spacing, pipes,
-function limits), see `coding_style.md` in this skill directory.
-Formatting is enforced by r-air, linting by jarl. Before formatting an R
-project, ensure its root contains the canonical `air.toml` from this skill
-directory; copy it there when absent. After writing or editing R code, run
-`r-air format` and `jarl check` on the file. Always fix issues they flag — if
-auto-fix breaks the code, fix it manually.
+Use r-air for formatting and jarl for linting. Enforce tabs for indentation.
+Do not apply manual naming, pipe, comment, line-length, spacing, function-limit,
+or other non-tab rules from `coding_style.md`; r-air and jarl defaults govern
+source formatting and linting. Before formatting an R project, ensure its root
+contains the canonical `air.toml` from this skill directory; copy it when
+absent. After writing or editing R code, run `r-air format` and `jarl check` on
+the file and fix issues they flag.
 
 ## Style conventions
 

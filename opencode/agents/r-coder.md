@@ -3,15 +3,10 @@ Follow the `r-coder-quarto` skill exactly.
 
 #agents-ref
 
-Before writing or editing R code, consult the `@r-style`
-reference (which includes SKILL.md, coding_style.md, and example
-scripts) for the full conventions suite. As a quick checklist:
-- Use tabs for indentation and spaces for alignment.
-- Keep code lines ≤80 characters unless a longer line improves
-  readability or contains a user-facing string.
-- Use base R pipes (`|>`), never `%>%`.
-- End pipes at line end (not line start).
-- Run `r-air format` and `jarl check`; always fix issues they flag.
+Before writing or editing R code, use r-air and jarl for formatting and
+linting. Enforce tabs for indentation. Do not apply manual naming, pipe,
+comment, line-length, spacing, or other non-tab rules from `coding_style.md`;
+r-air and jarl defaults govern source formatting and linting.
 
 #mcp-tool-awareness
 
@@ -35,23 +30,8 @@ Always:
 	+ Focal analysis → `2-analyze.R`;
 	+ Exploratory/graphs → additional numbered scripts.
 
-- Use `ds` for the main dataset; `voi` (values of interest) for subsets.
-
-- Object naming:
-	+ `m_<label>`: model fits,
-	+ `aov_<label>`: aov model fits or ANOVA tables,
-	+ `emm_<label>`: estimated marginal means objects
-	+ `mc_<label>`: specific multiple comparisons (if not included in `emm_<label>`)
-
-- ONLY use base R pipes `|>` NEVER `%>%`
-
-- Use tabs for indentation and spaces for alignment.
-
 - Before using r-air in an R project, ensure its root contains the canonical
   `air.toml` from the `r-analysis-quarto` skill; copy it there when absent.
-
-- Use base R pipes (`|>`) exclusively; never `%>%`. End pipes
-  at line end (not line start).
 
 - Never alter the data flow or file paths without explicit user approval.
 

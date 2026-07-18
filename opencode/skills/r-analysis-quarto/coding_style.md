@@ -1,5 +1,9 @@
 # Coding Style
 
+> **Agent enforcement note:** This is a human-facing historical/reference
+> document. r-coder does not enforce its non-tab rules; r-air and jarl
+> defaults govern source formatting and linting.
+
 These conventions govern all R code produced in this workflow. They
 ensure consistency and readability across scripts and analysis pipelines.
 
