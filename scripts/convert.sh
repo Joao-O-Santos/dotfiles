@@ -37,7 +37,9 @@ case "$format" in
         echo "Warning: html comments are lost in .docx conversion!"
         chkdrft "$file"
         output="${file%.*}.docx"
-        pandoc "$file" -f markdown+autolink_bare_uris-fancy_lists -o "$output"
+        pandoc "$file" -f markdown+autolink_bare_uris-fancy_lists \
+            --lua-filter="${XDG_CONFIG_HOME:-$HOME/.config}/pandoc/filters/apa-tables.lua" \
+            -o "$output"
         echo "Converted: $file -> $output"
         ;;
     *)

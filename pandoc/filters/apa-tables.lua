@@ -2,7 +2,7 @@
 -- Pandoc Lua filter for APA 7th edition table styling
 -- Centers text by default, left-aligns columns with long content
 --
--- Usage: pandoc input.md -L apa-tables.lua -o output.docx
+-- Usage: pandoc input.md --lua-filter=apa-tables.lua -o output.docx
 --
 -- Configurable via YAML metadata:
 --   apa-table-align-threshold: 20  (default, character count)
@@ -110,15 +110,15 @@ function Table(table)
 			local new_content = {}
 			for _, block in ipairs(cell.contents) do
 				if block.t == "Plain" then
-					table.insert(new_content, pandoc.Plain(
-						pandoc.Inlines{pandoc.Strong(block.content)}
-					))
+				new_content[#new_content + 1] = pandoc.Plain(
+					pandoc.Inlines{pandoc.Strong(block.content)}
+				)
 				elseif block.t == "Para" then
-					table.insert(new_content, pandoc.Plain(
+					new_content[#new_content + 1] = pandoc.Plain(
 						pandoc.Inlines{pandoc.Strong(block.content)}
-					))
+					)
 				else
-					table.insert(new_content, block)
+					new_content[#new_content + 1] = block
 				end
 			end
 			new_cells[i] = pandoc.Cell(
@@ -129,7 +129,7 @@ function Table(table)
 				cell.attr
 			)
 		end
-		table.insert(new_head_rows, pandoc.Row(new_cells, row.attr))
+			new_head_rows[#new_head_rows + 1] = pandoc.Row(new_cells, row.attr)
 	end
 	local new_head = pandoc.TableHead(new_head_rows, table.head.attr)
 
@@ -146,13 +146,13 @@ function Table(table)
 					new_cells[i] = cell
 				end
 			end
-			table.insert(new_body_rows, pandoc.Row(new_cells, row.attr))
+			new_body_rows[#new_body_rows + 1] = pandoc.Row(new_cells, row.attr)
 		end
 		new_bodies[#new_bodies + 1] = pandoc.TableBody(
 			new_body_rows,
-			body.attr,
 			body.head,
-			body.row_head_columns
+			body.row_head_columns,
+			body.attr
 		)
 	end
 
