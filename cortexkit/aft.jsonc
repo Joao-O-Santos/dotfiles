@@ -6,7 +6,7 @@
     "rewrite": true
   },
   "sandbox": {
-    "enabled": true
+    "enabled": false
   },
   "search_index": true,
   "semantic_search": true,
