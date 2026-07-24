@@ -3,5 +3,7 @@
   "version": 1,
   "defaultMode": "autonomous",
   "defaultCapacity": "openai-first",
-  "privateStylePath": "~/.config/pi/skills/writing-style-joao/references/STYLE.md"
+  "privateStylePath": "~/.config/pi/skills/writing-style-joao/references/STYLE.md",
+  "literatureDatabasePath": "~/lit/_index.db",
+  "literatureRoot": "~/lit"
 }

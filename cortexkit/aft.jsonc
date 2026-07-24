@@ -5,6 +5,9 @@
   "bash": {
     "rewrite": true
   },
+  "sandbox": {
+    "enabled": true
+  },
   "search_index": true,
   "semantic_search": true,
   "semantic": {

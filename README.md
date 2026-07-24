@@ -18,13 +18,13 @@ My dotfiles for the programs I use. Updated continuously since 2022.
 | **mimeapps** | `mimeapps.list` | Default app associations |
 | **xorg** | `xorg/xinitrc` | X11 init |
 | **wallpapers** | `wallpapers/` | Desktop backgrounds |
-| **opencode** | `opencode/*` | Multi-agent AI system for academic manuscript writing, revision, and review |
-| **cortexkit** | `cortexkit/aft.jsonc`, `cortexkit/magic-context.jsonc` | AFT code-analysis plugin and Magic Context session management |
+| **pi** | `pi/*` | Pi Sych supervisor overlay, skills, and local workbench preferences |
+| **cortexkit** | `cortexkit/aft.jsonc`, `cortexkit/magic-context.jsonc` | AFT code-analysis (including its native command sandbox) and Magic Context session management |
 | **scripts** | `scripts/*.sh` | Shell scripts (added to PATH via `shellrc`) |
 
-OpenCode reviewer routing is defined by the tracked agent files and workflow
-rules in `opencode/AGENTS.md`. `reviewer-structure-2` is a supported
-checkpoint-only agent.
+Pi Sych is the active workbench. The prior OpenCode configuration is retained
+only in a private non-Git archive, not under this repository or active XDG
+configuration.
 
 ## Versioning
 
@@ -78,9 +78,8 @@ academic papers organized by topic. It has its own indexing system:
   manually-corrected metadata
 - **`litsearch.sh`** — Agent-friendly search tool with FTS5 queries and
   per-directory listing
-- **OpenCode integration** — The `literature-reviewer` and `deep-research`
-  agents have direct access to the index via lit-index, lit-search, and
-  lit-heal skills
+- **Pi Sych integration** — the read-only `literature` proxy queries the index
+  for scoped supervisor and research-worker retrieval
 
 ## Quick Start
 
@@ -88,8 +87,8 @@ academic papers organized by topic. It has its own indexing system:
 # Link all config files into place
 ./link_configs.sh
 
-# For OpenCode Manuscript Workflow:
-source opencode/set_models.sh   # set API keys and model environment variables
+# Start the Pi Sych workbench:
+pi
 ```
 
 ## Changelog
@@ -113,14 +112,6 @@ spdx license identifier. Below is a table with the files and their
 corresponding licenses, please refer to it if the file does not include
 an spdx license identifier.
 
-Note that `opencode/skills/review-detail/SKILL.md` adapts the logical
-fallacy catalog, bias detection framework, and statistical red flags from
-the `scientific-critical-thinking` skill by K-Dense Inc. (MIT License).
-The full MIT license text is at `./LICENSES/MIT-K-Dense`.
-
-The opencode config directory contains content adapted from third-party
-projects. See `opencode/COPYING.md` for attribution details.
-
 | File                          | SPDX-License-Identifier      |
 |-------------------------------|------------------------------|
 | `.gitignore`                  | CC0-1.0                      |
@@ -133,7 +124,6 @@ projects. See `opencode/COPYING.md` for attribution details.
 | `mimeapps.list`               | CC0-1.0                      |
 | `mutt/muttrc`                 | CC0-1.0                      |
 | `nvim/init.vim`               | CC0-1.0                      |
-| `opencode/skills/review-detail/SKILL.md` | MIT (K-Dense Inc.) |
 | `pandoc/docx/word/styles.xml` | CC0-1.0                      |
 | `playlist.m3u`                | CC0-1.0                      |
 | `profile`                     | CC0-1.0                      |
