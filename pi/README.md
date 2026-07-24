@@ -6,4 +6,4 @@ private skills and style references, and a validated workbench overlay.
 
 Credentials, model stores, sessions, worker state, installed packages, and
 runtime artifacts remain ignored or outside Git. This overlay does not copy,
-modify, or depend on the existing OpenCode configuration.
+modify, or depend on legacy OpenCode configuration.

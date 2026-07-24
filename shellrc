@@ -60,8 +60,7 @@ pi() {
 # Use vi mode in the shell
 set -o vi
 
-# OpenCode is retained as an archival fallback but is not activated by shells.
-# Its model and MCP credentials stay isolated in ~/.config/opencode.
+# Pi is the active agent workbench. Legacy OpenCode state is not activated.
 
 # Aliases
 # Set default options for recurrent commands

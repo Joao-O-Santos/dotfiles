@@ -64,9 +64,9 @@ if sourced=$(HOME="$tmp_home" bash --noprofile --norc -c '
     ! alias oc >/dev/null 2>&1
     printf sourced
 ' _ "$shellrc" 2>/dev/null); then
-    [[ "$sourced" == sourced ]] && pass "shellrc leaves retained OpenCode state dormant" || fail "shellrc leaves retained OpenCode state dormant"
+    [[ "$sourced" == sourced ]] && pass "shellrc does not reactivate legacy OpenCode state" || fail "shellrc does not reactivate legacy OpenCode state"
 else
-    fail "shellrc leaves retained OpenCode state dormant"
+    fail "shellrc does not reactivate legacy OpenCode state"
 fi
 
 mkdir -p "$tmp_home/.config/pi"

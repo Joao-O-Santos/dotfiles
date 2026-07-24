@@ -47,32 +47,6 @@ R/rsconnect
 !/mcp/mcp.json
 !/mcp/README.md
 
-# Track OpenCode
-!/opencode
-!/opencode/.gitignore
-!/opencode/opencode.json
-!/opencode/style
-!/opencode/agents
-!/opencode/skills
-# Ignore OpenCode internal state
-/opencode/auth.json
-/opencode/account.json
-/opencode/mcp_keys.sh
-/opencode/opencode.db*
-/opencode/node_modules
-/opencode/snapshot
-/opencode/log
-/opencode/logs
-/opencode/tool-output
-/opencode/storage
-/opencode/bun.lock
-/opencode/package.json
-/opencode/package-lock.json
-/opencode/tui.json
-/opencode/checkpoints/
-opencode/mcp_keys.env
-opencode/mcp-auth.json
-
 *.secret
 *.key
 !.env.example
