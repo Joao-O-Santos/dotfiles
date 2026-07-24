@@ -40,6 +40,10 @@ export PI_CACHE_RETENTION="long"
 # Continue the latest project session by default without changing package or
 # diagnostic command behavior.
 pi() {
+  # Pi-only secret environment: do not expose MCP/AFT credentials to every shell command.
+  if [[ -r "$XDG_CONFIG_HOME/pi/secrets.env" ]]; then
+    source "$XDG_CONFIG_HOME/pi/secrets.env"
+  fi
   case "${1-}" in
     install|remove|uninstall|update|list|config|--help|-h|--version|-v|--list-models)
       command pi "$@"

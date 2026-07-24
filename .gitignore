@@ -26,6 +26,8 @@ R/rsconnect
 # Track Pi's secret-free private overlay
 !/pi
 /pi/auth.json
+/pi/secrets.env
+!/pi/secrets.env.example
 /pi/models-store.json
 /pi/npm/
 /pi/git/
@@ -38,6 +40,12 @@ R/rsconnect
 /pi/sessions/
 /pi/runtime/
 /pi/worker-agent/
+/pi/mcp-*.json
+
+# Track the secret-free shared MCP configuration.
+!/mcp/
+!/mcp/mcp.json
+!/mcp/README.md
 
 # Track OpenCode
 !/opencode
@@ -92,3 +100,4 @@ secrets*
 # Exception: example files are safe
 !.env.example
 !.env.sample
+!/pi/secrets.env.example

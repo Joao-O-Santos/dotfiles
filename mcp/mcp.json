@@ -1,0 +1,43 @@
+{
+  "settings": {
+    "toolPrefix": "server",
+    "directTools": false,
+    "idleTimeout": 10,
+    "requestTimeoutMs": 30000,
+    "autoAuth": false,
+    "sampling": false,
+    "samplingAutoApprove": false,
+    "elicitation": false,
+    "outputGuard": true
+  },
+  "mcpServers": {
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp@latest"],
+      "env": {
+        "CONTEXT7_API_KEY": "${CONTEXT7_API_KEY}"
+      },
+      "lifecycle": "lazy",
+      "exposeResources": false,
+      "directTools": false
+    },
+    "openalex": {
+      "command": "npx",
+      "args": ["-y", "@cyanheads/openalex-mcp-server@latest"],
+      "env": {
+        "OPENALEX_API_KEY": "${OPENALEX_API_KEY}",
+        "OPENALEX_MAILTO": "${OPENALEX_EMAIL}"
+      },
+      "lifecycle": "lazy",
+      "exposeResources": false,
+      "directTools": false
+    },
+    "scholar-gateway": {
+      "url": "https://connector.scholargateway.ai/mcp",
+      "auth": "oauth",
+      "lifecycle": "lazy",
+      "exposeResources": false,
+      "directTools": false
+    }
+  }
+}
