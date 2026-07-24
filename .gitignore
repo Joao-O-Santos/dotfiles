@@ -20,6 +20,7 @@ R/rsconnect
 !/profile
 !/scripts
 !/shellrc
+!/environment.d
 !/xorg/xinitrc
 !/wallpapers/WALLPAPERS_GO_HERE
 # Track Pi's secret-free private overlay

@@ -32,7 +32,7 @@ export NPM_CONFIG_CACHE=$XDG_CACHE_HOME
 export PLANNOTATOR_DATA_DIR=$XDG_CACHE_HOME/plannotator
 export PI_CODING_AGENT_DIR=$XDG_CONFIG_HOME/pi
 export PI_CODING_AGENT_SESSION_DIR=$XDG_CACHE_HOME/pi
-# Pi 0.81.1 uses PI_PACKAGE_DIR for its installed program root, not its
+# Pi 0.82.0 uses PI_PACKAGE_DIR for its installed program root, not its
 # extension cache. Packages naturally live under PI_CODING_AGENT_DIR/npm.
 unset PI_PACKAGE_DIR
 export PI_CACHE_RETENTION="long"
