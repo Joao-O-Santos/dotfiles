@@ -21,6 +21,8 @@ export XDG_CONFIG_HOME=$HOME/.config
 export XDG_DATA_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_STATE_HOME=$HOME/.cache
+# Use the supported Node.js LTS cached under XDG_CACHE_HOME.
+export PATH=$XDG_CACHE_HOME/nodejs/current/bin:$PATH
 export LESSHISTFILE=/dev/null
 export HISTFILE=$XDG_CACHE_HOME/bash_history
 export XAUTHORITY=$XDG_CONFIG_HOME/xorg/Xauthority
@@ -28,6 +30,25 @@ export R_PROFILE_USER=$XDG_CONFIG_HOME/R/Rprofile
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/nmprc
 export NPM_CONFIG_CACHE=$XDG_CACHE_HOME
 export PLANNOTATOR_DATA_DIR=$XDG_CACHE_HOME/plannotator
+export PI_CODING_AGENT_DIR=$XDG_CONFIG_HOME/pi
+export PI_CODING_AGENT_SESSION_DIR=$XDG_CACHE_HOME/pi
+# Pi 0.81.1 uses PI_PACKAGE_DIR for its installed program root, not its
+# extension cache. Packages naturally live under PI_CODING_AGENT_DIR/npm.
+unset PI_PACKAGE_DIR
+export PI_CACHE_RETENTION="long"
+
+# Continue the latest project session by default without changing package or
+# diagnostic command behavior.
+pi() {
+  case "${1-}" in
+    install|remove|uninstall|update|list|config|--help|-h|--version|-v|--list-models)
+      command pi "$@"
+      ;;
+    *)
+      command pi --continue "$@"
+      ;;
+  esac
+}
 
 
 # Use vi mode in the shell

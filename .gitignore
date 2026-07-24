@@ -22,6 +22,22 @@ R/rsconnect
 !/shellrc
 !/xorg/xinitrc
 !/wallpapers/WALLPAPERS_GO_HERE
+# Track Pi's secret-free private overlay
+!/pi
+/pi/auth.json
+/pi/models-store.json
+/pi/npm/
+/pi/git/
+/pi/trust.json
+/pi/*.secrets.json
+/pi/*.secrets.jsonc
+/pi/.env
+/pi/.env.*
+!/pi/.env.example
+/pi/sessions/
+/pi/runtime/
+/pi/worker-agent/
+
 # Track OpenCode
 !/opencode
 !/opencode/.gitignore
