@@ -13,9 +13,6 @@ tests_failed=0
 pass() { echo "✓ $1"; ((++tests_passed)); }
 fail() { echo "✗ $1"; ((++tests_failed)); }
 
-mkdir -p "$tmp_home/.config/opencode"
-cp "$config_dir/opencode/set_models.sh" "$tmp_home/.config/opencode/set_models.sh"
-
 if output=$(HOME="$tmp_home" bash --noprofile --norc -c 'source "$1"' _ "$shellrc" 2>&1); then
     if [[ -z "$output" ]]; then
         pass "shellrc starts silently without optional files"
@@ -48,8 +45,12 @@ else
     fail "noninteractive shell skips TTY/GPG setup and LESS history"
 fi
 
+mkdir -p "$tmp_home/.config/opencode"
+cat > "$tmp_home/.config/opencode/set_models.sh" <<'EOF'
+export TEST_OPENCODE_MODELS_SOURCED=1
+EOF
 cat > "$tmp_home/.config/opencode/mcp_keys.env" <<'EOF'
-export TEST_MCP_KEYS_SOURCED=1
+export TEST_OPENCODE_MCP_KEYS_SOURCED=1
 EOF
 cat > "$tmp_home/.config/dir_aliases.sh" <<'EOF'
 export TEST_DIR_ALIASES_SOURCED=1
@@ -57,12 +58,35 @@ EOF
 
 if sourced=$(HOME="$tmp_home" bash --noprofile --norc -c '
     source "$1"
-    [[ ${TEST_MCP_KEYS_SOURCED:-} == 1 && ${TEST_DIR_ALIASES_SOURCED:-} == 1 ]]
+    [[ -z ${TEST_OPENCODE_MODELS_SOURCED+x} ]]
+    [[ -z ${TEST_OPENCODE_MCP_KEYS_SOURCED+x} ]]
+    [[ ${TEST_DIR_ALIASES_SOURCED:-} == 1 ]]
+    ! alias oc >/dev/null 2>&1
     printf sourced
 ' _ "$shellrc" 2>/dev/null); then
-    [[ "$sourced" == sourced ]] && pass "shellrc sources present optional files" || fail "shellrc sources present optional files"
+    [[ "$sourced" == sourced ]] && pass "shellrc leaves retained OpenCode state dormant" || fail "shellrc leaves retained OpenCode state dormant"
 else
-    fail "shellrc sources present optional files"
+    fail "shellrc leaves retained OpenCode state dormant"
+fi
+
+mkdir -p "$tmp_home/.config/pi"
+cat > "$tmp_home/.config/pi/secrets.env" <<'EOF'
+export TEST_PI_SECRET=1
+EOF
+cat > "$tmp_home/bin/pi" <<'EOF'
+#!/usr/bin/env bash
+printf '%s|%s\n' "${TEST_PI_SECRET:-missing}" "$*" > "${TEST_PI_LOG:?}"
+EOF
+chmod +x "$tmp_home/bin/pi"
+pi_log="$tmp_home/pi-call.log"
+if HOME="$tmp_home" PATH="$tmp_home/bin:$PATH" TEST_PI_LOG="$pi_log" bash --noprofile --norc -c '
+    source "$1"
+    pi --version
+    [[ -z ${TEST_PI_SECRET+x} ]]
+' _ "$shellrc" 2>/dev/null && [[ $(<"$pi_log") == '1|--version' ]]; then
+    pass "Pi receives secrets without leaking them to the calling shell"
+else
+    fail "Pi receives secrets without leaking them to the calling shell"
 fi
 
 mkdir -p "$tmp_home/.config/scripts"

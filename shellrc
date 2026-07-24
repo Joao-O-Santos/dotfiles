@@ -40,31 +40,28 @@ export PI_CACHE_RETENTION="long"
 # Continue the latest project session by default without changing package or
 # diagnostic command behavior.
 pi() {
-  # Pi-only secret environment: do not expose MCP/AFT credentials to every shell command.
-  if [[ -r "$XDG_CONFIG_HOME/pi/secrets.env" ]]; then
-    source "$XDG_CONFIG_HOME/pi/secrets.env"
-  fi
-  case "${1-}" in
-    install|remove|uninstall|update|list|config|--help|-h|--version|-v|--list-models)
-      command pi "$@"
-      ;;
-    *)
-      command pi --continue "$@"
-      ;;
-  esac
+  # Keep MCP/AFT credentials inside the Pi child process, not the calling shell.
+  (
+    if [[ -r "$XDG_CONFIG_HOME/pi/secrets.env" ]]; then
+      source "$XDG_CONFIG_HOME/pi/secrets.env"
+    fi
+    case "${1-}" in
+      install|remove|uninstall|update|list|config|--help|-h|--version|-v|--list-models)
+        command pi "$@"
+        ;;
+      *)
+        command pi --continue "$@"
+        ;;
+    esac
+  )
 }
 
 
 # Use vi mode in the shell
 set -o vi
 
-# Open Code
-# Set models
-source "$XDG_CONFIG_HOME/opencode/set_models.sh"
-# MCP keys
-if [[ -f "$XDG_CONFIG_HOME/opencode/mcp_keys.env" ]]; then
-    source "$XDG_CONFIG_HOME/opencode/mcp_keys.env"
-fi
+# OpenCode is retained as an archival fallback but is not activated by shells.
+# Its model and MCP credentials stay isolated in ~/.config/opencode.
 
 # Aliases
 # Set default options for recurrent commands
@@ -76,7 +73,6 @@ alias R='R --no-save --quiet'
 # Shorter aliases for faster typing
 alias m='neomutt'
 alias e='nvim'
-alias oc='opencode --continue'
 # GPG agent warm-up (run before first commit of a session to avoid pinentry hang)
 alias gpgwarm='echo "warmup" | gpg --clearsign -o /dev/null'
 # Set aliases for navigating to directories I'm currently working on
