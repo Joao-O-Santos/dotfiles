@@ -13,4 +13,4 @@ if grep -Eiq 'E[0-9]+:|Error detected|stack traceback' "$output"; then
   cat "$output" >&2
   exit 1
 fi
-printf '%s\n' 'Neovim startup survived optional-plugin absence.'
+printf '%s\n' 'Neovim startup succeeded with the configured plugins.'

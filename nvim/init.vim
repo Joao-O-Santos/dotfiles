@@ -23,7 +23,7 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 "Finish loading plugins
 call plug#end()
 
-" Quarto/R support is optional until the declarations above are installed.
+" Keep Quarto/R setup guarded so startup still works if a declared plugin is unavailable.
 lua << EOF
 pcall(require, 'quarto_setup')
 EOF
