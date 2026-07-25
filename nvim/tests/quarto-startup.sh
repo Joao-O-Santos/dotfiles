@@ -6,11 +6,13 @@ output=$(mktemp)
 trap 'rm -f "$output"' EXIT
 
 nvim --headless -u "$config" \
-  +'lua assert(vim.g.loaded_netrw ~= nil or true)' \
+  +'enew' \
+  +'setfiletype quarto' \
+  +'lua assert(pcall(require, "quarto")); assert(pcall(require, "otter"))' \
   +qa 2>"$output"
 
 if grep -Eiq 'E[0-9]+:|Error detected|stack traceback' "$output"; then
   cat "$output" >&2
   exit 1
 fi
-printf '%s\n' 'Neovim startup succeeded with the configured plugins.'
+printf '%s\n' 'Neovim starts and loads the configured Quarto stack.'

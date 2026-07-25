@@ -3,22 +3,9 @@ local function optional(module)
   return ok and value or nil
 end
 
-local cmp = optional('cmp')
-local cmp_lsp = optional('cmp_nvim_lsp')
 local quarto = optional('quarto')
 local otter = optional('otter')
 local treesitter = optional('nvim-treesitter')
-
-if cmp then
-  vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
-  cmp.setup({
-    mapping = cmp.mapping.preset.insert({
-      ['<C-Space>'] = cmp.mapping.complete(),
-      ['<CR>'] = cmp.mapping.confirm({ select = false }),
-    }),
-    sources = cmp.config.sources({ { name = 'nvim_lsp' } }, { { name = 'buffer' } }),
-  })
-end
 
 if treesitter then
   pcall(treesitter.setup, {})
@@ -44,7 +31,7 @@ if quarto then
   })
 end
 
-local capabilities = cmp_lsp and cmp_lsp.default_capabilities() or vim.lsp.protocol.make_client_capabilities()
+local capabilities = vim.lsp.protocol.make_client_capabilities()
 local r_air = vim.fn.exepath('r-air')
 if r_air ~= '' then
   vim.lsp.config('r_air', {

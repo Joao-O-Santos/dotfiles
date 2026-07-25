@@ -17,9 +17,6 @@ Plug 'vim-pandoc/vim-pandoc', {'for': ['markdown', 'quarto', 'rmd', 'pandoc']}
 Plug 'vim-pandoc/vim-pandoc-syntax', {'for': ['markdown', 'quarto', 'rmd', 'pandoc']}
 Plug 'jmbuhr/otter.nvim', {'for': ['markdown', 'quarto', 'rmd', 'pandoc']}
 Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/nvim-cmp'
-Plug 'hrsh7th/cmp-nvim-lsp'
 "Finish loading plugins
 call plug#end()
 
