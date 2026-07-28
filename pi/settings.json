@@ -32,9 +32,17 @@
     "opencode-go/qwen3.7-plus"
   ],
   "packages": [
-    "npm:@cortexkit/aft-pi",
-    "npm:@cortexkit/pi-magic-context",
     "npm:@plannotator/pi-extension",
-    "../../hacks/pi-sych"
+    {
+      "source": "../../hacks/pi-sych",
+      "extensions": [
+        "extensions/workbench/index.ts"
+      ],
+      "skills": [
+        "skills"
+      ],
+      "prompts": [],
+      "themes": []
+    }
   ]
 }
