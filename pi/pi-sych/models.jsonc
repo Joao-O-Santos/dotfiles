@@ -1,0 +1,32 @@
+{
+  // Personal model choices. Pi remains authoritative about availability and authentication.
+  "version": 1,
+  "models": {
+    "everyday-strong": {
+      "ref": "openai-codex/gpt-5.6-terra",
+      "thinking": "high",
+      "notes": "General reasoning and implementation."
+    },
+    "deep-review": {
+      "ref": "openai-codex/gpt-5.6-sol",
+      "thinking": "high",
+      "notes": "Consequential conceptual and methodological review."
+    },
+    "fast-draft": {
+      "ref": "openai-codex/gpt-5.6-luna",
+      "thinking": "medium",
+      "notes": "Bounded drafting and extraction."
+    }
+  },
+  "profiles": {
+    "default": ["everyday-strong"],
+    "draft": ["everyday-strong", "fast-draft"],
+    "review": ["deep-review", "everyday-strong"],
+    "literature-review": ["deep-review"],
+    "methods-review": ["deep-review"],
+    "theory-review": ["deep-review"],
+    "research": ["everyday-strong"],
+    "code": ["everyday-strong", "fast-draft"],
+    "fast": ["fast-draft"]
+  }
+}
