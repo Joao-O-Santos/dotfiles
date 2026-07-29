@@ -1,9 +1,0 @@
-{
-  // Private local adapters. Absence of either path must not prevent Pi Sych from loading.
-  "version": 1,
-  "literature": {
-    "databasePath": "~/lit/_index.db",
-    "root": "~/lit"
-  },
-  "privateStylePath": "~/.config/pi/skills/writing-style-joao/references/STYLE.md"
-}

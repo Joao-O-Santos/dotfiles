@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.82.0",
+  "lastChangelogVersion": "0.82.1",
   "theme": "light",
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-5.6-terra",
@@ -32,9 +32,8 @@
     "opencode-go/qwen3.7-plus"
   ],
   "packages": [
-    "npm:@plannotator/pi-extension",
     {
-      "source": "../../hacks/pi-sych",
+      "source": "npm:pi-sych",
       "extensions": [
         "extensions/workbench/index.ts"
       ],
