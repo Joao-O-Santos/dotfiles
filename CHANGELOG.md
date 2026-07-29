@@ -3,7 +3,23 @@
 All notable changes to this dotfiles configuration will be documented in this file.
 This project follows [Semantic Versioning](https://semver.org/).
 
-For detailed OpenCode Manuscript Workflow changes, see `opencode/CHANGELOG.md`.
+## [v9.0.0] - 2026-07-29
+
+### Breaking changes
+- Retired the OpenCode workflow and CortexKit configuration. Pi Sych is now
+  the sole supported agent workbench.
+- Replaced the local-development Pi Sych package with the public npm package
+  (`npm:pi-sych`). Plannotator is provided by Pi Sych and is no longer loaded
+  as a separate Pi extension.
+
+### Added
+- Added secret-free Pi supervisor instructions, a user-ranked worker model
+  catalog, and scoped shared MCP configuration.
+- Added Neovim Quarto/LSP setup and headless startup coverage.
+
+### Changed
+- Moved Pi state and credentials to XDG locations, and load Pi credentials
+  only in the Pi child process.
 
 
 ## [v8.4.0] - 2026-07-18

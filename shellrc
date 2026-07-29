@@ -40,7 +40,7 @@ export PI_CACHE_RETENTION="long"
 # Continue the latest project session by default without changing package or
 # diagnostic command behavior.
 pi() {
-  # Keep MCP/AFT credentials inside the Pi child process, not the calling shell.
+  # Keep MCP credentials inside the Pi child process, not the calling shell.
   (
     if [[ -r "$XDG_CONFIG_HOME/pi/secrets.env" ]]; then
       source "$XDG_CONFIG_HOME/pi/secrets.env"

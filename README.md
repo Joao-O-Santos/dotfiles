@@ -19,7 +19,6 @@ My dotfiles for the programs I use. Updated continuously since 2022.
 | **xorg** | `xorg/xinitrc` | X11 init |
 | **wallpapers** | `wallpapers/` | Desktop backgrounds |
 | **pi** | `pi/*` | Pi Sych supervisor overlay, skills, and local workbench preferences |
-| **cortexkit** | `cortexkit/aft.jsonc`, `cortexkit/magic-context.jsonc` | AFT code-analysis (including its native command sandbox) and Magic Context session management |
 | **scripts** | `scripts/*.sh` | Shell scripts (added to PATH via `shellrc`) |
 
 Pi Sych is the active workbench. The prior OpenCode configuration is retained
@@ -29,7 +28,7 @@ configuration.
 ## Versioning
 
 This project uses annotated [semver](https://semver.org/) tags across the
-entire repository. **Current version:** v8.4.0. See
+entire repository. **Current version:** v9.0.0. See
 [CHANGELOG.md](CHANGELOG.md) for the full release history back to v0.1.0
 (2022-03-30).
 
@@ -78,8 +77,6 @@ academic papers organized by topic. It has its own indexing system:
   manually-corrected metadata
 - **`litsearch.sh`** — Agent-friendly search tool with FTS5 queries and
   per-directory listing
-- **Pi Sych integration** — the read-only `literature` proxy queries the index
-  for scoped supervisor and research-worker retrieval
 
 ## Quick Start
 
