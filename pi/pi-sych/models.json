@@ -1,34 +1,10 @@
 {
-  "version": 1,
+  "default": "strong",
   "models": {
-    "everyday-strong": {
-      "ref": "openai-codex/gpt-5.6-terra",
-      "strength": "strong",
-      "suitableFor": ["general reasoning", "implementation", "research synthesis"],
-      "notes": "Default for substantial everyday work."
-    },
-    "deep-review": {
-      "ref": "openai-codex/gpt-5.6-sol",
-      "strength": "deep",
-      "suitableFor": ["consequential conceptual review", "methodological review", "theory review"],
-      "notes": "Use when review depth matters more than speed."
-    },
-    "fast-draft": {
-      "ref": "openai-codex/gpt-5.6-luna",
-      "strength": "fast",
-      "suitableFor": ["bounded drafting", "extraction", "low-risk code edits"],
-      "notes": "Use for narrow tasks with clear acceptance criteria."
-    }
-  },
-  "profiles": {
-    "default": ["everyday-strong"],
-    "draft": ["everyday-strong", "fast-draft"],
-    "review": ["deep-review", "everyday-strong"],
-    "literature-review": ["deep-review"],
-    "methods-review": ["deep-review"],
-    "theory-review": ["deep-review"],
-    "research": ["everyday-strong"],
-    "code": ["everyday-strong", "fast-draft"],
-    "fast": ["fast-draft"]
+    "strong": { "model": "openai-codex/gpt-5.6-terra", "cost": "medium to high", "notes": "General reasoning model, good at a variety of tasks, including coding and tool calls. Multiple reasoning levels available (off, minimal, low, medium, high, xhigh, max) the higher the reasoning level the higher the cost and latency, but generally the better the performance (with diminuishing returns)"},
+    "strongest": { "model": "openai-codex/gpt-5.6-sol", "cost": "high to very-high", "notes": "The strongest reasoning model, good at a variety of tasks, including coding and tool calls. Multiple reasoning levels available (off, minimal, low, medium, high, xhigh, max) the higher the reasoning level the higher the cost and latency, but generally the better the performance (with diminuishing returns)"},
+    "workhorse": { "model": "openai-codex/gpt-5.6-luna", "cost": "very-low", "notes": "General medium-small reasoning model, sufficient for a variety of tasks, including coding and tool calls. Multiple reasoning levels available (off, minimal, low, medium, high, xhigh, max) cost and latency increase with reasoning level (but cost remains very-low, and latency good), performance also increases with thinking level (with diminuishing returns)"},
+    "cheap": { "model": "opecode-go/mimo-v2.5-pro", "cost": "low", "notes": "Medium-small reasoning open weights model, good for tool calls, automation and computer tasks. Possible alternative to strong and workhorse when having a different family of models looking at something is useful. Not a bad writer."},
+    "very_cheap": { "model": "opecode-go/mimo-v2.5", "cost": "very-low", "notes": "Small open weights model, sufficient for tool calls, automation and computer tasks. Possible alternative to workhorse and cheap when having a different family of models looking at something is useful. Not a bad writer."}
   }
 }

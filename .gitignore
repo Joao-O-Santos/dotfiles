@@ -26,6 +26,7 @@ R/rsconnect
 # Track Pi's secret-free private overlay
 !/pi
 /pi/auth.json
+/pi/pi-sych/worker-agent/*
 /pi/secrets.env
 !/pi/secrets.env.example
 /pi/models-store.json

@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "workerAgentDir": "worker-agent",
+  "modelCatalog": "models.json",
+  "mcporterConfig": "mcp/mcporter.json",
+  "compaction": {
+    "custom": true,
+    "compactAt100k": true
+  },
+  "review": {
+    "mode": "plannotator"
+  }
+}
