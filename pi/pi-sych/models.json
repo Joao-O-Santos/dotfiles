@@ -1,10 +1,35 @@
 {
   "default": "strong",
   "models": {
-    "strong": { "model": "openai-codex/gpt-5.6-terra", "cost": "medium to high", "notes": "General reasoning model, good at a variety of tasks, including coding and tool calls. Multiple reasoning levels available (off, minimal, low, medium, high, xhigh, max) the higher the reasoning level the higher the cost and latency, but generally the better the performance (with diminuishing returns)"},
-    "strongest": { "model": "openai-codex/gpt-5.6-sol", "cost": "high to very-high", "notes": "The strongest reasoning model, good at a variety of tasks, including coding and tool calls. Multiple reasoning levels available (off, minimal, low, medium, high, xhigh, max) the higher the reasoning level the higher the cost and latency, but generally the better the performance (with diminuishing returns)"},
-    "workhorse": { "model": "openai-codex/gpt-5.6-luna", "cost": "very-low", "notes": "General medium-small reasoning model, sufficient for a variety of tasks, including coding and tool calls. Multiple reasoning levels available (off, minimal, low, medium, high, xhigh, max) cost and latency increase with reasoning level (but cost remains very-low, and latency good), performance also increases with thinking level (with diminuishing returns)"},
-    "cheap": { "model": "opecode-go/mimo-v2.5-pro", "cost": "low", "notes": "Medium-small reasoning open weights model, good for tool calls, automation and computer tasks. Possible alternative to strong and workhorse when having a different family of models looking at something is useful. Not a bad writer."},
-    "very_cheap": { "model": "opecode-go/mimo-v2.5", "cost": "very-low", "notes": "Small open weights model, sufficient for tool calls, automation and computer tasks. Possible alternative to workhorse and cheap when having a different family of models looking at something is useful. Not a bad writer."}
+    "strong": {
+      "model": "openai-codex/gpt-5.6-terra",
+      "cost": "medium to high",
+      "notes": "General reasoning model, good at coding and tool use."
+    },
+    "strongest": {
+      "model": "openai-codex/gpt-5.6-sol",
+      "cost": "high to very high",
+      "notes": "Strongest general reasoning model; use when review depth matters most."
+    },
+    "workhorse": {
+      "model": "openai-codex/gpt-5.6-luna",
+      "cost": "very low",
+      "notes": "Default for routine bounded work. Prefer this generous Codex allowance over comparable lightweight Copilot models."
+    },
+    "alternative": {
+      "model": "github-copilot/kimi-k3",
+      "cost": "high",
+      "notes": "Strong independent perspective from another model family. Use selectively because it draws from the tighter Copilot allowance reserved primarily for scientific writing and review."
+    },
+    "science": {
+      "model": "github-copilot/claude-sonnet-5",
+      "cost": "high",
+      "notes": "Preferred specialist for consequential scientific writing and review. Reserve the tighter Copilot allowance for work that benefits from Claude's distinct strengths."
+    },
+    "science-lite": {
+      "model": "github-copilot/claude-haiku-4.5",
+      "cost": "medium",
+      "notes": "Lower-cost Claude specialist for bounded scientific writing and review. Prefer Luna for routine work so the tighter Copilot allowance remains available for Claude."
+    }
   }
 }
