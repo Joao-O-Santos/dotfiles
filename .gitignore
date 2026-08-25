@@ -11,6 +11,8 @@ R/rsconnect
 !/i3
 !/i3status
 !/LICENSES
+!/ARCHITECTURE.md
+!/STRUCTURE.md
 !/link_configs.sh
 !/pandoc
 !/R

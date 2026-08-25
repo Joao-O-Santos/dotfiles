@@ -18,12 +18,11 @@ My dotfiles for the programs I use. Updated continuously since 2022.
 | **mimeapps** | `mimeapps.list` | Default app associations |
 | **xorg** | `xorg/xinitrc` | X11 init |
 | **wallpapers** | `wallpapers/` | Desktop backgrounds |
-| **pi** | `pi/*` | Pi Sych supervisor overlay, skills, and local workbench preferences |
+| **pi** | `pi/*` | Pi Sych supervisor overlay, Pi Auch quota display, skills, and workbench preferences |
 | **scripts** | `scripts/*.sh` | Shell scripts (added to PATH via `shellrc`) |
 
-Pi Sych is the active workbench. The prior OpenCode configuration is retained
-only in a private non-Git archive, not under this repository or active XDG
-configuration.
+Pi Sych is the active workbench. Prior OpenCode configuration is no longer
+tracked or loaded; any retained remnants are private ignored state.
 
 ## Versioning
 
@@ -60,9 +59,11 @@ repository root.
 - `pull_all.sh` — Pull all git repositories under `$HOME`
 
 **Tests:**
-- `test_scripts.sh` — Test runner (orchestrates individual test files)
-- `test_chkdrft.sh`, `test_toc.sh`, `test_tso.sh` — Per-script unit tests
-  (16 tests total, all passing)
+- `test_scripts.sh` — Test runner for six shell regression suites
+- `test_apa_tables.sh`, `test_chkdrft.sh`, `test_convert.sh`,
+  `test_shellrc.sh`, `test_toc.sh`, `test_tso.sh` — Focused regression
+  tests (30 assertions total)
+- `nvim/tests/quarto-startup.sh` — Headless Neovim startup check
 
 ## Literature Library
 
@@ -88,9 +89,11 @@ academic papers organized by topic. It has its own indexing system:
 pi
 ```
 
-## Changelog
+## Documentation
 
-See `CHANGELOG.md` for all changes since 2022.
+- `ARCHITECTURE.md` — system layers, data flow, and entry points
+- `STRUCTURE.md` — directory purposes and extension conventions
+- `CHANGELOG.md` — release history and unreleased changes since 2022
 
 ## Legalities
 

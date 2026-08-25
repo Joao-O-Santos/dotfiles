@@ -3,6 +3,25 @@
 All notable changes to this dotfiles configuration will be documented in this file.
 This project follows [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+### Added
+- Added `pi-auch` for passive Codex and Copilot quota visibility in Pi.
+- Added tracked Pi Sych configuration for the worker catalog, custom
+  compaction at 100k, and Plannotator review mode.
+- Added a private GPG-signing workflow skill that requires external agent
+  warm-up before signed commits.
+- Added tracked architecture and codebase-structure guides.
+
+### Changed
+- Revised worker roles around a Luna-first policy for routine work, with
+  Claude Sonnet and Haiku reserved for scientific writing and review and
+  Kimi K3 available for selective independent perspective.
+- Removed OpenCode Go models from the active Pi allowlist and raised the
+  interactive Pi default to Sol with high reasoning.
+- Enabled streaming Mermaid rendering, cache-miss notices, and explicit
+  project-trust prompts in Pi.
+
 ## [v9.0.0] - 2026-07-29
 
 ### Breaking changes
