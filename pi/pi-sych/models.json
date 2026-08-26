@@ -24,7 +24,7 @@
     "science-expensive": {
       "model": "github-copilot/claude-sonnet-5",
       "cost": "extreme",
-      "notes": "Specialist for the most consequential scientific writing and review. Conserve this quota to the max, use only for major milestones and hard decisions."
+      "notes": "Specialist for the most consequential scientific writing and review. Conserve this quota as much as possible, use only for important milestones, complex decisions and audits."
     },
     "science-lite": {
       "model": "github-copilot/claude-haiku-4.5",
