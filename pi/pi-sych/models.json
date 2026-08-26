@@ -3,12 +3,12 @@
   "models": {
     "strong": {
       "model": "openai-codex/gpt-5.6-terra",
-      "cost": "medium to high",
+      "cost": "medium",
       "notes": "General reasoning model, good at coding and tool use."
     },
     "strongest": {
       "model": "openai-codex/gpt-5.6-sol",
-      "cost": "high to very high",
+      "cost": "high",
       "notes": "Strongest general reasoning model; use when review depth matters most."
     },
     "workhorse": {
@@ -16,15 +16,15 @@
       "cost": "very low",
       "notes": "Default for routine bounded work. Prefer this generous Codex allowance over comparable lightweight Copilot models."
     },
-    "alternative": {
+    "alt-strongest": {
       "model": "github-copilot/kimi-k3",
       "cost": "high",
       "notes": "Strong independent perspective from another model family. Use selectively because it draws from the tighter Copilot allowance reserved primarily for scientific writing and review."
     },
-    "science": {
+    "science-expensive": {
       "model": "github-copilot/claude-sonnet-5",
-      "cost": "high",
-      "notes": "Preferred specialist for consequential scientific writing and review. Reserve the tighter Copilot allowance for work that benefits from Claude's distinct strengths."
+      "cost": "extreme",
+      "notes": "Specialist for the most consequential scientific writing and review. Conserve this quota to the max, use only for major milestones and hard decisions."
     },
     "science-lite": {
       "model": "github-copilot/claude-haiku-4.5",
