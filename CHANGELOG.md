@@ -21,6 +21,8 @@ This project follows [Semantic Versioning](https://semver.org/).
   interactive Pi default to Sol with high reasoning.
 - Enabled streaming Mermaid rendering, cache-miss notices, and explicit
   project-trust prompts in Pi.
+- Updated Pi Sych supervisor instructions for `SYNC.json`,
+  `dispatch_worker`, and direct user approval requests.
 
 ## [v9.0.0] - 2026-07-29
 
