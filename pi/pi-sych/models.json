@@ -30,6 +30,11 @@
       "model": "github-copilot/claude-haiku-4.5",
       "cost": "medium",
       "notes": "Lower-cost Claude specialist for bounded scientific writing and review. Prefer Luna for routine work so the tighter Copilot allowance remains available for Claude."
+    },
+    "free": {
+      "model": "opencode/nemotron-3.5-lightning-free",
+      "cost": "free_but_metered",
+      "notes": "Fast free model, not amazing, but good enough. Free but with a strict quota, use when all others fail, or for diversity"
     }
   }
 }

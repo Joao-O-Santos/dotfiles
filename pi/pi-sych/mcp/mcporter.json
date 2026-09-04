@@ -1,0 +1,26 @@
+{
+  "mcpServers": {
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp@latest"],
+      "env": {
+        "CONTEXT7_API_KEY": "${CONTEXT7_API_KEY}"
+      },
+      "lifecycle": "ephemeral"
+    },
+    "openalex": {
+      "command": "npx",
+      "args": ["-y", "@cyanheads/openalex-mcp-server@latest"],
+      "env": {
+        "OPENALEX_API_KEY": "${OPENALEX_API_KEY}",
+        "OPENALEX_MAILTO": "${OPENALEX_EMAIL}"
+      },
+      "lifecycle": "ephemeral"
+    },
+    "scholar-gateway": {
+      "url": "https://connector.scholargateway.ai/mcp",
+      "auth": "oauth",
+      "lifecycle": "ephemeral"
+    }
+  }
+}
