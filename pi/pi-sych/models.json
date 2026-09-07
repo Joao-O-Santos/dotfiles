@@ -4,37 +4,42 @@
     "strong": {
       "model": "openai-codex/gpt-5.6-terra",
       "cost": "medium",
-      "notes": "General reasoning model, good at coding and tool use."
+      "notes": "Default for substantive general work requiring sound reasoning, reliable coding, and tool use. Escalate only when difficulty, ambiguity, or review stakes materially justify it."
     },
-    "strongest": {
+    "stronger": {
       "model": "openai-codex/gpt-5.6-sol",
       "cost": "high",
-      "notes": "Strongest general reasoning model; use when review depth matters most."
+      "notes": "Use for difficult implementation, integration, analysis, or review when Terra is unlikely to be sufficient and Sol is likely to suffice. Prefer Sol over Astra unless the task meets the strongest role's criteria; no trial run on Sol is required before selecting Astra."
+    },
+    "strongest": {
+      "model": "openai-codex/gpt-6-astra",
+      "cost": "very high; tight quota",
+      "notes": "Use for exceptional scientific reasoning, the most rigorous technical or scientific reviews, or similarly consequential reasoning, including subtle cross-domain synthesis, when maximum reasoning quality is needed beyond what Sol is likely to provide. Select Astra directly when these criteria are met. Its quota is tight: otherwise prefer Sol or Terra, and do not use Astra for routine work, straightforward coding, or ordinary review."
     },
     "workhorse": {
       "model": "openai-codex/gpt-5.6-luna",
       "cost": "very low",
-      "notes": "Default for routine bounded work. Prefer this generous Codex allowance over comparable lightweight Copilot models."
+      "notes": "Preferred for routine bounded implementation, inspection, testing, and mechanical edits. Use its generous Codex allowance freely; escalate to Terra when substantial ambiguity or judgment appears."
     },
     "alt-strongest": {
       "model": "github-copilot/kimi-k3",
       "cost": "high",
-      "notes": "Strong independent perspective from another model family. Use selectively because it draws from the tighter Copilot allowance reserved primarily for scientific writing and review."
+      "notes": "Use selectively as an independent second perspective on difficult reasoning or review, especially when model-family diversity may expose blind spots. Do not spend the tighter Copilot allowance on routine work."
     },
     "science-expensive": {
       "model": "github-copilot/claude-sonnet-5",
       "cost": "extreme",
-      "notes": "Specialist for the most consequential scientific writing and review. Conserve this quota as much as possible, use only for important milestones, complex decisions and audits."
+      "notes": "Use for consequential scientific writing, discipline-sensitive critique, and major manuscript milestones only when Claude's writing or editorial strengths are specifically valuable and science-lite is unlikely to suffice. Its quota is extremely tight. For reasoning-led work, choose Terra, Sol, or Astra according to their role criteria rather than manuscript importance alone; prefer science-lite for bounded scientific prose."
     },
     "science-lite": {
       "model": "github-copilot/claude-haiku-4.5",
       "cost": "medium",
-      "notes": "Lower-cost Claude specialist for bounded scientific writing and review. Prefer Luna for routine work so the tighter Copilot allowance remains available for Claude."
+      "notes": "Use for bounded scientific prose revision or focused manuscript critique where the main need is clarity, framing, or disciplinary conventions and Claude's strengths are useful. Route substantive scientific reasoning or validation of technical claims to Terra, Sol, or Astra according to their role criteria. Escalate to science-expensive only when its specialized writing or editorial strengths are needed beyond this role's scope. Prefer Luna for routine or non-scientific work."
     },
     "free": {
       "model": "opencode/nemotron-3.5-lightning-free",
       "cost": "free_but_metered",
-      "notes": "Fast free model, not amazing, but good enough. Free but with a strict quota, use when all others fail, or for diversity"
+      "notes": "Use only when preferred profiles are unavailable or a low-cost diversity check is useful. It is fast and free but quota-limited; do not rely on it for high-stakes conclusions."
     }
   }
 }
