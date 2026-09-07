@@ -57,6 +57,7 @@ repository root.
 - `f.sh` — Find files by name pattern (ripgrep wrapper)
 - `o.sh` — Open files with xdg-open
 - `pull_all.sh` — Pull all git repositories under `$HOME`
+- `update-all.sh` — Update Arch, R, Neovim plugins, and Pi in sequence
 
 **Tests:**
 - `test_scripts.sh` — Test runner for six shell regression suites
@@ -64,6 +65,17 @@ repository root.
   `test_shellrc.sh`, `test_toc.sh`, `test_tso.sh` — Focused regression
   tests (30 assertions total)
 - `nvim/tests/quarto-startup.sh` — Headless Neovim startup check
+
+To run the complete update sequence:
+
+```bash
+update-all.sh
+```
+
+Use `update-all.sh --dry-run` to inspect the commands first. Generic global npm
+packages are intentionally not updated here: this installation contains both
+pacman-owned Node packages and Pi's separately managed global installation. The Neovim step runs `PlugUpgrade` followed by a synchronous `PlugUpdate`
+and exits automatically after checking for plugin failures.
 
 ## Literature Library
 
@@ -139,6 +151,7 @@ an spdx license identifier.
 | `scripts/pull_all.sh`         | CC0-1.0                      |
 | `scripts/toc.sh`              | CC0-1.0                      |
 | `scripts/tso.sh`              | CC0-1.0                      |
+| `scripts/update-all.sh`       | CC0-1.0                      |
 | `scripts/test_chkdrft.sh`     | CC0-1.0                      |
 | `scripts/test_scripts.sh`     | CC0-1.0                      |
 | `scripts/test_toc.sh`         | CC0-1.0                      |
