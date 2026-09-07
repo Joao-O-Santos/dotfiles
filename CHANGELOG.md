@@ -5,13 +5,26 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [v9.1.0] - 2026-09-08
+
 ### Added
 - Added `pi-auch` for passive Codex and Copilot quota visibility in Pi.
+- Added `pi-pew-pew` web retrieval extension for read-only, polite web access.
+- Added `pi-lease` for delegated browser-based Pi sessions with Chrome DevTools
+  access and persistent profile isolation.
 - Added tracked Pi Sych configuration for the worker catalog, custom
   compaction at 100k, and Plannotator review mode.
 - Added a private GPG-signing workflow skill that requires external agent
   warm-up before signed commits.
 - Added tracked architecture and codebase-structure guides.
+- Added `scripts/setup-gpg-pinentry.sh`, which detects a working GUI
+  pinentry (skipping any pinentry binary that is present but fails to run,
+  e.g. due to a missing shared-library dependency), writes it into
+  `~/.gnupg/gpg-agent.conf`, and verifies both GPG signing and the shared
+  SSH agent socket.
+- Added `GPGPINENTRY.md`, documenting non-blocking GPG pinentry setup,
+  the `~/.gnupg/gpg-agent.conf` config-path requirement, GUI pinentry
+  dependency gotchas, and SSH-agent integration.
 
 ### Changed
 - Revised worker roles around a Luna-first policy for routine work, with
@@ -23,6 +36,12 @@ This project follows [Semantic Versioning](https://semver.org/).
   project-trust prompts in Pi.
 - Updated Pi Sych supervisor instructions for `SYNC.json`,
   `dispatch_worker`, and direct user approval requests.
+- Improved GPG agent initialization to use GUI pinentry when X11/Wayland is
+  available, preventing terminal blocking during password entry in Pi agent
+  workflows. Falls back to terminal pinentry in headless environments.
+- Replaced `gpgwarm` output messaging to better communicate passphrase caching.
+- Added `gpgsetup` shell alias for `scripts/setup-gpg-pinentry.sh --auto`.
+- Excluded `pi/tmp/` (extension runtime cache) from version control.
 
 ## [v9.0.0] - 2026-07-29
 

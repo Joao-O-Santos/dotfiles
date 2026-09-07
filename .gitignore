@@ -13,6 +13,9 @@ R/rsconnect
 !/LICENSES
 !/ARCHITECTURE.md
 !/STRUCTURE.md
+!/CHANGELOG.md
+!/GPGPINENTRY.md
+!/README.md
 !/link_configs.sh
 !/pandoc
 !/R
@@ -34,6 +37,7 @@ R/rsconnect
 /pi/models-store.json
 /pi/npm/
 /pi/git/
+/pi/tmp/
 /pi/trust.json
 /pi/*.secrets.json
 /pi/*.secrets.jsonc

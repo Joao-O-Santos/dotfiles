@@ -10,7 +10,7 @@ My dotfiles for the programs I use. Updated continuously since 2022.
 | **zen** | `zen/profiles.ini`, `zen/installs.ini` | Browser (replaced firefox) |
 | **i3** | `i3/config` | Window manager |
 | **shell** | `shellrc`, `profile` | Shell config (bash) |
-| **git** | `git/config`, `scripts/exclude` | Version control |
+| **git** | `git/config`, `scripts/exclude`, `scripts/setup-gpg-pinentry.sh` | Version control with GUI-based GPG pinentry |
 | **nvim** | `nvim/init.vim` | Text editor (vim-pandoc, quarto) |
 | **pandoc** | `pandoc/docx/word/styles.xml` | Document conversion |
 | **R** | `R/Rprofile` | Statistics (browser, packages) |
@@ -27,7 +27,7 @@ tracked or loaded; any retained remnants are private ignored state.
 ## Versioning
 
 This project uses annotated [semver](https://semver.org/) tags across the
-entire repository. **Current version:** v9.0.0. See
+entire repository. **Current version:** v9.1.0. See
 [CHANGELOG.md](CHANGELOG.md) for the full release history back to v0.1.0
 (2022-03-30).
 
@@ -58,6 +58,8 @@ repository root.
 - `o.sh` — Open files with xdg-open
 - `pull_all.sh` — Pull all git repositories under `$HOME`
 - `update-all.sh` — Update Arch, R, Neovim plugins, and Pi in sequence
+- `setup-gpg-pinentry.sh` — Configure GUI-based GPG pinentry to prevent password
+  prompts from blocking the terminal during Pi agent work (see `GPGPINENTRY.md`)
 
 **Tests:**
 - `test_scripts.sh` — Test runner for six shell regression suites
@@ -97,8 +99,20 @@ academic papers organized by topic. It has its own indexing system:
 # Link all config files into place
 ./link_configs.sh
 
+# Configure GPG pinentry to prevent terminal blocking (recommended for Pi work)
+# Arch ships all pinentry frontends in one package; other distros package
+# them separately (see GPGPINENTRY.md for dependency notes):
+#   sudo pacman -S pinentry gcr kwindowsystem   # Arch (gcr/kwindowsystem optional)
+#   sudo apt install pinentry-gnome3            # Debian/Ubuntu
+#   sudo dnf install pinentry-gtk               # Fedora
+./scripts/setup-gpg-pinentry.sh --auto
+
 # Start the Pi Sych workbench:
 pi
+
+# First signed commit in a session: pre-warm GPG to cache passphrase
+gpgwarm
+git commit --allow-empty -m "First commit"
 ```
 
 ## Documentation
@@ -106,6 +120,8 @@ pi
 - `ARCHITECTURE.md` — system layers, data flow, and entry points
 - `STRUCTURE.md` — directory purposes and extension conventions
 - `CHANGELOG.md` — release history and unreleased changes since 2022
+- `GPGPINENTRY.md` — Guide for configuring GPG with GUI pinentry to prevent
+  terminal blocking during password entry in Pi workflows
 
 ## Legalities
 

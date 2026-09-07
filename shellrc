@@ -9,10 +9,20 @@ export VISUAL=nvim
 # Performance preferences
 export MAKEFLAGS=-j12
 export XZ_DEFAULTS=--memlimit=8GB
-# Set vars to configure gpg for multiple terminals and for ssh.
+# Configure gpg for multiple terminals and ssh.
+# With GUI pinentry (gtk2, gnome3, qt), do NOT set GPG_TTY as it forces
+# pinentry into the terminal. If using pinentry-tty or terminal mode, set it.
 if [[ $- == *i* ]] && [[ -t 0 || -t 1 || -t 2 ]]; then
-    export GPG_TTY="$(tty)"
-    gpg-connect-agent --quiet updatestartuptty /bye >/dev/null 2>&1 || :
+    # For GUI pinentry: let gpg-agent manage itself
+    if [[ -n "$DISPLAY" || -n "$WAYLAND_DISPLAY" ]]; then
+        # GUI mode: initialize agent without setting GPG_TTY
+        unset GPG_TTY
+        gpg-connect-agent --quiet /bye >/dev/null 2>&1 || :
+    else
+        # Headless mode: use terminal pinentry
+        export GPG_TTY="$(tty)"
+        gpg-connect-agent --quiet updatestartuptty /bye >/dev/null 2>&1 || :
+    fi
 fi
 unset SSH_AGENT_PID
 export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh"
@@ -72,8 +82,10 @@ alias R='R --no-save --quiet'
 # Shorter aliases for faster typing
 alias m='neomutt'
 alias e='nvim'
-# GPG agent warm-up (run before first commit of a session to avoid pinentry hang)
-alias gpgwarm='echo "warmup" | gpg --clearsign -o /dev/null'
+# GPG agent warm-up (run before first commit of a session to cache passphrase)
+alias gpgwarm='echo "test" | gpg --clearsign -o /dev/null 2>/dev/null || echo "No cached passphrase; first commit will prompt"'
+# GPG setup helper (configure pinentry for non-blocking GUI)
+alias gpgsetup='$XDG_CONFIG_HOME/scripts/setup-gpg-pinentry.sh'
 # Set aliases for navigating to directories I'm currently working on
 if [[ -f "$HOME/.config/dir_aliases.sh" ]]; then
     source "$HOME/.config/dir_aliases.sh"
