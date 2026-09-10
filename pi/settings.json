@@ -29,7 +29,7 @@
         "extensions/plannotator/index.ts"
       ],
       "skills": [
-        "skills"
+        "skills/**"
       ],
       "prompts": [],
       "themes": []
