@@ -36,7 +36,8 @@
     },
     "git:git@gitlab.com:Joao-O-Santos/pi-auch",
     "git:git@gitlab.com:Joao-O-Santos/pi-pew-pew",
-    "git:git@gitlab.com:Joao-O-Santos/pi-lease"
+    "git:git@gitlab.com:Joao-O-Santos/pi-lease",
+    "git:git@gitlab.com:Joao-O-Santos/pi-filler"
   ],
   "markdown": {
     "mermaid": "streaming"
