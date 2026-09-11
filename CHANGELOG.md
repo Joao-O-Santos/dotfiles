@@ -5,6 +5,19 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+- Replaced generated pinentry configuration with the single tracked
+  `gnupg/gpg-agent.conf` source, linked safely into `~/.gnupg/` by
+  `link_configs.sh`.
+- Fixed shell initialization to follow GnuPG's documented `GPG_TTY` setup and
+  discover the SSH-agent socket through `gpgconf`.
+- Standardized GPG and GPG-backed SSH prompts on `/usr/bin/pinentry-gtk`.
+
+### Removed
+- Removed `scripts/setup-gpg-pinentry.sh` and the `gpgsetup` alias; generating
+  the same file that is symlinked from the repository would create competing
+  sources of truth.
+
 ## [v9.1.0] - 2026-09-08
 
 ### Added

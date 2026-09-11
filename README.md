@@ -10,7 +10,7 @@ My dotfiles for the programs I use. Updated continuously since 2022.
 | **zen** | `zen/profiles.ini`, `zen/installs.ini` | Browser (replaced firefox) |
 | **i3** | `i3/config` | Window manager |
 | **shell** | `shellrc`, `profile` | Shell config (bash) |
-| **git** | `git/config`, `scripts/exclude`, `scripts/setup-gpg-pinentry.sh` | Version control with GUI-based GPG pinentry |
+| **git/GnuPG** | `git/config`, `scripts/exclude`, `gnupg/gpg-agent.conf` | Version control with GTK pinentry and GPG-backed SSH |
 | **nvim** | `nvim/init.vim` | Text editor (vim-pandoc, quarto) |
 | **pandoc** | `pandoc/docx/word/styles.xml` | Document conversion |
 | **R** | `R/Rprofile` | Statistics (browser, packages) |
@@ -58,8 +58,6 @@ repository root.
 - `o.sh` — Open files with xdg-open
 - `pull_all.sh` — Pull all git repositories under `$HOME`
 - `update-all.sh` — Update Arch, R, Neovim plugins, and Pi in sequence
-- `setup-gpg-pinentry.sh` — Configure GUI-based GPG pinentry to prevent password
-  prompts from blocking the terminal during Pi agent work (see `GPGPINENTRY.md`)
 
 **Tests:**
 - `test_scripts.sh` — Test runner for six shell regression suites
@@ -96,16 +94,14 @@ academic papers organized by topic. It has its own indexing system:
 ## Quick Start
 
 ```bash
-# Link all config files into place
+# Install GTK pinentry, then link all tracked configuration into place.
+# On Arch, /usr/bin/pinentry-gtk is provided by the pinentry package.
+sudo pacman -S pinentry
 ./link_configs.sh
 
-# Configure GPG pinentry to prevent terminal blocking (recommended for Pi work)
-# Arch ships all pinentry frontends in one package; other distros package
-# them separately (see GPGPINENTRY.md for dependency notes):
-#   sudo pacman -S pinentry gcr kwindowsystem   # Arch (gcr/kwindowsystem optional)
-#   sudo apt install pinentry-gnome3            # Debian/Ubuntu
-#   sudo dnf install pinentry-gtk               # Fedora
-./scripts/setup-gpg-pinentry.sh --auto
+# Reload gpg-agent after linking its configuration.
+gpgconf --kill gpg-agent
+gpg-connect-agent --quiet /bye
 
 # Start the Pi Sych workbench:
 pi
@@ -115,13 +111,33 @@ gpgwarm
 git commit --allow-empty -m "First commit"
 ```
 
+## GPG and SSH
+
+`gnupg/gpg-agent.conf` is the repository's sole, non-secret GPG-agent
+configuration. `link_configs.sh` links it to `~/.gnupg/gpg-agent.conf`, the
+path read by `gpg-agent`, and preserves an existing regular config as
+`~/.gnupg/gpg-agent.conf.pre-dotfiles` before linking. It uses GTK pinentry
+for a separate graphical prompt and enables GPG-backed SSH authentication.
+
+The repository tracks **only** that settings file beneath `gnupg/`. Private
+keys, keyboxes, trust databases, `sshcontrol`, sockets, and passphrase caches
+remain local under `~/.gnupg/` and are never tracked.
+
+`shellrc` updates `GPG_TTY` for each interactive terminal and gets
+`SSH_AUTH_SOCK` from `gpgconf`. Verify the live setup after linking:
+
+```bash
+readlink -f ~/.gnupg/gpg-agent.conf
+/usr/bin/pinentry-gtk --version
+echo test | gpg --clearsign -o /dev/null
+ssh-add -l
+```
+
 ## Documentation
 
 - `ARCHITECTURE.md` — system layers, data flow, and entry points
 - `STRUCTURE.md` — directory purposes and extension conventions
 - `CHANGELOG.md` — release history and unreleased changes since 2022
-- `GPGPINENTRY.md` — Guide for configuring GPG with GUI pinentry to prevent
-  terminal blocking during password entry in Pi workflows
 
 ## Legalities
 
