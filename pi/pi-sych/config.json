@@ -3,6 +3,7 @@
   "workerAgentDir": "worker-agent",
   "modelCatalog": "models.json",
   "mcporterConfig": "mcp/mcporter.json",
+  "literatureDatabase": "/home/random_user/lit/_index.db",
   "compaction": {
     "custom": true,
     "compactAt100k": true
