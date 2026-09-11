@@ -118,6 +118,8 @@ configuration. `link_configs.sh` links it to `~/.gnupg/gpg-agent.conf`, the
 path read by `gpg-agent`, and preserves an existing regular config as
 `~/.gnupg/gpg-agent.conf.pre-dotfiles` before linking. It uses GTK pinentry
 for a separate graphical prompt and enables GPG-backed SSH authentication.
+GPG signing caches a passphrase for 9.6 hours; SSH uses its own 12-hour default
+and maximum cache TTL, so use cannot extend an SSH cache entry beyond 12 hours.
 
 The repository tracks **only** that settings file beneath `gnupg/`. Private
 keys, keyboxes, trust databases, `sshcontrol`, sockets, and passphrase caches

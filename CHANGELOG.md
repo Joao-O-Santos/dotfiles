@@ -12,6 +12,8 @@ This project follows [Semantic Versioning](https://semver.org/).
 - Fixed shell initialization to follow GnuPG's documented `GPG_TTY` setup and
   discover the SSH-agent socket through `gpgconf`.
 - Standardized GPG and GPG-backed SSH prompts on `/usr/bin/pinentry-gtk`.
+- Set GPG-backed SSH passphrase caching to a 12-hour default and hard maximum;
+  retained the 9.6-hour GPG signing-cache limit.
 
 ### Removed
 - Removed `scripts/setup-gpg-pinentry.sh` and the `gpgsetup` alias; generating
