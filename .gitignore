@@ -41,6 +41,8 @@ R/rsconnect
 /pi/npm/
 /pi/git/
 /pi/tmp/
+# Chromium profile data is local pi-pew-pew runtime state.
+/pi/pi-pew-pew/chromium/
 /pi/trust.json
 /pi/*.secrets.json
 /pi/*.secrets.jsonc
