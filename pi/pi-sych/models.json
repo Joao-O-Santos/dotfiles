@@ -37,9 +37,9 @@
       "notes": "Use for bounded scientific prose revision or focused manuscript critique where the main need is clarity, framing, or disciplinary conventions and Claude's strengths are useful. Route substantive scientific reasoning or validation of technical claims to Terra, Sol, or Astra according to their role criteria. Escalate to science-expensive only when its specialized writing or editorial strengths are needed beyond this role's scope. Prefer Luna for routine or non-scientific work."
     },
     "free": {
-      "model": "opencode/nemotron-3.5-lightning-free",
+      "model": "opencode/muse-spark-1.3-contributor-free",
       "cost": "free_but_metered",
-      "notes": "Use only when preferred profiles are unavailable or a low-cost diversity check is useful. It is fast and free but quota-limited; do not rely on it for high-stakes conclusions."
+      "notes": "Use when preferred profiles are unavailable or a low-cost diversity check is useful. It is fast and free but quota-limited; do not rely on it for high-stakes conclusions."
     }
   }
 }
