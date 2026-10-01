@@ -1,14 +1,9 @@
 {
-  "version": 1,
-  "workerAgentDir": "worker-agent",
-  "modelCatalog": "models.json",
-  "mcporterConfig": "mcp/mcporter.json",
-  "literatureDatabase": "/home/random_user/lit/_index.db",
+  "version": 2,
   "compaction": {
     "custom": true,
-    "compactAt100k": true
+    "thresholdTokens": 150000
   },
-  "review": {
-    "mode": "plannotator"
-  }
+  "literatureDatabase": "/home/random_user/lit/_index.db",
+  "completionReassessment": true
 }
