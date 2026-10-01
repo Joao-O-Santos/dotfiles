@@ -18,19 +18,9 @@
     "openrouter/nvidia/nemotron-3-ultra-550b-a55b:free",
     "openrouter/google/gemma-4-31b-it:free"
   ],
+  "defaultTools": ["+codemode"],
   "packages": [
-    {
-      "source": "git:git@gitlab.com:Joao-O-Santos/pi-sych",
-      "extensions": [
-        "extensions/workbench/index.ts",
-        "extensions/plannotator/index.ts"
-      ],
-      "skills": [
-        "skills/**"
-      ],
-      "prompts": [],
-      "themes": []
-    },
+    "git:git@gitlab.com:Joao-O-Santos/pi-sych",
     "git:git@gitlab.com:Joao-O-Santos/pi-auch",
     "git:git@gitlab.com:Joao-O-Santos/pi-pew-pew",
     "git:git@gitlab.com:Joao-O-Santos/pi-lease",
