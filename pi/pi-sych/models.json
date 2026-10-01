@@ -2,24 +2,19 @@
   "default": "strong",
   "models": {
     "strong": {
-      "model": "openai-codex/gpt-5.6-terra",
-      "cost": "medium",
-      "notes": "Default for substantive general work requiring sound reasoning, reliable coding, and tool use. Escalate only when difficulty, ambiguity, or review stakes materially justify it."
-    },
-    "stronger": {
-      "model": "openai-codex/gpt-5.6-sol",
-      "cost": "high",
-      "notes": "Use for difficult implementation, integration, analysis, or review when Terra is unlikely to be sufficient and Sol is likely to suffice. Prefer Sol over Astra unless the task meets the strongest role's criteria; no trial run on Sol is required before selecting Astra."
+      "model": "openai-codex/gpt-6.1-sol",
+      "cost": "medium; ~20x Luna API cost",
+      "notes": "Default for substantive general work requiring strong reasoning, reliable coding, and tool use. GPT-6.1 Sol is the balanced intelligence/cost model. As a future-proof quota proxy, treat it as roughly 20x Luna's API cost and one-fifth of Astra's; escalate to Astra only when difficulty, ambiguity, or review stakes materially justify it."
     },
     "strongest": {
       "model": "openai-codex/gpt-6-astra",
-      "cost": "very high; tight quota",
-      "notes": "Use for exceptional scientific reasoning, the most rigorous technical or scientific reviews, or similarly consequential reasoning, including subtle cross-domain synthesis, when maximum reasoning quality is needed beyond what Sol is likely to provide. Select Astra directly when these criteria are met. Its quota is tight: otherwise prefer Sol or Terra, and do not use Astra for routine work, straightforward coding, or ordinary review."
+      "cost": "very high; ~100x Luna / 5x Sol API cost",
+      "notes": "Use for exceptional scientific reasoning, the most rigorous technical or scientific reviews, or similarly consequential reasoning, including subtle cross-domain synthesis, when maximum reasoning quality is needed beyond what Sol is likely to provide. Select Astra directly when these criteria are met. As a future-proof quota proxy, treat it as roughly 5x GPT-6.1 Sol and 100x Luna by API price; otherwise prefer Sol or Luna."
     },
     "workhorse": {
-      "model": "openai-codex/gpt-5.6-luna",
-      "cost": "very low",
-      "notes": "Preferred for routine bounded implementation, inspection, testing, and mechanical edits. Use its generous Codex allowance freely; escalate to Terra when substantial ambiguity or judgment appears."
+      "model": "openai-codex/gpt-6-luna",
+      "cost": "very low; 1x API-cost baseline",
+      "notes": "Preferred for routine bounded implementation, inspection, testing, mechanical edits, and other focused high-volume work. Use Luna as the 1x API-cost/quota baseline; GPT-6.1 Sol is roughly 20x and Astra roughly 100x by API price. Escalate to Sol when substantial ambiguity, judgment, or task complexity appears."
     },
     "alt-strongest": {
       "model": "github-copilot/kimi-k3",
@@ -29,12 +24,12 @@
     "science-expensive": {
       "model": "github-copilot/claude-sonnet-5",
       "cost": "extreme",
-      "notes": "Use for consequential scientific writing, discipline-sensitive critique, and major manuscript milestones only when Claude's writing or editorial strengths are specifically valuable and science-lite is unlikely to suffice. Its quota is extremely tight. For reasoning-led work, choose Terra, Sol, or Astra according to their role criteria rather than manuscript importance alone; prefer science-lite for bounded scientific prose."
+      "notes": "Use for consequential scientific writing, discipline-sensitive critique, and major manuscript milestones only when Claude's writing or editorial strengths are specifically valuable and science-lite is unlikely to suffice. Its quota is extremely tight. For reasoning-led work, choose Luna, Sol, or Astra according to their role criteria rather than manuscript importance alone; prefer science-lite for bounded scientific prose."
     },
     "science-lite": {
       "model": "github-copilot/claude-haiku-4.5",
       "cost": "medium",
-      "notes": "Use for bounded scientific prose revision or focused manuscript critique where the main need is clarity, framing, or disciplinary conventions and Claude's strengths are useful. Route substantive scientific reasoning or validation of technical claims to Terra, Sol, or Astra according to their role criteria. Escalate to science-expensive only when its specialized writing or editorial strengths are needed beyond this role's scope. Prefer Luna for routine or non-scientific work."
+      "notes": "Use for bounded scientific prose revision or focused manuscript critique where the main need is clarity, framing, or disciplinary conventions and Claude's strengths are useful. Route substantive scientific reasoning or validation of technical claims to Luna, Sol, or Astra according to their role criteria. Escalate to science-expensive only when its specialized writing or editorial strengths are needed beyond this role's scope. Prefer Luna for routine or non-scientific work."
     },
     "free": {
       "model": "opencode/muse-spark-1.3-contributor-free",
