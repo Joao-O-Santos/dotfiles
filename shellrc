@@ -38,24 +38,8 @@ export PI_CODING_AGENT_SESSION_DIR=$XDG_CACHE_HOME/pi
 unset PI_PACKAGE_DIR
 export PI_CACHE_RETENTION="long"
 
-# Continue the latest project session by default without changing package or
-# diagnostic command behavior.
-pi() {
-  # Keep MCP credentials inside the Pi child process, not the calling shell.
-  (
-    if [[ -r "$XDG_CONFIG_HOME/pi/secrets.env" ]]; then
-      source "$XDG_CONFIG_HOME/pi/secrets.env"
-    fi
-    case "${1-}" in
-      install|remove|uninstall|update|list|config|--help|-h|--version|-v|--list-models)
-        command pi "$@"
-        ;;
-      *)
-        command pi --continue "$@"
-        ;;
-    esac
-  )
-}
+# Continue the latest project session with `pie`.
+alias pie='pi --continue'
 
 
 # Use vi mode in the shell
