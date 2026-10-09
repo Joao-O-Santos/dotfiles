@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.99.2",
+  "lastChangelogVersion": "1.1.0",
   "theme": "light",
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-6-luna",
@@ -13,12 +13,13 @@
     "openai-codex/gpt-6-astra",
     "github-copilot/claude-haiku-4.5",
     "github-copilot/claude-sonnet-5.5",
-    "github-copilot/gemini-3.6-flash",
     "github-copilot/kimi-k3",
     "openrouter/nvidia/nemotron-3-ultra-550b-a55b:free",
     "openrouter/google/gemma-4-31b-it:free"
   ],
-  "defaultTools": ["+codemode"],
+  "defaultTools": [
+    "+codemode"
+  ],
   "packages": [
     "git:git@gitlab.com:Joao-O-Santos/pi-sych",
     "git:git@gitlab.com:Joao-O-Santos/pi-auch",

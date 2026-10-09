@@ -1,0 +1,30 @@
+{
+  "mcpServers": {
+    "context7": {
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "Authorization": "Bearer ${CONTEXT7_API_KEY}"
+      }
+    },
+    "openalex": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@cyanheads/openalex-mcp-server@latest"
+      ],
+      "env": {
+        "OPENALEX_API_KEY": "${OPENALEX_API_KEY}",
+        "OPENALEX_MAILTO": "${OPENALEX_EMAIL}"
+      }
+    },
+    "parallel": {
+      "url": "https://search.parallel.ai/mcp",
+      "headers": {
+        "Authorization": "Bearer ${PARALLEL_API_KEY}"
+      }
+    },
+    "scholar-gateway": {
+      "url": "https://connector.scholargateway.ai/v2/mcp"
+    }
+  }
+}

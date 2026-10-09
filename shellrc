@@ -38,7 +38,7 @@ export PI_CODING_AGENT_SESSION_DIR=$XDG_CACHE_HOME/pi
 unset PI_PACKAGE_DIR
 export PI_CACHE_RETENTION="long"
 
-# Continue the latest project session with `pie`.
+source "$XDG_CONFIG_HOME/pi/secrets.env"
 alias pie='pi --continue'
 
 

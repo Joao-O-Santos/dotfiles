@@ -53,6 +53,7 @@ R/rsconnect
 /pi/runtime/
 /pi/worker-agent/
 /pi/mcp-*.json
+/pi/mcp.log
 
 # Track the secret-free shared MCP configuration.
 !/mcp/
