@@ -11,11 +11,10 @@
     "openai-codex/gpt-6-luna",
     "openai-codex/gpt-6.1-sol",
     "openai-codex/gpt-6-astra",
-    "github-copilot/claude-haiku-4.5",
-    "github-copilot/claude-sonnet-5.5",
     "github-copilot/kimi-k3",
     "openrouter/nvidia/nemotron-3-ultra-550b-a55b:free",
-    "openrouter/google/gemma-4-31b-it:free"
+    "openrouter/google/gemma-4-31b-it:free",
+    "github-copilot/claude-haiku-5.5"
   ],
   "defaultTools": [
     "+codemode"

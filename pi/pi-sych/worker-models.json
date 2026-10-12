@@ -27,7 +27,7 @@
       "notes": "Use for consequential scientific writing, discipline-sensitive critique, and major manuscript milestones only when Claude's writing or editorial strengths are specifically valuable and science-lite is unlikely to suffice. Its quota is extremely tight. For reasoning-led work, choose Luna, Sol, or Astra according to their role criteria rather than manuscript importance alone; prefer science-lite for bounded scientific prose."
     },
     "science-lite": {
-      "model": "github-copilot/claude-haiku-4.5",
+      "model": "github-copilot/claude-haiku-5.5",
       "cost": "high",
       "notes": "Use for bounded scientific prose revision or focused manuscript critique where the main need is clarity, framing, or disciplinary conventions and Claude's strengths are useful. Route substantive scientific reasoning or validation of technical claims to Luna, Sol, or Astra according to their role criteria. Escalate to science-expensive only when its specialized writing or editorial strengths are needed beyond this role's scope. Prefer Luna for routine or non-scientific work."
     },
