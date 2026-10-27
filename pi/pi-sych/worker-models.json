@@ -1,20 +1,25 @@
 {
-  "default": "strong",
+  "default": "workhorse",
   "models": {
-    "strong": {
-      "model": "openai-codex/gpt-6.1-sol",
-      "cost": "medium; ~20x workhorse cost",
-      "notes": "Default for substantive general work requiring strong reasoning, reliable coding, and tool use. This is the balanced intelligence/cost model for when intelligence matters. Escalate to strongest only when difficulty, ambiguity, or review stakes materially justify it."
-    },
     "strongest": {
       "model": "openai-codex/gpt-6-astra",
-      "cost": "very high; ~100x workhorse / 5x strong cost",
-      "notes": "Use for exceptional scientific reasoning, the most rigorous technical or scientific reviews, or similarly consequential reasoning, including subtle cross-domain synthesis, when maximum reasoning quality is needed beyond what Sol is likely to provide."
+      "cost": "very-high; API: 100x workhorse, 10x strong, 5x stronger",
+      "notes": "Use when stronger is unlikely to suffice: exceptional scientific reasoning, subtle cross-domain synthesis, or the most rigorous technical or scientific reviews."
+    },
+    "stronger": {
+      "model": "openai-codex/gpt-6.1-sol",
+      "cost": "medium-high; API: 20x workhorse, 2x strong",
+      "notes": "Use when strong is unlikely to suffice for substantial reasoning or coding, such as complex architecture or difficult technical analysis. Escalate to strongest for exceptional difficulty or the most rigorous reviews."
+    },
+    "strong": {
+      "model": "openai-codex/gpt-6.1-terra",
+      "cost": "medium-low; API: 10x workhorse",
+      "notes": "Use for substantive general work requiring reasoning, coding, or tool use. Strong may be a better writer than stronger or strongest, but probably worse than science-lite and science-expensive. Escalate to stronger when the task needs more reasoning or coding ability; use strongest for exceptional difficulty or the most rigorous reviews."
     },
     "workhorse": {
       "model": "openai-codex/gpt-6-luna",
-      "cost": "very low; 1x API-cost baseline",
-      "notes": "Preferred for routine bounded implementation, inspection, testing, mechanical edits, and other focused high-volume work. Escalate to strong when substantial ambiguity, judgment, or task complexity appears."
+      "cost": "very low; API: 1x baseline",
+      "notes": "Default for routine, bounded implementation, inspection, testing, mechanical edits, and other focused high-volume work. Escalate to strong when the task requires substantial judgment or is too ambiguous or complex for workhorse."
     },
     "alt-strongest": {
       "model": "github-copilot/kimi-k3",
@@ -24,12 +29,12 @@
     "science-expensive": {
       "model": "github-copilot/claude-sonnet-5.5",
       "cost": "extreme",
-      "notes": "Use for consequential scientific writing, discipline-sensitive critique, and major manuscript milestones only when Claude's writing or editorial strengths are specifically valuable and science-lite is unlikely to suffice. Its quota is extremely tight. For reasoning-led work, choose Luna, Sol, or Astra according to their role criteria rather than manuscript importance alone; prefer science-lite for bounded scientific prose."
+      "notes": "Use for major scientific writing or manuscript milestones when its editorial strengths are specifically needed and science-lite is unlikely to suffice. Its quota is extremely tight. For reasoning-led work, choose a general model according to task difficulty, not manuscript importance alone."
     },
     "science-lite": {
       "model": "github-copilot/claude-haiku-5.5",
       "cost": "high",
-      "notes": "Use for bounded scientific prose revision or focused manuscript critique where the main need is clarity, framing, or disciplinary conventions and Claude's strengths are useful. Route substantive scientific reasoning or validation of technical claims to Luna, Sol, or Astra according to their role criteria. Escalate to science-expensive only when its specialized writing or editorial strengths are needed beyond this role's scope. Prefer Luna for routine or non-scientific work."
+      "notes": "Use for bounded scientific prose revision or focused manuscript critique, especially for clarity, framing, or disciplinary conventions. For substantive scientific reasoning or technical claim validation, choose a general model according to task difficulty. Escalate to science-expensive only when its editorial strengths are needed beyond this role's scope. Prefer workhorse for routine or non-scientific work."
     },
     "free": {
       "model": "openrouter/nvidia/nemotron-3-ultra-550b-a55b:free",
