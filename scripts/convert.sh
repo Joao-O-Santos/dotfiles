@@ -1,16 +1,26 @@
 #!/usr/bin/env bash
 # Convert files using pandoc
-# Usage: convert <format> <file>
+# Usage: convert <format> [-f] <file>
 # Formats: md, html, docx
 
-if [[ $# -ne 2 ]]; then
-    echo "Usage: convert <format> <file>" >&2
+if [[ $# -lt 2 || $# -gt 3 ]]; then
+    echo "Usage: convert <format> [-f] <file>" >&2
     echo "Formats: md, html, docx" >&2
     exit 1
 fi
 
 format="$1"
-file="$2"
+force=false
+if [[ $# -eq 3 ]]; then
+    if [[ $2 != -f ]]; then
+        echo "Error: unknown option '$2' (use -f to overwrite output)" >&2
+        exit 1
+    fi
+    force=true
+    file="$3"
+else
+    file="$2"
+fi
 script_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 
 if [[ ! -f $file ]]; then
@@ -58,8 +68,9 @@ if ! command -v pandoc >/dev/null 2>&1; then
     exit 1
 fi
 
-if [[ -e $output ]]; then
+if [[ -e $output && $force != true ]]; then
     echo "Error: output already exists: $output" >&2
+    echo "Choose another output name or use -f to overwrite it" >&2
     exit 1
 fi
 
