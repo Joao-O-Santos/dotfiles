@@ -1,10 +1,10 @@
 {
-  "lastChangelogVersion": "1.4.0",
+  "lastChangelogVersion": "1.5.2",
   "theme": "light",
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-6-luna",
   "defaultThinkingLevel": "medium",
-  "hideThinkingBlock": false,
+  "hideThinkingBlock": true,
   "showCacheMissNotices": true,
   "steeringMode": "all",
   "enabledModels": [
@@ -12,9 +12,9 @@
     "openai-codex/gpt-6.1-sol",
     "openai-codex/gpt-6-astra",
     "github-copilot/kimi-k3",
-    "openrouter/google/gemma-4-31b-it:free",
     "github-copilot/claude-haiku-5.5",
-    "openai-codex/gpt-6.1-terra"
+    "openai-codex/gpt-6.1-terra",
+    "openrouter/nvidia/nemotron-3-ultra-550b-a55b:free"
   ],
   "defaultTools": [
     "+codemode"
@@ -23,11 +23,14 @@
     "git:git@gitlab.com:Joao-O-Santos/pi-sych",
     "git:git@gitlab.com:Joao-O-Santos/pi-auch",
     "git:git@gitlab.com:Joao-O-Santos/pi-pew-pew",
-    "git:git@gitlab.com:Joao-O-Santos/pi-lease",
     "git:git@gitlab.com:Joao-O-Santos/pi-filler"
   ],
   "markdown": {
     "mermaid": "streaming"
   },
-  "defaultProjectTrust": "ask"
+  "defaultProjectTrust": "ask",
+  "extensionChangelogVersions": {
+    "{\"source\":\"git:git@gitlab.com:Joao-O-Santos/pi-filler\",\"scope\":\"user\"}": "0.6.0",
+    "{\"source\":\"git:git@gitlab.com:Joao-O-Santos/pi-sych\",\"scope\":\"user\"}": "8.2.2"
+  }
 }

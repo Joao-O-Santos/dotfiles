@@ -2,12 +2,12 @@
   "default": "workhorse",
   "models": {
     "strongest": {
-      "model": "openai-codex/gpt-6-astra",
+      "model": "openai-codex/gpt-6.2-astra",
       "cost": "very-high; API: 100x workhorse, 10x strong, 5x stronger",
       "notes": "Use when stronger is unlikely to suffice: exceptional scientific reasoning, subtle cross-domain synthesis, or the most rigorous technical or scientific reviews."
     },
     "stronger": {
-      "model": "openai-codex/gpt-6.1-sol",
+      "model": "openai-codex/gpt-6.2-sol",
       "cost": "medium-high; API: 20x workhorse, 2x strong",
       "notes": "Use when strong is unlikely to suffice for substantial reasoning or coding, such as complex architecture or difficult technical analysis. Escalate to strongest for exceptional difficulty or the most rigorous reviews."
     },
