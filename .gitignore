@@ -23,6 +23,7 @@ R/rsconnect
 !/pandoc
 !/R
 !/mimeapps.list
+!/applications/
 !/nvim/init.vim
 !/playlist.m3u
 !/profile
