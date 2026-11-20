@@ -33,7 +33,7 @@ entire repository. **Current version:** v9.1.0. See
 
 ## Scripts
 
-Standalone shell scripts live in the `scripts/` directory and are added to
+Standalone scripts live in the `scripts/` directory and are added to
 `PATH` via `shellrc`. The symlink helper `link_configs.sh` lives at the
 repository root.
 
@@ -42,9 +42,7 @@ repository root.
   the user's Pandoc configuration and installed custom styles by default
 
 **Literature tools (~/lit):**
-- `litindex.sh` — Re-index the literature library (SQLite + FTS5)
-- `litsearch.sh` — Full-text search across the literature database
-- `litfix.sh` — Manually fix metadata fields (title, year, DOI, author)
+- `litsearch.sh` — Read-only search of the v2 literature database
 
 **Drafting tools:**
 - `chkdrft.sh` — Check drafts for TODOs, missing citations, and unaddressed
@@ -53,17 +51,16 @@ repository root.
 - `tso.sh` — Generate a topic sentence outline from paragraphs
 
 **Utilities:**
-- `backup.sh` — Tar backup script
+- `backup.sh` — Tar backup; refuses to replace an existing `bp.tar` or `bp.tar.xz`
 - `f.sh` — Find files by name pattern (ripgrep wrapper)
 - `o.sh` — Open files with xdg-open
 - `pull_all.sh` — Pull all git repositories under `$HOME`
 - `update-all.sh` — Update Arch, R, Neovim plugins, and Pi in sequence
 
 **Tests:**
-- `test_scripts.sh` — Test runner for six shell regression suites
-- `test_apa_tables.sh`, `test_chkdrft.sh`, `test_convert.sh`,
-  `test_shellrc.sh`, `test_toc.sh`, `test_tso.sh` — Focused regression
-  tests (30 assertions total)
+- `test_scripts.sh` — Run the script regression suites
+- `test_*.sh` — Focused tests for the utilities, converters, and shell setup;
+  literature search tests use a temporary database
 - `nvim/tests/quarto-startup.sh` — Headless Neovim startup check
 
 To run the complete update sequence:
@@ -81,15 +78,17 @@ and exits automatically after checking for plugin failures.
 
 The `~/lit` directory is a separate git repository (independently
 version-controlled, not part of this dotfiles repo) containing ~1,500
-academic papers organized by topic. It has its own indexing system:
+academic papers organized by topic. Its SQLite + FTS5 database indexes title,
+abstract, topic tags and DOI/URL. `litsearch.sh` requires Python 3 with SQLite
+FTS5, opens `~/lit/_index.db` read-only, and supports FTS5 expressions,
+`--dir`, `--count`, `--recent N`, `--year DIR YEAR`,
+`--dir DIR --year START END`, `--doi TEXT`, and `--file TEXT` (see `--help`).
+Substring searches treat `%` and `_` literally. Results are tab-separated;
+`--file` returns all columns. Invalid FTS expressions report an error.
 
-- **SQLite + FTS5 database** — Full-text search across titles, authors, and
-  abstracts
-- **`litindex.sh`** — Mechanical indexer with 3-strategy DOI extraction
-  (PyMuPDF, pdfgrep, pdftotext) and a locked-record flag that preserves
-  manually-corrected metadata
-- **`litsearch.sh`** — Agent-friendly search tool with FTS5 queries and
-  per-directory listing
+Follow `~/lit/AGENTS.md` and `~/lit/README.md` to verify metadata against
+the actual PDF and record evidence before manually updating the database and
+indexes.
 
 ## Quick Start
 
@@ -178,18 +177,16 @@ an spdx license identifier.
 | `scripts/convert.sh`          | CC0-1.0                      |
 | `scripts/exclude`             | CC0-1.0                      |
 | `scripts/f.sh`                | CC0-1.0                      |
-| `scripts/litfix.sh`           | CC0-1.0                      |
-| `scripts/litindex.sh`         | CC0-1.0                      |
 | `scripts/litsearch.sh`        | CC0-1.0                      |
 | `scripts/o.sh`                | CC0-1.0                      |
 | `scripts/pull_all.sh`         | CC0-1.0                      |
 | `scripts/toc.sh`              | CC0-1.0                      |
 | `scripts/tso.sh`              | CC0-1.0                      |
 | `scripts/update-all.sh`       | CC0-1.0                      |
-| `scripts/test_chkdrft.sh`     | CC0-1.0                      |
+| `scripts/test_backup_pull_all.sh` | CC0-1.0                   |
+| `scripts/test_litsearch.sh`   | CC0-1.0                      |
+| `scripts/test_script_regressions.sh` | CC0-1.0                |
 | `scripts/test_scripts.sh`     | CC0-1.0                      |
-| `scripts/test_toc.sh`         | CC0-1.0                      |
-| `scripts/test_tso.sh`         | CC0-1.0                      |
 | `shellrc`                     | CC0-1.0                      |
 | `xorg/xinitrc`                | CC0-1.0                      |
 | `zen/installs.ini`            | CC0-1.0                      |
