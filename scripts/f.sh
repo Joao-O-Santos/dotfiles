@@ -1,10 +1,10 @@
-#!/usr/bin/env bash
+#!/bin/sh
 # Find files by name pattern using ripgrep
 # Usage: f <pattern>
 
-if [[ $# -eq 0 ]]; then
+if [ "$#" -ne 1 ] || [ -z "$1" ]; then
     echo "Usage: f <pattern>" >&2
     exit 1
 fi
 
-rg --files --glob "*$*"
+rg --files --glob "*$1*"

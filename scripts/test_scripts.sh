@@ -2,7 +2,7 @@
 # Test runner for all shell scripts
 # Usage: ./test_scripts.sh
 
-SCRIPTS_DIR="$HOME/.config/scripts"
+SCRIPTS_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 TOTAL_PASSED=0
 TOTAL_FAILED=0
 

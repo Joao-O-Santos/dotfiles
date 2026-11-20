@@ -83,78 +83,15 @@ alias record_no_audio="ffmpeg -video_size 2560x1440 -framerate 60 \
 # This is set in ./i3/config but sometimes overwritten after using `yay`
 alias kbd="setxkbmap -option caps:swapescape -layout 'us,pt' -variant 'altgr-intl,' -option 'grp:alt_shift_toggle'"
 
-# Functions (for commands that need more than an alias)
-# TODO: move most of these functions to scripts.
-function f {
-	find ./ -name "*$@*"
-}
+# Short command names delegate to their maintained scripts.
+f() { "$XDG_CONFIG_HOME/scripts/f.sh" "$@"; }
+o() { "$XDG_CONFIG_HOME/scripts/o.sh" "$@"; }
+pull_all() { "$XDG_CONFIG_HOME/scripts/pull_all.sh" "$@"; }
+toc() { "$XDG_CONFIG_HOME/scripts/toc.sh" "$@"; }
+tso() { "$XDG_CONFIG_HOME/scripts/tso.sh" "$@"; }
+chkdrft() { "$XDG_CONFIG_HOME/scripts/chkdrft.sh" "$@"; }
 
-# see: https://blog.petehouston.com/execute-linux-commands-in-background-and-detach-from-terminal-session/
-function o {
-	for file in "$@"
-	do
-		(setsid xdg-open $file > /dev/null &) > /dev/null 2>&1
-	done
-}
-
-function pull_all {
-	for dir in $(find $HOME -name ".git")
-	do
-		echo $dir
-		git -C "$dir/.." pull
-		printf "\n"
-	done
-}
-
-function toc {
-	# TODO: consider checking for no arguments and for file type
-	# TODO: move everything to an awk script
-	for file in "$@"
-	do
-		echo - "TOC for: $file"
-		cat $file | grep -e '#' -e '<h.>' | sed -e 's/^#//g; s/#/\t/g'
-	done
-}
-
-function tso {
-	for file in "$@"
-	do
-		echo - "Topic Senctence Outline for: $file"
-		grep -A3 '^$' $file
-	done
-}
-
-function tmd {
-	fnm=$1
-	fnm=$(echo $1| sed 's/\..*$/.md/g')
-	pandoc --track-changes=all -o $fnm $1
-}
-
-function tdx {
-	fnm=$1
-	fnm=$(echo $1| sed 's/\..*$/.docx/g')
-	pandoc -o $fnm $1
-}
-
-function tpres {
-	fnm=$1
-	fnm=$(echo $1| sed 's/\..*$/.html/g')
-	pandoc -it revealjs --variable transition=convex -so $fnm $1
-}
-
-# TODO: move all this to an awk script
-function chkdrft {
-	for file in "$@"
-	do
-		awk -F " " '/CN/{cns++} /<!--/{cmnts++} /TODO:/{todos++} \
-		     END {print cns " citations needed/missing, " \
-		                todos " TODOs, and " \
-		                cmnts - todos " unaddresed comments " \
-		                "(excluding TODOs) still left in " FILENAME}' \
-		    $file
-	done
-}
-
-function twrd {
-	"${XDG_CONFIG_HOME:-$HOME/.config}/scripts/convert.sh" docx "$@"
-}
+# Compatibility names for the consolidated document-conversion script.
+tmd() { "${XDG_CONFIG_HOME:-$HOME/.config}/scripts/convert.sh" md "$@"; }
+tpres() { "${XDG_CONFIG_HOME:-$HOME/.config}/scripts/convert.sh" html "$@"; }
+tdx() { "${XDG_CONFIG_HOME:-$HOME/.config}/scripts/convert.sh" docx "$@"; }
